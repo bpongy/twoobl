@@ -99,7 +99,7 @@ add_filter('tiny_mce_before_init', 'tinymce_custom');
 
 
 /********************************************
- * 		Remove theme editor
+ * 		Title, like TwentyTwelve
  ********************************************/
 function like_twentytwelve_wp_title($title, $sep) {
 	global $paged, $page;
