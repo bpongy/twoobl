@@ -75,6 +75,15 @@ add_action('init', 'head_cleanup');
  ********************************************/
 
 function tinymce_custom($init) {
+	
+	// Show the kitchen sink by default
+	// and hide foreground color palette
+	$init['wordpress_adv_hidden'] = false;
+	$init['theme_advanced_disable'] = 'wp_adv,forecolor';
+	
+	//todo:
+	// $init['theme_advanced_styles'] = "Couleur : Rouge=texte-rouge;Couleur : Or=texte-or";
+	
 	$valid_iframe = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
 	if ( isset( $init['extended_valid_elements'] ) ) {
 		$init['extended_valid_elements'] .= ',' . $valid_iframe;
@@ -84,7 +93,6 @@ function tinymce_custom($init) {
 	return $init;
 }
 add_filter('tiny_mce_before_init', 'tinymce_custom');
-
 
 
 
