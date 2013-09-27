@@ -1,0 +1,14 @@
+<?php
+
+/* constants */
+define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
+
+
+require_once locate_template('/lib/scripts.php');
+require_once locate_template('/lib/widgets.php');
+require_once locate_template('/lib/shortcodes.php');
+require_once locate_template('/lib/post-types.php');
+require_once locate_template('/lib/metaboxes.php');
+require_once locate_template('/lib/theme-options.php');
+require_once locate_template('/lib/twoobl.php');
+require_once locate_template('/lib/custom.php');
