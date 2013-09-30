@@ -1,9 +1,10 @@
 <?php get_template_part('templates/head'); ?>
+
 <div class="row">
 
-	<div id="main" class="span9" role="main">
+	<div id="main" class="col-md-9" role="main">
 
-		<div class="page-header">
+		<div class="entry-header">
 		  <h1>
 		    <?php
 		      if (is_home()) {
