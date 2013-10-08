@@ -1,7 +1,4 @@
 Twoobl
 ======
 
-Not your favorite WP theme
-
-
-
+Not your favorite starter theme.

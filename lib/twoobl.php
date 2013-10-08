@@ -25,6 +25,19 @@ add_theme_support('custom-background');
 
 
 
+/********************************************
+ * 		Custom menu
+ ********************************************/
+register_nav_menus( array(
+	'primary_nav' => __('Primary navigation', 'twoobl'),
+	/*'top_top' => __('Header menu', 'twoobl'),*/
+) );
+
+
+
+
+
+
 
 
 
