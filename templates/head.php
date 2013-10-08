@@ -50,8 +50,8 @@ if( isset($options['google-analytics']) && $options['google-analytics']!='' ) { 
 
 			<nav class="nav-main" role="navigation">
 				<?php
-				if( has_nav_menu('primary_navigation') )
-					wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav nav-pills'));
+				if( has_nav_menu('primary_nav') )
+					wp_nav_menu(array('theme_location' => 'primary_nav', 'menu_class' => 'nav nav-pills'));
 				?>
 			</nav>
 
