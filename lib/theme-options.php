@@ -1,5 +1,19 @@
 <?php
 
+// theme options in the admin bar
+function twoobl_admnbar() {
+	global $wp_admin_bar;
+	$wp_admin_bar->add_menu( array(
+		'parent' => 'site-name',
+		'title' => __('Theme Options', 'twoobl'),
+		'href' => admin_url('options-general.php?page=twoobl_options'),
+		'meta' => false
+	));
+}
+add_action('wp_before_admin_bar_render', 'twoobl_admnbar');
+
+
+
 // add the admin options page
 add_action('admin_init', 'twoobl_options_init' );
 add_action('admin_menu', 'twoobl_options_add_page');
@@ -51,6 +65,18 @@ function twoobl_options_do_page() {
 
 				<tr valign="top"><th scope="row"><?php _e('Twitter username', 'twoobl'); ?></th>
 					<td><code>https://twitter.com/</code><input class="code" name="theme_options_<?php echo _ISOLANG_; ?>[twitter-username]" type="text" placeholder="username" value="<?php (isset($options['twitter-username']) ? esc_attr_e($options['twitter-username']) : ''); ?>" /></td>
+				</tr>
+
+				<tr valign="top"><th scope="row"><?php _e('Pinterest', 'twoobl'); ?></th>
+					<td><input class="code" name="theme_options_<?php echo _ISOLANG_; ?>[pinterest]" type="text" placeholder="http://" value="<?php (isset($options['pinterest']) ? esc_attr_e($options['pinterest']) : ''); ?>" /></td>
+				</tr>
+
+				<tr valign="top"><th scope="row"><?php _e('Google Plus', 'twoobl'); ?></th>
+					<td><input class="code" name="theme_options_<?php echo _ISOLANG_; ?>[googleplus]" type="text" placeholder="http://" value="<?php (isset($options['googleplus']) ? esc_attr_e($options['googleplus']) : ''); ?>" /></td>
+				</tr>
+
+				<tr valign="top"><th scope="row"><?php _e('Flux RSS', 'twoobl'); ?></th>
+					<td><input class="code" name="theme_options_<?php echo _ISOLANG_; ?>[fluxrss]" type="text" placeholder="http://" value="<?php (isset($options['fluxrss']) ? esc_attr_e($options['fluxrss']) : ''); ?>" /></td>
 				</tr>
 
 			</table>
