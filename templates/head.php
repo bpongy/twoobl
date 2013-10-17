@@ -59,4 +59,9 @@ if( isset($options['google-analytics']) && $options['google-analytics']!='' ) { 
 	</header>
 	
 	<div id="wrap">
+		
+		<?php if ( function_exists('yoast_breadcrumb') && (is_category() || is_singular()) )
+			yoast_breadcrumb('<div class="container"><div id="breadcrumb">','</div></div>');
+		?>
+		
 		<div class="container" role="document">
