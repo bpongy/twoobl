@@ -5,6 +5,7 @@ function twoobl_admnbar() {
 	global $wp_admin_bar;
 	$wp_admin_bar->add_menu( array(
 		'parent' => 'site-name',
+		'id' => 1,
 		'title' => __('Theme Options', 'twoobl'),
 		'href' => admin_url('options-general.php?page=twoobl_options'),
 		'meta' => false
