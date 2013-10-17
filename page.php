@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div id="main" class="col-md-9" role="main">
+	<div id="main" class="col-sm-9" role="main">
 
 		<div class="entry-header">
 		  <h1>
@@ -44,7 +44,9 @@
 		</div>
 
 		<?php while (have_posts()) : the_post(); ?>
-			<?php the_content(); ?>
+			<div class="entry-content clearfix">
+				<?php the_content(); ?>
+			</div>
 			<?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
 		<?php endwhile; ?>
 	</div>

@@ -2,7 +2,7 @@
 
 <div class="row">
 	
-	<div id="main" class="col-md-9" role="main">
+	<div id="main" class="col-sm-9" role="main">
 		<?php if (!have_posts()) : ?>
 			<div class="alert">
 				<?php _e('Sorry, no results were found.', 'twoobl'); ?>
@@ -10,7 +10,20 @@
 		<?php endif; ?>
 		
 		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part('templates/content', 'single'); ?>
+			<article <?php post_class(); ?>>
+				<header class="entry-header">
+					<h1><?php the_title(); ?></h1>
+					<?php get_template_part('templates/entry-meta'); ?>
+				</header>
+				<div class="entry-content clearfix">
+					<?php the_content(); ?>
+				</div>
+				<footer>
+					<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'twoobl'), 'after' => '</p></nav>')); ?>
+					<?php the_tags('<ul class="entry-tags"><li>','</li><li>','</li></ul>'); ?>
+				</footer>
+				<?php get_template_part('comments'); ?>
+			</article>
 		<?php endwhile; ?>
 		
 		<?php if ($wp_query->max_num_pages > 1) : ?>
