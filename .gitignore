@@ -9,3 +9,5 @@
 
 .project
 .settings
+
+node_modules
