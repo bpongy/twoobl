@@ -7,7 +7,8 @@ if ( post_password_required() )
 
 	<?php if ( have_comments() ) : ?>
 		<span class="title">
-			<?php echo _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'twoobl' ); ?>
+			<?php printf( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments number', 'twoobl' ),
+				number_format_i18n( get_comments_number() )); ?>
 		</span>
 
 		<ol class="comment-list">
