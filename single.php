@@ -22,7 +22,7 @@
 					<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'twoobl'), 'after' => '</p></nav>')); ?>
 					<?php the_tags('<ul class="entry-tags"><li>','</li><li>','</li></ul>'); ?>
 				</footer>
-				<?php get_template_part('comments'); ?>
+				<?php comments_template(); ?>
 			</article>
 		<?php endwhile; ?>
 		
