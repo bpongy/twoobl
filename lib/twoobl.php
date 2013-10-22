@@ -62,6 +62,25 @@ add_filter('image_size_names_choose', 'my_custom_sizes');
 
 
 
+
+/********************************************
+ * 		Remove default image links
+ ********************************************/
+function wpb_imagelink_setup() {
+	$image_set = get_option( 'image_default_link_type' );
+	if ($image_set !== 'none') {
+		update_option('image_default_link_type', 'none');
+	}
+}
+add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+
+
+
+
+
+
+
 /********************************************
  * 		Remove crap
  ********************************************/
@@ -94,9 +113,31 @@ function tinymce_custom($init) {
 	$init['wordpress_adv_hidden'] = false;
 	$init['theme_advanced_disable'] = 'wp_adv,forecolor';
 	
-	//todo:
-	// $init['theme_advanced_styles'] = "Couleur : Rouge=texte-rouge;Couleur : Or=texte-or";
+	// remove H1
+	$init['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6,address,pre';
 	
+	// custom styles:
+	$style_formats = array(
+		array(
+			'title' => 'BS Button',
+			'inline' => 'button',
+			'classes' => 'btn btn-default'
+    	),
+		array(
+			'title' => 'BS Well',
+			'block' => 'div',
+			'classes' => 'well',
+			'wrapper' => true
+		),
+		array(
+			'title' => 'Code',
+			'inline' => 'code'
+		)
+	);
+	$init['style_formats'] = json_encode($style_formats);
+
+
+
 	$valid_iframe = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
 	if ( isset( $init['extended_valid_elements'] ) ) {
 		$init['extended_valid_elements'] .= ',' . $valid_iframe;
@@ -108,6 +149,13 @@ function tinymce_custom($init) {
 add_filter('tiny_mce_before_init', 'tinymce_custom');
 
 
+
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
+function my_mce_buttons_2($buttons) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
 
 
 
@@ -161,7 +209,7 @@ add_filter('sanitize_file_name', 'remove_accents');
 
 
 /********************************************
- * 		Favicon du site
+ * 		Favicon
  ********************************************/
 function axome_favicon() {
 	echo '<link href="'.get_bloginfo('template_directory').'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";

@@ -53,3 +53,9 @@ function twoobl_admin() {
 	wp_enqueue_style('twoobl_back_css');
 	//wp_enqueue_script('twoobl_back_js', get_bloginfo('template_url').'/js/back.js', false, '0.1' );
 }
+
+/* editor style */
+function twoobl_add_editor_styles() {
+	add_editor_style('assets/css/editor-style.css');
+}
+add_action('init', 'twoobl_add_editor_styles');
