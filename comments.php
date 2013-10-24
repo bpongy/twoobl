@@ -40,7 +40,7 @@ if ( post_password_required() )
 
 	<?php if (comments_open()) : ?>
 		<section id="respond">
-			<span class="title"><?php comment_form_title(__('Leave a Reply', 'twoobl'), __('Leave a Reply to %s', 'twoobl')); ?></span>
+			<span class="title"><?php _e('Leave a reply', 'twoobl'); ?></span>
 			
 			<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
 			

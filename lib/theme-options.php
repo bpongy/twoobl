@@ -1,5 +1,17 @@
 <?php
 
+
+
+//		TODO: http://wp.smashingmagazine.com/2011/10/20/create-tabs-wordpress-settings-pages/
+
+
+
+
+
+
+
+
+
 // theme options in the admin bar
 function twoobl_admnbar() {
 	global $wp_admin_bar;
@@ -30,8 +42,7 @@ function twoobl_options_add_page() {
 }
 
 // Draw the menu page itself
-function twoobl_options_do_page() {
-	?>
+function twoobl_options_do_page() { ?>
 	<div class="wrap">
 		<?php screen_icon('options-general'); ?><h2><?php _e('Theme Options', 'twoobl'); ?></h2>
 		<form method="post" action="options.php">

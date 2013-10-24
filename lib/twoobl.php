@@ -12,6 +12,14 @@ if( !isset($content_width) )
 
 
 
+/********************************************
+ * 		Load text domain
+ ********************************************/
+function twoobl_textdomain() {
+	load_theme_textdomain('twoobl', get_template_directory().'/lang');
+}
+add_action('after_setup_theme', 'twoobl_textdomain');
+
 
 
 /********************************************

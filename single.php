@@ -13,7 +13,7 @@
 			<article <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="title"><?php the_title(); ?></h1>
-					<?php get_template_part('templates/entry-meta'); ?>
+					<?php get_template_part('templates/meta'); ?>
 				</header>
 				<div class="entry-content clearfix">
 					<?php the_content(); ?>

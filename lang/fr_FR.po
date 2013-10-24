@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twoobl\n"
-"POT-Creation-Date: 2013-10-24 10:22+0100\n"
-"PO-Revision-Date: 2013-10-24 10:22+0100\n"
+"POT-Creation-Date: 2013-10-24 15:40+0100\n"
+"PO-Revision-Date: 2013-10-24 15:40+0100\n"
 "Last-Translator: Ben <benjamin.pongy@gmail.com>\n"
 "Language-Team: Ben <benjamin.pongy@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -23,9 +23,9 @@ msgstr "Recherche"
 
 #: searchform.php:4
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
-#: category.php:12 index.php:8
+#: index.php:8 archive.php:37
 msgid "Sorry, nothing found."
 msgstr "Désolé, rien n'a été trouvé."
 
@@ -47,16 +47,11 @@ msgstr ""
 
 #: comments.php:36
 msgid "Comments are closed."
-msgstr ""
+msgstr "Les commentaires sont fermés."
 
 #: comments.php:43
-msgid "Leave a Reply"
-msgstr ""
-
-#: comments.php:43
-#, php-format
-msgid "Leave a Reply to %s"
-msgstr ""
+msgid "Leave a reply"
+msgstr "Laisser une réponse"
 
 #: comments.php:48
 #, php-format
@@ -78,80 +73,55 @@ msgstr ""
 
 #: comments.php:61
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: comments.php:61 comments.php:65
 msgid " (required)"
-msgstr ""
+msgstr "(obligatoire)"
 
 #: comments.php:65
 msgid "Email (will not be published)"
-msgstr ""
+msgstr "Email (non publié)"
 
 #: comments.php:69
 msgid "Website"
-msgstr ""
+msgstr "Site web"
 
 #: comments.php:74
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 #: comments.php:77
 msgid "Submit Comment"
-msgstr ""
+msgstr "Commenter"
 
 #: 404.php:4
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr ""
 
-#: 404.php:7
-msgid "It looks like this was the result of either:"
-msgstr ""
-
-#: 404.php:9
-msgid "a mistyped address"
-msgstr ""
-
-#: 404.php:10
-msgid "an out-of-date link"
-msgstr ""
-
-#: page.php:14
-msgid "Latest Posts"
-msgstr ""
-
-#: page.php:23
+#: archive.php:21
 #, php-format
-msgid "Daily Archives: %s"
+msgid "Daily archives: %s"
 msgstr ""
 
-#: page.php:25
+#: archive.php:23
 #, php-format
-msgid "Monthly Archives: %s"
-msgstr ""
+msgid "Monthly archives: %s"
+msgstr "Archives mensuelles: %s"
 
-#: page.php:27
+#: archive.php:25
 #, php-format
-msgid "Yearly Archives: %s"
+msgid "Yearly archives: %s"
 msgstr ""
 
-#: page.php:31
+#: archive.php:29
 #, php-format
-msgid "Author Archives: %s"
-msgstr ""
-
-#: page.php:36
-#, php-format
-msgid "Search Results for %s"
-msgstr ""
-
-#: page.php:38
-msgid "File Not Found"
+msgid "Author archives: %s"
 msgstr ""
 
 #: single.php:8
 msgid "Sorry, no results were found."
-msgstr ""
+msgstr "Désolé, rien n'a été trouvé."
 
 #: single.php:22
 msgid "Pages:"
@@ -159,20 +129,20 @@ msgstr ""
 
 #: single.php:32 templates/pagination.php:4
 msgid "&larr; Older posts"
-msgstr ""
+msgstr "&larr; Articles plus anciens"
 
 #: single.php:33 templates/pagination.php:5
 msgid "Newer posts &rarr;"
-msgstr ""
+msgstr "Articles plus récents &rarr;"
 
 #: templates/comment.php:5
 #, php-format
 msgid "%1$s"
-msgstr ""
+msgstr "%1$s"
 
 #: templates/comment.php:6
 msgid "(Edit)"
-msgstr ""
+msgstr "(éditer)"
 
 #: templates/comment.php:10
 msgid "Your comment is awaiting moderation."
@@ -180,19 +150,19 @@ msgstr ""
 
 #: templates/meta.php:2
 msgid "By"
-msgstr ""
+msgstr "Par"
 
 #: templates/meta.php:4
 msgid "no response"
-msgstr ""
+msgstr "aucun commentaire"
 
 #: templates/meta.php:4
 msgid "one response"
-msgstr ""
+msgstr "un commentaire"
 
 #: templates/meta.php:4
 msgid "% responses"
-msgstr ""
+msgstr "% commentaires"
 
 #: lib/twoobl.php:33
 msgid "Primary navigation"
@@ -211,47 +181,47 @@ msgstr ""
 msgid "Twitter profile"
 msgstr ""
 
-#: lib/theme-options.php:9 lib/theme-options.php:29 lib/theme-options.php:36
+#: lib/theme-options.php:21 lib/theme-options.php:41 lib/theme-options.php:47
 msgid "Theme Options"
 msgstr ""
 
-#: lib/theme-options.php:42
+#: lib/theme-options.php:53
 msgid "Google Analytics"
 msgstr ""
 
-#: lib/theme-options.php:60
+#: lib/theme-options.php:71
 msgid "Social networks"
 msgstr ""
 
-#: lib/theme-options.php:63
+#: lib/theme-options.php:74
 msgid "Facebook fanpage"
 msgstr ""
 
-#: lib/theme-options.php:67
+#: lib/theme-options.php:78
 msgid "Twitter username"
 msgstr ""
 
-#: lib/theme-options.php:71
+#: lib/theme-options.php:82
 msgid "Pinterest"
 msgstr ""
 
-#: lib/theme-options.php:75
+#: lib/theme-options.php:86
 msgid "Google Plus"
 msgstr ""
 
-#: lib/theme-options.php:79
+#: lib/theme-options.php:90
 msgid "Flux RSS"
 msgstr ""
 
-#: lib/theme-options.php:89
+#: lib/theme-options.php:100
 msgid "Custom zones"
 msgstr ""
 
-#: lib/theme-options.php:92
+#: lib/theme-options.php:103
 msgid "404 page"
 msgstr ""
 
-#: lib/theme-options.php:102
+#: lib/theme-options.php:113
 msgid "Save Changes"
 msgstr ""
 
