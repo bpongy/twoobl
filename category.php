@@ -1,3 +1,8 @@
+<?php 
+/*
+ * template hierarchy: http://codex.wordpress.org/images/1/18/Template_Hierarchy.png
+ * 
+ */ ?>
 
 <?php get_template_part('templates/head'); ?>
 
