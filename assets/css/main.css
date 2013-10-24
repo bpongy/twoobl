@@ -17,6 +17,7 @@ a:focus { color: #2a6496; }
 input:focus::-webkit-input-placeholder { color: #ddd; }
 input:focus::-moz-placeholder { color: #ddd; }
 
+/* responsive images, by default */
 img { max-width: 100%; height: auto; }
 
 
@@ -104,6 +105,13 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 #colophon { }
 
 
+
+
+/* ==========================================================================
+   Bootstrap overrides
+   ========================================================================== */
+
+a.btn { text-decoration: none; }
 
 
 
