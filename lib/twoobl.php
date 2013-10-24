@@ -20,7 +20,8 @@ if( !isset($content_width) )
 add_theme_support('automatic-feed-links');
 add_theme_support('post-thumbnails');
 add_theme_support('custom-background');
-
+// link manager is back.
+add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
 
 
