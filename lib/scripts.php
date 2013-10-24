@@ -9,22 +9,12 @@
 
 
 
-/* dequeue jQuery migrate */
-function dequeue_jquery_migrate( &$scripts){
-	if(!is_admin()){
-		$scripts->remove('jquery');
-		$scripts->add('jquery', false, array('jquery-core'), '1.10.2');
-	}
-}
-add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
-
-
-
 function twoobl_scripts() {
 	wp_enqueue_style('twoobl_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
 	wp_enqueue_style('twoobl_main', get_template_directory_uri() . '/assets/css/main.css', false, null);
 
-	if (!is_admin() && current_theme_supports('jquery-cdn')) {
+	if (!is_admin()) {
+		// Be careful, this method will dequeue jQuery migrate
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', false, null, false);
 		add_filter('script_loader_src', 'twoobl_jquery_local_fallback', 10, 2);
@@ -42,7 +32,7 @@ function twoobl_scripts() {
 	wp_enqueue_script('twoobl_main');
 
 }
-add_action('wp_enqueue_scripts', 'twoobl_scripts' , 100);
+add_action('wp_enqueue_scripts', 'twoobl_scripts', 100);
 
 function twoobl_jquery_local_fallback($src, $handle) {
 	static $add_jquery_fallback = false;
