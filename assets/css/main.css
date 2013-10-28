@@ -31,6 +31,11 @@ img { max-width: 100%; height: auto; }
 
 
 
+/* Responsive Facebook like box */
+#fb-root { display: none; }
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] { width: 100%!important; }
+
+
 
 /* =============================================================================
    Header
