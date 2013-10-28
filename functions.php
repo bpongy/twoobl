@@ -2,7 +2,7 @@
 
 /* constants */
 define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
-
+$twoobl = get_option('theme_options_'._ISOLANG_);
 
 require_once locate_template('/lib/scripts.php');
 require_once locate_template('/lib/widgets.php');

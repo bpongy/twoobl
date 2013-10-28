@@ -16,11 +16,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php $options = get_option('theme_options_'._ISOLANG_);
-if( isset($options['google-analytics']) && $options['google-analytics']!='' ) { ?>
+<?php
+if( isset($twoobl['google-analytics']) && $twoobl['google-analytics']!='' ) { ?>
 <script type="text/javascript">
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '<?php echo $options['google-analytics']; ?>']);
+  _gaq.push(['_setAccount', '<?php echo $twoobl['google-analytics']; ?>']);
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
