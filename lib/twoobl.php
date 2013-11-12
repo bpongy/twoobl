@@ -107,6 +107,15 @@ function head_cleanup() {
 }
 add_action('init', 'head_cleanup');
 
+/* Remove crap in dashboard */
+function twoobl_remove_dashboard_widgets() {
+	global $wp_meta_boxes;
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+}
+add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
+
 
 
 
@@ -197,12 +206,16 @@ add_filter('wp_title', 'like_twentytwelve_wp_title', 10, 2);
 
 
 /********************************************
- * 		Remove theme editor
+ * 		Remove theme / plugins editor
  ********************************************/
-function remove_back_menu_items() {
+if ( !defined('DISALLOW_FILE_EDIT') )
+	define('DISALLOW_FILE_EDIT',true);
+// theme only:
+/*function remove_back_menu_items() {
 	remove_submenu_page('themes.php', 'theme-editor.php');
 }
-add_action('admin_init', 'remove_back_menu_items');
+add_action('admin_init', 'remove_back_menu_items');*/
+
 
 
 
@@ -220,10 +233,10 @@ add_filter('sanitize_file_name', 'remove_accents');
 /********************************************
  * 		Favicon
  ********************************************/
-function axome_favicon() {
+function twoobl_favicon() {
 	echo '<link href="'.get_bloginfo('template_directory').'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
 }
-add_action('wp_head', 'axome_favicon');
+add_action('wp_head', 'twoobl_favicon');
 
 
 
@@ -264,6 +277,23 @@ function fb_like_thumbnails()
 
 
 
+/********************************************
+ * 		Display Today, if it's... today.
+ ********************************************/
+function aujourdhui($postdate) {
+	$the_post = get_post();
+	if( date('Ymd', strtotime($the_post->post_date)) == date('Ymd') ) {
+		return __('Today', 'twoobl');
+	} else {
+		return $postdate;
+	}
+}
+add_filter('get_the_date', 'aujourdhui');
+
+
+
+
+
 /**********************************************************************************
  *		User features: G+ & Twitter (aim? yim? jabber? seriously?)
  **********************************************************************************/
@@ -272,7 +302,24 @@ function twoobl_contact_info($contacts) {
 	unset($contacts['yim']);
 	unset($contacts['jabber']);  
 	$contacts['contact_google'] = __('Google+ URL', 'twoobl');
+	$contacts['contact_facebook'] = __('Facebook URL', 'twoobl');
 	$contacts['contact_twitter'] = __('Twitter profile', 'twoobl');
 	return $contacts;
 }
 add_filter('user_contactmethods', 'twoobl_contact_info');
+
+
+
+
+
+/**********************************************************************************
+ * 		Disable self pings
+ **********************************************************************************/
+
+function no_self_ping( &$links ) {
+	$home = get_option('siteurl');
+	foreach ( $links as $l => $link )
+		if ( 0 === strpos( $link, $home ) )
+			unset($links[$l]);
+}
+add_action( 'pre_ping', 'no_self_ping' );
