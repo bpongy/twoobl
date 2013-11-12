@@ -1,3 +1,3 @@
-<aside id="sidebar" class="col-sm-3 hidden-xs" role="complementary">
+<aside id="sidebar" class="<?php echo _SIDEBAR_CLASS_; ?>" role="complementary">
 	<?php dynamic_sidebar('sidebar'); ?>
 </aside>

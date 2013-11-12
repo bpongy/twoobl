@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div id="main" class="col-sm-9" role="main">
+	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
 		<div class="entry-header">
 		  <h1 class="title"><?php the_title(); ?></h1>

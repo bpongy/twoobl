@@ -8,7 +8,7 @@
 
 <div class="row">
 
-	<div id="main" class="col-sm-9" role="main">
+	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 		
 		<h1>
 			<?php
