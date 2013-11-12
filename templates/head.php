@@ -42,7 +42,13 @@ if( isset($twoobl['google-analytics']) && $twoobl['google-analytics']!='' ) { ?>
 					</a>
 				</div>
 
-				<div id="site-desc" class="col-md-4"><?php echo esc_attr(get_bloginfo('description')); ?></div>
+				<div id="site-desc" class="col-md-4">
+					<?php
+					echo ( is_home() ? '<h1>' : '<p>' );
+					echo get_bloginfo('description');
+					echo ( is_home() ? '</h1>' : '</p>' );
+					?>
+				</div>
 				
 				<div id="search-top" class="col-md-4"><?php get_search_form(); ?></div>
 			
