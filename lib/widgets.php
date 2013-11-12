@@ -10,7 +10,7 @@ function twoobl_widgets_init() {
 	register_sidebar(array(
 		'name'          => __('Sidebar', 'twoobl'),
 		'id'            => 'primary',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
 		'before_title'  => '<span class="title">',
 		'after_title'   => '</span>',
 		'after_widget'  => '</div>'
@@ -19,7 +19,7 @@ function twoobl_widgets_init() {
 	register_sidebar(array(
 		'name'          => __('Footer', 'twoobl'),
 		'id'            => 'footer',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
 		'before_title'  => '<span class="title">',
 		'after_title'   => '</span>',
 		'after_widget'  => '</div>'
