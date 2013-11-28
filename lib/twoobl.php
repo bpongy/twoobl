@@ -46,6 +46,39 @@ register_nav_menus( array(
 
 
 
+/********************************************
+ * 		Custom excerpt
+ ********************************************/
+function twoobl_excerpt_length( $length ) {
+	return 80;
+}
+add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
+
+function twoobl_excerpt_more( $more ) {
+	return '...<span class="read-more"><a class="btn btn-link" href="'.get_permalink().'">'.__('Read more', 'twoobl').'</a></span>';
+}
+add_filter('excerpt_more', 'twoobl_excerpt_more');
+
+/* Multiple excerpt lengths : echo twoobl_excerpt(get_the_ID(), 130); */
+
+function twoobl_custom_excerpt_length() {
+	global $twoobl_excerpt_len;
+	return $twoobl_excerpt_len;
+}
+
+function twoobl_excerpt($id, $len) {
+	global $post, $twoobl_excerpt_len;
+	$twoobl_excerpt_len = $len;
+	remove_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
+	add_filter('excerpt_length', 'twoobl_custom_excerpt_length');
+	$ex = get_the_excerpt();
+	remove_filter('excerpt_length', 'twoobl_custom_excerpt_length');
+	add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
+	return $ex;
+}
+
+
+
 
 
 
