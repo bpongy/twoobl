@@ -10,12 +10,12 @@
 		<?php endif; ?>
 		
 		<?php while (have_posts()) : the_post(); ?>
-			<article <?php post_class(); ?>>
+			<article <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
 				<header class="entry-header">
-					<h1 class="title"><?php the_title(); ?></h1>
+					<h1 class="title entry-title" itemprop="name"><?php the_title(); ?></h1>
 					<?php get_template_part('templates/meta'); ?>
 				</header>
-				<div class="entry-content clearfix">
+				<div class="entry-content clearfix" itemprop="articleBody">
 					<?php the_content(); ?>
 				</div>
 				<footer>
