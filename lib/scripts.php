@@ -11,7 +11,7 @@
 
 function twoobl_scripts() {
 	wp_enqueue_style('twoobl_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
-	wp_enqueue_style('twoobl_main', get_template_directory_uri() . '/assets/css/main.css', false, null);
+	wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/main.css', false, null);
 
 	if (!is_admin()) {
 		// Be careful, this method will dequeue jQuery migrate
