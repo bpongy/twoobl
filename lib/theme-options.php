@@ -2,7 +2,7 @@
 
 
 
-//		TODO: http://wp.smashingmagazine.com/2011/10/20/create-tabs-wordpress-settings-pages/
+//		TODO: tout dégager, mettre dans pods
 
 
 

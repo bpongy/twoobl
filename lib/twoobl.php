@@ -28,8 +28,8 @@ add_action('after_setup_theme', 'twoobl_textdomain');
 add_theme_support('automatic-feed-links');
 add_theme_support('post-thumbnails');
 add_theme_support('custom-background');
-// link manager is back.
-add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+// link manager
+//add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
 
 
@@ -91,16 +91,22 @@ function custom_image_sizes() {
 	add_image_size('bigthumb', 250, 250, true);
 }
 add_action('after_setup_theme', 'custom_image_sizes');
-
-function my_custom_sizes( $sizes ) {
-	return array_merge( $sizes, array(
-		'bigthumb' => __('Big thumbnail', 'twoobl'),
-	));
-}
-add_filter('image_size_names_choose', 'my_custom_sizes');
 */
 
+/* Show Custom Image Sizes in Admin Media Uploader */
+/* http://wp-snippets.com/show-custom-image-sizes-in-admin-media-uploader/ */
+function show_image_sizes( $sizes ) {
+	$new_sizes = array();
+	$added_sizes = get_intermediate_image_sizes();
+	
+	foreach( $added_sizes as $key => $value) {
+		$new_sizes[$value] = $value;
+	}
 
+	$new_sizes = array_merge($new_sizes, $sizes);
+	return $new_sizes;
+}
+add_filter('image_size_names_choose', 'show_image_sizes', 11, 1);
 
 
 
