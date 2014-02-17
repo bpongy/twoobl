@@ -132,29 +132,43 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 /********************************************
  * 		Remove crap
  ********************************************/
-function head_cleanup() {
-	// Originally from rootstheme & http://wpengineer.com/1438/wordpress-header/
-	//remove_action('wp_head', 'feed_links', 2);
-	remove_action('wp_head', 'feed_links_extra', 3);
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-	global $wp_widget_factory;
-	remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+if( !function_exists( 'twoobl_headcleanup' ) ) {
+	function twoobl_headcleanup() {
+		// Originally from rootstheme & http://wpengineer.com/1438/wordpress-header/
+		//remove_action('wp_head', 'feed_links', 2);
+		remove_action('wp_head', 'feed_links_extra', 3);
+		remove_action('wp_head', 'rsd_link');
+		remove_action('wp_head', 'wlwmanifest_link');
+		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+		remove_action('wp_head', 'wp_generator');
+		remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+		global $wp_widget_factory;
+		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+	}
 }
-add_action('init', 'head_cleanup');
+add_action('init', 'twoobl_headcleanup');
 
 /* Remove crap in dashboard */
-function twoobl_remove_dashboard_widgets() {
-	global $wp_meta_boxes;
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+if( !function_exists( 'twoobl_remove_dashboard_widgets' ) ) {
+	function twoobl_remove_dashboard_widgets() {
+		global $wp_meta_boxes;
+		unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	}
 }
 add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
 
+/* Remove stupid self pings */
+if( !function_exists( 'twoobl_remove_self_ping' ) ) {
+	function twoobl_remove_self_ping( &$links ) {
+		$home = get_option( 'home' );
+		foreach ( $links as $l => $link )
+			if ( strpos($link, $home)===false )
+				unset($links[$l]);
+	}
+}
+add_action('pre_ping', 'twoobl_remove_self_ping');
 
 
 
@@ -163,82 +177,88 @@ add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
  * 		Custom TinyMCE
  ********************************************/
 
-function tinymce_custom($init) {
+if( !function_exists( 'twoobl_tinymce_custom' ) ) {
+	function twoobl_tinymce_custom($init) {
+		
+		// Show the kitchen sink by default
+		// and hide foreground color palette
+		$init['wordpress_adv_hidden'] = false;
+		$init['theme_advanced_disable'] = 'wp_adv,forecolor';
+		
+		// remove H1
+		$init['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6,address,pre';
+		
+		// custom styles:
+		$style_formats = array(
+			array(
+				'title' => 'BS Button',
+				'inline' => 'button',
+				'classes' => 'btn btn-default'
+	    	),
+			array(
+				'title' => 'BS Well',
+				'block' => 'div',
+				'classes' => 'well',
+				'wrapper' => true
+			),
+			array(
+				'title' => 'Code',
+				'inline' => 'code'
+			)
+		);
+		$init['style_formats'] = json_encode($style_formats);
 	
-	// Show the kitchen sink by default
-	// and hide foreground color palette
-	$init['wordpress_adv_hidden'] = false;
-	$init['theme_advanced_disable'] = 'wp_adv,forecolor';
 	
-	// remove H1
-	$init['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6,address,pre';
 	
-	// custom styles:
-	$style_formats = array(
-		array(
-			'title' => 'BS Button',
-			'inline' => 'button',
-			'classes' => 'btn btn-default'
-    	),
-		array(
-			'title' => 'BS Well',
-			'block' => 'div',
-			'classes' => 'well',
-			'wrapper' => true
-		),
-		array(
-			'title' => 'Code',
-			'inline' => 'code'
-		)
-	);
-	$init['style_formats'] = json_encode($style_formats);
-
-
-
-	$valid_iframe = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
-	if ( isset( $init['extended_valid_elements'] ) ) {
-		$init['extended_valid_elements'] .= ',' . $valid_iframe;
-	} else {
-		$init['extended_valid_elements'] = $valid_iframe;
+		$valid_iframe = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
+		if ( isset( $init['extended_valid_elements'] ) ) {
+			$init['extended_valid_elements'] .= ',' . $valid_iframe;
+		} else {
+			$init['extended_valid_elements'] = $valid_iframe;
+		}
+		return $init;
 	}
-	return $init;
 }
-add_filter('tiny_mce_before_init', 'tinymce_custom');
+add_filter('tiny_mce_before_init', 'twoobl_tinymce_custom');
 
 
 
-add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
 
-function my_mce_buttons_2($buttons) {
-	array_unshift( $buttons, 'styleselect' );
-	return $buttons;
+if( !function_exists( 'twoobl_tinymce_custom' ) ) {
+	function twoobl_mce_buttons_2($buttons) {
+		array_unshift( $buttons, 'styleselect' );
+		return $buttons;
+	}
 }
+add_filter( 'mce_buttons_2', 'twoobl_mce_buttons_2' );
 
 
 
 /********************************************
  * 		Title, like TwentyTwelve
  ********************************************/
-function like_twentytwelve_wp_title($title, $sep) {
-	global $paged, $page;
-
-	if ( is_feed() )
+if( !function_exists( 'twoobl_like_twentytwelve_wp_title' ) ) {
+	function twoobl_like_twentytwelve_wp_title($title, $sep) {
+		global $paged, $page;
+	
+		if ( is_feed() )
+			return $title;
+	
+		$title .= get_bloginfo( 'name' );
+	
+		// Add the site description for the home/front page.
+		$site_description = get_bloginfo('description', 'display');
+		if ( $site_description && (is_home() || is_front_page()) )
+			$title = "$title $sep $site_description";
+	
+		// Add a page number if necessary.
+		if ( $paged >= 2 || $page >= 2 )
+			$title = "$title $sep " . sprintf( __('Page %s', 'twooble'), max( $paged, $page ) );
+	
 		return $title;
-
-	$title .= get_bloginfo( 'name' );
-
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo('description', 'display');
-	if ( $site_description && (is_home() || is_front_page()) )
-		$title = "$title $sep $site_description";
-
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __('Page %s', 'twooble'), max( $paged, $page ) );
-
-	return $title;
+	}
 }
-add_filter('wp_title', 'like_twentytwelve_wp_title', 10, 2);
+add_filter('wp_title', 'twoobl_like_twentytwelve_wp_title', 10, 2);
 
 
 
@@ -249,11 +269,7 @@ add_filter('wp_title', 'like_twentytwelve_wp_title', 10, 2);
  ********************************************/
 if ( !defined('DISALLOW_FILE_EDIT') )
 	define('DISALLOW_FILE_EDIT',true);
-// theme only:
-/*function remove_back_menu_items() {
-	remove_submenu_page('themes.php', 'theme-editor.php');
-}
-add_action('admin_init', 'remove_back_menu_items');*/
+
 
 
 
@@ -272,93 +288,66 @@ add_filter('sanitize_file_name', 'remove_accents');
 /********************************************
  * 		Favicon
  ********************************************/
-function twoobl_favicon() {
-	echo '<link href="'.get_bloginfo('template_directory').'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
+if( !function_exists( 'twoobl_like_twentytwelve_wp_title' ) ) {
+	function twoobl_like_twentytwelve_wp_title() {
+		echo '<link href="'.get_bloginfo('template_directory').'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
+	}
 }
 add_action('wp_head', 'twoobl_favicon');
-
-
-
-
-
-/**********************************************************************************
- * 		Logo custom sur la page de login
- * 		on surcharge le CSS.
- **********************************************************************************/
-/*function my_custom_login_logo() {
-    echo '<style type="text/css">';
-    echo 'div#login h1 a { background-image: url('.get_template_directory_uri().'/assets/img/login.png); height: 80px; }';
-    echo '</style>';
-}
-add_action('login_head', 'my_custom_login_logo');*/
-
-
 
 
 
 /**********************************************************************************
  *		vignette Facebook dans le header
  **********************************************************************************/
-add_action( 'wp_head', 'fb_like_thumbnails' );
-function fb_like_thumbnails()
-{
-	global $posts;
-	if ( is_single() || is_page() ) {
-		if ( has_post_thumbnail( $posts[0]->ID ) ) {
-			$FB_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $posts[0]->ID), 'thumbnail' );
-			$FB_thumb = $FB_thumb[0];
-			echo "\n<link rel=\"image_src\" href=\"$FB_thumb\" />\n";
+if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
+	function twoobl_fb_like_thumbnails()
+	{
+		global $posts;
+		if ( is_single() || is_page() ) {
+			if ( has_post_thumbnail( $posts[0]->ID ) ) {
+				$FB_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $posts[0]->ID), 'thumbnail' );
+				$FB_thumb = $FB_thumb[0];
+				echo "\n<link rel=\"image_src\" href=\"$FB_thumb\" />\n";
+			}
 		}
 	}
 }
-
-
+add_action('wp_head', 'twoobl_fb_like_thumbnails');
 
 
 
 /********************************************
  * 		Display Today, if it's... today.
  ********************************************/
-function aujourdhui($postdate) {
-	$the_post = get_post();
-	if( date('Ymd', strtotime($the_post->post_date)) == date('Ymd') ) {
-		return __('Today', 'twoobl');
-	} else {
-		return $postdate;
+if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
+	function twoobl_aujourdhui($postdate) {
+		$the_post = get_post();
+		if( date('Ymd', strtotime($the_post->post_date)) == date('Ymd') ) {
+			return __('Today', 'twoobl');
+		} else {
+			return $postdate;
+		}
 	}
 }
-add_filter('get_the_date', 'aujourdhui');
-
-
+add_filter('get_the_date', 'twoobl_aujourdhui');
 
 
 
 /**********************************************************************************
  *		User features: G+ & Twitter (aim? yim? jabber? seriously?)
  **********************************************************************************/
-function twoobl_contact_info($contacts) {
-	unset($contacts['aim']);  
-	unset($contacts['yim']);
-	unset($contacts['jabber']);  
-	$contacts['contact_google'] = __('Google+ URL', 'twoobl');
-	$contacts['contact_facebook'] = __('Facebook URL', 'twoobl');
-	$contacts['contact_twitter'] = __('Twitter profile', 'twoobl');
-	return $contacts;
+if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
+	function twoobl_contact_info($contacts) {
+		unset($contacts['aim']);  
+		unset($contacts['yim']);
+		unset($contacts['jabber']);  
+		$contacts['contact_google'] = __('Google+ URL', 'twoobl');
+		$contacts['contact_facebook'] = __('Facebook URL', 'twoobl');
+		$contacts['contact_twitter'] = __('Twitter profile', 'twoobl');
+		return $contacts;
+	}
 }
 add_filter('user_contactmethods', 'twoobl_contact_info');
 
 
-
-
-
-/**********************************************************************************
- * 		Disable self pings
- **********************************************************************************/
-
-function no_self_ping( &$links ) {
-	$home = get_option('siteurl');
-	foreach ( $links as $l => $link )
-		if ( 0 === strpos( $link, $home ) )
-			unset($links[$l]);
-}
-add_action( 'pre_ping', 'no_self_ping' );
