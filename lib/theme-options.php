@@ -1,11 +1,7 @@
 <?php
 
 
-
-//		TODO: tout dégager, mettre dans pods
-
-
-
+return;
 
 
 

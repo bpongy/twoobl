@@ -9,6 +9,15 @@ if( !function_exists( 'twoobl_pods_notice' ) ) {
 		} else if ( !is_plugin_active('pods/init.php') ) {
 			$url = admin_url('plugins.php');
 			echo '<div class="error"><p>'.__('Warning! In order to use this theme, you must', 'twoobl').' <a href="'.$url.'">'.__('activate').' Pods Framework</a></p></div>';
+		} else {
+			// PODS est installé. est-ce que la page de config existe?
+			$twoobl = pods('twoobl');
+			if( !$twoobl ) {
+				$file_conf = file_get_contents(get_template_directory_uri().'/pods-config.json');
+				$imp = Pods_Migrate_Packages::import($file_conf);
+				// TODO
+				echo '<div class="updated"><p>clic <a href="'.admin_url('themes.php?page=pods-settings-twoobl').'">here</a>.</p></div>';
+			}
 		}
 	
 	}

@@ -224,7 +224,7 @@ add_filter('tiny_mce_before_init', 'twoobl_tinymce_custom');
 
 
 
-if( !function_exists( 'twoobl_tinymce_custom' ) ) {
+if( !function_exists( 'twoobl_mce_buttons_2' ) ) {
 	function twoobl_mce_buttons_2($buttons) {
 		array_unshift( $buttons, 'styleselect' );
 		return $buttons;
