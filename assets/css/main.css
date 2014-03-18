@@ -1,33 +1,19 @@
-/*            _       _ _                _
- _ __ ___  __| |_ __ (_) | __  _ __  ___| |_ 
-| '__/ _ \/ _` | '_ \| | |/ / | '_ \/ _ \  _|
-| | |  __( (_) | (_) | |   ( _| | |(  __/ (_ 
-|_|  \___)\__,_|  __/|_|_|\_(_)_| |_\___)\__)
-Benjamin PONGY |_| www.redpik.net
-
-
-
-
- _____
+/*!___                 _     _
 |_   _|      ___  ___ | |__ | |
   | |_ __ _ / _ \/ _ \| '_ \| |
   | | V  V ( (_)( (_) | |_) ) |
   |_|\_/\_/ \___/\___/|_.__/|_|
-                                  
-
-
-
-
-
-* */
-
+  Benjamin PONGY www.redpik.net
+*/
 
 
 body {  }
 
+/*
 a { color: #428bca; text-decoration: underline; }
 a:hover,
 a:focus { color: #2a6496; }
+*/
 
 /* selection du texte */
 ::selection { background: #222; color: #fff; }
