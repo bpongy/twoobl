@@ -288,8 +288,8 @@ add_filter('sanitize_file_name', 'remove_accents');
 /********************************************
  * 		Favicon
  ********************************************/
-if( !function_exists( 'twoobl_like_twentytwelve_wp_title' ) ) {
-	function twoobl_like_twentytwelve_wp_title() {
+if( !function_exists( 'twoobl_favicon' ) ) {
+	function twoobl_favicon() {
 		echo '<link href="'.get_bloginfo('template_directory').'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
 	}
 }
@@ -320,7 +320,7 @@ add_action('wp_head', 'twoobl_fb_like_thumbnails');
 /********************************************
  * 		Display Today, if it's... today.
  ********************************************/
-if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
+if( !function_exists( 'twoobl_aujourdhui' ) ) {
 	function twoobl_aujourdhui($postdate) {
 		$the_post = get_post();
 		if( date('Ymd', strtotime($the_post->post_date)) == date('Ymd') ) {
