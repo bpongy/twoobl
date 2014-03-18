@@ -5161,6 +5161,4 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-/* twoobl variables */
-* {
-  border: 1px solid red; }
+/* twoobl CSS */
