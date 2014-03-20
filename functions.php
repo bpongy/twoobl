@@ -4,7 +4,8 @@
 define('_MAIN_CLASS_', 'col-sm-9');
 define('_SIDEBAR_CLASS_', 'col-sm-3 hidden-xs');
 define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
-$twoobl = get_option('theme_options_'._ISOLANG_);
+
+$twoobl = pods('twoobl');
 
 require_once locate_template('/lib/scripts.php');
 require_once locate_template('/lib/widgets.php');

@@ -9,7 +9,7 @@
 
 if( !function_exists( 'twoobl_scripts' ) ) {
 	function twoobl_scripts() {
-		wp_enqueue_style('twoobl_init', get_template_directory_uri() . '/assets/css/init.css', false, null);
+		wp_enqueue_style('twoobl_init', get_template_directory_uri() . '/assets/css/twoobl.css', false, null);
 		wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/main.css', false, null);
 	
 		if (!is_admin()) {

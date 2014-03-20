@@ -1,13 +1,5 @@
 <?php
 
-
-return;
-
-
-
-
-
-
 // theme options in the admin bar
 function twoobl_admnbar() {
 	global $wp_admin_bar;

@@ -14,6 +14,7 @@ if( !function_exists( 'twoobl_pods_notice' ) ) {
 			$twoobl = pods('twoobl');
 			if( !$twoobl ) {
 				$file_conf = file_get_contents(get_template_directory_uri().'/pods-config.json');
+				// TODO : check si le package est installé!
 				$imp = Pods_Migrate_Packages::import($file_conf);
 				// TODO
 				echo '<div class="updated"><p>clic <a href="'.admin_url('themes.php?page=pods-settings-twoobl').'">here</a>.</p></div>';
