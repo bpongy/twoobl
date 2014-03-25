@@ -4,6 +4,7 @@
   | | V  V ( (_)( (_) | |_) ) |
   |_|\_/\_/ \___/\___/|_.__/|_|
   Benjamin PONGY www.redpik.net
+
 */
 
 
@@ -23,8 +24,8 @@ $grid-gutter-width: 20px;
 
 /* mixin example */
 .btn-twoobl {
-  @include button-variant(#fff, darken($brand-primary, 5%), darken($brand-primary, 8%));
-  text-transform: uppercase;
+	@include button-variant(#fff, darken($brand-primary, 5%), darken($brand-primary, 8%));
+	text-transform: uppercase;
 }
 
 
@@ -43,10 +44,10 @@ img { max-width: 100%; height: auto; }
 
 
 .title {
-  display: block;
-  text-transform: uppercase;
-  /* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
-  /* -webkit-text-stroke: 0.25px; */
+	display: block;
+	text-transform: uppercase;
+	/* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
+	/* -webkit-text-stroke: 0.25px; */
 }
 
 
@@ -57,13 +58,15 @@ img { max-width: 100%; height: auto; }
 .title a { display: block; }
 
 .entry-content {
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
 }
+
+
 
 .entry-content iframe { max-width: 100%!important; }
 
