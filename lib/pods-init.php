@@ -13,7 +13,7 @@ if( !function_exists( 'twoobl_pods_notice' ) ) {
 			// PODS est installé. est-ce que la page de config existe?
 			$twoobl = pods('twoobl');
 			if( !$twoobl ) {
-				$file_conf = file_get_contents(get_template_directory_uri().'/pods-config.json');
+				$file_conf = wp_remote_fopen(get_template_directory_uri().'/pods-config.json');
 				// TODO : check si le package est installé!
 				$imp = Pods_Migrate_Packages::import($file_conf);
 				// TODO
