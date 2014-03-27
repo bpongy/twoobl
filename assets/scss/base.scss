@@ -58,12 +58,7 @@ img { max-width: 100%; height: auto; }
 .title a { display: block; }
 
 .entry-content {
-	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	-ms-hyphens: auto;
-	-o-hyphens: auto;
-	hyphens: auto;
+	@include hyphens();
 }
 
 
