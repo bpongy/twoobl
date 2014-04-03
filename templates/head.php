@@ -28,8 +28,20 @@ if( isset($twoobl['google-analytics']) && $twoobl['google-analytics']!='' ) { ?>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-<?php } ?>
+<?php
+}
+
+if( defined( '_MOBILE_NAV_' ) ) {
+	echo '<input type="checkbox" id="check-navmob" class="hidden">';
+}
+?>
+
 <div id="playground">
+
+	<?php
+	if( defined( '_MOBILE_NAV_' ) )
+		echo '<label id="menu-button" for="check-navmob" class="visible-xs"></label>';
+	?>
 
 	<header id="top" role="banner">
 		<div class="container">
