@@ -1,0 +1,60 @@
+
+#main {  }
+
+
+.entry-header { padding-bottom: 1.5em; }
+
+/* meta */
+
+.meta {
+	color: $gray-light;
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+	a:hover {
+		color: $gray-dark;
+	}
+}
+
+
+
+.entry-content {
+	@include hyphens();
+	
+	.read-more { display: block; text-align: right; }
+}
+
+.entry-content iframe { max-width: 100%!important; }
+
+
+/* WP */
+.aligncenter { display: block; margin: 0 auto; }
+.alignleft { float: left; margin: 0 20px 5px 0; }
+.alignright { float: right; margin: 0 0 5px 20px; }
+figure.alignnone { margin-left: 0; margin-right: 0; }
+
+/* todo */
+.wp-caption {  }
+.wp-caption-text {  }
+.sticky {  }
+.gallery-caption {  }
+.bypostauthor {  }
+
+
+
+/* Google map : max-width bug fix */
+
+#map_canvas img,
+.gmnoprint img { max-width: none; }
+
+
+
+/* tags */
+
+.entry-tags ul { margin: 0; padding: 0; list-style-type: none; }
+.entry-tags li { display: inline-block; padding: 0.2em; }
+
+
+
+

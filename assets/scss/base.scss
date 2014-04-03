@@ -11,7 +11,7 @@
 
 /* Bootstrap variables override */
 
-$font-size-base: 13px;
+$font-size-base: 16px;
 $brand-primary: #41B1AF;
 $grid-gutter-width: 20px;
 
@@ -31,8 +31,8 @@ $grid-gutter-width: 20px;
 
 
 /* text selection */
-::selection { background: $brand-primary; color: #fff; }
-::-moz-selection { background: $brand-primary; color: #fff; }
+::selection { background: $gray-light; color: #fff; }
+::-moz-selection { background: $gray-light; color: #fff; }
 
 /* responsive images, by default */
 img { max-width: 100%; height: auto; }
@@ -50,40 +50,65 @@ img { max-width: 100%; height: auto; }
 	/* -webkit-text-stroke: 0.25px; */
 }
 
-
-
-
-
-
 .title a { display: block; }
 
-.entry-content {
-	@include hyphens();
+
+
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+@import "footer";
+
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+@import "content";
+
+
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+
+@import "comments";
+
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+@import "sidebar";
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+@import "footer";
+
+
+
+/* ==========================================================================
+   Media Queries BS3
+   ========================================================================== */
+
+/* .visible-lg */
+@media (min-width: 1200px) {
+
 }
 
+/* .visible-xs */
+@media (max-width: 767px) {
 
-
-.entry-content iframe { max-width: 100%!important; }
-
-
-/* WP */
-.aligncenter { display: block; margin: 0 auto; }
-.alignleft { float: left; margin: 0 20px 5px 0; }
-.alignright { float: right; margin: 0 0 5px 20px; }
-figure.alignnone { margin-left: 0; margin-right: 0; }
-
-/* todo */
-.wp-caption {  }
-.wp-caption-text {  }
-.sticky {  }
-.gallery-caption {  }
-.bypostauthor {  }
-
-
-
-/* Google map : max-width bug fix */
-#map_canvas img,
-.gmnoprint img { max-width: none; }
-
+	@import 'mobilenav';
+}
 
 
