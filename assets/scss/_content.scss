@@ -2,12 +2,18 @@
 #main {  }
 
 
-.entry-header { padding-bottom: 1.5em; }
+.entry-header {
+	padding-bottom: 1em;
+	.title {
+		font-size: 2em;
+	}
+}
 
 /* meta */
 
 .meta {
 	color: $gray-light;
+	font-size: 0.9em;
 	a {
 		color: inherit;
 		text-decoration: underline;
@@ -17,7 +23,7 @@
 	}
 }
 
-
+.post { padding-bottom: 2em; }
 
 .entry-content {
 	@include hyphens();

@@ -1470,7 +1470,7 @@ img {
 
 /* line 86, ../scss/bootstrap/_scaffolding.scss */
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 /* line 93, ../scss/bootstrap/_scaffolding.scss */
@@ -1479,7 +1479,7 @@ img {
   line-height: 1.42857;
   background-color: white;
   border: 1px solid #dddddd;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -1971,7 +1971,7 @@ code {
   font-size: 90%;
   color: #c7254e;
   background-color: #f9f2f4;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 /* line 24, ../scss/bootstrap/_code.scss */
@@ -1980,7 +1980,7 @@ kbd {
   font-size: 90%;
   color: white;
   background-color: #333333;
-  border-radius: 3px;
+  border-radius: 1px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -1996,7 +1996,7 @@ pre {
   color: #333333;
   background-color: whitesmoke;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 48, ../scss/bootstrap/_code.scss */
 pre code {
@@ -3484,7 +3484,7 @@ output {
   background-color: white;
   background-image: none;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -3624,7 +3624,7 @@ input[type="checkbox"],
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 /* line 75, ../scss/bootstrap/mixins/_forms.scss */
@@ -3654,7 +3654,7 @@ select[multiple].input-sm,
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.33;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 /* line 75, ../scss/bootstrap/mixins/_forms.scss */
@@ -3943,7 +3943,7 @@ select[multiple].input-lg,
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1.42857;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -4173,7 +4173,7 @@ select[multiple].input-lg,
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.33;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 /* line 128, ../scss/bootstrap/_buttons.scss */
@@ -4181,7 +4181,7 @@ select[multiple].input-lg,
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 /* line 132, ../scss/bootstrap/_buttons.scss */
@@ -4189,7 +4189,7 @@ select[multiple].input-lg,
   padding: 1px 5px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 /* line 140, ../scss/bootstrap/_buttons.scss */
@@ -4291,7 +4291,7 @@ tbody.collapse.in {
   background-color: white;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
@@ -4608,13 +4608,13 @@ tbody.collapse.in {
 }
 /* line 178, ../scss/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn:first-child:not(:last-child) {
-  border-top-right-radius: 4px;
+  border-top-right-radius: 1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 /* line 182, ../scss/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn:last-child:not(:first-child) {
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -4716,7 +4716,7 @@ tbody.collapse.in {
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 81, ../scss/bootstrap/_input-groups.scss */
 .input-group-addon.input-sm,
@@ -4724,7 +4724,7 @@ tbody.collapse.in {
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
   padding: 5px 10px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 /* line 86, ../scss/bootstrap/_input-groups.scss */
 .input-group-addon.input-lg,
@@ -4732,7 +4732,7 @@ tbody.collapse.in {
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 10px 16px;
   font-size: 20px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 /* line 94, ../scss/bootstrap/_input-groups.scss */
 .input-group-addon input[type="radio"],
@@ -4876,7 +4876,7 @@ tbody.collapse.in {
   margin-right: 2px;
   line-height: 1.42857;
   border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
+  border-radius: 1px 1px 0 0;
 }
 /* line 89, ../scss/bootstrap/_navs.scss */
 .nav-tabs > li > a:hover {
@@ -4897,7 +4897,7 @@ tbody.collapse.in {
 }
 /* line 122, ../scss/bootstrap/_navs.scss */
 .nav-pills > li > a {
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 125, ../scss/bootstrap/_navs.scss */
 .nav-pills > li + li {
@@ -4956,7 +4956,7 @@ tbody.collapse.in {
 /* line 193, ../scss/bootstrap/_navs.scss */
 .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
   margin-right: 0;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 201, ../scss/bootstrap/_navs.scss */
 .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
@@ -4970,7 +4970,7 @@ tbody.collapse.in {
   /* line 206, ../scss/bootstrap/_navs.scss */
   .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
     border-bottom: 1px solid #dddddd;
-    border-radius: 4px 4px 0 0;
+    border-radius: 1px 1px 0 0;
   }
   /* line 212, ../scss/bootstrap/_navs.scss */
   .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
@@ -5017,7 +5017,7 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 11, ../scss/bootstrap/_navbar.scss */
   .navbar {
-    border-radius: 4px;
+    border-radius: 1px;
   }
 }
 
@@ -5187,7 +5187,7 @@ tbody.collapse.in {
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 202, ../scss/bootstrap/_navbar.scss */
 .navbar-toggle:focus {
@@ -5577,7 +5577,7 @@ tbody.collapse.in {
   margin-bottom: 22px;
   list-style: none;
   background-color: whitesmoke;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 13, ../scss/bootstrap/_breadcrumbs.scss */
 .breadcrumb > li {
@@ -5599,7 +5599,7 @@ tbody.collapse.in {
   display: inline-block;
   padding-left: 0;
   margin: 22px 0;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 10, ../scss/bootstrap/_pagination.scss */
 .pagination > li {
@@ -5622,14 +5622,14 @@ tbody.collapse.in {
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   margin-left: 0;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
+  border-bottom-left-radius: 1px;
+  border-top-left-radius: 1px;
 }
 /* line 33, ../scss/bootstrap/_pagination.scss */
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
 }
 /* line 42, ../scss/bootstrap/_pagination.scss */
 .pagination > li > a:hover, .pagination > li > a:focus,
@@ -5672,14 +5672,14 @@ tbody.collapse.in {
 /* line 12, ../scss/bootstrap/mixins/_pagination.scss */
 .pagination-lg > li:first-child > a,
 .pagination-lg > li:first-child > span {
-  border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 /* line 18, ../scss/bootstrap/mixins/_pagination.scss */
 .pagination-lg > li:last-child > a,
 .pagination-lg > li:last-child > span {
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 /* line 6, ../scss/bootstrap/mixins/_pagination.scss */
@@ -5691,14 +5691,14 @@ tbody.collapse.in {
 /* line 12, ../scss/bootstrap/mixins/_pagination.scss */
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-bottom-left-radius: 1px;
+  border-top-left-radius: 1px;
 }
 /* line 18, ../scss/bootstrap/mixins/_pagination.scss */
 .pagination-sm > li:last-child > a,
 .pagination-sm > li:last-child > span {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
 }
 
 /* line 6, ../scss/bootstrap/_pager.scss */
@@ -5910,7 +5910,7 @@ a.badge:hover, a.badge:focus {
 }
 /* line 26, ../scss/bootstrap/_jumbotron.scss */
 .container .jumbotron {
-  border-radius: 6px;
+  border-radius: 2px;
 }
 /* line 30, ../scss/bootstrap/_jumbotron.scss */
 .jumbotron .container {
@@ -5942,7 +5942,7 @@ a.badge:hover, a.badge:focus {
   line-height: 1.42857;
   background-color: white;
   border: 1px solid #dddddd;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -5974,7 +5974,7 @@ a.thumbnail.active {
   padding: 15px;
   margin-bottom: 22px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 16, ../scss/bootstrap/_alerts.scss */
 .alert h4 {
@@ -6085,7 +6085,7 @@ a.thumbnail.active {
   height: 22px;
   margin-bottom: 22px;
   background-color: whitesmoke;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -6239,14 +6239,14 @@ a.thumbnail.active {
 }
 /* line 31, ../scss/bootstrap/_list-group.scss */
 .list-group-item:first-child {
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px;
 }
 /* line 34, ../scss/bootstrap/_list-group.scss */
 .list-group-item:last-child {
   margin-bottom: 0;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 1px;
+  border-bottom-left-radius: 1px;
 }
 /* line 40, ../scss/bootstrap/_list-group.scss */
 .list-group-item > .badge {
@@ -6422,7 +6422,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   margin-bottom: 22px;
   background-color: white;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -6445,8 +6445,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 /* line 27, ../scss/bootstrap/_panels.scss */
 .panel-heading > .dropdown .dropdown-toggle {
@@ -6470,8 +6470,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   padding: 10px 15px;
   background-color: whitesmoke;
   border-top: 1px solid #dddddd;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 /* line 59, ../scss/bootstrap/_panels.scss */
@@ -6486,14 +6486,14 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 69, ../scss/bootstrap/_panels.scss */
 .panel > .list-group:first-child .list-group-item:first-child {
   border-top: 0;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 /* line 76, ../scss/bootstrap/_panels.scss */
 .panel > .list-group:last-child .list-group-item:last-child {
   border-bottom: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 /* line 85, ../scss/bootstrap/_panels.scss */
@@ -6509,8 +6509,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 103, ../scss/bootstrap/_panels.scss */
 .panel > .table:first-child,
 .panel > .table-responsive:first-child > .table:first-child {
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 /* line 110, ../scss/bootstrap/_panels.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
@@ -6521,7 +6521,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
-  border-top-left-radius: 3px;
+  border-top-left-radius: 0px;
 }
 /* line 114, ../scss/bootstrap/_panels.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
@@ -6532,13 +6532,13 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
-  border-top-right-radius: 3px;
+  border-top-right-radius: 0px;
 }
 /* line 122, ../scss/bootstrap/_panels.scss */
 .panel > .table:last-child,
 .panel > .table-responsive:last-child > .table:last-child {
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 /* line 129, ../scss/bootstrap/_panels.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
@@ -6549,7 +6549,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
-  border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 0px;
 }
 /* line 133, ../scss/bootstrap/_panels.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
@@ -6560,7 +6560,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
-  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 0px;
 }
 /* line 140, ../scss/bootstrap/_panels.scss */
 .panel > .panel-body + .table,
@@ -6642,7 +6642,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 199, ../scss/bootstrap/_panels.scss */
 .panel-group .panel {
   margin-bottom: 0;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 /* line 202, ../scss/bootstrap/_panels.scss */
 .panel-group .panel + .panel {
@@ -6816,7 +6816,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   margin-bottom: 20px;
   background-color: whitesmoke;
   border: 1px solid #e3e3e3;
-  border-radius: 4px;
+  border-radius: 1px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -6829,13 +6829,13 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 22, ../scss/bootstrap/_wells.scss */
 .well-lg {
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 /* line 26, ../scss/bootstrap/_wells.scss */
 .well-sm {
   padding: 9px;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 /* line 6, ../scss/bootstrap/_close.scss */
@@ -6918,7 +6918,7 @@ button.close {
   background-color: white;
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
@@ -7077,7 +7077,7 @@ button.close {
   text-align: center;
   text-decoration: none;
   background-color: black;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 /* line 35, ../scss/bootstrap/_tooltip.scss */
@@ -7164,7 +7164,7 @@ button.close {
   background-clip: padding-box;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 2px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   white-space: normal;
@@ -7195,7 +7195,7 @@ button.close {
   line-height: 18px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0;
+  border-radius: 1px 1px 0 0;
 }
 
 /* line 43, ../scss/bootstrap/_popovers.scss */
@@ -7863,7 +7863,7 @@ button.close {
   }
 }
 /* mixin example */
-/* line 26, ../scss/base.scss */
+/* line 28, ../scss/base.scss */
 .btn-twoobl {
   color: white;
   background-color: #3a9e9d;
@@ -7892,76 +7892,107 @@ button.close {
 }
 
 /* text selection */
-/* line 34, ../scss/base.scss */
+/* line 36, ../scss/base.scss */
 ::selection {
-  background: #999999;
-  color: #fff;
+  background: #eeeeee;
+  color: #333333;
 }
 
-/* line 35, ../scss/base.scss */
+/* line 37, ../scss/base.scss */
 ::-moz-selection {
-  background: #999999;
-  color: #fff;
+  background: #eeeeee;
+  color: #333333;
 }
 
 /* responsive images, by default */
-/* line 38, ../scss/base.scss */
+/* line 40, ../scss/base.scss */
 img {
   max-width: 100%;
   height: auto;
 }
 
 /* Responsive Facebook like box */
-/* line 41, ../scss/base.scss */
+/* line 43, ../scss/base.scss */
 #fb-root {
   display: none;
 }
 
-/* line 42, ../scss/base.scss */
+/* line 44, ../scss/base.scss */
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
   width: 100% !important;
 }
 
-/* line 46, ../scss/base.scss */
+/* line 48, ../scss/base.scss */
 .title {
   display: block;
   text-transform: uppercase;
+  margin: 0;
+  font-size: 1em;
   /* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
   /* -webkit-text-stroke: 0.25px; */
 }
 
-/* line 53, ../scss/base.scss */
+/* line 57, ../scss/base.scss */
 .title a {
   display: block;
+}
+
+/* line 64, ../scss/base.scss */
+#wrap {
+  padding-top: 2em;
 }
 
 /* ==========================================================================
    Header
    ========================================================================== */
+/* line 2, ../scss/_header.scss */
+#top {
+  background-color: #eee;
+  padding: 20px 0;
+}
+
+/* line 5, ../scss/_header.scss */
+#site-desc h1,
+#site-desc p {
+  margin: 0;
+  font-size: 1em;
+  margin: 0;
+}
+
 /* ==========================================================================
    Content
    ========================================================================== */
 /* line 5, ../scss/_content.scss */
 .entry-header {
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
+}
+/* line 7, ../scss/_content.scss */
+.entry-header .title {
+  font-size: 2em;
 }
 
 /* meta */
-/* line 9, ../scss/_content.scss */
+/* line 14, ../scss/_content.scss */
 .meta {
   color: #999999;
+  font-size: 0.9em;
 }
-/* line 11, ../scss/_content.scss */
+/* line 17, ../scss/_content.scss */
 .meta a {
   color: inherit;
   text-decoration: underline;
 }
-/* line 15, ../scss/_content.scss */
+/* line 21, ../scss/_content.scss */
 .meta a:hover {
   color: #333333;
 }
 
-/* line 22, ../scss/_content.scss */
+/* line 26, ../scss/_content.scss */
+.post {
+  padding-bottom: 2em;
+}
+
+/* line 28, ../scss/_content.scss */
 .entry-content {
   word-wrap: break-word;
   -webkit-hyphens: auto;
@@ -7970,37 +8001,37 @@ img {
   -o-hyphens: auto;
   hyphens: auto;
 }
-/* line 25, ../scss/_content.scss */
+/* line 31, ../scss/_content.scss */
 .entry-content .read-more {
   display: block;
   text-align: right;
 }
 
-/* line 28, ../scss/_content.scss */
+/* line 34, ../scss/_content.scss */
 .entry-content iframe {
   max-width: 100% !important;
 }
 
 /* WP */
-/* line 32, ../scss/_content.scss */
+/* line 38, ../scss/_content.scss */
 .aligncenter {
   display: block;
   margin: 0 auto;
 }
 
-/* line 33, ../scss/_content.scss */
+/* line 39, ../scss/_content.scss */
 .alignleft {
   float: left;
   margin: 0 20px 5px 0;
 }
 
-/* line 34, ../scss/_content.scss */
+/* line 40, ../scss/_content.scss */
 .alignright {
   float: right;
   margin: 0 0 5px 20px;
 }
 
-/* line 35, ../scss/_content.scss */
+/* line 41, ../scss/_content.scss */
 figure.alignnone {
   margin-left: 0;
   margin-right: 0;
@@ -8008,21 +8039,21 @@ figure.alignnone {
 
 /* todo */
 /* Google map : max-width bug fix */
-/* line 49, ../scss/_content.scss */
+/* line 55, ../scss/_content.scss */
 #map_canvas img,
 .gmnoprint img {
   max-width: none;
 }
 
 /* tags */
-/* line 55, ../scss/_content.scss */
+/* line 61, ../scss/_content.scss */
 .entry-tags ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-/* line 56, ../scss/_content.scss */
+/* line 62, ../scss/_content.scss */
 .entry-tags li {
   display: inline-block;
   padding: 0.2em;
