@@ -1419,7 +1419,7 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #333333;
   background-color: white;
 }
@@ -1476,7 +1476,7 @@ img {
 /* line 93, ../scss/bootstrap/_scaffolding.scss */
 .img-thumbnail {
   padding: 4px;
-  line-height: 1.42857;
+  line-height: 1.4;
   background-color: white;
   border: 1px solid #dddddd;
   border-radius: 1px;
@@ -1835,7 +1835,7 @@ dl {
 /* line 180, ../scss/bootstrap/_type.scss */
 dt,
 dd {
-  line-height: 1.42857;
+  line-height: 1.4;
 }
 
 /* line 183, ../scss/bootstrap/_type.scss */
@@ -1906,7 +1906,7 @@ blockquote small,
 blockquote .small {
   display: block;
   font-size: 80%;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #999999;
 }
 /* line 255, ../scss/bootstrap/_type.scss */
@@ -1954,7 +1954,7 @@ blockquote:after {
 address {
   margin-bottom: 22px;
   font-style: normal;
-  line-height: 1.42857;
+  line-height: 1.4;
 }
 
 /* line 10, ../scss/bootstrap/_code.scss */
@@ -1990,7 +1990,7 @@ pre {
   padding: 10.5px;
   margin: 0 0 11px;
   font-size: 15px;
-  line-height: 1.42857;
+  line-height: 1.4;
   word-break: break-all;
   word-wrap: break-word;
   color: #333333;
@@ -3156,7 +3156,7 @@ th {
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
   padding: 8px;
-  line-height: 1.42857;
+  line-height: 1.4;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -3468,7 +3468,7 @@ output {
   display: block;
   padding-top: 7px;
   font-size: 16px;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #555555;
 }
 
@@ -3479,7 +3479,7 @@ output {
   height: 36px;
   padding: 6px 12px;
   font-size: 16px;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #555555;
   background-color: white;
   background-image: none;
@@ -3531,7 +3531,7 @@ input[type="search"] {
 /* line 175, ../scss/bootstrap/_forms.scss */
 input[type="date"] {
   line-height: 36px;
-  line-height: 1.42857 \0;
+  line-height: 1.4 \0;
 }
 /* line 180, ../scss/bootstrap/_forms.scss */
 input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control,
@@ -3942,7 +3942,7 @@ select[multiple].input-lg,
   white-space: nowrap;
   padding: 6px 12px;
   font-size: 16px;
-  line-height: 1.42857;
+  line-height: 1.4;
   border-radius: 1px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -4314,7 +4314,7 @@ tbody.collapse.in {
   padding: 3px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #333333;
   white-space: nowrap;
 }
@@ -4374,7 +4374,7 @@ tbody.collapse.in {
   display: block;
   padding: 3px 20px;
   font-size: 14px;
-  line-height: 1.42857;
+  line-height: 1.4;
   color: #999999;
 }
 
@@ -4874,7 +4874,7 @@ tbody.collapse.in {
 /* line 84, ../scss/bootstrap/_navs.scss */
 .nav-tabs > li > a {
   margin-right: 2px;
-  line-height: 1.42857;
+  line-height: 1.4;
   border: 1px solid transparent;
   border-radius: 1px 1px 0 0;
 }
@@ -5611,7 +5611,7 @@ tbody.collapse.in {
   position: relative;
   float: left;
   padding: 6px 12px;
-  line-height: 1.42857;
+  line-height: 1.4;
   text-decoration: none;
   color: #41b1af;
   background-color: white;
@@ -5939,7 +5939,7 @@ a.badge:hover, a.badge:focus {
   display: block;
   padding: 4px;
   margin-bottom: 22px;
-  line-height: 1.42857;
+  line-height: 1.4;
   background-color: white;
   border: 1px solid #dddddd;
   border-radius: 1px;
@@ -6950,7 +6950,7 @@ button.close {
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.42857px;
+  min-height: 16.4px;
 }
 
 /* line 82, ../scss/bootstrap/_modals.scss */
@@ -6961,7 +6961,7 @@ button.close {
 /* line 87, ../scss/bootstrap/_modals.scss */
 .modal-title {
   margin: 0;
-  line-height: 1.42857;
+  line-height: 1.4;
 }
 
 /* line 94, ../scss/bootstrap/_modals.scss */
@@ -7863,7 +7863,7 @@ button.close {
   }
 }
 /* mixin example */
-/* line 28, ../scss/base.scss */
+/* line 29, ../scss/base.scss */
 .btn-twoobl {
   color: white;
   background-color: #3a9e9d;
@@ -7892,37 +7892,37 @@ button.close {
 }
 
 /* text selection */
-/* line 36, ../scss/base.scss */
+/* line 37, ../scss/base.scss */
 ::selection {
   background: #eeeeee;
   color: #333333;
 }
 
-/* line 37, ../scss/base.scss */
+/* line 38, ../scss/base.scss */
 ::-moz-selection {
   background: #eeeeee;
   color: #333333;
 }
 
 /* responsive images, by default */
-/* line 40, ../scss/base.scss */
+/* line 41, ../scss/base.scss */
 img {
   max-width: 100%;
   height: auto;
 }
 
 /* Responsive Facebook like box */
-/* line 43, ../scss/base.scss */
+/* line 44, ../scss/base.scss */
 #fb-root {
   display: none;
 }
 
-/* line 44, ../scss/base.scss */
+/* line 45, ../scss/base.scss */
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
   width: 100% !important;
 }
 
-/* line 48, ../scss/base.scss */
+/* line 49, ../scss/base.scss */
 .title {
   display: block;
   text-transform: uppercase;
@@ -7932,12 +7932,12 @@ img {
   /* -webkit-text-stroke: 0.25px; */
 }
 
-/* line 57, ../scss/base.scss */
+/* line 58, ../scss/base.scss */
 .title a {
   display: block;
 }
 
-/* line 64, ../scss/base.scss */
+/* line 65, ../scss/base.scss */
 #wrap {
   padding-top: 2em;
 }
@@ -8147,6 +8147,11 @@ figure.alignnone {
 /* ==========================================================================
    Sidebar
    ========================================================================== */
+/* line 2, ../scss/_sidebar.scss */
+#sidebar .widget {
+  margin-bottom: 2em;
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
