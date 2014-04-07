@@ -8047,16 +8047,29 @@ figure.alignnone {
 
 /* tags */
 /* line 61, ../scss/_content.scss */
+.entry-tags {
+  color: #999999;
+  font-size: 0.9em;
+}
+/* line 64, ../scss/_content.scss */
 .entry-tags ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-
-/* line 62, ../scss/_content.scss */
+/* line 69, ../scss/_content.scss */
 .entry-tags li {
   display: inline-block;
   padding: 0.2em;
+}
+/* line 73, ../scss/_content.scss */
+.entry-tags a {
+  color: inherit;
+  text-decoration: underline;
+}
+/* line 77, ../scss/_content.scss */
+.entry-tags a:hover {
+  color: #333333;
 }
 
 /* ==========================================================================
