@@ -8,9 +8,9 @@ define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
 
 $twoobl = pods('twoobl');
 
-require_once locate_template('/lib/scripts.php');
-require_once locate_template('/lib/widgets.php');
-require_once locate_template('/lib/shortcodes.php');
-require_once locate_template('/lib/pods-init.php');
-require_once locate_template('/lib/twoobl.php');
-require_once locate_template('/lib/custom.php');
+require_once locate_template('lib/scripts.php');
+require_once locate_template('lib/widgets.php');
+require_once locate_template('lib/shortcodes.php');
+require_once locate_template('lib/pods-init.php');
+require_once locate_template('lib/twoobl.php');
+require_once locate_template('lib/custom.php');
