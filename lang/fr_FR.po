@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twoobl\n"
-"POT-Creation-Date: 2013-10-24 15:40+0100\n"
-"PO-Revision-Date: 2013-10-24 15:40+0100\n"
+"POT-Creation-Date: 2014-04-16 15:25+0100\n"
+"PO-Revision-Date: 2014-04-16 15:26+0100\n"
 "Last-Translator: Ben <benjamin.pongy@gmail.com>\n"
 "Language-Team: Ben <benjamin.pongy@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,85 +17,93 @@ msgstr ""
 "X-Poedit-SearchPath-1: ./templates\n"
 "X-Poedit-SearchPath-2: ./lib\n"
 
-#: searchform.php:3
+#: searchform.php:4
 msgid "Search"
 msgstr "Recherche"
 
-#: searchform.php:4
+#: searchform.php:6
 msgid "OK"
 msgstr "OK"
 
-#: index.php:8 archive.php:37
+#: index.php:8 archive.php:37 search.php:13
 msgid "Sorry, nothing found."
 msgstr "Désolé, rien n'a été trouvé."
 
-#: comments.php:10
-msgid "One comment"
-msgstr ""
+#: comments.php:10 templates/meta.php:5
+msgid "no response"
+msgstr "aucun commentaire"
 
-#: comments.php:29
+#: comments.php:10 templates/meta.php:5
+msgid "one response"
+msgstr "un commentaire"
+
+#: comments.php:10 templates/meta.php:5
+msgid "% responses"
+msgstr "% commentaires"
+
+#: comments.php:28
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:30
+#: comments.php:29
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:31
+#: comments.php:30
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:36
+#: comments.php:35
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
-#: comments.php:43
+#: comments.php:42
 msgid "Leave a reply"
 msgstr "Laisser une réponse"
 
-#: comments.php:48
+#: comments.php:47
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: comments.php:56
+#: comments.php:55
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr ""
 
-#: comments.php:57
+#: comments.php:56
 msgid "Log out of this account"
 msgstr ""
 
-#: comments.php:57
+#: comments.php:56
 msgid "Log out &raquo;"
 msgstr ""
 
-#: comments.php:61
+#: comments.php:60
 msgid "Name"
 msgstr "Nom"
 
-#: comments.php:61 comments.php:65
+#: comments.php:60 comments.php:64
 msgid " (required)"
-msgstr "(obligatoire)"
+msgstr " (obligatoire)"
 
-#: comments.php:65
+#: comments.php:64
 msgid "Email (will not be published)"
 msgstr "Email (non publié)"
 
-#: comments.php:69
+#: comments.php:68
 msgid "Website"
 msgstr "Site web"
 
-#: comments.php:74
+#: comments.php:73
 msgid "Comment"
 msgstr "Commentaire"
 
-#: comments.php:77
+#: comments.php:76
 msgid "Submit Comment"
 msgstr "Commenter"
 
-#: 404.php:4
+#: 404.php:11
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr ""
 
@@ -135,94 +143,42 @@ msgstr "&larr; Articles plus anciens"
 msgid "Newer posts &rarr;"
 msgstr "Articles plus récents &rarr;"
 
-#: templates/comment.php:5
+#: search.php:8
 #, php-format
-msgid "%1$s"
-msgstr "%1$s"
-
-#: templates/comment.php:6
-msgid "(Edit)"
-msgstr "(éditer)"
-
-#: templates/comment.php:10
-msgid "Your comment is awaiting moderation."
+msgid "Search Results for: %s"
 msgstr ""
 
 #: templates/meta.php:2
 msgid "By"
 msgstr "Par"
 
-#: templates/meta.php:4
-msgid "no response"
-msgstr "aucun commentaire"
-
-#: templates/meta.php:4
-msgid "one response"
-msgstr "un commentaire"
-
-#: templates/meta.php:4
-msgid "% responses"
-msgstr "% commentaires"
-
-#: lib/twoobl.php:33
+#: lib/twoobl.php:23
 msgid "Primary navigation"
 msgstr ""
 
-#: lib/twoobl.php:181
+#: lib/twoobl.php:55
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: lib/twoobl.php:251
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: lib/twoobl.php:266
+#: lib/twoobl.php:316
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: lib/twoobl.php:334
 msgid "Google+ URL"
 msgstr ""
 
-#: lib/twoobl.php:267
+#: lib/twoobl.php:335
+msgid "Facebook URL"
+msgstr ""
+
+#: lib/twoobl.php:336
 msgid "Twitter profile"
-msgstr ""
-
-#: lib/theme-options.php:21 lib/theme-options.php:41 lib/theme-options.php:47
-msgid "Theme Options"
-msgstr ""
-
-#: lib/theme-options.php:53
-msgid "Google Analytics"
-msgstr ""
-
-#: lib/theme-options.php:71
-msgid "Social networks"
-msgstr ""
-
-#: lib/theme-options.php:74
-msgid "Facebook fanpage"
-msgstr ""
-
-#: lib/theme-options.php:78
-msgid "Twitter username"
-msgstr ""
-
-#: lib/theme-options.php:82
-msgid "Pinterest"
-msgstr ""
-
-#: lib/theme-options.php:86
-msgid "Google Plus"
-msgstr ""
-
-#: lib/theme-options.php:90
-msgid "Flux RSS"
-msgstr ""
-
-#: lib/theme-options.php:100
-msgid "Custom zones"
-msgstr ""
-
-#: lib/theme-options.php:103
-msgid "404 page"
-msgstr ""
-
-#: lib/theme-options.php:113
-msgid "Save Changes"
 msgstr ""
 
 #: lib/widgets.php:11
@@ -233,22 +189,44 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: lib/widgets.php:47
+#: lib/widgets.php:29
+msgid "Mobile menu"
+msgstr "Menu mobile"
+
+#: lib/widgets.php:57
 msgid "Arbitrary text or HTML with custom class"
 msgstr ""
 
-#: lib/widgets.php:49
+#: lib/widgets.php:59
 msgid "Text with class"
-msgstr ""
+msgstr "Texte avec classe"
 
-#: lib/widgets.php:85
+#: lib/widgets.php:95
 msgid "Title:"
-msgstr ""
+msgstr "Titre:"
 
-#: lib/widgets.php:91
+#: lib/widgets.php:101
 msgid "Custom class"
 msgstr ""
 
-#: lib/widgets.php:101
+#: lib/widgets.php:111
 msgid "Automatically add paragraphs"
 msgstr ""
+
+#: lib/pods-init.php:8
+msgid "Warning! In order to use this theme, you must install"
+msgstr ""
+
+#: lib/pods-init.php:11
+msgid "Warning! In order to use this theme, you must"
+msgstr ""
+
+#: lib/pods-init.php:11
+msgid "activate"
+msgstr ""
+
+#~ msgid "%1$s"
+#~ msgstr "%1$s"
+
+#~ msgid "(Edit)"
+#~ msgstr "(éditer)"
