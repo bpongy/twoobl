@@ -22,7 +22,6 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 			wp_enqueue_script('comment-reply');
 		}
 		
-		//wp_register_script('twoobl_plugins', get_template_directory_uri() . '/assets/js/plugins.js', false, null, true);
 		wp_register_script('twoobl_main', get_template_directory_uri() . '/assets/js/main.min.js', false, null, true);
 		
 		wp_enqueue_script('jquery');

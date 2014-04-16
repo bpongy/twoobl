@@ -20,9 +20,15 @@ module.exports = function(grunt) {
 					'assets/js/bootstrap/scrollspy.js',
 					'assets/js/bootstrap/tab.js',
 					'assets/js/bootstrap/tooltip.js',
-					'assets/js/bootstrap/transitions.js',
+					'assets/js/bootstrap/transitions.js'
 				],
 				dest : 'assets/js/bootstrap.js'
+			},
+			plugins : {
+				src : [
+					'assets/js/plugins/test.js'
+				],
+				dest : 'assets/js/plugins.js'
 			}
 		},
 		uglify : {
@@ -32,11 +38,11 @@ module.exports = function(grunt) {
 					mangle: false
 				},
 				files: {
-					'assets/js/main.min.js' : ['<%= concat.bootstrap.dest %>', 'assets/js/plugins.js', 'assets/js/main.js']
+					'assets/js/main.min.js' : ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.dest %>', 'assets/js/main.js']
 				}
 			}
 		},
-		compass: {
+		compass : {
 			compile: {
 				options: {
 					config: 'config.rb'
