@@ -9,7 +9,7 @@
 
 
 
-/* Bootstrap variables override */
+// Bootstrap variables override
 
 $font-size-base: 16px;
 $line-height-base: 1.4;
@@ -20,12 +20,12 @@ $border-radius-large: 2px;
 $border-radius-small: 1px;
 
 
-/* Here is bootstrap. https://github.com/twbs/bootstrap-sass */
+// Here is bootstrap. https://github.com/twbs/bootstrap-sass
 @import "bootstrap";
 
 
 
-/* mixin example */
+// mixin example
 .btn-twoobl {
 	@include button-variant(#fff, darken($brand-primary, 5%), darken($brand-primary, 8%));
 	text-transform: uppercase;
@@ -33,14 +33,14 @@ $border-radius-small: 1px;
 
 
 
-/* text selection */
+// text selection
 ::selection { background: $gray-lighter; color: $gray-dark; }
 ::-moz-selection { background: $gray-lighter; color: $gray-dark; }
 
-/* responsive images, by default */
+// responsive images, by default
 img { max-width: 100%; height: auto; }
 
-/* Responsive Facebook like box */
+// Responsive Facebook like box
 #fb-root { display: none; }
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] { width: 100%!important; }
 

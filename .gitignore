@@ -11,3 +11,4 @@
 .settings
 
 .sass-cache
+node_modules
