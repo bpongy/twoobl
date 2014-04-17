@@ -25,9 +25,7 @@ module.exports = function(grunt) {
 				dest : 'assets/js/bootstrap.js'
 			},
 			plugins : {
-				src : [
-					'assets/js/plugins/test.js'
-				],
+				src : ['assets/js/plugins/*.js'],
 				dest : 'assets/js/plugins.js'
 			}
 		},
