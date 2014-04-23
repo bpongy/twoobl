@@ -1,0 +1,20 @@
+/*!___                 _     _
+|_   _|      ___  ___ | |__ | |
+  | |_ __ _ / _ \/ _ \| '_ \| |
+  | | V  V ( (_)( (_) | |_) ) |
+  |_|\_/\_/ \___/\___/|_.__/|_|
+  Benjamin PONGY www.redpik.net
+
+*/
+
+
+// placeholder / placeholder with focus
+@mixin twoobl_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.5)) {
+	&::-moz-placeholder           { color: $color; opacity: 1; }
+	&:-ms-input-placeholder       { color: $color; }
+	&::-webkit-input-placeholder  { color: $color; }
+	&:focus::-moz-placeholder           { color: $color-hover; }
+	&:focus:-ms-input-placeholder       { color: $color-hover; }
+	&:focus::-webkit-input-placeholder  { color: $color-hover; }
+}
+

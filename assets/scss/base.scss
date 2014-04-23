@@ -7,6 +7,7 @@
 
 */
 
+@import "mixins";
 @import "variables";
 
 // Here is bootstrap. https://github.com/twbs/bootstrap-sass
@@ -40,9 +41,9 @@ img { max-width: 100%; height: auto; }
 	font-size: 1em;
 	/* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
 	/* -webkit-text-stroke: 0.25px; */
+	
+	a { display: block; }
 }
-
-.title a { display: block; }
 
 
 
