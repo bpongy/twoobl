@@ -80,5 +80,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 }
 
 
+// placeholders
 
+input,
+textarea {
+	@include twoobl_placeholder();
+}
 
