@@ -1,5 +1,17 @@
 <?php
 
+
+
+
+// TODO ; Add theme support for Semantic Markup
+// $markup = array( 'comment-form', 'comment-list', );
+// add_theme_support( 'html5', $markup );
+
+
+
+
+
+
 if( !function_exists( 'twoobl_setup' ) ) {
 	function twoobl_setup() {
 			
@@ -19,6 +31,8 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		// link manager
 		//add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
+		// Remove accents from uploaded files
+		add_filter('sanitize_file_name', 'remove_accents');
 		
 		
 		// TODO ...
@@ -40,7 +54,7 @@ function twoobl_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
 
 function twoobl_excerpt_more( $more ) {
-	return '...<span class="read-more"><a class="btn btn-link" href="'.get_permalink().'">'.__('Read more', 'twoobl').'</a></span>';
+	return '...<span class="read-more"><a class="btn btn-primary btn-xs" href="'.get_permalink().'">'.__('Read more', 'twoobl').'</a></span>';
 }
 add_filter('excerpt_more', 'twoobl_excerpt_more');
 
@@ -254,13 +268,6 @@ if ( !defined('DISALLOW_FILE_EDIT') )
 
 
 /********************************************
- * 		Remove accents from uploaded files
- ********************************************/
-add_filter('sanitize_file_name', 'remove_accents');
-
-
-
-/********************************************
  * 		Favicon
  ********************************************/
 if( !function_exists( 'twoobl_favicon' ) ) {
@@ -273,7 +280,7 @@ add_action('wp_head', 'twoobl_favicon');
 
 
 /**********************************************************************************
- *		vignette Facebook dans le header
+ *		Facebook share image
  **********************************************************************************/
 if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
 	function twoobl_fb_like_thumbnails()

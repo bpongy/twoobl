@@ -9,7 +9,7 @@
 
 
 // placeholder / placeholder with focus
-@mixin twoobl_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.5)) {
+@mixin twoobl_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
 	&::-moz-placeholder           { color: $color; opacity: 1; }
 	&:-ms-input-placeholder       { color: $color; }
 	&::-webkit-input-placeholder  { color: $color; }
