@@ -4,4 +4,5 @@
 	<?php if ( comments_open() || !(!comments_open() && !have_comments()) ) { ?>
 	- <a href="<?php comments_link(); ?>"><?php comments_number( __('no response', 'twoobl'), __('one response', 'twoobl'), __('% responses', 'twoobl') ); ?></a>
 	<?php } ?>
+	- <span class="category-list"><?php echo get_the_category_list(', '); ?></span>
 </div>

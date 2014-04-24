@@ -325,8 +325,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("bootstrap/glyphicons-halflings-regular.eot");
-  src: url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 
 .glyphicon {
@@ -6588,19 +6588,6 @@ button.close {
   color: #333333;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-#fb-root {
-  display: none;
-}
-
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-  width: 100% !important;
-}
-
 .title {
   display: block;
   text-transform: uppercase;
@@ -6635,6 +6622,22 @@ img {
 /* ==========================================================================
    Content
    ========================================================================== */
+img,
+.wp-caption {
+  max-width: 100%;
+  height: auto;
+}
+
+#fb-root {
+  display: none;
+}
+
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+  width: 100% !important;
+}
+
 .entry-header {
   padding-bottom: 1em;
 }
@@ -6697,7 +6700,20 @@ figure.alignnone {
   margin-right: 0;
 }
 
-/* todo */
+.wp-caption-text {
+  text-align: center;
+  font-size: 14px;
+  padding-top: 0.2em;
+  color: #999999;
+}
+.wp-caption-text a {
+  color: inherit;
+  text-decoration: underline;
+}
+.wp-caption-text a:hover {
+  color: #333333;
+}
+
 /* Google map : max-width bug fix */
 #map_canvas img,
 .gmnoprint img {

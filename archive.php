@@ -4,7 +4,7 @@
  * 
  */ ?>
 
-<?php get_template_part('templates/head'); ?>
+<?php get_header(); ?>
 
 <div class="row">
 
@@ -48,4 +48,4 @@
 	<?php get_template_part('templates/sidebar'); ?>
 </div>
 
-<?php get_template_part('templates/footer'); ?>
+<?php get_footer(); ?>

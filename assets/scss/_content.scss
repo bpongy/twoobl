@@ -1,4 +1,18 @@
 
+// images
+img,
+.wp-caption { max-width: 100%; height: auto; }
+
+// Responsive Facebook like box
+#fb-root { display: none; }
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+	width: 100%!important;
+}
+
+
+
 #main {  }
 
 
@@ -40,13 +54,24 @@
 .alignright { float: right; margin: 0 0 5px 20px; }
 figure.alignnone { margin-left: 0; margin-right: 0; }
 
-/* todo */
+// TODO
 .wp-caption {  }
-.wp-caption-text {  }
 .sticky {  }
 .gallery-caption {  }
 .bypostauthor {  }
 
+
+.wp-caption-text {
+	text-align: center;
+	font-size: $font-size-small;
+	padding-top: 0.2em;
+	color: $gray-light;
+	a {
+		color: inherit;
+		text-decoration: underline;
+		&:hover { color: $gray-dark; }
+	}
+}
 
 
 /* Google map : max-width bug fix */

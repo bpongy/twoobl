@@ -14,7 +14,7 @@ Template Name: Large page
 
 ?>
 
-<?php get_template_part('templates/head'); ?>
+<?php get_header(); ?>
 
 <div id="main" role="main">
 
@@ -30,5 +30,5 @@ Template Name: Large page
 	<?php endwhile; ?>
 </div>
 
-<?php get_template_part('templates/footer'); ?>
+<?php get_footer(); ?>
 

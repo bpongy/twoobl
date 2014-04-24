@@ -1,8 +1,9 @@
-<?php get_template_part('templates/head'); ?>
+<?php get_header(); ?>
 
 <div class="row">
 	
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
+		
 		<?php if (!have_posts()) : ?>
 			<div class="alert">
 				<?php _e('Sorry, no results were found.', 'twoobl'); ?>
@@ -39,4 +40,4 @@
 	<?php get_template_part('templates/sidebar'); ?>
 </div>
 
-<?php get_template_part('templates/footer'); ?>
+<?php get_footer(); ?>
