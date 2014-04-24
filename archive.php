@@ -10,7 +10,7 @@
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 		
-		<h1>
+		<h1 class="title">
 			<?php
 	        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
 	        if ($term) {

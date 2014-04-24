@@ -32,6 +32,7 @@
 	text-transform: uppercase;
 	margin: 0;
 	font-size: 1em;
+	@include hyphens();
 	/* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
 	/* -webkit-text-stroke: 0.25px; */
 	
