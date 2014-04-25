@@ -266,11 +266,11 @@ textarea {
 }
 
 a {
-  color: #61b9a0;
+  color: #34a4a1;
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #3f8e78;
+  color: #226a68;
   text-decoration: underline;
 }
 a:focus {
@@ -480,11 +480,11 @@ mark,
 }
 
 .text-primary {
-  color: #61b9a0;
+  color: #34a4a1;
 }
 
 a.text-primary:hover {
-  color: #47a087;
+  color: #287d7b;
 }
 
 .text-success {
@@ -524,11 +524,11 @@ a.text-danger:hover {
 }
 
 .bg-primary {
-  background-color: #61b9a0;
+  background-color: #34a4a1;
 }
 
 a.bg-primary:hover {
-  background-color: #47a087;
+  background-color: #287d7b;
 }
 
 .bg-success {
@@ -2031,10 +2031,10 @@ output {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .form-control:focus {
-  border-color: #61b9a0;
+  border-color: #34a4a1;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(97, 185, 160, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(97, 185, 160, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(52, 164, 161, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(52, 164, 161, 0.6);
 }
 .form-control::-moz-placeholder {
   color: #999999;
@@ -2442,23 +2442,23 @@ select[multiple].input-lg {
 
 .btn-primary {
   color: white;
-  background-color: #61b9a0;
-  border-color: #4fb195;
+  background-color: #34a4a1;
+  border-color: #2e918e;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .btn-primary.dropdown-toggle {
   color: white;
-  background-color: #47a087;
-  border-color: #3c8772;
+  background-color: #287d7b;
+  border-color: #1f6260;
 }
 .btn-primary:active, .btn-primary.active, .open .btn-primary.dropdown-toggle {
   background-image: none;
 }
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-  background-color: #61b9a0;
-  border-color: #4fb195;
+  background-color: #34a4a1;
+  border-color: #2e918e;
 }
 .btn-primary .badge {
-  color: #61b9a0;
+  color: #34a4a1;
   background-color: white;
 }
 
@@ -2551,7 +2551,7 @@ select[multiple].input-lg {
 }
 
 .btn-link {
-  color: #61b9a0;
+  color: #34a4a1;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
@@ -2565,7 +2565,7 @@ select[multiple].input-lg {
   border-color: transparent;
 }
 .btn-link:hover, .btn-link:focus {
-  color: #3f8e78;
+  color: #226a68;
   text-decoration: underline;
   background-color: transparent;
 }

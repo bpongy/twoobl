@@ -161,7 +161,7 @@ add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
 /* Remove stupid self pings */
 if( !function_exists( 'twoobl_remove_self_ping' ) ) {
 	function twoobl_remove_self_ping( &$links ) {
-		$home = get_option( 'home' );
+		$home = home_url('/');
 		foreach ( $links as $l => $link )
 			if ( strpos($link, $home)===false )
 				unset($links[$l]);
