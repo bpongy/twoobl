@@ -3,6 +3,8 @@
 img,
 .wp-caption { max-width: 100%; height: auto; }
 
+
+
 // Responsive Facebook like box
 #fb-root { display: none; }
 .fb_iframe_widget,
@@ -13,9 +15,6 @@ img,
 
 
 
-#main {  }
-
-
 .entry-header {
 	padding-bottom: 1em;
 	.title {
@@ -23,7 +22,7 @@ img,
 	}
 }
 
-/* meta */
+
 
 .meta {
 	color: $gray-light;
@@ -37,18 +36,40 @@ img,
 	}
 }
 
+
+
 .post { padding-bottom: 2em; }
+
+
 
 .entry-content {
 	@include hyphens();
 	
 	.read-more { display: block; text-align: right; }
+	
+	table {
+		@extend .table;
+	}
+	
+	iframe { max-width: 100%!important; }
+
+
+	.wp-caption-text {
+		text-align: center;
+		font-size: $font-size-small;
+		padding-top: 0.2em;
+		color: $gray-light;
+		a {
+			color: inherit;
+			text-decoration: underline;
+			&:hover { color: $gray-dark; }
+		}
+	}
 }
 
-.entry-content iframe { max-width: 100%!important; }
 
 
-/* WP */
+// WordPress classes
 .aligncenter { display: block; margin: 0 auto; }
 .alignleft { float: left; margin: 0 20px 5px 0; }
 .alignright { float: right; margin: 0 0 5px 20px; }
@@ -61,27 +82,17 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 .bypostauthor {  }
 
 
-.wp-caption-text {
-	text-align: center;
-	font-size: $font-size-small;
-	padding-top: 0.2em;
-	color: $gray-light;
-	a {
-		color: inherit;
-		text-decoration: underline;
-		&:hover { color: $gray-dark; }
-	}
-}
 
 
-/* Google map : max-width bug fix */
+
+// Google map : max-width bug fix
 
 #map_canvas img,
 .gmnoprint img { max-width: none; }
 
 
 
-/* tags */
+// tags
 
 .entry-tags {
 	color: $gray-light;
