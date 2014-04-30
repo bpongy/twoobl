@@ -16,10 +16,10 @@ module.exports = function(grunt) {
 					'assets/js/bootstrap/collapse.js',
 					'assets/js/bootstrap/dropdown.js',
 					'assets/js/bootstrap/modal.js',
-					'assets/js/bootstrap/popover.js',
 					'assets/js/bootstrap/scrollspy.js',
 					'assets/js/bootstrap/tab.js',
 					'assets/js/bootstrap/tooltip.js',
+					'assets/js/bootstrap/popover.js',
 					'assets/js/bootstrap/transitions.js'
 				],
 				dest : 'assets/js/bootstrap.js'
