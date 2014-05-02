@@ -112,15 +112,5 @@
    Media Queries BS3
    ========================================================================== */
 
-/* .visible-lg */
-@media (min-width: 1200px) {
-
-}
-
-/* .visible-xs */
-@media (max-width: 767px) {
-
-	@import 'mobilenav';
-}
-
+@import "mediaqueries";
 

@@ -1,5 +1,11 @@
 
-#top { background-color: #eee; padding: 20px 0; }
+#top {
+	background-color: $gray-light;
+	padding: 10px 0;
+}
 
-#site-desc h1,
-#site-desc p { margin: 0; font-size: 1em; margin: 0; }
+#site-desc {
+	text-align: center;
+	font-size: $font-size-base*2;
+	h1, p { margin: 0; font-size: 1em; padding: 0; }
+}
