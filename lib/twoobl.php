@@ -36,7 +36,9 @@ if( !function_exists( 'twoobl_setup' ) ) {
 
 		// Remove accents from uploaded files
 		add_filter('sanitize_file_name', 'remove_accents');
-		
+
+		// Remove gallery inline CSS
+		add_filter('use_default_gallery_style', '__return_false');
 		
 		// TODO ...
 	}
