@@ -69,7 +69,7 @@ add_filter( 'mce_buttons', 'twoobl_mce_buttons_1' );
 if( !function_exists( 'twoobl_mce_buttons_2' ) ) {
 	function twoobl_mce_buttons_2($buttons) {
 		// Add style selector to the beginning of the toolbar
-		array_unshift( $buttons, 'styleselect' );
+		array_unshift( $buttons, 'styleselect', 'alignjustify' );
 
 		// Remove buttons
 	    $remove = array('forecolor');
