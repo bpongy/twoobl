@@ -233,7 +233,6 @@ if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
 			if ( has_post_thumbnail( $posts[0]->ID ) ) {
 				$FB_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $posts[0]->ID), 'thumbnail' );
 				$FB_thumb = $FB_thumb[0];
-				echo "\n<link rel=\"image_src\" href=\"$FB_thumb\" />\n";
 			}
 		}
 		echo "\n<link rel=\"image_src\" href=\"$FB_thumb\" />\n";
