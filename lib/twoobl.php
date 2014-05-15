@@ -115,9 +115,9 @@ add_filter('image_size_names_choose', 'twoobl_show_image_sizes', 11, 1);
 
 
 
-/********************************************
- * 	Function: get post thumbnail permalink
- ********************************************/
+/*************************************************
+ * 	Function: get post featured image permalink
+ *************************************************/
 /*
  * Example of use :
  * if( $thumb = get_post_thumbnail_src(get_the_ID(), 'medium') )
