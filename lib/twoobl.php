@@ -116,6 +116,28 @@ add_filter('image_size_names_choose', 'twoobl_show_image_sizes', 11, 1);
 
 
 /********************************************
+ * 	Function: get post thumbnail permalink
+ ********************************************/
+/*
+ * Example of use :
+ * if( $thumb = get_post_thumbnail_src(get_the_ID(), 'medium') )
+ * 		echo '<img src="'.$thumb.'" alt="" />';
+ */
+if( !function_exists( 'get_post_thumbnail_src' ) ) {
+	function get_post_thumbnail_src( $post_id = null, $size = 'thumbnail' ) {
+		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+		if ( '' != get_the_post_thumbnail($post_id) ) {
+			$post_thumbnail_id = get_post_thumbnail_id( $post_id );
+			$thumb_url = wp_get_attachment_image_src($post_thumbnail_id, $size, true);
+			return $thumb_url[0];
+		}
+		return false;
+	}
+}
+
+
+
+/********************************************
  * 		Remove default image links
  ********************************************/
 if( !function_exists( 'twoobl_remove_imagelink' ) ) {
