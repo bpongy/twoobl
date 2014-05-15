@@ -11,12 +11,12 @@
 		<?php endif; ?>
 		
 		<?php while (have_posts()) : the_post(); ?>
-			<article <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
+			<article <?php post_class('hentry h-entry'); ?> itemscope itemtype="http://schema.org/Article">
 				<header class="entry-header">
-					<h1 class="title entry-title" itemprop="name"><?php the_title(); ?></h1>
+					<h1 class="title entry-title p-name" itemprop="name"><?php the_title(); ?></h1>
 					<?php get_template_part('templates/meta'); ?>
 				</header>
-				<div class="entry-content clearfix" itemprop="articleBody">
+				<div class="entry-content clearfix e-content" itemprop="articleBody">
 					<?php the_content(); ?>
 				</div>
 				<footer>
