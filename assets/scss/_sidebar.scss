@@ -1,4 +1,14 @@
 
-#sidebar .widget {
-	margin-bottom: 2em;
+#sidebar {
+
+	.widget {
+		margin-bottom: 2em;
+	}
+
+	// Responsive Facebook like box
+	.fb_iframe_widget,
+	.fb_iframe_widget span,
+	.fb_iframe_widget span iframe[style] {
+		width: 100%!important;
+	}
 }
