@@ -51,6 +51,10 @@ module.exports = function(grunt) {
 			css: {
 				files: 'assets/scss/*.scss',
 				tasks: ['compass']
+			},
+			js: {
+				files: ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.dest %>', 'assets/js/main.js'],
+				tasks: ['uglify']
 			}
 		}
 	});

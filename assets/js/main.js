@@ -1,10 +1,10 @@
 
 ;(function($){
 	$(document).ready(function(){
-		
+
 		// Bootstrap tooltips
 		$('a[data-toggle="tooltip"]').tooltip();
-		
+
 		// mobilenav
 		var mobile_nav_opened = false;
 		$(document).on('click', function(event) {
