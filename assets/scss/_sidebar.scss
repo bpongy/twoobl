@@ -1,6 +1,8 @@
 
 #sidebar {
-
+	
+	@extend .hidden-print;
+	
 	.widget {
 		margin-bottom: 2em;
 	}

@@ -1,2 +1,4 @@
 
-#colophon {  }
+#colophon {
+	@extend .hidden-print;
+}

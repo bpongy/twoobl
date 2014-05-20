@@ -1,19 +1,58 @@
 
-#comments { padding-top: 2em; }
-#comments .title { font-size: 22px; padding-bottom: 0.2em; }
+#comments {
+	padding-top: 2em;
+	@extend .hidden-print;
 
-.comment-list { margin: 0; padding: 15px 0 20px 0; list-style: none; }
+	.title {
+		font-size: 22px;
+		padding-bottom: 0.2em;
+	}
 
-.comment-list .comment { padding: 4px 0; }
-.comment-list .comment > div { padding: 8px 8px 10px 75px; position: relative; }
-.comment-list .odd { background-color: #f5f5f5; }
-.comment-list .comment-author { float: left; font-weight: bold; }
-.comment-list .avatar { position: absolute; left: 10px; }
-.comment-list .comment-meta { text-align: right; padding-bottom: 10px; }
-.comment-list .comment-meta a { font-size: 11px; text-decoration: none; color: #777; }
+	.comment-list {
+		margin: 0;
+		padding: 15px 0 20px 0;
+		list-style: none;
+	}
+
+	.comment-list {
+		.comment {
+			padding: 4px 0;
+			> div {
+				padding: 8px 8px 10px 75px; position: relative;
+			}
+		}
+		.odd { background-color: #f5f5f5; }
+		.comment-author {
+			float: left;
+			font-weight: bold;
+		}
+		.avatar {
+			position: absolute;
+			left: 10px;
+		}
+		.comment-meta {
+			text-align: right;
+			padding-bottom: 10px;
+			
+			a { font-size: 11px; text-decoration: none; color: #777; }
+		}
+	}
+}
 
 
-#respond label { font-weight: normal; margin: 0; }
-#respond label i { font-style: normal; color: #920; font-size: 10px; }
-#respond input.form-control { max-width: 280px; }
-#respond .form-control { background-color: #fcfcfc; }
+
+#respond {
+	label {
+		font-weight: normal;
+		margin: 0;
+		i {
+			font-style: normal;
+			color: #920;
+			font-size: 10px;
+		}
+	}
+	.form-control {
+		background-color: #fcfcfc;
+	}
+	input.form-control { max-width: 280px; }
+}
