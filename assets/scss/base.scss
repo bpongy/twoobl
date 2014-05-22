@@ -7,14 +7,8 @@
 @import "mixins";
 @import "variables";
 
-// Here is bootstrap. https://github.com/twbs/bootstrap-sass
+// Here is Bootstrap for Sass. https://github.com/twbs/bootstrap-sass
 @import "bootstrap";
-
-// mixin example
-.btn-twoobl {
-	@include button-variant(#fff, darken($brand-primary, 5%), darken($brand-primary, 8%));
-	text-transform: uppercase;
-}
 
 
 
@@ -30,14 +24,11 @@
 	margin: 0;
 	font-size: 1em;
 	@include hyphens();
-	/* anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/ */
-	/* -webkit-text-stroke: 0.25px; */
+	// anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/
+	// -webkit-text-stroke: 0.25px;
 	
 	a { display: block; }
 }
-
-
-
 
 
 
@@ -47,67 +38,41 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
+// Header
 @import "header";
 
 
 
-/* ==========================================================================
-   Content
-   ========================================================================== */
-
+// Content
 @import "content";
 
 
 
-/* ==========================================================================
-   Comments
-   ========================================================================== */
+// Home page
+@import "home";
 
+
+
+// Comments & comment form
 @import "comments";
 
 
 
-/* ==========================================================================
-   Sidebar
-   ========================================================================== */
-
+// Sidebar
 @import "sidebar";
 
 
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
+// Footer
 @import "footer";
 
 
 
-/* ==========================================================================
-   Plugins overrides
-   ========================================================================== */
-
+// Plugins styles & overrides
 @import "plugins";
 
 
 
-/* ==========================================================================
-   Media Queries BS3
-   ========================================================================== */
-
+// Media Queries BS3 & print
 @import "mediaqueries";
 

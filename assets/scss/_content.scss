@@ -70,7 +70,6 @@ img,
 .alignright { float: right; margin: 0 0 5px 20px; }
 figure.alignnone { margin-left: 0; margin-right: 0; }
 
-// TODO
 .wp-caption {  }
 .sticky {  }
 .gallery-caption {  }
@@ -81,14 +80,12 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
 // Google map : max-width bug fix
-
 #map_canvas img,
 .gmnoprint img { max-width: none; }
 
 
 
 // tags
-
 .entry-tags {
 	color: $gray-light;
 	font-size: 0.9em;
@@ -104,15 +101,15 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 	a {
 		color: inherit;
 		text-decoration: underline;
-	}
-	a:hover {
-		color: $gray-dark;
+		&:hover {
+			color: $gray-dark;
+		}
 	}
 }
 
 
-// placeholders
 
+// Twoobl placeholders
 input,
 textarea {
 	@include twoobl_placeholder();
