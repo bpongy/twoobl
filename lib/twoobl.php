@@ -284,7 +284,7 @@ add_filter('get_the_date', 'twoobl_aujourdhui');
 /**********************************************************************************
  *		User features: G+ & Twitter (aim? yim? jabber? seriously?)
  **********************************************************************************/
-if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
+if( !function_exists( 'twoobl_contact_info' ) ) {
 	function twoobl_contact_info($contacts) {
 		unset($contacts['aim']);  
 		unset($contacts['yim']);

@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div id="main" class="col-sm-9" role="main">
+	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
 		<div class="entry-header">
 			<h1 class="title"><?php _e('Sorry, but the page you were trying to view does not exist.', 'twoobl'); ?></h1>
