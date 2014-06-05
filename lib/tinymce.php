@@ -9,6 +9,7 @@ if( !function_exists( 'twoobl_tinymce_custom' ) ) {
 
 		// Fuck you kitchen sink
 		set_user_setting('hidetb', 1);
+		$init['wordpress_adv_hidden'] = false;
 
 		// Remove H1, H6
 		$init['block_formats'] = 'Paragraphe=p;'.__('Title 2', 'twoobl').'=h2;'.__('Title 3', 'twoobl').'=h3;'.__('Title 4', 'twoobl').'=h4;'.__('Title 5', 'twoobl').'=h5;Adresse=address';
