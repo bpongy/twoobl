@@ -9,3 +9,12 @@
 	&:focus::-webkit-input-placeholder  { color: $color-hover; }
 }
 
+
+
+// Homothetic background image size.
+@mixin homotheticBackgroundSize($img, $size: .5) {
+	@if unit($size) == "%" {
+		$size: $size / 100%;
+	}
+	background-size: (image-width($img) * $size) (image-height($img) * $size);
+}
