@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		uglify : {
 			twoobl_main : {
 				options : {
-					banner : '/*! <%= pkg.name %> - <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+					banner : '/*! <%= pkg.name %> */\n',
 					mangle: false
 				},
 				files: {
