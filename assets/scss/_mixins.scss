@@ -12,6 +12,7 @@
 
 
 // Homothetic background image size.
+// http://www.redpik.net/sass/mixin-background-size-qui-ne-deforme-pas-image/
 @mixin homotheticBackgroundSize($img, $size: .5) {
 	@if unit($size) == "%" {
 		$size: $size / 100%;

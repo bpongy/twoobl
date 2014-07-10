@@ -54,6 +54,7 @@ img,
 		font-size: $font-size-small;
 		padding-top: 0.2em;
 		color: $gray-light;
+		line-height: 1.2em;
 		a {
 			color: inherit;
 			text-decoration: underline;
@@ -72,7 +73,6 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 .wp-caption {  }
 .sticky {  }
-.gallery-caption {  }
 .bypostauthor {  }
 
 
@@ -103,6 +103,23 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 		text-decoration: underline;
 		&:hover {
 			color: $gray-dark;
+		}
+	}
+}
+
+
+
+.gallery {
+	@extend .clearfix;
+	.gallery-item {
+		float: left;
+		width: 33.3333%;
+		text-align: center;
+		padding-bottom: $grid-gutter-width;
+		
+		&:nth-child(3n + 1) {
+			clear: left;
+			outline: 1px dotted red;
 		}
 	}
 }

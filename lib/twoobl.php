@@ -4,8 +4,10 @@
 
 
 // TODO ; Add theme support for Semantic Markup
-// $markup = array( 'comment-form', 'comment-list', );
-// add_theme_support( 'html5', $markup );
+
+//$HTML5markup = array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
+$HTML5markup = array( 'gallery' );
+add_theme_support( 'html5', $HTML5markup );
 
 
 
@@ -297,4 +299,32 @@ if( !function_exists( 'twoobl_contact_info' ) ) {
 }
 add_filter('user_contactmethods', 'twoobl_contact_info');
 
+
+
+/*************************************************
+ * 	Function: get adjacent post links
+ *************************************************/
+/*
+ * Example of use :
+ * echo get_twoobl_prevnext();
+ */
+if( !function_exists( 'get_twoobl_prevnext' ) ) {
+	function get_twoobl_prevnext() {
+		global $post;
+		$prev_post = get_adjacent_post();
+		$next_post = get_adjacent_post(false, '', false);
+		
+		if( !$prev_post && !$next_post )
+			return;
+
+		$prevnext = '<nav class="post-nav row">';
+			if( $prev_post )
+				$prevnext .= '<div class="col-xs-6"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($prev_post).'" title="'.esc_attr($prev_post->post_title).'">'.__('&larr; Older posts', 'twoobl').'</a></div>';
+			if( $next_post )
+				$prevnext .= '<div class="col-xs-6 text-right"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($next_post).'" title="'.esc_attr($next_post->post_title).'">'.__('Newer posts &rarr;', 'twoobl').'</a></div>';
+		$prevnext .= '</nav>';
+		
+		return $prevnext;
+	}
+}
 
