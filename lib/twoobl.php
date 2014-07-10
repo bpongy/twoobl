@@ -328,3 +328,20 @@ if( !function_exists( 'get_twoobl_prevnext' ) ) {
 	}
 }
 
+
+
+/*************************************************
+ * 	Add thumbnail to feed
+ *************************************************/
+if( !function_exists( 'twoobl_feed_post_thumbnail' ) ) {
+	function twoobl_feed_post_thumbnail($content) {
+		global $post;
+		if ( '' != get_the_post_thumbnail($post->ID) ) {
+			$content = '<p>' . get_the_post_thumbnail($post->ID, 'thumbnail') . '</p>' . get_the_content();
+		}
+		return $content;
+	}
+}
+add_filter('the_excerpt_rss', 'twoobl_feed_post_thumbnail');
+add_filter('the_content_feed', 'twoobl_feed_post_thumbnail');
+
