@@ -4,8 +4,15 @@
 	padding: 10px 0;
 }
 
+#header-logo {
+	a {
+		display: block;
+	}
+}
+
 #site-desc {
 	text-align: center;
 	font-size: $font-size-base*2;
+	line-height: 1.1em;
 	h1, p { margin: 0; font-size: 1em; padding: 0; }
 }

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Twoobl v1.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-28 15:59+0100\n"
-"PO-Revision-Date: 2014-04-28 16:01+0100\n"
+"PO-Revision-Date: 2014-07-10 09:42:17+0000\n"
 "Last-Translator: Ben <benjamin.pongy@gmail.com>\n"
 "Language-Team: Ben <benjamin.pongy@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -11,268 +11,318 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
-"X-Poedit-Basepath: ../\n"
 "X-Poedit-Language: French\n"
-"X-Textdomain-Support: yes\n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
 
-# @ twoobl
 #: searchform.php:4
+#@ twoobl
 msgid "Search"
 msgstr "Recherche"
 
-# @ twoobl
 #: searchform.php:6
+#@ twoobl
 msgid "OK"
 msgstr "OK"
 
-# @ twoobl
-#: index.php:8 archive.php:37 search.php:13
+#: archive.php:37
+#: index.php:8
+#: search.php:13
+#@ twoobl
 msgid "Sorry, nothing found."
 msgstr "Désolé, rien n'a été trouvé."
 
-# @ twoobl
-#: comments.php:10 templates/meta.php:5
+#: comments.php:10
+#: templates/meta.php:5
+#@ twoobl
 msgid "no response"
 msgstr "aucun commentaire"
 
-# @ twoobl
-#: comments.php:10 templates/meta.php:5
+#: comments.php:10
+#: templates/meta.php:5
+#@ twoobl
 msgid "one response"
 msgstr "un commentaire"
 
-# @ twoobl
-#: comments.php:10 templates/meta.php:5
+#: comments.php:10
+#: templates/meta.php:5
+#@ twoobl
 msgid "% responses"
 msgstr "% commentaires"
 
-# @ twoobl
 #: comments.php:28
+#@ twoobl
 msgid "Comment navigation"
 msgstr ""
 
-# @ twoobl
 #: comments.php:29
+#@ twoobl
 msgid "&larr; Older Comments"
 msgstr ""
 
-# @ twoobl
 #: comments.php:30
+#@ twoobl
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-# @ twoobl
 #: comments.php:35
+#@ twoobl
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
-# @ twoobl
 #: comments.php:42
+#@ twoobl
 msgid "Leave a reply"
 msgstr "Laisser une réponse"
 
-# @ twoobl
 #: comments.php:47
 #, php-format
+#@ twoobl
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Vous devez être <a href=\"%s\">loggué</a> pour poster un commentaire."
 
-# @ twoobl
 #: comments.php:55
 #, php-format
+#@ twoobl
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr ""
 
-# @ twoobl
 #: comments.php:56
+#@ twoobl
 msgid "Log out of this account"
 msgstr "Se déconnecter"
 
-# @ twoobl
 #: comments.php:56
+#@ twoobl
 msgid "Log out &raquo;"
 msgstr "Se déconnecter &raquo;"
 
-# @ twoobl
 #: comments.php:60
+#@ twoobl
 msgid "Name"
 msgstr "Nom"
 
-# @ twoobl
-#: comments.php:60 comments.php:64
+#: comments.php:60
+#: comments.php:64
+#@ twoobl
 msgid " (required)"
 msgstr " (obligatoire)"
 
-# @ twoobl
 #: comments.php:64
+#@ twoobl
 msgid "Email (will not be published)"
 msgstr "Email (non publié)"
 
-# @ twoobl
 #: comments.php:68
+#@ twoobl
 msgid "Website"
 msgstr "Site web"
 
-# @ twoobl
 #: comments.php:73
+#@ twoobl
 msgid "Comment"
 msgstr "Commentaire"
 
-# @ twoobl
 #: comments.php:76
+#@ twoobl
 msgid "Submit Comment"
 msgstr "Commenter"
 
-# @ twoobl
 #: 404.php:8
+#@ twoobl
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "Désolé mais cette page n'existe pas."
 
-# @ twoobl
 #: archive.php:21
 #, php-format
+#@ twoobl
 msgid "Daily archives: %s"
 msgstr ""
 
-# @ twoobl
 #: archive.php:23
 #, php-format
+#@ twoobl
 msgid "Monthly archives: %s"
 msgstr "Archives mensuelles: %s"
 
-# @ twoobl
 #: archive.php:25
 #, php-format
+#@ twoobl
 msgid "Yearly archives: %s"
 msgstr ""
 
-# @ twoobl
 #: archive.php:29
 #, php-format
+#@ twoobl
 msgid "Author archives: %s"
 msgstr ""
 
-# @ twoobl
 #: single.php:9
+#@ twoobl
 msgid "Sorry, no results were found."
 msgstr "Désolé, rien n'a été trouvé."
 
-# @ twoobl
 #: single.php:23
+#@ twoobl
 msgid "Pages:"
 msgstr "Pages:"
 
-# @ twoobl
-#: single.php:33 templates/pagination.php:4
+#: lib/twoobl.php:322
+#: templates/pagination.php:4
+#@ twoobl
 msgid "&larr; Older posts"
 msgstr "&larr; Articles plus anciens"
 
-# @ twoobl
-#: single.php:34 templates/pagination.php:5
+#: lib/twoobl.php:324
+#: templates/pagination.php:5
+#@ twoobl
 msgid "Newer posts &rarr;"
 msgstr "Articles plus récents &rarr;"
 
-# @ twoobl
 #: search.php:8
 #, php-format
+#@ twoobl
 msgid "Search Results for: %s"
 msgstr "Résultat de recherche pour %s"
 
-# @ twoobl
 #: templates/meta.php:2
+#@ twoobl
 msgid "By"
 msgstr "Par"
 
-# @ twoobl
-#: lib/twoobl.php:23
+#: lib/twoobl.php:25
+#@ twoobl
 msgid "Primary navigation"
 msgstr "Navigation primaire"
 
-# @ twoobl
-#: lib/twoobl.php:57
+#: lib/twoobl.php:61
+#@ twoobl
 msgid "Read more"
 msgstr "Lire la suite"
 
-# @ twooble
-#: lib/twoobl.php:253
+#: lib/twoobl.php:219
 #, php-format
+#@ twooble
 msgid "Page %s"
 msgstr "Page %s"
 
-# @ twoobl
-#: lib/twoobl.php:311
+#: lib/twoobl.php:276
+#@ twoobl
 msgid "Today"
 msgstr "Aujourd'hui"
 
-# @ twoobl
-#: lib/twoobl.php:329
+#: lib/twoobl.php:294
+#@ twoobl
 msgid "Google+ URL"
 msgstr ""
 
-# @ twoobl
-#: lib/twoobl.php:330
+#: lib/twoobl.php:295
+#@ twoobl
 msgid "Facebook URL"
 msgstr ""
 
-# @ twoobl
-#: lib/twoobl.php:331
+#: lib/twoobl.php:296
+#@ twoobl
 msgid "Twitter profile"
 msgstr ""
 
-# @ twoobl
 #: lib/widgets.php:11
+#@ twoobl
 msgid "Sidebar"
 msgstr ""
 
-# @ twoobl
 #: lib/widgets.php:20
+#@ twoobl
 msgid "Footer"
 msgstr ""
 
-# @ twoobl
 #: lib/widgets.php:29
+#@ twoobl
 msgid "Mobile menu"
 msgstr "Menu mobile"
 
-# @ twoobl
 #: lib/widgets.php:57
+#@ twoobl
 msgid "Arbitrary text or HTML with custom class"
 msgstr ""
 
-# @ twoobl
 #: lib/widgets.php:59
+#@ twoobl
 msgid "Text with class"
 msgstr "Texte avec classe"
 
-# @ twoobl
 #: lib/widgets.php:95
+#@ twoobl
 msgid "Title:"
 msgstr "Titre:"
 
-# @ twoobl
 #: lib/widgets.php:101
+#@ twoobl
 msgid "Custom class"
 msgstr ""
 
-# @ twoobl
 #: lib/widgets.php:111
+#@ twoobl
 msgid "Automatically add paragraphs"
 msgstr ""
 
-# @ twoobl
 #: lib/pods-init.php:8
+#@ twoobl
 msgid "Warning! In order to use this theme, you must install"
 msgstr ""
 
-# @ twoobl
 #: lib/pods-init.php:11
+#@ twoobl
 msgid "Warning! In order to use this theme, you must"
 msgstr ""
 
-# @ default
 #: lib/pods-init.php:11
+#@ default
 msgid "activate"
 msgstr ""
+
+#: lib/tinymce.php:15
+#@ twoobl
+msgid "Title 2"
+msgstr ""
+
+#: lib/tinymce.php:15
+#@ twoobl
+msgid "Title 3"
+msgstr ""
+
+#: lib/tinymce.php:15
+#@ twoobl
+msgid "Title 4"
+msgstr ""
+
+#: lib/tinymce.php:15
+#@ twoobl
+msgid "Title 5"
+msgstr ""
+
+#: lib/tinymce.php:20
+#@ twoobl
+msgid "BS alert info"
+msgstr ""
+
+#: lib/tinymce.php:26
+#@ twoobl
+msgid "BS alert warning"
+msgstr ""
+
+#: lib/tinymce.php:32
+#@ twoobl
+msgid "BS well"
+msgstr ""
+
+#: lib/tinymce.php:38
+#@ twoobl
+msgid "Code"
+msgstr ""
+

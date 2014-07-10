@@ -6793,7 +6793,7 @@ button.close {
 }
 
 @media print {
-  .hidden-print, #comments, #sidebar, #colophon {
+  .hidden-print, #comments, #sidebar, #colophon, #search-top {
     display: none !important;
   }
 }
@@ -6832,9 +6832,14 @@ button.close {
   padding: 10px 0;
 }
 
+#header-logo a {
+  display: block;
+}
+
 #site-desc {
   text-align: center;
   font-size: 32px;
+  line-height: 1.1em;
 }
 #site-desc h1, #site-desc p {
   margin: 0;
@@ -7163,5 +7168,32 @@ textarea:focus::-webkit-input-placeholder {
   #check-navmob:checked ~ #playground {
     transform: translate3D(90%, 0, 0);
     -webkit-transform: translate3D(90%, 0, 0);
+  }
+}
+@media print {
+  #header-logo {
+    border: 1px dashed red;
+    text-align: center;
+  }
+  #header-logo a img {
+    display: block;
+    max-width: 50px;
+    margin: 0 auto;
+  }
+
+  #site-desc {
+    font-size: 1em;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  #main {
+    float: none;
+    width: auto;
+  }
+  #main a {
+    text-decoration: underline;
   }
 }

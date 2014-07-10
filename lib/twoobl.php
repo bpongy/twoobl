@@ -216,7 +216,7 @@ if( !function_exists( 'twoobl_like_twentytwelve_wp_title' ) ) {
 	
 		// Add a page number if necessary.
 		if ( $paged >= 2 || $page >= 2 )
-			$title = "$title $sep " . sprintf( __('Page %s', 'twooble'), max( $paged, $page ) );
+			$title = "$title $sep " . sprintf( __('Page %s', 'twoobl'), max( $paged, $page ) );
 	
 		return $title;
 	}

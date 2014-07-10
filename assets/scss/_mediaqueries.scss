@@ -29,5 +29,38 @@
 
 // print
 @media print {
+
+	#header-logo {
+		border: 1px dashed red;
+		text-align: center;
+		a {
+			img {
+				display: block;
+				max-width: 50px;
+				margin: 0 auto;
+			}
+		}
+	}
 	
+	#site-desc {
+		font-size: 1em;
+	}
+
+	#search-top {
+		@extend .hidden-print;
+	}
+
+	.container {
+		max-width: 100%;
+	}
+
+	#main {
+		float: none;
+		width: auto;
+		
+		a {
+			text-decoration: underline;
+		}
+	}
+
 }
