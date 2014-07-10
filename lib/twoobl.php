@@ -345,3 +345,20 @@ if( !function_exists( 'twoobl_feed_post_thumbnail' ) ) {
 add_filter('the_excerpt_rss', 'twoobl_feed_post_thumbnail');
 add_filter('the_content_feed', 'twoobl_feed_post_thumbnail');
 
+
+
+
+
+
+/*************************************************
+ * 	Add default avatar
+ *************************************************/
+if ( !function_exists('twoobl_default_avatar') ) {
+	function twoobl_default_avatar($avatar_defaults) {
+		$twoobl_avatar = get_bloginfo('template_directory') . '/assets/img/avatar-default.png';
+		$avatar_defaults[$twoobl_avatar] = 'twoobl';
+
+		return $avatar_defaults;
+	}
+}
+add_filter( 'avatar_defaults', 'twoobl_default_avatar' );
