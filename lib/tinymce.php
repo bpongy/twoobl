@@ -8,7 +8,8 @@ if( !function_exists( 'twoobl_tinymce_custom' ) ) {
 	function twoobl_tinymce_custom($init) {
 
 		// Fuck you kitchen sink
-		set_user_setting('hidetb', 1);
+		set_user_setting('hidetb', 0);
+		$init['hidetb'] = 0;
 		$init['wordpress_adv_hidden'] = false;
 
 		// Remove H1, H6
