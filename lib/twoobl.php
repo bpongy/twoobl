@@ -173,7 +173,7 @@ if( !function_exists( 'twoobl_headcleanup' ) ) {
 }
 add_action('init', 'twoobl_headcleanup');
 
-/* Remove crap in dashboard */
+// Remove crap in dashboard
 if( !function_exists( 'twoobl_remove_dashboard_widgets' ) ) {
 	function twoobl_remove_dashboard_widgets() {
 		global $wp_meta_boxes;
@@ -184,7 +184,7 @@ if( !function_exists( 'twoobl_remove_dashboard_widgets' ) ) {
 }
 add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
 
-/* Remove stupid self pings */
+// Remove stupid self pings
 if( !function_exists( 'twoobl_remove_self_ping' ) ) {
 	function twoobl_remove_self_ping( &$links ) {
 		$home = home_url('/');
@@ -194,6 +194,14 @@ if( !function_exists( 'twoobl_remove_self_ping' ) ) {
 	}
 }
 add_action('pre_ping', 'twoobl_remove_self_ping');
+
+// Remove generator meta tag in RSS feed
+if( !function_exists( 'twoobl_remove_rss_generator' ) ) {
+	function twoobl_remove_rss_generator() {
+		return'';
+	}
+}
+add_filter('the_generator','twoobl_remove_rss_generator');
 
 
 

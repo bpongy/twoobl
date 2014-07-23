@@ -59,13 +59,15 @@
 
 
 
-
 // now, Twoobl.
 
 @import "content";
 
 body {
 	padding: 10px;
+	a {
+		text-decoration: underline;
+	}
 }
 
 table {
