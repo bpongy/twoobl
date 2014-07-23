@@ -17,14 +17,14 @@
 
 <body <?php body_class(); ?>>
 <?php
-if( defined( '_MOBILE_NAV_' ) ) {
+if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
 	echo '<input type="checkbox" id="check-navmob" class="hidden">';
 }
 ?>
 <div id="playground">
 
 	<?php
-	if( defined( '_MOBILE_NAV_' ) )
+	if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
 		echo '<label id="menu-button" for="check-navmob" class="visible-xs"></label>';
 	?>
 

@@ -140,6 +140,54 @@ if( !function_exists( 'get_post_thumbnail_src' ) ) {
 
 
 /********************************************
+ * 		Auto non-breakable space
+ ********************************************/
+if( !function_exists( 'twoobl_automatic_nbsp' ) ) {
+	function twoobl_automatic_nbsp($content) {
+		$chars = '?!:;';
+		$content = preg_replace('/ (['.$chars.'])/', '&nbsp;${1}', $content);
+		return $content;
+	}
+}
+add_filter( 'the_content', 'automatic_nbsp' );
+
+
+
+
+
+
+
+/****************************************************
+ * 		Add thumbnails column in posts & pages list
+ ****************************************************/
+if( defined( '_THUMBNAIL_COLUMN_' ) && _THUMBNAIL_COLUMN_ ) {
+	add_filter('manage_posts_columns', 'twoobl_postsColumns', 1);
+	add_filter('manage_pages_columns', 'twoobl_postsColumns', 1);
+	add_action('manage_posts_custom_column', 'twoobl_postsCustomColumn', 1, 2);
+	add_action('manage_pages_custom_column', 'twoobl_postsCustomColumn', 1, 2);
+	
+	function twoobl_postsColumns($columns) {
+		$pos = 1;
+		$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', 'twoobl')), array_slice($columns, $pos));
+		return $columns;
+	}
+	
+	function twoobl_postsCustomColumn($column_name, $id) {
+		if ($column_name === 'twoobl_post_thumbnail')
+			echo '<a href="'.get_edit_post_link().'"><img src="'.get_post_thumbnail_src().'" width="50" alt="" /></a>';
+	}
+	
+	function twoobl_admin_inline_css() {
+		echo '<style type="text/css">';
+		echo '.column-twoobl_post_thumbnail { width: 50px; }';
+		echo '</style>';
+	}
+	add_action('admin_head', 'twoobl_admin_inline_css');
+}
+
+
+
+/********************************************
  * 		Remove default image links
  ********************************************/
 if( !function_exists( 'twoobl_remove_imagelink' ) ) {
