@@ -1,19 +1,5 @@
 <?php
 
-
-
-
-// TODO ; Add theme support for Semantic Markup
-
-//$HTML5markup = array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
-$HTML5markup = array( 'gallery' );
-add_theme_support( 'html5', $HTML5markup );
-
-
-
-
-
-
 if( !function_exists( 'twoobl_setup' ) ) {
 	function twoobl_setup() {
 			
@@ -31,7 +17,12 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-background');
 		// link manager
-		//add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+		// add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+		
+		// Add theme support for Semantic Markup
+		// $HTML5markup = array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
+		$HTML5markup = array( 'gallery' );
+		add_theme_support( 'html5', $HTML5markup );
 
 		// Remove accents from uploaded files
 		add_filter('sanitize_file_name', 'remove_accents');
@@ -145,15 +136,11 @@ if( !function_exists( 'get_post_thumbnail_src' ) ) {
 if( !function_exists( 'twoobl_automatic_nbsp' ) ) {
 	function twoobl_automatic_nbsp($content) {
 		$chars = '?!:;';
-		$content = preg_replace('/ (['.$chars.'])/', '&nbsp;${1}', $content);
+		$content = preg_replace('/ (['.$chars.'])/is', '&nbsp;${1}', $content);
 		return $content;
 	}
 }
-add_filter( 'the_content', 'automatic_nbsp' );
-
-
-
-
+add_filter( 'the_content', 'twoobl_automatic_nbsp' );
 
 
 
@@ -250,6 +237,36 @@ if( !function_exists( 'twoobl_remove_rss_generator' ) ) {
 	}
 }
 add_filter('the_generator','twoobl_remove_rss_generator');
+
+// Remove unused post classes
+function twoobl_clean_post_class($classes) {
+  foreach ($classes as $k => $class) {
+    if( 0 === strpos( $class, 'tag-' )
+      || 0 === strpos( $class, 'category-' )
+      || 0 === strpos( $class, 'post-' )
+      || 0 === strpos( $class, 'type-' )
+      || $class == 'status-publish'
+      || $class == 'format-standard' )
+      unset($classes[$k]);
+  }
+  return $classes;
+}
+add_filter('post_class','twoobl_clean_post_class');
+
+// Remove unused body classes
+function twoobl_clean_body_class($classes) {
+  foreach ($classes as $k => $class) {
+    if( 0 === strpos( $class, 'postid-' )
+      || 0 === strpos( $class, 'page-id-' )
+      || $class == 'page-template-default'  )
+      unset($classes[$k]);
+  }
+  return $classes;
+}
+add_filter('body_class','twoobl_clean_body_class');
+
+
+
 
 
 
