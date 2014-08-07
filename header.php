@@ -9,9 +9,9 @@
 	<?php /*<link href='http://fonts.googleapis.com/css?family=Signika:600' rel='stylesheet' type='text/css'> */ ?>
 
 	<!-- IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
 
