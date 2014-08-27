@@ -54,7 +54,7 @@ if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
 			<nav class="nav-main" role="navigation">
 				<?php
 				if( has_nav_menu('primary_nav') )
-					wp_nav_menu(array('theme_location' => 'primary_nav', 'menu_class' => 'nav nav-pills'));
+					wp_nav_menu(array('theme_location' => 'primary_nav', 'container' => false, 'menu_class' => 'nav nav-pills'));
 				?>
 			</nav>
 
