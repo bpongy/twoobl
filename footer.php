@@ -10,7 +10,7 @@
 </div>
 <?php
 if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
-	echo '<div id="navmob" class="visible-xs">';
+	echo '<div id="navmob" class="sb-slidebar sb-left">';
 	dynamic_sidebar('mobile_menu');
 	echo '</div>';
 }

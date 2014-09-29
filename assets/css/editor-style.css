@@ -3224,3 +3224,6 @@ textarea:focus::-webkit-input-placeholder {
 body {
   padding: 10px;
 }
+body a {
+  text-decoration: underline;
+}

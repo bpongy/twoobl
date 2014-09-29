@@ -16,21 +16,16 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php
-if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
-	echo '<input type="checkbox" id="check-navmob" class="hidden">';
-}
-?>
-<div id="playground">
-
-	<?php
-	if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
-		echo '<label id="menu-button" for="check-navmob" class="visible-xs"></label>';
-	?>
+<div id="playground" class="sb-site-container">
 
 	<header id="top" role="banner">
 		<div class="container">
-			
+
+			<?php
+			if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
+				echo '<span class="sb-toggle-left visible-xs"></span>';
+			?>
+
 			<div class="row">
 
 				<div id="header-logo" class="col-md-4">

@@ -6847,6 +6847,20 @@ button.close {
   padding: 0;
 }
 
+.sb-toggle-left {
+  font-size: 32px;
+  font-weight: bold;
+  width: 40px;
+  position: absolute;
+  z-index: 4;
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+}
+.sb-toggle-left:before {
+  content: '≡';
+}
+
 img,
 .wp-caption {
   max-width: 100%;
@@ -7065,114 +7079,298 @@ textarea:focus::-webkit-input-placeholder {
 /* .gform_button {
 	@extend .btn, .btn-primary;
 }*/
-@media (max-width: 767px) {
-  body {
-    overflow-x: hidden;
+/*
+.wp-pagenavi {
+	text-align: center;
+	clear: both;
+	span, a {
+		display: inline-block;
+		padding: 0 6px;
+		margin: 0 2px;
+	}
+	.current {
+		color: #fff;
+		background-color: $brand-primary;
+	}
+}
+*/
+#navmob .widget {
+  color: #fff;
+  padding: 1em;
+}
+#navmob .widget > .title {
+  padding-bottom: .5em;
+  text-transform: uppercase;
+}
+#navmob .widget .textwidget {
+  font-size: 0.9em;
+  line-height: 1.1em;
+}
+#navmob .menu {
+  margin: 0;
+  padding: 0;
+}
+#navmob .menu li {
+  display: block;
+  clear: both;
+}
+#navmob .menu li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+#navmob ul li a:hover {
+  background-color: transparent;
+}
+#navmob ul li a .caret {
+  display: none;
+}
+#navmob .menu > li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#navmob .menu > li ul {
+  padding-bottom: 1em;
+}
+#navmob .menu > li ul li a:hover {
+  text-decoration: underline;
+}
+#navmob .menu > li > a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 1.1em;
+  padding: 12px 20px;
+}
+#navmob .menu > li > a:hover,
+#navmob .menu > li > a:focus,
+#navmob .menu > li > a:active {
+  color: #fff;
+  background-color: #34a4a1;
+}
+
+/* -----------------------------------
+ * Slidebars
+ * Version 0.10.2
+ * http://plugins.adchsm.me/slidebars/
+ *
+ * Written by Adam Smith
+ * http://www.adchsm.me/
+ *
+ * Released under MIT License
+ * http://plugins.adchsm.me/slidebars/license.txt
+ *
+ * -------------------
+ * Slidebars CSS Index
+ *
+ * 001 - Box Model, Html & Body
+ * 002 - Site
+ * 003 - Slidebars
+ * 004 - Animation
+ * 005 - Helper Classes
+ *
+ * ----------------------------
+ * 001 - Box Model, Html & Body
+ */
+html, body, #sb-site, .sb-site-container, .sb-slidebar {
+  /* Set box model to prevent any user added margins or paddings from altering the widths or heights. */
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  /* Stops horizontal scrolling. */
+}
+
+html {
+  height: 100%;
+  /* Site is as tall as device. */
+}
+
+body {
+  min-height: 100%;
+  height: auto;
+  position: relative;
+  /* Required for static Slidebars to function properly. */
+}
+
+/* Site scroll locking - prevent site from scrolling when a Slidebar is open, except when static Slidebars are only available. */
+html.sb-scroll-lock.sb-active:not(.sb-static) {
+  overflow: hidden;
+}
+
+/* ----------
+ * 002 - Site
+ */
+#sb-site, .sb-site-container {
+  /* You may now use class .sb-site-container instead of #sb-site and use your own id. However please make sure you don't set any of the following styles any differently on your id. */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  /* Site sits above Slidebars */
+  background-color: white;
+  /* Default background colour, overwrite this with your own css. I suggest moving your html or body background styling here. Making this transparent will allow the Slidebars beneath to be visible. */
+}
+
+/* ---------------
+ * 003 - Slidebars
+ */
+.sb-slidebar {
+  height: 100%;
+  overflow-y: auto;
+  /* Enable vertical scrolling on Slidebars when needed. */
+  position: fixed;
+  top: 0;
+  z-index: 0;
+  /* Slidebars sit behind sb-site. */
+  display: none;
+  /* Initially hide the Slidebars. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+  background-color: #222222;
+  /* Default Slidebars background colour, overwrite this with your own css. */
+  -webkit-transform: translate(0px);
+  /* Fixes issues with translated and z-indexed elements on iOS 7. */
+}
+
+.sb-left {
+  left: 0;
+  /* Set Slidebar to the left. */
+}
+
+.sb-right {
+  right: 0;
+  /* Set Slidebar to the right. */
+}
+
+html.sb-static .sb-slidebar,
+.sb-slidebar.sb-static {
+  position: absolute;
+  /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
+}
+
+.sb-slidebar.sb-active {
+  display: block;
+  /* Makes Slidebars visibile when open. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+}
+
+.sb-style-overlay {
+  z-index: 9999;
+  /* Set z-index high to ensure it overlays any other site elements. */
+}
+
+.sb-momentum-scrolling {
+  -webkit-overflow-scrolling: touch;
+  /* Adds native momentum scrolling for iOS & Android devices. */
+}
+
+/* Slidebar widths for browsers/devices that don't support media queries. */
+.sb-slidebar {
+  width: 30%;
+}
+
+.sb-width-thin {
+  width: 15%;
+}
+
+.sb-width-wide {
+  width: 45%;
+}
+
+@media (max-width: 480px) {
+  /* Slidebar widths on extra small screens. */
+  .sb-slidebar {
+    width: 70%;
   }
 
-  #menu-button {
-    font-size: 32px;
-    font-weight: bold;
-    width: 40px;
-    position: absolute;
-    z-index: 4;
-    margin: 0;
-    padding: 15px;
-    cursor: pointer;
+  .sb-width-thin {
+    width: 55%;
   }
 
-  #menu-button:before {
-    content: '≡';
-  }
-
-  #navmob {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 90%;
-    height: 100%;
-    z-index: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    background: #4b4b4d;
-    color: #fff;
-  }
-
-  #navmob .menu {
-    margin: 0;
-    padding: 0;
-  }
-
-  #navmob .menu li {
-    display: block;
-    clear: both;
-  }
-
-  #navmob .menu li a {
-    display: block;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  #navmob ul li a:hover {
-    background-color: transparent;
-  }
-
-  #navmob ul li a .caret {
-    display: none;
-  }
-
-  #navmob .menu > li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  #navmob .menu > li > a {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-size: 1.1em;
-    padding: 12px 20px;
-  }
-
-  #navmob .menu > li > a:hover,
-  #navmob .menu > li > a:focus,
-  #navmob .menu > li > a:active {
-    color: #fff;
-    background-color: #34a4a1;
-  }
-
-  #navmob .dropdown-menu {
-    position: relative;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    border: none;
-    padding-left: 40px;
-    padding-top: 5px;
-    float: none;
-    z-index: 10;
-  }
-
-  #playground {
-    background: #fff;
-    display: block;
-    position: relative;
-    min-height: 100%;
-    transform: translate3D(0, 0, 0);
-    -webkit-transform: translate3D(0, 0, 0);
-    transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    z-index: 2;
-  }
-
-  #check-navmob:checked ~ #playground {
-    transform: translate3D(90%, 0, 0);
-    -webkit-transform: translate3D(90%, 0, 0);
+  .sb-width-wide {
+    width: 85%;
   }
 }
+@media (min-width: 481px) {
+  /* Slidebar widths on small screens. */
+  .sb-slidebar {
+    width: 55%;
+  }
+
+  .sb-width-thin {
+    width: 40%;
+  }
+
+  .sb-width-wide {
+    width: 70%;
+  }
+}
+@media (min-width: 768px) {
+  /* Slidebar widths on medium screens. */
+  .sb-slidebar {
+    width: 40%;
+  }
+
+  .sb-width-thin {
+    width: 25%;
+  }
+
+  .sb-width-wide {
+    width: 55%;
+  }
+}
+@media (min-width: 992px) {
+  /* Slidebar widths on large screens. */
+  .sb-slidebar {
+    width: 30%;
+  }
+
+  .sb-width-thin {
+    width: 15%;
+  }
+
+  .sb-width-wide {
+    width: 45%;
+  }
+}
+@media (min-width: 1200px) {
+  /* Slidebar widths on extra large screens. */
+  .sb-slidebar {
+    width: 20%;
+  }
+
+  .sb-width-thin {
+    width: 5%;
+  }
+
+  .sb-width-wide {
+    width: 35%;
+  }
+}
+/* ---------------
+ * 004 - Animation
+ */
+.sb-slide, #sb-site, .sb-site-container, .sb-slidebar {
+  -webkit-transition: -webkit-transform 400ms ease;
+  -moz-transition: -moz-transform 400ms ease;
+  -o-transition: -o-transform 400ms ease;
+  transition: transform 400ms ease;
+  -webkit-transition-property: -webkit-transform, left, right;
+  /* Add left/right for Android < 4.4. */
+  -webkit-backface-visibility: hidden;
+  /* Prevents flickering. This is non essential, and you may remove it if your having problems with fixed background images in Chrome. */
+}
+
+/* --------------------
+ * 005 - Helper Classes
+ */
+.sb-hide {
+  display: none;
+  /* Optionally applied to control classes when Slidebars is disabled over a certain width. */
+}
+
 @media print {
   #header-logo {
-    border: 1px dashed red;
     text-align: center;
   }
   #header-logo a img {

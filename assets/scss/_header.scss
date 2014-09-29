@@ -16,3 +16,19 @@
 	line-height: 1.1em;
 	h1, p { margin: 0; font-size: 1em; padding: 0; }
 }
+
+
+
+.sb-toggle-left {
+	font-size: 32px;
+	font-weight: bold;
+	width: 40px;
+	position: absolute;
+	z-index: 4;
+	margin: 0;
+	padding: 15px;
+	cursor: pointer;
+	
+	&:before { content: '≡'; }
+}
+
