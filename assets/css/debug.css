@@ -1,10 +1,23 @@
 .debug-twoobl .label {
   font-weight: normal;
   font-size: 12px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 .debug-twoobl.debug-bottom {
   position: fixed;
   z-index: 8000;
   left: 5px;
   bottom: 5px;
+}
+.debug-twoobl.debug-bottom .label.visible-xs-inline:after {
+  content: " (max-width: 767px)";
+}
+.debug-twoobl.debug-bottom .label.visible-sm-inline:after {
+  content: " (min-width: 768px) and (max-width: 991px)";
+}
+.debug-twoobl.debug-bottom .label.visible-md-inline:after {
+  content: " (min-width: 992px) and (max-width: 1199px)";
+}
+.debug-twoobl.debug-bottom .label.visible-lg-inline:after {
+  content: " (min-width: 1200px)";
 }
