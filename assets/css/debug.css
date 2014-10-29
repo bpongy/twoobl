@@ -1,0 +1,10 @@
+.debug-twoobl .label {
+  font-weight: normal;
+  font-size: 12px;
+}
+.debug-twoobl.debug-bottom {
+  position: fixed;
+  z-index: 8000;
+  left: 5px;
+  bottom: 5px;
+}

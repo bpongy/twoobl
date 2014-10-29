@@ -11,7 +11,7 @@ if( !function_exists( 'twoobl_pods_notice' ) ) {
 			echo '<div class="error"><p>'.__('Warning! In order to use this theme, you must', 'twoobl').' <a href="'.$url.'">'.__('activate').' Pods Framework</a></p></div>';
 		} else {
 			// PODS est installé. est-ce que la page de config existe?
-			$twoobl = pods('twoobl');
+			$twoobl = pods('twoobl_'._ISOLANG_);
 			if( !$twoobl ) {
 				$file_conf = wp_remote_fopen(get_template_directory_uri().'/pods-config.json');
 				// TODO : check si le package est installé!

@@ -1,31 +1,27 @@
 <?php
-/*
- * 
- * pompé à mort sur roots
- * 
- */
-
-
 
 if( !function_exists( 'twoobl_scripts' ) ) {
 	function twoobl_scripts() {
 		wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', false, null);
-	
+
+		if( defined('_TWOOBL_DEBUG_') && _TWOOBL_DEBUG_ )
+			wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', false, null);
+
 		if (!is_admin()) {
 			// Be careful, this method will dequeue jQuery migrate
 			wp_deregister_script('jquery');
 			wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', false, null, false);
 			add_filter('script_loader_src', 'twoobl_jquery_local_fallback', 10, 2);
 		}
-		
+
 		if (is_single() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
-		
+
 		wp_register_script('twoobl_main', get_template_directory_uri() . '/assets/js/main.min.js', false, null, true);
-		
+
 		wp_enqueue_script('jquery');
-		//wp_enqueue_script('twoobl_plugins');
+
 		wp_enqueue_script('twoobl_main');
 	}
 }
