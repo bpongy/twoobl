@@ -1,40 +1,44 @@
 <?php
 
-if( !function_exists( 'twoobl_pods_notice' ) ) {
-	function twoobl_pods_notice(){
-	
+if( !function_exists( 'twoobl_pods_init' ) ) {
+	function twoobl_pods_init(){
+
 		if( !is_dir(WP_PLUGIN_DIR.'/pods/') ) {
 			$url = admin_url('plugin-install.php?tab=search&s=pods');
-			echo '<div class="error"><p>'.__('Warning! In order to use this theme, you must install', 'twoobl').' <a href="'.$url.'">Pods Framework</a></p></div>';
-		} else if ( !is_plugin_active('pods/init.php') ) {
-			$url = admin_url('plugins.php');
-			echo '<div class="error"><p>'.__('Warning! In order to use this theme, you must', 'twoobl').' <a href="'.$url.'">'.__('activate').' Pods Framework</a></p></div>';
+			echo '<div class="error"><p>'.__('Warning! In order to use Twoobl, you must install', 'twoobl').' <a href="'.$url.'">Pods</a>.</p></div>';
+		} else if ( !function_exists( 'pods' ) ) {
+			// activate pods
+			$result = activate_plugin( 'pods/init.php' );
+			if ( is_wp_error( $result ) ) {
+				// error??
+				
+			}
 		} else {
-			// PODS est installé. est-ce que la page de config existe?
-			$twoobl = pods('twoobl_'._ISOLANG_);
+			// PODS is installed. Config page exists?
+			$pods_name = 'twoobl_'._ISOLANG_;
+			$twoobl = pods($pods_name);
 			if( !$twoobl ) {
-				$file_conf = wp_remote_fopen(get_template_directory_uri().'/pods-config.json');
-				// TODO : check si le package est installé!
-				$imp = Pods_Migrate_Packages::import($file_conf);
-				// TODO
-				echo '<div class="updated"><p>clic <a href="'.admin_url('themes.php?page=pods-settings-twoobl').'">here</a>.</p></div>';
+
+				$fields = array(
+					array(
+						'name' => 'content_404',
+						'label' => '404',
+						'type' => 'wysiwyg'
+					)
+				);
+				
+				$args = array(
+					'name' => $pods_name,
+					'label' => 'Twoobl configuration',
+					'type' => 'settings',
+					'fields' => $fields
+				);
+				
+				$api = pods_api();
+				$api->save_pod($args);
 			}
 		}
 	
 	}
 }
-add_action( 'admin_notices', 'twoobl_pods_notice' );
-
-
-// pooooods
-function twoobl_podsinit() {
-	if ( is_plugin_active('pods/init.php') ) {
-		global $pods;
-		if( !$pods->pod_exists('twoobl_config') ) {
-			// créer pods
-			
-		}
-		
-	}
-}
-add_action( 'plugins_loaded', 'twoobl_podsinit' );
+add_action( 'admin_notices', 'twoobl_pods_init' );
