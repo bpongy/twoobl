@@ -267,6 +267,16 @@ add_filter('body_class','twoobl_clean_body_class');
 
 
 
+/********************************************
+ * 		Remove WP logo in admin bar
+ ********************************************/
+if( !function_exists( 'twoobl_adminbar' ) ) {
+	function twoobl_adminbar() {
+		global $wp_admin_bar;
+		$wp_admin_bar->remove_menu('wp-logo');
+	}
+}
+add_action('wp_before_admin_bar_render', 'twoobl_adminbar');
 
 
 
