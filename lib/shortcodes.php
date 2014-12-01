@@ -1,18 +1,21 @@
 <?php
 
-/******************************************************************
- * 	please install the Bootstrap 3 Shortcodes plugin.
- * 	https://github.com/filipstefansson/bootstrap-shortcodes
- ******************************************************************/
+// just a shortcode example.
+function shortcode_twooblexample($atts, $content){
+	extract(shortcode_atts(array(
+		'att1' => false,
+		'att2' => false
+	), $atts));
 
-
-
+	return '<div class="twooblexample">'.$content.'</div>';
+}
+add_shortcode('twooblexample', 'shortcode_twooblexample');
 
 
 
 /******************************************************************
  * 	remove <p> and <br /> around shortcodes
- * 	you don't need it with the Bootstrap 3 Shortcodes plugin.
+ * 	you don't need it with Bootstrap Shortcodes plugins.
  ******************************************************************/
 if( !function_exists( 'twoobl_shortcode_p_fix' ) ) {
 	function twoobl_shortcode_p_fix($content) {
