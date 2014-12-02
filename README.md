@@ -3,7 +3,7 @@
 Not your favorite starter theme (but with a lot of stuffs).
 
 - [Sass-powered version of Bootstrap](https://github.com/twbs/bootstrap-sass)
-- responsive, mobile menu included (full CSS)
+- responsive, [mobile menu included](http://plugins.adchsm.me/slidebars/)
 - CSS and JavaScript compressed with [Grunt](http://gruntjs.com/)
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
 - Requires [Pods](http://pods.io/)
