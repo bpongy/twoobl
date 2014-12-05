@@ -1,5 +1,5 @@
-'use strict';
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+	'use strict';
 
 	grunt.initConfig({
 		pkg : grunt.file.readJSON('package.json'),
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 				tasks: ['compass']
 			},
 			js: {
-				files: ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.src %>','<%= concat.plugins.dest %>', 'assets/js/main.js'],
+				files: ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.src %>', '<%= concat.plugins.dest %>', 'assets/js/main.js'],
 				tasks: ['concat', 'uglify']
 			}
 		}
