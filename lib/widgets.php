@@ -25,14 +25,15 @@ if( !function_exists( 'twoobl_widgets_init' ) ) {
 			'after_widget'  => '</div>'
 		));
 	
-		register_sidebar(array(
-			'name'          => __('Mobile menu', 'twoobl'),
-			'id'            => 'mobile_menu',
-			'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
-			'before_title'  => '<span class="title">',
-			'after_title'   => '</span>',
-			'after_widget'  => '</div>'
-		));
+		if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
+			register_sidebar(array(
+				'name'          => __('Mobile menu', 'twoobl'),
+				'id'            => 'mobile_menu',
+				'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
+				'before_title'  => '<span class="title">',
+				'after_title'   => '</span>',
+				'after_widget'  => '</div>'
+			));
 	
 		// Register widget, pour register des nouveaux widgets
 		register_widget('TextClass');

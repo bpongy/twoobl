@@ -11,7 +11,7 @@ body > img[src*="addthis"] { top: 0; }
 	
 	.widget {
 		color: #fff;
-		padding: 1em;
+		padding: .5em;
 		
 		> .title {
 			padding-bottom: .5em;
@@ -25,44 +25,50 @@ body > img[src*="addthis"] { top: 0; }
 		
 	}
 	
-	.menu { margin: 0; padding: 0; }
-	.menu li {
-		display: block;
-		clear: both;
-	}
-	.menu li a {
-		display: block;
-		color: #fff;
-		text-decoration: none;
-	}
-	ul li a:hover { background-color: transparent; }
-	ul li a .caret { display: none; }
-	
-	.menu > li {
-		border-bottom: 1px solid rgba(255,255,255,0.1);
-		
-		
-		ul {
-			padding-bottom: 1em;
-			
-			li {
-				
-				a {
-					&:hover {
-						text-decoration: underline;
+	.menu {
+		margin: 0;
+		padding: 0;
+		li {
+			display: block;
+			clear: both;
+			a {
+				display: block;
+				color: #fff;
+				text-decoration: none;
+				&:hover { background-color: transparent; }
+				.caret { display: none; }
+			}
+		}
+		> li {
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+
+			> a {
+				border-bottom: 1px solid rgba(0,0,0,0.3);
+				font-size: 1.1em;
+				padding: 12px 20px;
+
+			}
+
+			&[class*="current"] > a,
+			> a:hover,
+			> a:focus,
+			> a:active { color: #fff; background-color: $brand-primary; }
+
+			// sub menus
+			ul {
+				padding-bottom: 1em;
+
+				li {
+
+					a {
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 				}
 			}
 		}
 	}
-	.menu > li > a {
-		border-bottom: 1px solid rgba(0,0,0,0.3);
-		font-size: 1.1em;
-		padding: 12px 20px;
-	}
-	.menu > li > a:hover,
-	.menu > li > a:focus,
-	.menu > li > a:active { color: #fff; background-color: $brand-primary; }
 }
 
 
