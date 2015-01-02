@@ -1,6 +1,9 @@
 <?php
 if ( post_password_required() )
 	return;
+
+if ( !comments_open() && !get_comments_number() )
+	return;
 ?>
 
 <div id="comments" class="comments-area">
