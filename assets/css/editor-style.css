@@ -1724,7 +1724,7 @@ table > thead:first-child > tr:first-child > td {
 .table > tbody + tbody, .entry-content table > tbody + tbody, table > tbody + tbody {
   border-top: 2px solid #dddddd;
 }
-.table .table, table .table, .table table, table table {
+.table .table, table .table, table .entry-content table, .table table, .entry-content table table, table table {
   background-color: white;
 }
 
@@ -3161,6 +3161,13 @@ figure.alignnone {
 #map_canvas img,
 .gmnoprint img {
   max-width: none;
+}
+
+.page-nav {
+  border-top: 1px solid #eeeeee;
+  padding-top: 5px;
+  font-size: .9em;
+  color: #777777;
 }
 
 .entry-tags {

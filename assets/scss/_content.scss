@@ -85,6 +85,16 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
 
+// paginated article
+.page-nav {
+	border-top: 1px solid $gray-lighter;
+	padding-top: 5px;
+	font-size: .9em;
+	color: $gray-light;
+}
+
+
+
 // tags
 .entry-tags {
 	color: $gray-light;
