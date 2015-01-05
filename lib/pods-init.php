@@ -17,7 +17,7 @@ if( !function_exists( 'twoobl_pods_init' ) ) {
 			// PODS is installed. Config page exists?
 			$pods_name = 'twoobl_'._ISOLANG_;
 			$twoobl = pods($pods_name);
-			if( !$twoobl ) {
+			if( !$twoobl || !count($twoobl->fields) ) {
 
 				$fields = array(
 					array(
