@@ -1,0 +1,6 @@
+{
+	"in": "assets/css/base.css",
+	"out": "assets/css/base-pleeease.css",
+	"autoprefixer": {"browsers": ["last 2 versions", "Android 2.3"]},
+	"minifier": false
+}
