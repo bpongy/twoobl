@@ -3,7 +3,8 @@ $body-bg: #FFF;
 $sidebar-bg: #222;
 
 // avoid double scrollbar bug
-body > img[src*="addthis"] { top: 0; }
+#_atssh,
+body > img[src*="addthis"] { position: absolute; top: 0; }
 
 
 
