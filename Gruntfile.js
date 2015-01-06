@@ -7,36 +7,34 @@ module.exports = function (grunt) {
 			options : {
 				separator : ';'
 			},
-			bootstrap : {
+			jsfiles : {
 				src : [
 					'assets/js/bootstrap/affix.js',
 					'assets/js/bootstrap/alert.js',
 					'assets/js/bootstrap/button.js',
-					'assets/js/bootstrap/carousel.js',
+					//'assets/js/bootstrap/carousel.js',
 					'assets/js/bootstrap/collapse.js',
 					'assets/js/bootstrap/dropdown.js',
 					'assets/js/bootstrap/tab.js',
 					'assets/js/bootstrap/transition.js',
-					'assets/js/bootstrap/scrollspy.js',
+					//'assets/js/bootstrap/scrollspy.js',
 					'assets/js/bootstrap/modal.js',
 					'assets/js/bootstrap/tooltip.js',
-					'assets/js/bootstrap/popover.js'
+					'assets/js/bootstrap/popover.js',
+					'assets/js/plugins/*.js',
+					'assets/js/main.js'
 				],
-				dest : 'assets/js/bootstrap.js'
-			},
-			plugins : {
-				src : ['assets/js/plugins/*.js'],
-				dest : 'assets/js/plugins.js'
+				dest : 'assets/js/scripts.js'
 			}
 		},
 		uglify : {
-			twoobl_main : {
+			custom: {
 				options : {
 					banner : '/*! <%= pkg.name %> */\n',
 					mangle: false
 				},
 				files: {
-					'assets/js/main.min.js' : ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.dest %>', 'assets/js/main.js']
+					'assets/js/scripts.min.js' : ['<%= concat.jsfiles.dest %>']
 				}
 			}
 		},
@@ -47,14 +45,24 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		watch : {
+		watch: {
 			css: {
 				files: 'assets/scss/*.scss',
 				tasks: ['compass']
 			},
 			js: {
-				files: ['<%= concat.bootstrap.dest %>', '<%= concat.plugins.src %>', '<%= concat.plugins.dest %>', 'assets/js/main.js'],
-				tasks: ['concat', 'uglify']
+				files: ['<%= concat.jsfiles.src %>'],
+				tasks: ['concat']
+			}
+		},
+		pleeease: {
+			custom: {
+				options: {
+					config: '.pleeeaserc'
+				},
+				files: {
+					'assets/css/base.min.css': 'assets/css/base.css'
+				}
 			}
 		}
 	});
@@ -63,7 +71,17 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-pleeease');
 
-	grunt.registerTask('default', ['concat', 'uglify', 'watch']);
+	grunt.registerTask('default', [
+		'concat',
+		'watch'
+	]);
+
+	grunt.registerTask('build', [
+		'concat',
+		'uglify',
+		'pleeease'
+	]);
 
 };

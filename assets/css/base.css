@@ -1,9 +1,11 @@
 @charset "UTF-8";
-/*!___                 _     _
-|_   _|      ___  ___ | |__ | |
-  | |_ __ _ / _ \/ _ \| '_ \| |
-  | | V  V ( (_)( (_) | |_) ) |
-  |_|\_/\_/ \___/\___/|_.__/|__*/
+/*!
+   _____                _
+  |_   _|__ _ __ __ __ | |
+    | | V  V / .\ .\ .)| |
+    |_|\_/\_/\__/__/__)|_|
+http://github.com/redpik/Twoobl
+*/
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -7101,7 +7103,9 @@ textarea:focus::-webkit-input-placeholder {
 	}
 }
 */
+#_atssh,
 body > img[src*="addthis"] {
+  position: absolute;
   top: 0;
 }
 

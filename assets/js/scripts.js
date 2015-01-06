@@ -343,229 +343,6 @@
 
 }(jQuery);
 ;/* ========================================================================
- * Bootstrap: carousel.js v3.2.0
- * http://getbootstrap.com/javascript/#carousel
- * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // CAROUSEL CLASS DEFINITION
-  // =========================
-
-  var Carousel = function (element, options) {
-    this.$element    = $(element).on('keydown.bs.carousel', $.proxy(this.keydown, this))
-    this.$indicators = this.$element.find('.carousel-indicators')
-    this.options     = options
-    this.paused      =
-    this.sliding     =
-    this.interval    =
-    this.$active     =
-    this.$items      = null
-
-    this.options.pause == 'hover' && this.$element
-      .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
-      .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
-  }
-
-  Carousel.VERSION  = '3.2.0'
-
-  Carousel.DEFAULTS = {
-    interval: 5000,
-    pause: 'hover',
-    wrap: true
-  }
-
-  Carousel.prototype.keydown = function (e) {
-    switch (e.which) {
-      case 37: this.prev(); break
-      case 39: this.next(); break
-      default: return
-    }
-
-    e.preventDefault()
-  }
-
-  Carousel.prototype.cycle = function (e) {
-    e || (this.paused = false)
-
-    this.interval && clearInterval(this.interval)
-
-    this.options.interval
-      && !this.paused
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
-
-    return this
-  }
-
-  Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
-    return this.$items.index(item || this.$active)
-  }
-
-  Carousel.prototype.to = function (pos) {
-    var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
-
-    if (pos > (this.$items.length - 1) || pos < 0) return
-
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
-    if (activeIndex == pos) return this.pause().cycle()
-
-    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
-  }
-
-  Carousel.prototype.pause = function (e) {
-    e || (this.paused = true)
-
-    if (this.$element.find('.next, .prev').length && $.support.transition) {
-      this.$element.trigger($.support.transition.end)
-      this.cycle(true)
-    }
-
-    this.interval = clearInterval(this.interval)
-
-    return this
-  }
-
-  Carousel.prototype.next = function () {
-    if (this.sliding) return
-    return this.slide('next')
-  }
-
-  Carousel.prototype.prev = function () {
-    if (this.sliding) return
-    return this.slide('prev')
-  }
-
-  Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
-    var $next     = next || $active[type]()
-    var isCycling = this.interval
-    var direction = type == 'next' ? 'left' : 'right'
-    var fallback  = type == 'next' ? 'first' : 'last'
-    var that      = this
-
-    if (!$next.length) {
-      if (!this.options.wrap) return
-      $next = this.$element.find('.item')[fallback]()
-    }
-
-    if ($next.hasClass('active')) return (this.sliding = false)
-
-    var relatedTarget = $next[0]
-    var slideEvent = $.Event('slide.bs.carousel', {
-      relatedTarget: relatedTarget,
-      direction: direction
-    })
-    this.$element.trigger(slideEvent)
-    if (slideEvent.isDefaultPrevented()) return
-
-    this.sliding = true
-
-    isCycling && this.pause()
-
-    if (this.$indicators.length) {
-      this.$indicators.find('.active').removeClass('active')
-      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])
-      $nextIndicator && $nextIndicator.addClass('active')
-    }
-
-    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
-    if ($.support.transition && this.$element.hasClass('slide')) {
-      $next.addClass(type)
-      $next[0].offsetWidth // force reflow
-      $active.addClass(direction)
-      $next.addClass(direction)
-      $active
-        .one('bsTransitionEnd', function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
-          that.sliding = false
-          setTimeout(function () {
-            that.$element.trigger(slidEvent)
-          }, 0)
-        })
-        .emulateTransitionEnd($active.css('transition-duration').slice(0, -1) * 1000)
-    } else {
-      $active.removeClass('active')
-      $next.addClass('active')
-      this.sliding = false
-      this.$element.trigger(slidEvent)
-    }
-
-    isCycling && this.cycle()
-
-    return this
-  }
-
-
-  // CAROUSEL PLUGIN DEFINITION
-  // ==========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.carousel')
-      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
-
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
-      if (typeof option == 'number') data.to(option)
-      else if (action) data[action]()
-      else if (options.interval) data.pause().cycle()
-    })
-  }
-
-  var old = $.fn.carousel
-
-  $.fn.carousel             = Plugin
-  $.fn.carousel.Constructor = Carousel
-
-
-  // CAROUSEL NO CONFLICT
-  // ====================
-
-  $.fn.carousel.noConflict = function () {
-    $.fn.carousel = old
-    return this
-  }
-
-
-  // CAROUSEL DATA-API
-  // =================
-
-  $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
-    var href
-    var $this   = $(this)
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
-    if (!$target.hasClass('carousel')) return
-    var options = $.extend({}, $target.data(), $this.data())
-    var slideIndex = $this.attr('data-slide-to')
-    if (slideIndex) options.interval = false
-
-    Plugin.call($target, options)
-
-    if (slideIndex) {
-      $target.data('bs.carousel').to(slideIndex)
-    }
-
-    e.preventDefault()
-  })
-
-  $(window).on('load', function () {
-    $('[data-ride="carousel"]').each(function () {
-      var $carousel = $(this)
-      Plugin.call($carousel, $carousel.data())
-    })
-  })
-
-}(jQuery);
-;/* ========================================================================
  * Bootstrap: collapse.js v3.2.0
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
@@ -1070,176 +847,6 @@
         if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
       }
     }
-  })
-
-}(jQuery);
-;/* ========================================================================
- * Bootstrap: scrollspy.js v3.2.0
- * http://getbootstrap.com/javascript/#scrollspy
- * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // SCROLLSPY CLASS DEFINITION
-  // ==========================
-
-  function ScrollSpy(element, options) {
-    var process  = $.proxy(this.process, this)
-
-    this.$body          = $('body')
-    this.$scrollElement = $(element).is('body') ? $(window) : $(element)
-    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
-    this.selector       = (this.options.target || '') + ' .nav li > a'
-    this.offsets        = []
-    this.targets        = []
-    this.activeTarget   = null
-    this.scrollHeight   = 0
-
-    this.$scrollElement.on('scroll.bs.scrollspy', process)
-    this.refresh()
-    this.process()
-  }
-
-  ScrollSpy.VERSION  = '3.2.0'
-
-  ScrollSpy.DEFAULTS = {
-    offset: 10
-  }
-
-  ScrollSpy.prototype.getScrollHeight = function () {
-    return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-  }
-
-  ScrollSpy.prototype.refresh = function () {
-    var offsetMethod = 'offset'
-    var offsetBase   = 0
-
-    if (!$.isWindow(this.$scrollElement[0])) {
-      offsetMethod = 'position'
-      offsetBase   = this.$scrollElement.scrollTop()
-    }
-
-    this.offsets = []
-    this.targets = []
-    this.scrollHeight = this.getScrollHeight()
-
-    var self     = this
-
-    this.$body
-      .find(this.selector)
-      .map(function () {
-        var $el   = $(this)
-        var href  = $el.data('target') || $el.attr('href')
-        var $href = /^#./.test(href) && $(href)
-
-        return ($href
-          && $href.length
-          && $href.is(':visible')
-          && [[$href[offsetMethod]().top + offsetBase, href]]) || null
-      })
-      .sort(function (a, b) { return a[0] - b[0] })
-      .each(function () {
-        self.offsets.push(this[0])
-        self.targets.push(this[1])
-      })
-  }
-
-  ScrollSpy.prototype.process = function () {
-    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
-    var scrollHeight = this.getScrollHeight()
-    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
-    var offsets      = this.offsets
-    var targets      = this.targets
-    var activeTarget = this.activeTarget
-    var i
-
-    if (this.scrollHeight != scrollHeight) {
-      this.refresh()
-    }
-
-    if (scrollTop >= maxScroll) {
-      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
-    }
-
-    if (activeTarget && scrollTop <= offsets[0]) {
-      return activeTarget != (i = targets[0]) && this.activate(i)
-    }
-
-    for (i = offsets.length; i--;) {
-      activeTarget != targets[i]
-        && scrollTop >= offsets[i]
-        && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate(targets[i])
-    }
-  }
-
-  ScrollSpy.prototype.activate = function (target) {
-    this.activeTarget = target
-
-    $(this.selector)
-      .parentsUntil(this.options.target, '.active')
-      .removeClass('active')
-
-    var selector = this.selector +
-        '[data-target="' + target + '"],' +
-        this.selector + '[href="' + target + '"]'
-
-    var active = $(selector)
-      .parents('li')
-      .addClass('active')
-
-    if (active.parent('.dropdown-menu').length) {
-      active = active
-        .closest('li.dropdown')
-        .addClass('active')
-    }
-
-    active.trigger('activate.bs.scrollspy')
-  }
-
-
-  // SCROLLSPY PLUGIN DEFINITION
-  // ===========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
-      var options = typeof option == 'object' && option
-
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.scrollspy
-
-  $.fn.scrollspy             = Plugin
-  $.fn.scrollspy.Constructor = ScrollSpy
-
-
-  // SCROLLSPY NO CONFLICT
-  // =====================
-
-  $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
-    return this
-  }
-
-
-  // SCROLLSPY DATA-API
-  // ==================
-
-  $(window).on('load.bs.scrollspy.data-api', function () {
-    $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
-      Plugin.call($spy, $spy.data())
-    })
   })
 
 }(jQuery);
@@ -2093,3 +1700,362 @@
   }
 
 }(jQuery);
+;// -----------------------------------
+// Slidebars
+// Version 0.10.2
+// http://plugins.adchsm.me/slidebars/
+//
+// Written by Adam Smith
+// http://www.adchsm.me/
+//
+// Released under MIT License
+// http://plugins.adchsm.me/slidebars/license.txt
+//
+// ---------------------
+// Index of Slidebars.js
+//
+// 001 - Default Settings
+// 002 - Feature Detection
+// 003 - User Agents
+// 004 - Setup
+// 005 - Animation
+// 006 - Operations
+// 007 - API
+// 008 - User Input
+
+;(function($) {
+
+	$.slidebars = function(options) {
+
+		// ----------------------
+		// 001 - Default Settings
+
+		var settings = $.extend({
+			siteClose: true, // true or false - Enable closing of Slidebars by clicking on #sb-site.
+			scrollLock: false, // true or false - Prevent scrolling of site when a Slidebar is open.
+			disableOver: false, // integer or false - Hide Slidebars over a specific width.
+			hideControlClasses: false // true or false - Hide controls at same width as disableOver.
+		}, options);
+
+		// -----------------------
+		// 002 - Feature Detection
+
+		var test = document.createElement('div').style, // Create element to test on.
+		supportTransition = false, // Variable for testing transitions.
+		supportTransform = false; // variable for testing transforms.
+
+		// Test for CSS Transitions
+		if (test.MozTransition === '' || test.WebkitTransition === '' || test.OTransition === '' || test.transition === '') supportTransition = true;
+
+		// Test for CSS Transforms
+		if (test.MozTransform === '' || test.WebkitTransform === '' || test.OTransform === '' || test.transform === '') supportTransform = true;
+
+		// -----------------
+		// 003 - User Agents
+
+		var ua = navigator.userAgent, // Get user agent string.
+		android = false, // Variable for storing android version.
+		iOS = false; // Variable for storing iOS version.
+		
+		if (/Android/.test(ua)) { // Detect Android in user agent string.
+			android = ua.substr(ua.indexOf('Android')+8, 3); // Set version of Android.
+		} else if (/(iPhone|iPod|iPad)/.test(ua)) { // Detect iOS in user agent string.
+			iOS = ua.substr(ua.indexOf('OS ')+3, 3).replace('_', '.'); // Set version of iOS.
+		}
+		
+		if (android && android < 3 || iOS && iOS < 5) $('html').addClass('sb-static'); // Add helper class for older versions of Android & iOS.
+
+		// -----------
+		// 004 - Setup
+
+		// Site container
+		var $site = $('#sb-site, .sb-site-container'); // Cache the selector.
+
+		// Left Slidebar	
+		if ($('.sb-left').length) { // Check if the left Slidebar exists.
+			var $left = $('.sb-left'), // Cache the selector.
+			leftActive = false; // Used to check whether the left Slidebar is open or closed.
+		}
+
+		// Right Slidebar
+		if ($('.sb-right').length) { // Check if the right Slidebar exists.
+			var $right = $('.sb-right'), // Cache the selector.
+			rightActive = false; // Used to check whether the right Slidebar is open or closed.
+		}
+				
+		var init = false, // Initialisation variable.
+		windowWidth = $(window).width(), // Get width of window.
+		$controls = $('.sb-toggle-left, .sb-toggle-right, .sb-open-left, .sb-open-right, .sb-close'), // Cache the control classes.
+		$slide = $('.sb-slide'); // Cache users elements to animate.
+		
+		// Initailise Slidebars
+		function initialise() {
+			if (!settings.disableOver || (typeof settings.disableOver === 'number' && settings.disableOver >= windowWidth)) { // False or larger than window size. 
+				init = true; // true enabled Slidebars to open.
+				$('html').addClass('sb-init'); // Add helper class.
+				if (settings.hideControlClasses) $controls.removeClass('sb-hide'); // Remove class just incase Slidebars was originally disabled.
+				css(); // Set required inline styles.
+			} else if (typeof settings.disableOver === 'number' && settings.disableOver < windowWidth) { // Less than window size.
+				init = false; // false stop Slidebars from opening.
+				$('html').removeClass('sb-init'); // Remove helper class.
+				if (settings.hideControlClasses) $controls.addClass('sb-hide'); // Hide controls
+				$site.css('minHeight', ''); // Remove minimum height.
+				if (leftActive || rightActive) close(); // Close Slidebars if open.
+			}
+		}
+		initialise();
+		
+		// Inline CSS
+		function css() {
+			// Set minimum height.
+			$site.css('minHeight', ''); // Reset minimum height.
+			$site.css('minHeight', $('html').height() + 'px'); // Set minimum height of the site to the minimum height of the html.
+			
+			// Custom Slidebar widths.
+			if ($left && $left.hasClass('sb-width-custom')) $left.css('width', $left.attr('data-sb-width')); // Set user custom width.
+			if ($right && $right.hasClass('sb-width-custom')) $right.css('width', $right.attr('data-sb-width')); // Set user custom width.
+			
+			// Set off-canvas margins for Slidebars with push and overlay animations.
+			if ($left && ($left.hasClass('sb-style-push') || $left.hasClass('sb-style-overlay'))) $left.css('marginLeft', '-' + $left.css('width'));
+			if ($right && ($right.hasClass('sb-style-push') || $right.hasClass('sb-style-overlay'))) $right.css('marginRight', '-' + $right.css('width'));
+			
+			// Site scroll locking.
+			if (settings.scrollLock) $('html').addClass('sb-scroll-lock');
+		}
+		
+		// Resize Functions
+		$(window).resize(function() {
+			var resizedWindowWidth = $(window).width(); // Get resized window width.
+			if (windowWidth !== resizedWindowWidth) { // Slidebars is running and window was actually resized.
+				windowWidth = resizedWindowWidth; // Set the new window width.
+				initialise(); // Call initalise to see if Slidebars should still be running.
+				if (leftActive) open('left'); // If left Slidebar is open, calling open will ensure it is the correct size.
+				if (rightActive) open('right'); // If right Slidebar is open, calling open will ensure it is the correct size.
+			}
+		});
+		// I may include a height check along side a width check here in future.
+
+		// ---------------
+		// 005 - Animation
+
+		var animation; // Animation type.
+
+		// Set animation type.
+		if (supportTransition && supportTransform) { // Browser supports css transitions and transforms.
+			animation = 'translate'; // Translate for browsers that support it.
+			if (android && android < 4.4) animation = 'side'; // Android supports both, but can't translate any fixed positions, so use left instead.
+		} else {
+			animation = 'jQuery'; // Browsers that don't support css transitions and transitions.
+		}
+
+		// Animate mixin.
+		function animate(object, amount, side) {
+			// Choose selectors depending on animation style.
+			var selector;
+			
+			if (object.hasClass('sb-style-push')) {
+				selector = $site.add(object).add($slide); // Push - Animate site, Slidebar and user elements.
+			} else if (object.hasClass('sb-style-overlay')) {
+				selector = object; // Overlay - Animate Slidebar only.
+			} else {
+				selector = $site.add($slide); // Reveal - Animate site and user elements.
+			}
+			
+			// Apply animation
+			if (animation === 'translate') {
+				selector.css('transform', 'translate(' + amount + ')'); // Apply the animation.
+
+			} else if (animation === 'side') {		
+				if (amount[0] === '-') amount = amount.substr(1); // Remove the '-' from the passed amount for side animations.
+				if (amount !== '0px') selector.css(side, '0px'); // Add a 0 value so css transition works.
+				setTimeout(function() { // Set a timeout to allow the 0 value to be applied above.
+					selector.css(side, amount); // Apply the animation.
+				}, 1);
+
+			} else if (animation === 'jQuery') {
+				if (amount[0] === '-') amount = amount.substr(1); // Remove the '-' from the passed amount for jQuery animations.
+				var properties = {};
+				properties[side] = amount;
+				selector.stop().animate(properties, 400); // Stop any current jQuery animation before starting another.
+			}
+			
+			// If closed, remove the inline styling on completion of the animation.
+			setTimeout(function() {
+				if (amount === '0px') {
+					selector.removeAttr('style');
+					css();
+				}
+			}, 400);
+		}
+
+		// ----------------
+		// 006 - Operations
+
+		// Open a Slidebar
+		function open(side) {
+			// Check to see if opposite Slidebar is open.
+			if (side === 'left' && $left && rightActive || side === 'right' && $right && leftActive) { // It's open, close it, then continue.
+				close();
+				setTimeout(proceed, 400);
+			} else { // Its not open, continue.
+				proceed();
+			}
+
+			// Open
+			function proceed() {
+				if (init && side === 'left' && $left) { // Slidebars is initiated, left is in use and called to open.
+					$('html').addClass('sb-active sb-active-left'); // Add active classes.
+					$left.addClass('sb-active');
+					animate($left, $left.css('width'), 'left'); // Animation
+					setTimeout(function() { leftActive = true; }, 400); // Set active variables.
+				} else if (init && side === 'right' && $right) { // Slidebars is initiated, right is in use and called to open.
+					$('html').addClass('sb-active sb-active-right'); // Add active classes.
+					$right.addClass('sb-active');
+					animate($right, '-' + $right.css('width'), 'right'); // Animation
+					setTimeout(function() { rightActive = true; }, 400); // Set active variables.
+				}
+			}
+		}
+			
+		// Close either Slidebar
+		function close(link) {
+			if (leftActive || rightActive) { // If a Slidebar is open.
+				if (leftActive) {
+					animate($left, '0px', 'left'); // Animation
+					leftActive = false;
+				}
+				if (rightActive) {
+					animate($right, '0px', 'right'); // Animation
+					rightActive = false;
+				}
+			
+				setTimeout(function() { // Wait for closing animation to finish.
+					$('html').removeClass('sb-active sb-active-left sb-active-right'); // Remove active classes.
+					if ($left) $left.removeClass('sb-active');
+					if ($right) $right.removeClass('sb-active');
+					if (typeof link !== 'undefined') window.location = link; // If a link has been passed to the function, go to it.
+				}, 400);
+			}
+		}
+		
+		// Toggle either Slidebar
+		function toggle(side) {
+			if (side === 'left' && $left) { // If left Slidebar is called and in use.
+				if (!leftActive) {
+					open('left'); // Slidebar is closed, open it.
+				} else {
+					close(); // Slidebar is open, close it.
+				}
+			}
+			if (side === 'right' && $right) { // If right Slidebar is called and in use.
+				if (!rightActive) {
+					open('right'); // Slidebar is closed, open it.
+				} else {
+					close(); // Slidebar is open, close it.
+				}
+			}
+		}
+
+		// ---------
+		// 007 - API
+		
+		this.slidebars = {
+			open: open, // Maps user variable name to the open method.
+			close: close, // Maps user variable name to the close method.
+			toggle: toggle, // Maps user variable name to the toggle method.
+			init: function() { // Returns true or false whether Slidebars are running or not.
+				return init; // Returns true or false whether Slidebars are running.
+			},
+			active: function(side) { // Returns true or false whether Slidebar is open or closed.
+				if (side === 'left' && $left) return leftActive;
+				if (side === 'right' && $right) return rightActive;
+			},
+			destroy: function(side) { // Removes the Slidebar from the DOM.
+				if (side === 'left' && $left) {
+					if (leftActive) close(); // Close if its open.
+					setTimeout(function() {
+						$left.remove(); // Remove it.
+						$left = false; // Set variable to false so it cannot be opened again.
+					}, 400);
+				}
+				if (side === 'right' && $right) {
+					if (rightActive) close(); // Close if its open.
+					setTimeout(function() {
+						$right.remove(); // Remove it.
+						$right = false; // Set variable to false so it cannot be opened again.
+					}, 400);
+				}
+			}
+		};
+
+		// ----------------
+		// 008 - User Input
+		
+		function eventHandler(event, selector) {
+			event.stopPropagation(); // Stop event bubbling.
+			event.preventDefault(); // Prevent default behaviour.
+			if (event.type === 'touchend') selector.off('click'); // If event type was touch, turn off clicks to prevent phantom clicks.
+		}
+		
+		// Toggle left Slidebar
+		$('.sb-toggle-left').on('touchend click', function(event) {
+			eventHandler(event, $(this)); // Handle the event.
+			toggle('left'); // Toggle the left Slidbar.
+		});
+		
+		// Toggle right Slidebar
+		$('.sb-toggle-right').on('touchend click', function(event) {
+			eventHandler(event, $(this)); // Handle the event.
+			toggle('right'); // Toggle the right Slidbar.
+		});
+		
+		// Open left Slidebar
+		$('.sb-open-left').on('touchend click', function(event) {
+			eventHandler(event, $(this)); // Handle the event.
+			open('left'); // Open the left Slidebar.
+		});
+		
+		// Open right Slidebar
+		$('.sb-open-right').on('touchend click', function(event) {
+			eventHandler(event, $(this)); // Handle the event.
+			open('right'); // Open the right Slidebar.
+		});
+		
+		// Close Slidebar
+		$('.sb-close').on('touchend click', function(event) {
+			if ( $(this).is('a') || $(this).children().is('a') ) { // Is a link or contains a link.
+				if ( event.type === 'click' ) { // Make sure the user wanted to follow the link.
+					event.preventDefault(); // Stop default behaviour.
+					var href = ( $(this).is('a') ? $(this).attr('href') : $(this).find('a').attr('href') ); // Get the href.
+					close( href ); // Close Slidebar and pass link.
+				}
+			} else { // Just a normal control class.
+				eventHandler(event, $(this)); // Handle the event.
+				close(); // Close Slidebar.
+			}
+		});
+		
+		// Close Slidebar via site
+		$site.on('touchend click', function(event) {
+			if (settings.siteClose && (leftActive || rightActive)) { // If settings permit closing by site and left or right Slidebar is open.
+				eventHandler(event, $(this)); // Handle the event.
+				close(); // Close it.
+			}
+		});
+		
+	}; // End Slidebars function.
+
+}) (jQuery);;
+;(function($){
+	$(document).ready(function(){
+
+		// Bootstrap tooltips
+		$('a[data-toggle="tooltip"]').tooltip();
+
+		// mobilenav
+		$.slidebars({
+			scrollLock: true // Prevent site content scrolling whilst a Slidebar is open.
+		});
+
+	});
+})(window.jQuery);

@@ -13,5 +13,5 @@ javascripts_dir = "assets/js"
 # output_style = :expanded or :nested or :compact or :compressed
 output_style = :expanded
 line_comments = false
-#environment = :development
+environment = :development
 #relative_assets = true

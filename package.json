@@ -6,7 +6,8 @@
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-compass": "~0.7.2",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-nodeunit": "~0.3.3"
+    "grunt-contrib-nodeunit": "~0.3.3",
+    "grunt-pleeease": "~1.2.0"
   },
   "keywords": [
     "bootstrap",
