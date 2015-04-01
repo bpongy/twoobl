@@ -309,6 +309,34 @@ add_filter('wp_title', 'twoobl_like_twentytwelve_wp_title', 10, 2);
 
 
 /********************************************
+ * 		File types upload
+ ********************************************/
+if( !function_exists( 'twoobl_mime_types' ) ) {
+	function twoobl_mime_types($mime_types){
+		//$mime_types['svg'] = 'image/svg+xml';
+		//$mime_types['avi'] = 'video/msvideo, video/avi, video/x-msvideo';
+		//$mime_types['bz2'] = 'application/x-bzip2';
+		//$mime_types['css'] = 'text/css';
+		//$mime_types['doc'] = 'application/msword';
+		//$mime_types['html'] = 'text/html';
+		//$mime_types['js'] = 'application/x-javascript';
+		//$mime_types['mp3'] = 'audio/mpeg';
+		//$mime_types['pdf'] = 'application/pdf';
+		//$mime_types['svg'] = 'image/svg+xml';
+		//$mime_types['swf'] = 'application/x-shockwave-flash';
+		//$mime_types['tar.gz'] = 'application/x-tar';
+		//$mime_types['txt'] = 'text/plain';
+		//$mime_types['xls'] = 'application/vnd.ms-excel';
+		//$mime_types['xml'] = 'application/xml';
+		//$mime_types['zip'] = 'application/zip, application/x-compressed-zip';
+		return $mime_types;
+	}
+}
+add_filter('upload_mimes', 'twoobl_mime_types');
+
+
+
+/********************************************
  * 		Remove theme / plugins editor
  ********************************************/
 if ( !defined('DISALLOW_FILE_EDIT') )

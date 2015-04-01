@@ -89,7 +89,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 // Google map : max-width bug fix
 #map_canvas img,
-.gmnoprint img { max-width: none; }
+.gmnoprint img,
+.gm-style img { max-width: none; }
 
 
 
