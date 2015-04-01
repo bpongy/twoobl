@@ -64,7 +64,10 @@
 @import "content";
 
 body {
-	padding: 10px;
+	&,
+	&.wp-autoresize {
+		padding: 1px 1em !important;
+	}
 	a {
 		text-decoration: underline;
 	}
