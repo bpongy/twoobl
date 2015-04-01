@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			css: {
-				files: 'assets/scss/*.scss',
+				files: ['assets/scss/*.scss', 'assets/scss/*/*.scss'],
 				tasks: ['compass']
 			},
 			js: {
