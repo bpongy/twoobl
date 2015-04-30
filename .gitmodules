@@ -1,4 +1,0 @@
-[submodule "assets/scss/gravitysass"]
-	path = assets/scss/gravitysass
-	url = git@github.com:redpik/gravity-forms-bootstrap-sass.git
-	branch = master
