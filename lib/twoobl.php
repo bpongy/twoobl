@@ -131,6 +131,27 @@ if( !function_exists( 'get_post_thumbnail_src' ) ) {
 
 
 /********************************************
+ * 		Auto meta description
+ ********************************************/
+if( !function_exists( 'twoobl_meta_description' ) ) {
+	function twoobl_meta_description() {
+		if ( is_home() || is_front_page() )
+			echo '<meta name="description" content="'.esc_attr(get_bloginfo('description')).'" />' . "\n";
+		elseif ( is_single() ) {
+			global $post;
+			$excerpt = $post->post_excerpt;
+			if ( $post->post_excerpt == '' )
+				$excerpt = apply_filters('the_content', $post->post_content);
+			$excerpt = str_replace(']]>', ']]&gt;', $excerpt);
+			$excerpt = wp_html_excerpt($excerpt, 200, '...');
+			echo '<meta name="description" content="'.$excerpt.'" />'. "\n";
+		}
+	}
+}
+add_action('wp_head', 'twoobl_meta_description');
+
+
+/********************************************
  * 		Auto non-breakable space
  ********************************************/
 if( !function_exists( 'twoobl_automatic_nbsp' ) ) {
