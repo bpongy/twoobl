@@ -5,7 +5,8 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 
 		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
 			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', false, null);
-			wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', false, null);
+			if ( current_user_can('activate_plugins') )
+				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', false, null);
 		} else {
 			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', false, null);
 		}
