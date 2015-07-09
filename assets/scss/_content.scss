@@ -130,15 +130,16 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 .gallery {
 	@extend .clearfix;
-	.gallery-item {
-		float: left;
-		width: 33.3333%;
-		text-align: center;
-		padding-bottom: $grid-gutter-width;
-		
-		&:nth-child(3n + 1) {
-			clear: left;
-			outline: 1px dotted red;
+}
+.gallery-item {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			$w: floor(100/$i);
+			max-width: $w + '%';
 		}
 	}
 }
