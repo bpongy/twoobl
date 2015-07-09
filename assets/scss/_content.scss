@@ -138,8 +138,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 	vertical-align: top;
 	@for $i from 2 through 9 {
 		.gallery-columns-#{$i} & {
-			$w: floor(100/$i);
-			max-width: $w + '%';
+			$w: floor(10000/$i)/100;
+			max-width: unquote($w + '%');
 		}
 	}
 }
