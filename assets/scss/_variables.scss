@@ -1,21 +1,64 @@
+// custom variables
+$bold: 700;
+$light: 300;
+$brand-secondary: #CD5334;
 
-// bootstrap variables override
-$font-size-base: 16px;
-$line-height-base: 1.4;
-$grid-gutter-width: 40px;
-$border-radius-base: 1px;
-$border-radius-large: 2px;
+
+
+/*
+	bootstrap variables override
+*/
+
+$grid-gutter-width: 30px;
+$border-radius-base: 2px;
+$border-radius-large: 3px;
 $border-radius-small: 1px;
 $icon-font-path: '../fonts/';
+$nav-link-padding: 10px;
 
 // colors
 $body-bg: #FFF;
 $brand-primary: #34A4A1;
+$brand-success: #5cb85c;
+$brand-info:    #5bc0de;
+$brand-warning: #f0ad4e;
+$brand-danger:  #d9534f;
+
+$gray-darker: #222;
+$gray-dark: #555;
+$gray: #999;
+$gray-light: #DDD;
+$gray-lighter: #F3F3F3;
+$text-color: $gray-dark;
+$link-color: $brand-primary;
+$headings-color: $gray-darker;
 $input-border-focus: $brand-primary;
+$nav-link-hover-bg: transparent;
+
+// typo
+$font-family-sans-serif: Arial, sans-serif;
+//$headings-font-family: 'Roboto', $font-family-sans-serif;
+//$headings-font-weight: $bold;
+
+$font-size-base: 15px;
+$font-size-large: 18px;
+$font-size-small: 12px;
+$line-height-base: 1.5;
+$headings-font-weight: $bold;
+
+$font-size-h1: 36px;
+$font-size-h2: 22px;
+$font-size-h3: 20px;
+$font-size-h4: 18px;
+$font-size-h5: $font-size-base;
+$font-size-h6: $font-size-small;
 
 
 
-// social media colors http://redpik.github.io/social-media-colors/
+/*
+	social media colors
+	http://redpik.github.io/social-media-colors/
+*/
 $facebook-primary:   #3b5998;
 $twitter-primary:    #55acee;
 $googleplus-primary: #dd4b39;
