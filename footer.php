@@ -20,7 +20,7 @@ if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
 <?php wp_footer(); ?>
 
 <?php
-if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
+if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ && current_user_can('activate_plugins') ) {
 	echo '<div class="debug-twoobl debug-bottom">';
 		echo '<span class="visible-xs-inline label label-danger">xs</span>';
 		echo '<span class="visible-sm-inline label label-danger">sm</span>';
