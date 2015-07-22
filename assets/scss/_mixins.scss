@@ -1,3 +1,13 @@
+/*
+	Responsive item.
+	example:
+	.video-4-3 {
+		@include twoobl_responsive(4/3);
+	}
+*/
+@mixin twoobl_responsive($ratio) {
+	padding-top: unquote(floor(100 * (1/$ratio)) + '%');
+}
 
 // placeholder / placeholder with focus
 @mixin twoobl_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
@@ -9,13 +19,48 @@
 	&:focus::-webkit-input-placeholder  { color: $color-hover; }
 }
 
-
-
-// Homothetic background image size.
-// http://www.redpik.net/sass/mixin-background-size-qui-ne-deforme-pas-image/
-@mixin homotheticBackgroundSize($img, $size: .5) {
-	@if unit($size) == "%" {
-		$size: $size / 100%;
+/*
+	Vertical align anything
+	example:
+	.my-container {
+		@include vertical-align-inside();
 	}
-	background-size: (image-width($img) * $size) (image-height($img) * $size);
+*/
+@mixin vertical-align-inside($pos: 50%) {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	> * {
+		position: relative;
+		display: block;
+		top: $pos;
+		-webkit-transform: translateY(-$pos);
+		-ms-transform: translateY(-$pos);
+		transform: translateY(-$pos);
+	}
+}
+
+/*
+	Responsive font size
+	example:
+	.my-title {
+		@include bs-font($font-size-h1, $font-size-h2, $font-size-h3);
+	}
+*/
+@mixin bs-font($size-lg, $size-md, $size-sm, $size-xs: false) {
+	@if $size-xs {
+		@media (max-width: $screen-xs-max) {
+			font-size: $size-xs;
+		}
+		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+			font-size: $size-sm;
+		}
+	} @else {
+		@media (max-width: $screen-sm-max) {
+			font-size: $size-sm;
+		}
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		font-size: $size-md;
+	}
+	font-size: $size-lg;
 }
