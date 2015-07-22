@@ -130,6 +130,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 .gallery {
 	@extend .clearfix;
+	margin: 0 (-($grid-gutter-width / 2));
+	padding: ($grid-gutter-width / 2) 0;
 }
 .gallery-item {
 	display: inline-block;
@@ -141,6 +143,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 			$w: floor(10000/$i)/100;
 			max-width: unquote($w + '%');
 		}
+	}
+	a {
+		display: block;
+		padding: 0 ($grid-gutter-width / 2);
 	}
 }
 
