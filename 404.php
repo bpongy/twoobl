@@ -10,7 +10,8 @@
 
 		<div class="entry-content clearfix">
 			<?php
-			echo apply_filters('the_content', $twoobl->field('content_404'));
+			// TODO
+			// echo apply_filters('the_content', $twoobl->field('content_404'));
 			?>
 		</div>
 

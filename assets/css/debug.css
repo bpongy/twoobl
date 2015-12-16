@@ -1,3 +1,32 @@
+/*
+	Responsive ratio item
+	example:
+	.video-4-3 {
+		@include tw_ratio(4/3);
+	}
+*/
+/*
+	Vertical align anything
+	example:
+	.my-container {
+		@include tw_vertical-align-inside();
+	}
+*/
+/*
+	Responsive everything
+	ex :
+	#test {
+		@include tw_responsive('border', '1px dashed red', '2px dashed olive', '5px dashed tomato');
+		@include tw_responsive('font-size', $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
+	}
+*/
+/*
+	bootstrap variables override
+*/
+/*
+	social media colors
+	http://redpik.github.io/social-media-colors/
+*/
 .debug-twoobl .label {
   font-weight: normal;
   font-size: 12px;

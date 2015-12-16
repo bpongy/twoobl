@@ -155,6 +155,6 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 // Twoobl placeholders
 input,
 textarea {
-	@include twoobl_placeholder();
+	@include tw_placeholder();
 }
 

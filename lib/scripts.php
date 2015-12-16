@@ -4,11 +4,11 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 	function twoobl_scripts() {
 
 		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', false, null);
+			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', _TWOOBL_SCR_VERSION_, null);
 			if ( current_user_can('activate_plugins') )
-				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', false, null);
+				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', _TWOOBL_SCR_VERSION_, null);
 		} else {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', false, null);
+			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', _TWOOBL_SCR_VERSION_, null);
 		}
 
 		if (!is_admin()) {
@@ -23,9 +23,9 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 		}
 
 		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', false, null, true);
+			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', _TWOOBL_SCR_VERSION_, null, true);
 		} else {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.min.js', false, null, true);
+			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.min.js', _TWOOBL_SCR_VERSION_, null, true);
 		}
 
 		wp_enqueue_script('jquery');

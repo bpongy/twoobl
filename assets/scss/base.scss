@@ -24,19 +24,21 @@ http://github.com/redpik/Twoobl
 	display: block;
 	text-transform: uppercase;
 	margin: 0;
-	font-size: 1em;
-	@include hyphens();
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	//@include hyphens();
+
 	// anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/
 	// -webkit-text-stroke: 0.25px;
 	
-	a { display: block; }
+	a {
+		display: block;
+	}
 }
 
 
 
 #wrap { padding-top: 2em; }
-
-
 
 
 
@@ -75,11 +77,5 @@ http://github.com/redpik/Twoobl
 
 
 
-// Slidebars http://plugins.adchsm.me/slidebars/
-@import "slidebars";
-
-
-
 // Media Queries BS3 & print
 @import "mediaqueries";
-

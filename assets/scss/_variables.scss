@@ -13,7 +13,7 @@ $grid-gutter-width: 30px;
 $border-radius-base: 2px;
 $border-radius-large: 3px;
 $border-radius-small: 1px;
-$icon-font-path: '../fonts/';
+$icon-font-path: '../fonts/bootstrap/';
 $nav-link-padding: 10px;
 
 // colors
@@ -27,8 +27,8 @@ $brand-danger:  #d9534f;
 $gray-darker: #222;
 $gray-dark: #555;
 $gray: #999;
-$gray-light: #DDD;
-$gray-lighter: #F3F3F3;
+$gray-light: #CCC;
+$gray-lighter: #F0F0F0;
 $text-color: $gray-dark;
 $link-color: $brand-primary;
 $headings-color: $gray-darker;
@@ -38,13 +38,12 @@ $nav-link-hover-bg: transparent;
 // typo
 $font-family-sans-serif: Arial, sans-serif;
 //$headings-font-family: 'Roboto', $font-family-sans-serif;
-//$headings-font-weight: $bold;
+$headings-font-weight: $bold;
 
 $font-size-base: 15px;
 $font-size-large: 18px;
 $font-size-small: 12px;
 $line-height-base: 1.5;
-$headings-font-weight: $bold;
 
 $font-size-h1: 36px;
 $font-size-h2: 22px;

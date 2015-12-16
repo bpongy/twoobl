@@ -6,12 +6,11 @@ Not your favorite starter theme (but with a lot of stuffs).
 - responsive, [mobile menu included](http://plugins.adchsm.me/slidebars/)
 - CSS and JavaScript compressed with [Grunt](http://gruntjs.com/)
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
-- Requires [Pods](http://pods.io/)
+- Requires [ACF](http://www.advancedcustomfields.com/)
 - multiple excerpt length with `twoobl_excerpt`
 - ...
 
-
-Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/) and [une bien jolie agence](http://www.axome.com).
+Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/) and [Axome.com](http://www.axome.com).
 
 ## DO WHAT YOU WANT.
 http://www.wtfpl.net/

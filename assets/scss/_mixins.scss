@@ -1,16 +1,16 @@
 /*
-	Responsive item.
+	Responsive ratio item
 	example:
 	.video-4-3 {
-		@include twoobl_responsive(4/3);
+		@include tw_ratio(4/3);
 	}
 */
-@mixin twoobl_responsive($ratio) {
-	padding-top: unquote(floor(100 * (1/$ratio)) + '%');
+@mixin tw_ratio($ratio) {
+	padding-bottom: unquote(floor(100 * (1/$ratio)) + '%');
 }
 
 // placeholder / placeholder with focus
-@mixin twoobl_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
+@mixin tw_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
 	&::-moz-placeholder           { color: $color; opacity: 1; }
 	&:-ms-input-placeholder       { color: $color; }
 	&::-webkit-input-placeholder  { color: $color; }
@@ -23,10 +23,10 @@
 	Vertical align anything
 	example:
 	.my-container {
-		@include vertical-align-inside();
+		@include tw_vertical-align-inside();
 	}
 */
-@mixin vertical-align-inside($pos: 50%) {
+@mixin tw_vertical-align-inside($pos: 50%) {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	> * {
@@ -39,28 +39,38 @@
 	}
 }
 
+
+
 /*
-	Responsive font size
-	example:
-	.my-title {
-		@include bs-font($font-size-h1, $font-size-h2, $font-size-h3);
+	Responsive everything
+	ex :
+	#test {
+		@include tw_responsive('border', '1px dashed red', '2px dashed olive', '5px dashed tomato');
+		@include tw_responsive('font-size', $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
 	}
 */
-@mixin bs-font($size-lg, $size-md, $size-sm, $size-xs: false) {
-	@if $size-xs {
+@mixin tw_responsive($prop, $lg, $md, $sm, $xs: false) {
+	#{$prop}: tw_get_prop($lg);
+	@if $xs {
 		@media (max-width: $screen-xs-max) {
-			font-size: $size-xs;
+			#{$prop}: tw_get_prop($xs);
 		}
 		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-			font-size: $size-sm;
+			#{$prop}: tw_get_prop($sm);
 		}
 	} @else {
 		@media (max-width: $screen-sm-max) {
-			font-size: $size-sm;
+			#{$prop}: tw_get_prop($sm);
 		}
 	}
 	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-		font-size: $size-md;
+		#{$prop}: tw_get_prop($md);
 	}
-	font-size: $size-lg;
+}
+@function tw_get_prop($val) {
+	@if type-of($val) == string {
+		@return unquote($val);
+	} @else {
+		@return $val;
+	}
 }
