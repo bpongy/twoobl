@@ -16,7 +16,7 @@ Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/) 
 http://www.wtfpl.net/
 
 ## Compiling CSS and JavaScript
-Please use [Compass](http://compass-style.org/) and [Grunt](http://gruntjs.com/).
+Please use [SASS](http://sass-lang.com/) and [Grunt](http://gruntjs.com/).
 
 ## In trouble with Twoobl?
 
