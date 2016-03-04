@@ -4,17 +4,17 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 	function twoobl_scripts() {
 
 		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', _TWOOBL_SCR_VERSION_, null);
+			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', array(), _TWOOBL_SCR_VERSION_);
 			if ( current_user_can('activate_plugins') )
-				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', _TWOOBL_SCR_VERSION_, null);
+				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', array(), _TWOOBL_SCR_VERSION_);
 		} else {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', _TWOOBL_SCR_VERSION_, null);
+			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', array(), _TWOOBL_SCR_VERSION_);
 		}
 
 		if (!is_admin()) {
 			// Be careful, this method will dequeue jQuery migrate
 			wp_deregister_script('jquery');
-			wp_register_script('jquery', 'https://code.jquery.com/jquery-1.11.3.min.js', false, null, false);
+			wp_register_script('jquery', 'https://code.jquery.com/jquery-1.11.3.min.js', array(), '1.11.3', false);
 			add_filter('script_loader_src', 'twoobl_jquery_local_fallback', 10, 2);
 		}
 
@@ -23,9 +23,9 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 		}
 
 		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', _TWOOBL_SCR_VERSION_, null, true);
+			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', array(), _TWOOBL_SCR_VERSION_, true);
 		} else {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.min.js', _TWOOBL_SCR_VERSION_, null, true);
+			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), _TWOOBL_SCR_VERSION_, true);
 		}
 
 		wp_enqueue_script('jquery');
