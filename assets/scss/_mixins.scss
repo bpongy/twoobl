@@ -50,7 +50,10 @@
 	}
 */
 @mixin tw_responsive($prop, $lg, $md, $sm, $xs: false) {
-	#{$prop}: tw_get_prop($lg);
+	@if $lg {
+		#{$prop}: tw_get_prop($lg);
+	}
+
 	@if $xs {
 		@media (max-width: $screen-xs-max) {
 			#{$prop}: tw_get_prop($xs);
@@ -63,6 +66,7 @@
 			#{$prop}: tw_get_prop($sm);
 		}
 	}
+
 	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
 		#{$prop}: tw_get_prop($md);
 	}

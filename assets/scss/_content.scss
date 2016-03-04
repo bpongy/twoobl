@@ -12,9 +12,6 @@ img,
 
 .entry-header {
 	padding-bottom: 1em;
-	.title {
-		font-size: 2em;
-	}
 }
 
 
@@ -33,6 +30,12 @@ img,
 
 
 
+[data-link] {
+	cursor: pointer;
+}
+
+
+
 .thumb {
 	text-decoration: none;
 	display: block;
@@ -47,6 +50,10 @@ img,
 
 .entry-content {
 	@include hyphens();
+	
+	> *:first-child {
+		margin-top: 0;
+	}
 	
 	.read-more { display: block; text-align: right; }
 	
@@ -138,6 +145,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 	width: 100%;
 	text-align: center;
 	vertical-align: top;
+	padding-bottom: $grid-gutter-width / 2;
 	@for $i from 2 through 9 {
 		.gallery-columns-#{$i} & {
 			$w: floor(10000/$i)/100;

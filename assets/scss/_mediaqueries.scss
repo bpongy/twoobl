@@ -1,7 +1,12 @@
 
 // xs
 @media (max-width: $screen-xs-max) {
-	
+	html[lang] {
+		margin-top: 0 !important;
+		#wpadminbar {
+			display: none !important;
+		}
+	}
 }
 
 
