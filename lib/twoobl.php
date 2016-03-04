@@ -393,7 +393,8 @@ if( !function_exists( 'twoobl_favicon' ) ) {
 		echo '<link href="'.get_template_directory_uri().'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
 	}
 }
-add_action('wp_head', 'twoobl_favicon');
+if (!has_site_icon())
+	add_action('wp_head', 'twoobl_favicon');
 
 
 
