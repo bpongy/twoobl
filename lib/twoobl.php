@@ -128,6 +128,16 @@ if( !function_exists( 'get_post_thumbnail_src' ) ) {
 	}
 }
 
+// TODO
+if( !function_exists( 'get_img_src' ) ) {
+	function get_img_src( $img_id = null, $size = 'thumbnail' ) {
+		$img_url = wp_get_attachment_image_src($img_id, $size, true);
+		if (!isset($img_url[0]))
+			return false;
+		return $img_url[0];
+	}
+}
+
 
 
 /********************************************
@@ -287,11 +297,7 @@ function twoobl_clean_body_class($classes) {
 }
 add_filter('body_class','twoobl_clean_body_class');
 
-
-
-/********************************************
- * 		Remove WP logo in admin bar
- ********************************************/
+// Remove WP logo in admin bar
 if( !function_exists( 'twoobl_adminbar' ) ) {
 	function twoobl_adminbar() {
 		global $wp_admin_bar;
@@ -299,6 +305,20 @@ if( !function_exists( 'twoobl_adminbar' ) ) {
 	}
 }
 add_action('wp_before_admin_bar_render', 'twoobl_adminbar');
+
+
+
+/********************************************
+ * 		Revisions limit
+ ********************************************/
+if( !function_exists( 'twoobl_limit_rev_pages_and_posts' ) ) {
+	function twoobl_limit_rev_pages_and_posts($num, $post) {
+		if ( $post->post_type=='page' || $post->post_type=='post' )
+			return 10;
+		return $num;
+	}
+}
+add_filter('wp_revisions_to_keep', 'twoobl_limit_rev_pages_and_posts', 10, 2);
 
 
 
@@ -335,7 +355,7 @@ add_filter('wp_title', 'twoobl_like_twentytwelve_wp_title', 10, 2);
  ********************************************/
 if( !function_exists( 'twoobl_mime_types' ) ) {
 	function twoobl_mime_types($mime_types){
-		//$mime_types['svg'] = 'image/svg+xml';
+		$mime_types['svg'] = 'image/svg+xml';
 		//$mime_types['avi'] = 'video/msvideo, video/avi, video/x-msvideo';
 		//$mime_types['bz2'] = 'application/x-bzip2';
 		//$mime_types['css'] = 'text/css';
@@ -344,7 +364,6 @@ if( !function_exists( 'twoobl_mime_types' ) ) {
 		//$mime_types['js'] = 'application/x-javascript';
 		//$mime_types['mp3'] = 'audio/mpeg';
 		//$mime_types['pdf'] = 'application/pdf';
-		//$mime_types['svg'] = 'image/svg+xml';
 		//$mime_types['swf'] = 'application/x-shockwave-flash';
 		//$mime_types['tar.gz'] = 'application/x-tar';
 		//$mime_types['txt'] = 'text/plain';
