@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twoobl v1.4\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://www.redpik.net/\n"
 "POT-Creation-Date: 2014-04-28 15:59+0100\n"
 "PO-Revision-Date: 2014-07-10 09:42:17+0000\n"
 "Last-Translator: Ben <benjamin.pongy@gmail.com>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-Bookmarks: \n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 "X-Textdomain-Support: yes"
 
 #: searchform.php:4
