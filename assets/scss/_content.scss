@@ -166,3 +166,18 @@ textarea {
 	@include tw_placeholder();
 }
 
+
+
+// emojis style
+img.wp-smiley,
+img.emoji {
+	display: inline;
+	border: none;
+	box-shadow: none;
+	height: 1em;
+	width: 1em;
+	margin: 0 .07em;
+	vertical-align: -0.1em;
+	background: none;
+	padding: 0;
+}
