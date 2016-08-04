@@ -50,6 +50,9 @@ if( !function_exists( 'twoobl_tinymce_custom' ) ) {
 			$init['extended_valid_elements'] = $valid_iframe;
 		}
 
+		// ...and spans.
+		$init['extended_valid_elements'] .= ',span[id|class|style|name|lang]';
+
 		return $init;
 	}
 }

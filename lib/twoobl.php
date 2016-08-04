@@ -8,11 +8,11 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		
 		// Custom menus
 		register_nav_menus( array(
-			'primary_nav' => __('Primary navigation', 'twoobl'),
-			/*'footer' => __('Footer menu', 'twoobl'),*/
+			'primary_nav' => __('Primary navigation', 'twoobl')
 		) );
 
 		// enlarge your WordPress
+		add_theme_support('title-tag');
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-background');
@@ -29,8 +29,6 @@ if( !function_exists( 'twoobl_setup' ) ) {
 
 		// Remove gallery inline CSS
 		add_filter('use_default_gallery_style', '__return_false');
-		
-		// TODO ...
 	}
 }
 add_action('after_setup_theme', 'twoobl_setup');
