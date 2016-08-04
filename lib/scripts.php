@@ -14,7 +14,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 		if (!is_admin()) {
 			// Be careful, this method will dequeue jQuery migrate
 			wp_deregister_script('jquery');
-			wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', false);
+			wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), '1.12.4', false);
 			add_filter('script_loader_src', 'twoobl_jquery_local_fallback', 10, 2);
 		}
 
