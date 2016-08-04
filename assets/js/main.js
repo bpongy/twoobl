@@ -23,6 +23,10 @@
 			}
 			return false;
 		});
+		// propagation problem?
+		$('[data-link] a').on('click', function(e) {
+			e.stopPropagation();
+		});
 
 		// WP galleries
 		$('.gallery').each(function() {
