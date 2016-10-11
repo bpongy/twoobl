@@ -3347,9 +3347,6 @@ img,
 .entry-header {
   padding-bottom: 1em;
 }
-.entry-header .title {
-  font-size: 2em;
-}
 
 .meta {
   color: #CCC;
@@ -3361,6 +3358,10 @@ img,
 }
 .meta a:hover {
   color: #555;
+}
+
+[data-link] {
+  cursor: pointer;
 }
 
 .thumb {
@@ -3380,6 +3381,9 @@ img,
   -ms-hyphens: auto;
   -o-hyphens: auto;
   hyphens: auto;
+}
+.entry-content > *:first-child {
+  margin-top: 0;
 }
 .entry-content .read-more {
   display: block;
@@ -3467,6 +3471,7 @@ figure.alignnone {
   width: 100%;
   text-align: center;
   vertical-align: top;
+  padding-bottom: 15px;
 }
 .gallery-columns-2 .gallery-item {
   max-width: 50%;
@@ -3521,6 +3526,19 @@ textarea:focus:-ms-input-placeholder {
 input:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder {
   color: rgba(153, 153, 153, 0.4);
+}
+
+img.wp-smiley,
+img.emoji {
+  display: inline;
+  border: none;
+  box-shadow: none;
+  height: 1em;
+  width: 1em;
+  margin: 0 .07em;
+  vertical-align: -0.1em;
+  background: none;
+  padding: 0;
 }
 
 body {

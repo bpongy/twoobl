@@ -1,7 +1,6 @@
 
 #top {
-	background-color: $gray-lighter;
-	padding: 10px 0;
+
 }
 
 #header-logo {
@@ -17,18 +16,19 @@
 	h1, p { margin: 0; font-size: 1em; padding: 0; }
 }
 
+#nav-main {
 
+}
 
 .sb-toggle-left {
-	font-size: 32px;
+	font-size: $font-size-h2;
 	font-weight: bold;
-	width: 40px;
+	width: 50px;
 	position: absolute;
 	z-index: 4;
 	margin: 0;
-	padding: 15px;
+	padding: 5px;
 	cursor: pointer;
 	
 	&:before { content: '≡'; }
 }
-

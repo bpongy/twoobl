@@ -45,7 +45,7 @@
 			
 			</div>
 
-			<nav class="nav-main" role="navigation">
+			<nav id="nav-main" role="navigation"<?php if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) echo ' class="hidden-xs"';?>>
 				<?php
 				if( has_nav_menu('primary_nav') )
 					wp_nav_menu(array('theme_location' => 'primary_nav', 'container' => false, 'menu_class' => 'nav nav-pills'));
