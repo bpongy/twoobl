@@ -2,10 +2,17 @@
 ;(function($){
 	$(document).ready(function(){
 
-		// Bootstrap tooltips
+		/********************************************
+		 * 		Bootstrap
+		 ********************************************/
+		// tooltips
 		// $('a[data-toggle="tooltip"]').tooltip();
 
-		// mobilenav
+
+
+		/********************************************
+		 * 		slideout.js navigation menu
+		 ********************************************/
 		var slideout = new Slideout({
 			'panel': document.getElementById('playground'),
 			'menu': document.getElementById('navmob'),
@@ -33,6 +40,11 @@
 				this.panel.removeEventListener('click', close);
 			});
 
+
+
+		/********************************************
+		 * 		when items become links
+		 ********************************************/
 		// when items become links
 		// ex 1: <div data-link="http://www.redpik.net">...</div>
 		// ex 2: <div data-link="http://www.redpik.net" data-blank="1">...</div>
@@ -51,20 +63,32 @@
 			e.stopPropagation();
 		});
 
-		// WP galleries
+
+
+		/********************************************
+		 * 		rel attribute for galleries
+		 ********************************************/
 		$('.gallery').each(function() {
 			var $_gal = $(this);
 			var idgal = $_gal.attr('id');
 			$('a', $_gal).attr('rel', idgal);
 		});
 
-		// Popin images with fancybox
+
+
+		/********************************************
+		 * 		Popin images with fancybox
+		 ********************************************/
 		$('.fancybox, a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').fancybox({
 			padding: 6,
 			openEffect: 'elastic'
 		});
-		
-		// Fitvids.js
+
+
+
+		/********************************************
+		 * 		fitvids.js
+		 ********************************************/
 		$(".entry-content").fitVids();
 		$(".entry-content").fitVids({ customSelector: "iframe[src*='dailymotion.com']"});
 
