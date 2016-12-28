@@ -16,16 +16,11 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-background');
-		// link manager
-		// add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 		
 		// Add theme support for Semantic Markup
 		// $HTML5markup = array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
 		$HTML5markup = array( 'gallery' );
 		add_theme_support( 'html5', $HTML5markup );
-
-		// Remove accents from uploaded files
-		add_filter('sanitize_file_name', 'remove_accents');
 
 		// Remove gallery inline CSS
 		add_filter('use_default_gallery_style', '__return_false');
@@ -68,10 +63,6 @@ function twoobl_excerpt($id, $len) {
 	add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
 	return $ex;
 }
-
-
-
-
 
 
 
@@ -303,6 +294,21 @@ if( !function_exists( 'twoobl_adminbar' ) ) {
 	}
 }
 add_action('wp_before_admin_bar_render', 'twoobl_adminbar');
+
+
+
+/********************************************
+ * 		Sanitize uploaded files names
+ ********************************************/
+if( !function_exists( 'twoobl_sanitize_file_name' ) ) {
+	function twoobl_sanitize_file_name($file_name) {
+		$remove = array("’", "@");
+		$file_name = remove_accents($file_name);
+		$file_name = str_replace($remove, '-', $file_name);
+		return $file_name;
+	}
+}
+add_filter('sanitize_file_name', 'twoobl_sanitize_file_name', 10);
 
 
 
