@@ -409,7 +409,7 @@ if( !function_exists( 'twoobl_fb_like_thumbnails' ) ) {
 	function twoobl_fb_like_thumbnails()
 	{
 		global $posts;
-		$FB_thumb = get_template_directory_uri() . '/assets/img/share.png';
+		$FB_thumb = get_template_directory_uri() . '/assets/img/default.png';
 		if ( is_single() || is_page() ) {
 			if ( has_post_thumbnail( $posts[0]->ID ) ) {
 				$FB_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $posts[0]->ID), 'thumbnail' );
@@ -504,16 +504,13 @@ add_filter('the_content_feed', 'twoobl_feed_post_thumbnail');
 
 
 
-
-
-
 /*************************************************
  * 	Add default avatar
  *************************************************/
 if ( !function_exists('twoobl_default_avatar') ) {
 	function twoobl_default_avatar($avatar_defaults) {
-		$twoobl_avatar = get_template_directory_uri() . '/assets/img/avatar-default.png';
-		$avatar_defaults[$twoobl_avatar] = 'twoobl';
+		$twoobl_avatar = get_template_directory_uri() . '/assets/img/default.png';
+		$avatar_defaults[$twoobl_avatar] = get_bloginfo('name');
 
 		return $avatar_defaults;
 	}
