@@ -11,7 +11,7 @@
 
 <?php
 if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
-	echo '<div id="navmob" class="sb-slidebar sb-left">';
+	echo '<div id="navmob">';
 	dynamic_sidebar('mobile_menu');
 	echo '</div>';
 }

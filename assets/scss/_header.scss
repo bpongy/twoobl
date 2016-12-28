@@ -1,4 +1,37 @@
 
+#mobile-top {
+	background-color: $gray-darker;
+	color: #ffffff;
+	padding: 0.5em 0;
+	font-size: 0.9em;
+	margin-bottom: $grid-gutter-width / 2;
+	a {
+		color: inherit;
+	}
+}
+
+.js-slideout-toggle {
+	span {
+		display: block;
+		cursor: pointer;
+		font-size: $font-size-h2;
+		line-height: 0.9em;
+		&:before,
+		&:after {
+			content: '≡';
+			display: inline-block;
+			vertical-align: middle;
+		}
+		&:after {
+			content: 'Menu';
+			font-size: $font-size-h6;
+			text-transform: uppercase;
+			padding-left: 0.4em;
+		}
+	}
+}
+
+
 #top {
 
 }
@@ -11,24 +44,88 @@
 
 #site-desc {
 	text-align: center;
-	font-size: $font-size-base*2;
+	font-size: $font-size-large;
 	line-height: 1.1em;
 	h1, p { margin: 0; font-size: 1em; padding: 0; }
 }
 
+
+
+
 #nav-main {
+	padding-top: 0.5em;
+	background-color: $gray-lighter;
+	margin-top: $grid-gutter-width;
+	a {
+		color: inherit;
+		text-transform: uppercase;
+		@include tw_responsive('font-size', 1.1em, 1em, 0.9em);
+	}
+	> div > ul {
+		text-align: center;
+		> li  {
+			position: relative;
+			display: inline-block;
+			float: none;
+			> a {
+				position: relative;
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					left: 10%;
+					right: 10%;
+					bottom: 0;
+					height: 2px;
+					background-color: $brand-primary;
+					transform: scaleX(0);
+					opacity: 0;
+					transition: transform 0.16s;
+				}
+			}
+			&[class*="current"] > a,
+			> a:hover {
+				&:before {
+					opacity: 1;
+					transform: scaleX(1);
+				}
+			}
 
-}
+			// sub items
+			> ul {
+				display: none;
+				position: absolute;
+				list-style-type: none;
+				text-align: left;
+				top: 95%;
+				left: 0;
+				min-width: 190px;
+				margin: 0;
+				padding: 0.5em;
+				z-index: 2;
+				background-color: #FFF;
+				box-shadow: 1px 3px 6px rgba(#000, 0.4);
 
-.sb-toggle-left {
-	font-size: $font-size-h2;
-	font-weight: bold;
-	width: 50px;
-	position: absolute;
-	z-index: 4;
-	margin: 0;
-	padding: 5px;
-	cursor: pointer;
-	
-	&:before { content: '≡'; }
+				> li {
+					display: block;
+					border-bottom: 1px solid $gray-lighter;
+					> a {
+						display: block;
+						text-transform: none;
+						font-size: 0.9em;
+						padding: 0.3em;
+					}
+					&:last-child {
+						border: none;
+					}
+				}
+			}
+
+			&:hover {
+				> ul {
+					display: block;
+				}
+			}
+		}
+	}
 }

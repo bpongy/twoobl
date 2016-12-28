@@ -1,0 +1,111 @@
+
+$sidebar-bg: #26292F;
+
+// avoid double scrollbar bug
+#_atssh,
+body > img[src*="addthis"] { position: absolute; top: 0; }
+
+@media (max-width: $screen-xs-max) {
+	html,
+	body,
+	#playground {
+		width: 100%;
+		height: 100%;
+	}
+
+	#playground {
+		background-color: $body-bg;
+		&:before {
+			content: '';
+			display: block;
+			background-color: rgba(0,0,0,0);
+			transition: background-color 0.5s ease-in-out;
+		}
+
+		&.panel-open {
+			box-shadow: 0 0 30px rgba(#000, 0.6);
+			&:before {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				background-color: rgba(0,0,0,.5);
+				z-index: 99;
+			}
+		}
+	}
+}
+
+.slideout-menu {
+	background-color: $sidebar-bg;
+	color: #ffffff;
+	font-size: 0.9em;
+
+	.widget {
+		padding: 0.9em;
+		a {
+			color: inherit;
+			display: block;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			opacity: 0.8;
+			a {
+				display: block;
+				padding: 0.5em;
+			}
+		}
+
+		> div > ul > li {
+			border-bottom: 1px solid lighten($sidebar-bg, 8%);
+			> a {
+				padding-top: 0.3em;
+				padding-bottom: 0.3em;
+				&:before {
+					content: '\2022';
+					color: lighten(saturate($sidebar-bg, 90%), 50%);
+					font-size: 1.8em;
+					display: inline-block;
+					padding-right: 0.4em;
+					vertical-align: middle;
+				}
+			}
+			> ul {
+				padding: 0 0 1em 2em;
+				a {
+					padding: 0.3em 0.5em;
+				}
+			}
+		}
+	}
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+	width: 256px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	display: none;
+}
+
+.slideout-panel {
+	position: relative;
+	z-index: 1;
+	will-change: transform;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+	overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+	display: block;
+}
+

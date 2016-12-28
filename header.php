@@ -17,13 +17,24 @@
 <body <?php body_class(); ?>>
 <div id="playground" class="sb-site-container">
 
-	<header id="top" role="banner">
-		<div class="container">
-
+	<div id="mobile-top" class="visible-xs-block">
+		<div class="clearfix">
 			<?php
 			if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
-				echo '<span class="sb-toggle-left visible-xs"></span>';
+				echo '<div class="js-slideout-toggle visible-xs-block col-xs-4"><span></span></div>';
 			?>
+			<div id="mob-title" class="col-xs-8 text-right">
+				<a href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name')); ?>">
+					<?php
+					echo get_bloginfo('name');
+					?>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<header id="top" role="banner">
+		<div class="container">
 
 			<div class="row">
 
@@ -45,14 +56,17 @@
 			
 			</div>
 
-			<nav id="nav-main" role="navigation"<?php if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) echo ' class="hidden-xs"';?>>
+		</div>
+
+		<nav id="nav-main" role="navigation"<?php if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) echo ' class="hidden-xs"';?>>
+			<div class="container">
 				<?php
 				if( has_nav_menu('primary_nav') )
 					wp_nav_menu(array('theme_location' => 'primary_nav', 'container' => false, 'menu_class' => 'nav nav-pills'));
 				?>
-			</nav>
+			</div>
+		</nav>
 
-		</div>
 	</header>
 	
 	<div id="wrap">

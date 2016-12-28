@@ -1,10 +1,15 @@
 
 #sidebar {
+
+	font-size: 0.85em;
 	
 	@extend .hidden-print;
 	
 	.widget {
-		margin-bottom: 2em;
+		margin-bottom: $grid-gutter-width;
+		.title {
+
+		}
 	}
 
 	// Responsive Facebook like box

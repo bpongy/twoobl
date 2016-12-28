@@ -6,9 +6,32 @@
 		// $('a[data-toggle="tooltip"]').tooltip();
 
 		// mobilenav
-		$.slidebars({
-			scrollLock: true // Prevent site content scrolling whilst a Slidebar is open.
+		var slideout = new Slideout({
+			'panel': document.getElementById('playground'),
+			'menu': document.getElementById('navmob'),
+			'padding': 256,
+			'tolerance': 70
 		});
+		// Toggle button
+		$('.js-slideout-toggle').on('click', function() {
+			slideout.open();
+		});
+
+		function close(eve) {
+			eve.preventDefault();
+			slideout.close();
+		}
+		slideout
+			.on('beforeopen', function() {
+				this.panel.classList.add('panel-open');
+			})
+			.on('open', function() {
+				this.panel.addEventListener('click', close);
+			})
+			.on('beforeclose', function() {
+				this.panel.classList.remove('panel-open');
+				this.panel.removeEventListener('click', close);
+			});
 
 		// when items become links
 		// ex 1: <div data-link="http://www.redpik.net">...</div>

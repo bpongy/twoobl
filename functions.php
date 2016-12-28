@@ -7,11 +7,8 @@ define('_THEME_COLOR_', '#444');
 define('_MOBILE_NAV_', true);
 define('_THUMBNAIL_COLUMN_', true);
 define('_TWOOBL_DEV_', WP_DEBUG);
-define('_TWOOBL_SCR_VERSION_', '1.0');
+define('_TWOOBL_SCR_VERSION_', '2.1');
 define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
-
-if ( function_exists( 'pods' ) )
-	$twoobl = pods('twoobl_'._ISOLANG_);
 
 require_once locate_template('lib/scripts.php');
 require_once locate_template('lib/widgets.php');
