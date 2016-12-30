@@ -181,7 +181,15 @@ if( defined( '_THUMBNAIL_COLUMN_' ) && _THUMBNAIL_COLUMN_ ) {
 	
 	function twoobl_postsCustomColumn($column_name, $id) {
 		if ($column_name === 'twoobl_post_thumbnail')
-			echo '<a href="'.get_edit_post_link().'"><img src="'.get_post_thumbnail_src().'" width="50" alt="" /></a>';
+		{
+			$admin_thumb = get_the_post_thumbnail() ? get_post_thumbnail_src() : get_template_directory_uri() . '/assets/img/default.png';
+			echo '<a href="' . get_edit_post_link() . '">';
+			if (get_the_post_thumbnail())
+				echo '<img src="' . get_post_thumbnail_src() . '" style="width: 40px;" alt="" />';
+			else
+				echo '<img src="' . get_template_directory_uri() . '/assets/img/default.png" style="width: 40px; opacity: 0.4;" alt="" />';
+			echo '</a>';
+		}
 	}
 	
 	function twoobl_admin_inline_css() {
