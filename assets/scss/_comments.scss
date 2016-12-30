@@ -3,11 +3,6 @@
 	padding-top: 2em;
 	@extend .hidden-print;
 
-	.title {
-		font-size: 22px;
-		padding-bottom: 0.2em;
-	}
-
 	.comment-list {
 		margin: 0;
 		padding: 15px 0 20px 0;
@@ -42,17 +37,28 @@
 
 
 #respond {
+	.comment-notes {
+		font-size: 0.85em;
+		color: lighten($text-color, 15%);
+	}
+	.required {
+		color: $state-danger-text;
+	}
 	label {
 		font-weight: normal;
-		margin: 0;
-		i {
-			font-style: normal;
-			color: #920;
-			font-size: 10px;
-		}
+		display: block;
+		margin-bottom: 0;
 	}
-	.form-control {
-		background-color: #fcfcfc;
+	input[type="text"],
+	textarea {
+		@extend .form-control;
+		max-width: 300px;
 	}
-	input.form-control { max-width: 280px; }
+	textarea {
+		width: 100%;
+		max-width: 600px;
+	}
+	.form-submit {
+		padding-top: 1em;
+	}
 }

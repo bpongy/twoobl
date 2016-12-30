@@ -3229,7 +3229,8 @@ output {
   color: #999;
 }
 
-.form-control {
+.form-control, #respond input[type="text"],
+#respond textarea {
   display: block;
   width: 100%;
   height: 36px;
@@ -3237,7 +3238,7 @@ output {
   font-size: 15px;
   line-height: 1.5;
   color: #999;
-  background-color: #fff;
+  background-color: #FAFAFA;
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 2px;
@@ -3247,35 +3248,48 @@ output {
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.form-control:focus {
-  border-color: #03afba;
+.form-control:focus, #respond input[type="text"]:focus,
+#respond textarea:focus {
+  border-color: #555;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(3, 175, 186, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(3, 175, 186, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(85, 85, 85, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(85, 85, 85, 0.6);
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder, #respond input[type="text"]::-moz-placeholder,
+#respond textarea::-moz-placeholder {
   color: #999;
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, #respond input[type="text"]:-ms-input-placeholder,
+#respond textarea:-ms-input-placeholder {
   color: #999;
 }
-.form-control::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, #respond input[type="text"]::-webkit-input-placeholder,
+#respond textarea::-webkit-input-placeholder {
   color: #999;
 }
-.form-control::-ms-expand {
+.form-control::-ms-expand, #respond input[type="text"]::-ms-expand,
+#respond textarea::-ms-expand {
   border: 0;
   background-color: transparent;
 }
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+.form-control[disabled], #respond input[disabled][type="text"],
+#respond textarea[disabled], .form-control[readonly], #respond input[readonly][type="text"],
+#respond textarea[readonly], fieldset[disabled] .form-control, fieldset[disabled] #respond input[type="text"], #respond fieldset[disabled] input[type="text"],
+fieldset[disabled] #respond textarea,
+#respond fieldset[disabled] textarea {
   background-color: #F0F0F0;
   opacity: 1;
 }
-.form-control[disabled], fieldset[disabled] .form-control {
+.form-control[disabled], #respond input[disabled][type="text"],
+#respond textarea[disabled], fieldset[disabled] .form-control, fieldset[disabled] #respond input[type="text"], #respond fieldset[disabled] input[type="text"],
+fieldset[disabled] #respond textarea,
+#respond fieldset[disabled] textarea {
   cursor: not-allowed;
 }
 
-textarea.form-control {
+textarea.form-control,
+#respond textarea {
   height: auto;
 }
 
@@ -3284,47 +3298,56 @@ input[type="search"] {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"].form-control,
+  input[type="date"].form-control, #respond input[type="date"][type="text"],
   input[type="time"].form-control,
+  #respond input[type="time"][type="text"],
   input[type="datetime-local"].form-control,
-  input[type="month"].form-control {
+  #respond input[type="datetime-local"][type="text"],
+  input[type="month"].form-control,
+  #respond input[type="month"][type="text"] {
     line-height: 36px;
   }
-  input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control,
+  input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, #respond .input-group-sm > input[type="date"][type="text"],
   .input-group-sm > input[type="date"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="date"].btn, .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
+  #respond .input-group-sm > input[type="time"][type="text"],
   .input-group-sm > input[type="time"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="time"].btn, .input-group-sm
   input[type="time"],
   input[type="datetime-local"].input-sm,
   .input-group-sm > input[type="datetime-local"].form-control,
+  #respond .input-group-sm > input[type="datetime-local"][type="text"],
   .input-group-sm > input[type="datetime-local"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn, .input-group-sm
   input[type="datetime-local"],
   input[type="month"].input-sm,
   .input-group-sm > input[type="month"].form-control,
+  #respond .input-group-sm > input[type="month"][type="text"],
   .input-group-sm > input[type="month"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm
   input[type="month"] {
     line-height: 30px;
   }
-  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control,
+  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, #respond .input-group-lg > input[type="date"][type="text"],
   .input-group-lg > input[type="date"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="date"].btn, .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
+  #respond .input-group-lg > input[type="time"][type="text"],
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn, .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
   .input-group-lg > input[type="datetime-local"].form-control,
+  #respond .input-group-lg > input[type="datetime-local"][type="text"],
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn, .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
   .input-group-lg > input[type="month"].form-control,
+  #respond .input-group-lg > input[type="month"][type="text"],
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg
   input[type="month"] {
@@ -3407,16 +3430,19 @@ input[type="checkbox"] {
   margin-bottom: 0;
   min-height: 37px;
 }
-.form-control-static.input-lg, .input-group-lg > .form-control-static.form-control,
+.form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, #respond .input-group-lg > input.form-control-static[type="text"],
+#respond .input-group-lg > textarea.form-control-static,
 .input-group-lg > .form-control-static.input-group-addon,
-.input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
+.input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, #respond .input-group-sm > input.form-control-static[type="text"],
+#respond .input-group-sm > textarea.form-control-static,
 .input-group-sm > .form-control-static.input-group-addon,
 .input-group-sm > .input-group-btn > .form-control-static.btn {
   padding-left: 0;
   padding-right: 0;
 }
 
-.input-sm, .input-group-sm > .form-control,
+.input-sm, .input-group-sm > .form-control, #respond .input-group-sm > input[type="text"],
+#respond .input-group-sm > textarea,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
   height: 30px;
@@ -3434,6 +3460,7 @@ select.input-sm, .input-group-sm > select.form-control,
 }
 
 textarea.input-sm, .input-group-sm > textarea.form-control,
+#respond .input-group-sm > textarea,
 .input-group-sm > textarea.input-group-addon,
 .input-group-sm > .input-group-btn > textarea.btn,
 select[multiple].input-sm,
@@ -3443,7 +3470,9 @@ select[multiple].input-sm,
   height: auto;
 }
 
-.form-group-sm .form-control {
+.form-group-sm .form-control, .form-group-sm #respond input[type="text"], #respond .form-group-sm input[type="text"],
+.form-group-sm #respond textarea,
+#respond .form-group-sm textarea {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -3455,6 +3484,8 @@ select[multiple].input-sm,
   line-height: 30px;
 }
 .form-group-sm textarea.form-control,
+.form-group-sm #respond textarea,
+#respond .form-group-sm textarea,
 .form-group-sm select[multiple].form-control {
   height: auto;
 }
@@ -3466,7 +3497,8 @@ select[multiple].input-sm,
   line-height: 1.5;
 }
 
-.input-lg, .input-group-lg > .form-control,
+.input-lg, .input-group-lg > .form-control, #respond .input-group-lg > input[type="text"],
+#respond .input-group-lg > textarea,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   height: 46px;
@@ -3484,6 +3516,7 @@ select.input-lg, .input-group-lg > select.form-control,
 }
 
 textarea.input-lg, .input-group-lg > textarea.form-control,
+#respond .input-group-lg > textarea,
 .input-group-lg > textarea.input-group-addon,
 .input-group-lg > .input-group-btn > textarea.btn,
 select[multiple].input-lg,
@@ -3493,7 +3526,9 @@ select[multiple].input-lg,
   height: auto;
 }
 
-.form-group-lg .form-control {
+.form-group-lg .form-control, .form-group-lg #respond input[type="text"], #respond .form-group-lg input[type="text"],
+.form-group-lg #respond textarea,
+#respond .form-group-lg textarea {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -3505,6 +3540,8 @@ select[multiple].input-lg,
   line-height: 46px;
 }
 .form-group-lg textarea.form-control,
+.form-group-lg #respond textarea,
+#respond .form-group-lg textarea,
 .form-group-lg select[multiple].form-control {
   height: auto;
 }
@@ -3519,7 +3556,9 @@ select[multiple].input-lg,
 .has-feedback {
   position: relative;
 }
-.has-feedback .form-control {
+.has-feedback .form-control, .has-feedback #respond input[type="text"], #respond .has-feedback input[type="text"],
+.has-feedback #respond textarea,
+#respond .has-feedback textarea {
   padding-right: 45px;
 }
 
@@ -3536,21 +3575,31 @@ select[multiple].input-lg,
   pointer-events: none;
 }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback,
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, #respond .input-group-lg > input[type="text"] + .form-control-feedback,
+#respond .input-group-lg > textarea + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
-.form-group-lg .form-control + .form-control-feedback {
+.form-group-lg .form-control + .form-control-feedback,
+.form-group-lg #respond input[type="text"] + .form-control-feedback,
+#respond .form-group-lg input[type="text"] + .form-control-feedback,
+.form-group-lg #respond textarea + .form-control-feedback,
+#respond .form-group-lg textarea + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px;
 }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback,
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, #respond .input-group-sm > input[type="text"] + .form-control-feedback,
+#respond .input-group-sm > textarea + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
-.form-group-sm .form-control + .form-control-feedback {
+.form-group-sm .form-control + .form-control-feedback,
+.form-group-sm #respond input[type="text"] + .form-control-feedback,
+#respond .form-group-sm input[type="text"] + .form-control-feedback,
+.form-group-sm #respond textarea + .form-control-feedback,
+#respond .form-group-sm textarea + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -3564,12 +3613,16 @@ select[multiple].input-lg,
 .has-success .checkbox-inline, .has-success.radio label, .has-success.checkbox label, .has-success.radio-inline label, .has-success.checkbox-inline label {
   color: #3c763d;
 }
-.has-success .form-control {
+.has-success .form-control, .has-success #respond input[type="text"], #respond .has-success input[type="text"],
+.has-success #respond textarea,
+#respond .has-success textarea {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-success .form-control:focus {
+.has-success .form-control:focus, .has-success #respond input[type="text"]:focus, #respond .has-success input[type="text"]:focus,
+.has-success #respond textarea:focus,
+#respond .has-success textarea:focus {
   border-color: #2b542c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
@@ -3591,12 +3644,16 @@ select[multiple].input-lg,
 .has-warning .checkbox-inline, .has-warning.radio label, .has-warning.checkbox label, .has-warning.radio-inline label, .has-warning.checkbox-inline label {
   color: #8a6d3b;
 }
-.has-warning .form-control {
+.has-warning .form-control, .has-warning #respond input[type="text"], #respond .has-warning input[type="text"],
+.has-warning #respond textarea,
+#respond .has-warning textarea {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-warning .form-control:focus {
+.has-warning .form-control:focus, .has-warning #respond input[type="text"]:focus, #respond .has-warning input[type="text"]:focus,
+.has-warning #respond textarea:focus,
+#respond .has-warning textarea:focus {
   border-color: #66512c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
@@ -3618,12 +3675,16 @@ select[multiple].input-lg,
 .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
   color: #a94442;
 }
-.has-error .form-control {
+.has-error .form-control, .has-error #respond input[type="text"], #respond .has-error input[type="text"],
+.has-error #respond textarea,
+#respond .has-error textarea {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-error .form-control:focus {
+.has-error .form-control:focus, .has-error #respond input[type="text"]:focus, #respond .has-error input[type="text"]:focus,
+.has-error #respond textarea:focus,
+#respond .has-error textarea:focus {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
@@ -3657,7 +3718,9 @@ select[multiple].input-lg,
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .form-inline .form-control {
+  .form-inline .form-control, .form-inline #respond input[type="text"], #respond .form-inline input[type="text"],
+  .form-inline #respond textarea,
+  #respond .form-inline textarea {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -3671,10 +3734,16 @@ select[multiple].input-lg,
   }
   .form-inline .input-group .input-group-addon,
   .form-inline .input-group .input-group-btn,
-  .form-inline .input-group .form-control {
+  .form-inline .input-group .form-control,
+  .form-inline .input-group #respond input[type="text"],
+  #respond .form-inline .input-group input[type="text"],
+  .form-inline .input-group #respond textarea,
+  #respond .form-inline .input-group textarea {
     width: auto;
   }
-  .form-inline .input-group > .form-control {
+  .form-inline .input-group > .form-control, .form-inline #respond .input-group > input[type="text"], #respond .form-inline .input-group > input[type="text"],
+  .form-inline #respond .input-group > textarea,
+  #respond .form-inline .input-group > textarea {
     width: 100%;
   }
   .form-inline .control-label {
@@ -4479,25 +4548,37 @@ tbody.collapse.in {
   padding-left: 0;
   padding-right: 0;
 }
-.input-group .form-control {
+.input-group .form-control, .input-group #respond input[type="text"], #respond .input-group input[type="text"],
+.input-group #respond textarea,
+#respond .input-group textarea {
   position: relative;
   z-index: 2;
   float: left;
   width: 100%;
   margin-bottom: 0;
 }
-.input-group .form-control:focus {
+.input-group .form-control:focus, .input-group #respond input[type="text"]:focus, #respond .input-group input[type="text"]:focus,
+.input-group #respond textarea:focus,
+#respond .input-group textarea:focus {
   z-index: 3;
 }
 
 .input-group-addon,
 .input-group-btn,
-.input-group .form-control {
+.input-group .form-control,
+.input-group #respond input[type="text"],
+#respond .input-group input[type="text"],
+.input-group #respond textarea,
+#respond .input-group textarea {
   display: table-cell;
 }
 .input-group-addon:not(:first-child):not(:last-child),
 .input-group-btn:not(:first-child):not(:last-child),
-.input-group .form-control:not(:first-child):not(:last-child) {
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group #respond input[type="text"]:not(:first-child):not(:last-child),
+#respond .input-group input[type="text"]:not(:first-child):not(:last-child),
+.input-group #respond textarea:not(:first-child):not(:last-child),
+#respond .input-group textarea:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 
@@ -4519,14 +4600,16 @@ tbody.collapse.in {
   border: 1px solid #ccc;
   border-radius: 2px;
 }
-.input-group-addon.input-sm,
+.input-group-addon.input-sm, #respond .input-group-sm > input.input-group-addon[type="text"],
+#respond .input-group-sm > textarea.input-group-addon,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 1px;
 }
-.input-group-addon.input-lg,
+.input-group-addon.input-lg, #respond .input-group-lg > input.input-group-addon[type="text"],
+#respond .input-group-lg > textarea.input-group-addon,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 10px 16px;
@@ -4538,7 +4621,9 @@ tbody.collapse.in {
   margin-top: 0;
 }
 
-.input-group .form-control:first-child,
+.input-group .form-control:first-child, .input-group #respond input[type="text"]:first-child, #respond .input-group input[type="text"]:first-child,
+.input-group #respond textarea:first-child,
+#respond .input-group textarea:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .btn-group > .btn,
@@ -4553,7 +4638,9 @@ tbody.collapse.in {
   border-right: 0;
 }
 
-.input-group .form-control:last-child,
+.input-group .form-control:last-child, .input-group #respond input[type="text"]:last-child, #respond .input-group input[type="text"]:last-child,
+.input-group #respond textarea:last-child,
+#respond .input-group textarea:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group > .btn,
@@ -4994,7 +5081,9 @@ tbody.collapse.in {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .navbar-form .form-control {
+  .navbar-form .form-control, .navbar-form #respond input[type="text"], #respond .navbar-form input[type="text"],
+  .navbar-form #respond textarea,
+  #respond .navbar-form textarea {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -5008,10 +5097,16 @@ tbody.collapse.in {
   }
   .navbar-form .input-group .input-group-addon,
   .navbar-form .input-group .input-group-btn,
-  .navbar-form .input-group .form-control {
+  .navbar-form .input-group .form-control,
+  .navbar-form .input-group #respond input[type="text"],
+  #respond .navbar-form .input-group input[type="text"],
+  .navbar-form .input-group #respond textarea,
+  #respond .navbar-form .input-group textarea {
     width: auto;
   }
-  .navbar-form .input-group > .form-control {
+  .navbar-form .input-group > .form-control, .navbar-form #respond .input-group > input[type="text"], #respond .navbar-form .input-group > input[type="text"],
+  .navbar-form #respond .input-group > textarea,
+  #respond .navbar-form .input-group > textarea {
     width: 100%;
   }
   .navbar-form .control-label {
@@ -7492,9 +7587,11 @@ button.close {
   margin: 0;
   font-family: inherit;
   font-weight: 700;
+  color: #222;
 }
 .title a {
   display: block;
+  color: inherit;
 }
 
 #wrap {
@@ -7835,10 +7932,6 @@ img.emoji {
 #comments {
   padding-top: 2em;
 }
-#comments .title {
-  font-size: 22px;
-  padding-bottom: 0.2em;
-}
 #comments .comment-list {
   margin: 0;
   padding: 15px 0 20px 0;
@@ -7872,20 +7965,28 @@ img.emoji {
   color: #777;
 }
 
+#respond .comment-notes {
+  font-size: 0.85em;
+  color: #7b7b7b;
+}
+#respond .required {
+  color: #a94442;
+}
 #respond label {
   font-weight: normal;
-  margin: 0;
+  display: block;
+  margin-bottom: 0;
 }
-#respond label i {
-  font-style: normal;
-  color: #920;
-  font-size: 10px;
+#respond input[type="text"],
+#respond textarea {
+  max-width: 300px;
 }
-#respond .form-control {
-  background-color: #fcfcfc;
+#respond textarea {
+  width: 100%;
+  max-width: 600px;
 }
-#respond input.form-control {
-  max-width: 280px;
+#respond .form-submit {
+  padding-top: 1em;
 }
 
 #sidebar {

@@ -26,6 +26,7 @@ http://github.com/redpik/Twoobl
 	margin: 0;
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
+	color: $headings-color;
 	//@include hyphens();
 
 	// anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/
@@ -33,6 +34,7 @@ http://github.com/redpik/Twoobl
 	
 	a {
 		display: block;
+		color: inherit;
 	}
 }
 
