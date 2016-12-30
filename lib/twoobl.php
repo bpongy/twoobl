@@ -516,3 +516,21 @@ if ( !function_exists('twoobl_default_avatar') ) {
 	}
 }
 add_filter( 'avatar_defaults', 'twoobl_default_avatar' );
+
+
+
+/*************************************************
+ * 	Disable REST API user endpoints for security
+ *************************************************/
+if ( !function_exists('twoobl_json_api_filters') ) {
+	function twoobl_json_api_filters($endpoints) {
+		if ( isset( $endpoints['/wp/v2/users'] ) ) {
+			unset( $endpoints['/wp/v2/users'] );
+		}
+		if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+		}
+		return $endpoints;
+	}
+}
+add_filter( 'rest_endpoints', 'twoobl_json_api_filters' );
