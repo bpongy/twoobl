@@ -46,9 +46,9 @@
 
 				<div id="site-desc" class="col-md-4">
 					<?php
-					echo ( is_home() ? '<h1>' : '<p>' );
+					echo ( is_front_page() ? '<h1>' : '<p>' );
 					echo get_bloginfo('description');
-					echo ( is_home() ? '</h1>' : '</p>' );
+					echo ( is_front_page() ? '</h1>' : '</p>' );
 					?>
 				</div>
 				

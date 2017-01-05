@@ -310,7 +310,7 @@ add_action('wp_before_admin_bar_render', 'twoobl_adminbar');
  ********************************************/
 if( !function_exists( 'twoobl_sanitize_file_name' ) ) {
 	function twoobl_sanitize_file_name($file_name) {
-		$remove = array("’", "@");
+		$remove = array("’", "©");
 		$file_name = remove_accents($file_name);
 		$file_name = str_replace($remove, '-', $file_name);
 		return $file_name;
