@@ -1,15 +1,18 @@
-/*
-	Responsive ratio item
-	example:
-	.video-4-3 {
-		@include tw_ratio(4/3);
-	}
-*/
+
+//	Responsive ratio item
+//	example:
+//	.video-4-3 {
+//		@include tw_ratio(4/3);
+//	}
+
 @mixin tw_ratio($ratio) {
 	padding-bottom: unquote(floor(100 * (1/$ratio)) + '%');
 }
 
-// placeholder / placeholder with focus
+
+
+//	placeholder / placeholder with focus
+
 @mixin tw_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
 	&::-moz-placeholder           { color: $color; opacity: 1; }
 	&:-ms-input-placeholder       { color: $color; }
@@ -19,13 +22,14 @@
 	&:focus::-webkit-input-placeholder  { color: $color-hover; }
 }
 
-/*
-	Vertical align anything
-	example:
-	.my-container {
-		@include tw_vertical-align-inside();
-	}
-*/
+
+
+//	Vertical align anything
+//	example:
+//	.my-container {
+//		@include tw_vertical-align-inside();
+//	}
+
 @mixin tw_vertical-align-inside($pos: 50%) {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
@@ -41,14 +45,13 @@
 
 
 
-/*
-	Responsive everything
-	ex :
-	#test {
-		@include tw_responsive('border', '1px dashed red', '2px dashed olive', '5px dashed tomato');
-		@include tw_responsive('font-size', $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
-	}
-*/
+//	Responsive everything
+//	ex :
+//	#test {
+//		@include tw_responsive('border', '1px dashed red', '2px dashed olive', '5px dashed tomato');
+//		@include tw_responsive('font-size', $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
+//	}
+
 @mixin tw_responsive($prop, $lg, $md, $sm, $xs: false) {
 	@if $lg {
 		#{$prop}: tw_get_prop($lg);
