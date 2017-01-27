@@ -1,17 +1,5 @@
 <?php
 
-function twoobl_acf_init()
-{
-	if( !function_exists( 'acf_get_setting' ) ) {
-		echo '<div class="error"><p>'.__('Warning! In order to use Twoobl, you must install ACF.', 'twoobl').'</p></div>';
-	}
-
-}
-
-add_action('admin_notices', 'twoobl_acf_init');
-
-
-
 if (function_exists('acf_add_options_page'))
 {
 	acf_add_options_page(
