@@ -1,5 +1,5 @@
 {
-	"autoprefixer": {"browsers": ["last 3 versions", "Android 2.3", "ie 8"]},
+	"autoprefixer": {"browsers": ["last 3 versions", "Android 4.4", "ie 10"]},
 	"minifier": true,
 	"mqpacker": true
 }
