@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php wp_head(); ?>
-	<?php /*<link href='http://fonts.googleapis.com/css?family=Signika:600' rel='stylesheet' type='text/css'> */ ?>
-
 	<!-- IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
-	<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
 
 <body <?php body_class(); ?>>
-<div id="playground" class="sb-site-container">
+<div id="playground">
 
 	<div id="mobile-top" class="visible-xs-block">
 		<div class="clearfix">
@@ -45,11 +43,9 @@
 				</div>
 
 				<div id="site-desc" class="col-md-4">
-					<?php
-					echo ( is_front_page() ? '<h1>' : '<p>' );
-					echo get_bloginfo('description');
-					echo ( is_front_page() ? '</h1>' : '</p>' );
-					?>
+					<p>
+					<?php echo get_bloginfo('description'); ?>
+					</p>
 				</div>
 				
 				<div id="search-top" class="col-md-4"><?php get_search_form(); ?></div>
