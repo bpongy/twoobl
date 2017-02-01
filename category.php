@@ -9,12 +9,19 @@
 <div class="row">
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
-		
-		<h1 class="title">
-			<?php
-	         single_cat_title();
-	        ?>
-		</h1>
+		<div class="entry-header">
+			<h1 class="title">
+				<?php
+		         single_cat_title();
+		        ?>
+			</h1>
+		</div>
+
+		<?php if (category_description()) : ?>
+		<div class="category-description entry-content clearfix">
+			<?php echo category_description(); ?>
+		</div>
+		<?php endif; ?>
 		
 		<?php if (!have_posts()) : ?>
 			<div class="alert">

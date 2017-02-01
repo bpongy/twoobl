@@ -1,6 +1,6 @@
 <article <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
 	<header class="entry-header">
-		<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h2 class="title h2"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php get_template_part('templates/meta'); ?>
 	</header>
 	<?php
