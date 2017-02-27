@@ -4,13 +4,20 @@
  * 		Custom TinyMCE
  ********************************************/
 
+
+// F*ck you kitchen sink
+if( !function_exists( 'twoobl_kitchen_sink' ) ) {
+	function twoobl_kitchen_sink() {
+		if ( !get_user_setting( 'hidetb' ) ) {
+			set_user_setting( 'hidetb', 1 );
+		}
+	}
+	add_action( 'admin_init', 'twoobl_kitchen_sink' );
+}
+
+
 if( !function_exists( 'twoobl_tinymce_custom' ) ) {
 	function twoobl_tinymce_custom($init) {
-
-		// Fuck you kitchen sink
-		set_user_setting('hidetb', 0);
-		$init['hidetb'] = 0;
-		$init['wordpress_adv_hidden'] = false;
 
 		// Remove H1, H6
 		$init['block_formats'] = 'Paragraphe=p;'.__('Title 2', 'twoobl').'=h2;'.__('Title 3', 'twoobl').'=h3;'.__('Title 4', 'twoobl').'=h4;'.__('Title 5', 'twoobl').'=h5;Adresse=address';
@@ -62,7 +69,7 @@ add_filter('tiny_mce_before_init', 'twoobl_tinymce_custom');
 
 if( !function_exists( 'twoobl_mce_buttons_1' ) ) {
 	function twoobl_mce_buttons_1($buttons) {
-		// Remove buttons
+		// Remove kitchen sink button
 	    $remove = array('wp_adv');
 		return array_diff($buttons,$remove);
 	}

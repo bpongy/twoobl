@@ -49,7 +49,6 @@
 		/********************************************
 		 * 		when items become links
 		 ********************************************/
-		// when items become links
 		// ex 1: <div data-link="http://www.redpik.net">...</div>
 		// ex 2: <div data-link="http://www.redpik.net" data-blank="1">...</div>
 		$('[data-link]').on('click', function() {
