@@ -38,7 +38,7 @@
 
 				<div id="header-logo" class="col-md-4">
 					<a class="brand" href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name')); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" />
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" />
 					</a>
 				</div>
 
@@ -67,8 +67,13 @@
 	
 	<div id="wrap">
 		
-		<?php if ( function_exists('yoast_breadcrumb') && (is_category() || is_singular()) )
-			yoast_breadcrumb('<div class="container"><div id="breadcrumb">','</div></div>');
+		<?php
+		if( function_exists('bcn_display') && !is_front_page() )
+		{
+			echo '<div id="breadcrumb-wrap" class="container hidden-xs"><div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">';
+			bcn_display();
+			echo '</div></div>';
+		}
 		?>
 		
 		<div class="container" role="document">
