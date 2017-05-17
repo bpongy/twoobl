@@ -17,4 +17,5 @@ require_once locate_template('lib/shortcodes.php');
 require_once locate_template('lib/tinymce.php');
 require_once locate_template('lib/siteaccesschecker.php');
 require_once locate_template('lib/twoobl.php');
+require_once locate_template('lib/woocommerce.php');
 require_once locate_template('lib/custom.php');
