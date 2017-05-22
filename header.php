@@ -5,11 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
-	<!-- IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 </head>
 
 <body <?php body_class(); ?>>
