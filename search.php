@@ -3,25 +3,25 @@
 <div class="row">
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
-		
+
 		<div class="entry-header">
 			<h1 class="title"><?php printf( __( 'Search Results for: %s', 'twoobl' ), get_search_query() ); ?></h1>
 		</div>
-		
-		<?php if (!have_posts()) : ?>
+
+		<?php if ( ! have_posts() ) : ?>
 			<div class="alert">
-				<?php _e('Sorry, nothing found.', 'twoobl'); ?>
+				<?php _e( 'Sorry, nothing found.', 'twoobl' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part('templates/content'); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'templates/content' ); ?>
 		<?php endwhile; ?>
 
-		<?php get_template_part('templates/pagination'); ?>
+		<?php get_template_part( 'templates/pagination' ); ?>
 	</div>
 
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 
 </div>
 

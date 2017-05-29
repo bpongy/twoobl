@@ -3,13 +3,7 @@
 <div class="row">
 	
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
-		
-		<?php if (!have_posts()) : ?>
-			<div class="alert">
-				<?php _e('Sorry, no results were found.', 'twoobl'); ?>
-			</div>
-		<?php endif; ?>
-		
+
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class('hentry h-entry'); ?> itemscope itemtype="http://schema.org/Article">
 				<header class="entry-header">
@@ -31,7 +25,7 @@
 
 	</div>
 	
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>

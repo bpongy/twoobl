@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
  * template hierarchy: http://codex.wordpress.org/images/1/18/Template_Hierarchy.png
  * 
@@ -12,31 +12,31 @@
 		<div class="entry-header">
 			<h1 class="title">
 				<?php
-		         single_cat_title();
-		        ?>
+				single_cat_title();
+				?>
 			</h1>
 		</div>
 
-		<?php if (category_description()) : ?>
-		<div class="category-description entry-content clearfix">
-			<?php echo category_description(); ?>
-		</div>
-		<?php endif; ?>
-		
-		<?php if (!have_posts()) : ?>
-			<div class="alert">
-				<?php _e('Sorry, nothing found.', 'twoobl'); ?>
+		<?php if ( category_description() ) : ?>
+			<div class="category-description entry-content clearfix">
+				<?php echo category_description(); ?>
 			</div>
 		<?php endif; ?>
 
-		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part('templates/content'); ?>
+		<?php if ( ! have_posts() ) : ?>
+			<div class="alert">
+				<?php _e( 'Sorry, nothing found.', 'twoobl' ); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'templates/content' ); ?>
 		<?php endwhile; ?>
 
-		<?php get_template_part('templates/pagination'); ?>
+		<?php get_template_part( 'templates/pagination' ); ?>
 	</div>
 
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>

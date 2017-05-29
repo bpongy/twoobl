@@ -45,7 +45,7 @@
 		<?php get_template_part('templates/pagination'); ?>
 	</div>
 
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>

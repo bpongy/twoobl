@@ -3,6 +3,11 @@
 <div class="row">
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
+
+		<div class="entry-header">
+			<h1 class="title"><?php single_post_title(); ?></h1>
+		</div>
+
 		<?php if (!have_posts()) : ?>
 			<div class="alert">
 				<?php _e('Sorry, nothing found.', 'twoobl'); ?>
@@ -16,7 +21,8 @@
 		<?php get_template_part('templates/pagination'); ?>
 	</div>
 
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 </div>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

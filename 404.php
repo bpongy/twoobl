@@ -17,7 +17,7 @@
 
 	</div>
 
-	<?php get_template_part('templates/sidebar'); ?>
+	<?php get_sidebar(); ?>
 
 </div>
 

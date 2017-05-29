@@ -8,7 +8,7 @@ Template Name: Homepage
 
 <div id="main" role="main">
 	<div class="entry-header">
-	  <h1 class="title"><?php the_title(); ?></h1>
+		<h1 class="title"><?php the_title(); ?></h1>
 	</div>
 	<?php while (have_posts()) : the_post(); ?>
 		<div class="entry-content clearfix">
@@ -17,21 +17,5 @@ Template Name: Homepage
 	<?php endwhile; ?>
 </div>
 
-<?php get_footer(); ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+get_footer();
