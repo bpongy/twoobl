@@ -229,8 +229,9 @@ th {
     page-break-after: avoid; }
   .navbar {
     display: none; }
-  .btn > .caret,
-  .dropup > .btn > .caret {
+  .btn > .caret, .search-form .search-submit > .caret,
+  .dropup > .btn > .caret, .search-form
+  .dropup > .search-submit > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -1123,7 +1124,7 @@ hr {
   border: 0;
   border-top: 1px solid #F0F0F0; }
 
-.sr-only {
+.sr-only, .screen-reader-text {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1509,8 +1510,8 @@ pre {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -1518,19 +1519,19 @@ pre {
     clear: both; }
   @media (min-width: 768px) {
     .container {
-      width: 750px; } }
+      width: 740px; } }
   @media (min-width: 992px) {
     .container {
-      width: 970px; } }
+      width: 960px; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px; } }
+      width: 1164px; } }
 
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
   .container-fluid:before, .container-fluid:after {
     content: " ";
     display: table; }
@@ -1538,8 +1539,8 @@ pre {
     clear: both; }
 
 .row {
-  margin-left: -15px;
-  margin-right: -15px; }
+  margin-left: -10px;
+  margin-right: -10px; }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -1549,8 +1550,8 @@ pre {
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left; }
@@ -2315,7 +2316,9 @@ output {
   line-height: 1.5;
   color: #999; }
 
-.form-control, #respond input[type="text"],
+.form-control, .search-form .search-field, #respond input[type="text"],
+#respond input[type="email"],
+#respond input[type="url"],
 #respond textarea {
   display: block;
   width: 100%;
@@ -2333,50 +2336,86 @@ output {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
-  .form-control:focus, #respond input[type="text"]:focus,
+  .form-control:focus, .search-form .search-field:focus, #respond input[type="text"]:focus,
+  #respond input[type="email"]:focus,
+  #respond input[type="url"]:focus,
   #respond textarea:focus {
     border-color: #555;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(85, 85, 85, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(85, 85, 85, 0.6); }
-  .form-control::-moz-placeholder, #respond input[type="text"]::-moz-placeholder,
+  .form-control::-moz-placeholder, .search-form .search-field::-moz-placeholder, #respond input[type="text"]::-moz-placeholder,
+  #respond input[type="email"]::-moz-placeholder,
+  #respond input[type="url"]::-moz-placeholder,
   #respond textarea::-moz-placeholder {
     color: #999;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, #respond input[type="text"]:-ms-input-placeholder,
+  .form-control:-ms-input-placeholder, .search-form .search-field:-ms-input-placeholder, #respond input[type="text"]:-ms-input-placeholder,
+  #respond input[type="email"]:-ms-input-placeholder,
+  #respond input[type="url"]:-ms-input-placeholder,
   #respond textarea:-ms-input-placeholder {
     color: #999; }
-  .form-control::-webkit-input-placeholder, #respond input[type="text"]::-webkit-input-placeholder,
+  .form-control::-webkit-input-placeholder, .search-form .search-field::-webkit-input-placeholder, #respond input[type="text"]::-webkit-input-placeholder,
+  #respond input[type="email"]::-webkit-input-placeholder,
+  #respond input[type="url"]::-webkit-input-placeholder,
   #respond textarea::-webkit-input-placeholder {
     color: #999; }
-  .form-control::-ms-expand, #respond input[type="text"]::-ms-expand,
+  .form-control::-ms-expand, .search-form .search-field::-ms-expand, #respond input[type="text"]::-ms-expand,
+  #respond input[type="email"]::-ms-expand,
+  #respond input[type="url"]::-ms-expand,
   #respond textarea::-ms-expand {
     border: 0;
     background-color: transparent; }
-  .form-control[disabled], #respond input[disabled][type="text"],
-  #respond textarea[disabled], .form-control[readonly], #respond input[readonly][type="text"],
+  .form-control[disabled], .search-form [disabled].search-field, #respond input[disabled][type="text"],
+  #respond input[disabled][type="email"],
+  #respond input[disabled][type="url"],
+  #respond textarea[disabled], .form-control[readonly], .search-form [readonly].search-field, #respond input[readonly][type="text"],
+  #respond input[readonly][type="email"],
+  #respond input[readonly][type="url"],
   #respond textarea[readonly],
   fieldset[disabled] .form-control,
+  fieldset[disabled] .search-form .search-field, .search-form
+  fieldset[disabled] .search-field,
   fieldset[disabled] #respond input[type="text"], #respond
   fieldset[disabled] input[type="text"],
+  fieldset[disabled]
+  #respond input[type="email"],
+  #respond
+  fieldset[disabled] input[type="email"],
+  fieldset[disabled]
+  #respond input[type="url"],
+  #respond
+  fieldset[disabled] input[type="url"],
   fieldset[disabled]
   #respond textarea,
   #respond
   fieldset[disabled] textarea {
     background-color: #F0F0F0;
     opacity: 1; }
-  .form-control[disabled], #respond input[disabled][type="text"],
+  .form-control[disabled], .search-form [disabled].search-field, #respond input[disabled][type="text"],
+  #respond input[disabled][type="email"],
+  #respond input[disabled][type="url"],
   #respond textarea[disabled],
   fieldset[disabled] .form-control,
+  fieldset[disabled] .search-form .search-field, .search-form
+  fieldset[disabled] .search-field,
   fieldset[disabled] #respond input[type="text"], #respond
   fieldset[disabled] input[type="text"],
+  fieldset[disabled]
+  #respond input[type="email"],
+  #respond
+  fieldset[disabled] input[type="email"],
+  fieldset[disabled]
+  #respond input[type="url"],
+  #respond
+  fieldset[disabled] input[type="url"],
   fieldset[disabled]
   #respond textarea,
   #respond
   fieldset[disabled] textarea {
     cursor: not-allowed; }
 
-textarea.form-control,
+textarea.form-control, .search-form textarea.search-field,
 #respond textarea {
   height: auto; }
 
@@ -2384,63 +2423,110 @@ input[type="search"] {
   -webkit-appearance: none; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"].form-control, #respond input[type="date"][type="text"],
+  input[type="date"].form-control, .search-form input[type="date"].search-field, #respond input[type="date"][type="text"],
+  #respond input[type="date"][type="email"],
+  #respond input[type="date"][type="url"],
   input[type="time"].form-control,
+  .search-form input[type="time"].search-field,
   #respond input[type="time"][type="text"],
+  #respond input[type="time"][type="email"],
+  #respond input[type="time"][type="url"],
   input[type="datetime-local"].form-control,
+  .search-form input[type="datetime-local"].search-field,
   #respond input[type="datetime-local"][type="text"],
+  #respond input[type="datetime-local"][type="email"],
+  #respond input[type="datetime-local"][type="url"],
   input[type="month"].form-control,
-  #respond input[type="month"][type="text"] {
+  .search-form input[type="month"].search-field,
+  #respond input[type="month"][type="text"],
+  #respond input[type="month"][type="email"],
+  #respond input[type="month"][type="url"] {
     line-height: 36px; }
-  input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, #respond .input-group-sm > input[type="date"][type="text"],
+  input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control, .search-form .input-group-sm > input[type="date"].search-field, #respond .input-group-sm > input[type="date"][type="text"],
+  #respond .input-group-sm > input[type="date"][type="email"],
+  #respond .input-group-sm > input[type="date"][type="url"],
   .input-group-sm > input[type="date"].input-group-addon,
-  .input-group-sm > .input-group-btn > input[type="date"].btn,
+  .input-group-sm > .input-group-btn > input[type="date"].btn, .search-form
+  .input-group-sm > .input-group-btn > input[type="date"].search-submit,
   .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
+  .search-form .input-group-sm > input[type="time"].search-field,
   #respond .input-group-sm > input[type="time"][type="text"],
+  #respond .input-group-sm > input[type="time"][type="email"],
+  #respond .input-group-sm > input[type="time"][type="url"],
   .input-group-sm > input[type="time"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="time"].btn,
+  .search-form
+  .input-group-sm > .input-group-btn > input[type="time"].search-submit,
   .input-group-sm
   input[type="time"],
   input[type="datetime-local"].input-sm,
   .input-group-sm > input[type="datetime-local"].form-control,
+  .search-form .input-group-sm > input[type="datetime-local"].search-field,
   #respond .input-group-sm > input[type="datetime-local"][type="text"],
+  #respond .input-group-sm > input[type="datetime-local"][type="email"],
+  #respond .input-group-sm > input[type="datetime-local"][type="url"],
   .input-group-sm > input[type="datetime-local"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
+  .search-form
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].search-submit,
   .input-group-sm
   input[type="datetime-local"],
   input[type="month"].input-sm,
   .input-group-sm > input[type="month"].form-control,
+  .search-form .input-group-sm > input[type="month"].search-field,
   #respond .input-group-sm > input[type="month"][type="text"],
+  #respond .input-group-sm > input[type="month"][type="email"],
+  #respond .input-group-sm > input[type="month"][type="url"],
   .input-group-sm > input[type="month"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="month"].btn,
+  .search-form
+  .input-group-sm > .input-group-btn > input[type="month"].search-submit,
   .input-group-sm
   input[type="month"] {
     line-height: 30px; }
-  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, #respond .input-group-lg > input[type="date"][type="text"],
+  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .search-form .input-group-lg > input[type="date"].search-field, #respond .input-group-lg > input[type="date"][type="text"],
+  #respond .input-group-lg > input[type="date"][type="email"],
+  #respond .input-group-lg > input[type="date"][type="url"],
   .input-group-lg > input[type="date"].input-group-addon,
-  .input-group-lg > .input-group-btn > input[type="date"].btn,
+  .input-group-lg > .input-group-btn > input[type="date"].btn, .search-form
+  .input-group-lg > .input-group-btn > input[type="date"].search-submit,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
+  .search-form .input-group-lg > input[type="time"].search-field,
   #respond .input-group-lg > input[type="time"][type="text"],
+  #respond .input-group-lg > input[type="time"][type="email"],
+  #respond .input-group-lg > input[type="time"][type="url"],
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn,
+  .search-form
+  .input-group-lg > .input-group-btn > input[type="time"].search-submit,
   .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
   .input-group-lg > input[type="datetime-local"].form-control,
+  .search-form .input-group-lg > input[type="datetime-local"].search-field,
   #respond .input-group-lg > input[type="datetime-local"][type="text"],
+  #respond .input-group-lg > input[type="datetime-local"][type="email"],
+  #respond .input-group-lg > input[type="datetime-local"][type="url"],
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
+  .search-form
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].search-submit,
   .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
   .input-group-lg > input[type="month"].form-control,
+  .search-form .input-group-lg > input[type="month"].search-field,
   #respond .input-group-lg > input[type="month"][type="text"],
+  #respond .input-group-lg > input[type="month"][type="email"],
+  #respond .input-group-lg > input[type="month"][type="url"],
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn,
+  .search-form
+  .input-group-lg > .input-group-btn > input[type="month"].search-submit,
   .input-group-lg
   input[type="month"] {
     line-height: 46px; } }
@@ -2516,43 +2602,61 @@ fieldset[disabled]
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 37px; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, #respond .input-group-lg > input.form-control-static[type="text"],
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .search-form .input-group-lg > .form-control-static.search-field, #respond .input-group-lg > input.form-control-static[type="text"],
+  #respond .input-group-lg > input.form-control-static[type="email"],
+  #respond .input-group-lg > input.form-control-static[type="url"],
   #respond .input-group-lg > textarea.form-control-static,
   .input-group-lg > .form-control-static.input-group-addon,
-  .input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, #respond .input-group-sm > input.form-control-static[type="text"],
+  .input-group-lg > .input-group-btn > .form-control-static.btn, .search-form
+  .input-group-lg > .input-group-btn > .form-control-static.search-submit, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .search-form .input-group-sm > .form-control-static.search-field, #respond .input-group-sm > input.form-control-static[type="text"],
+  #respond .input-group-sm > input.form-control-static[type="email"],
+  #respond .input-group-sm > input.form-control-static[type="url"],
   #respond .input-group-sm > textarea.form-control-static,
   .input-group-sm > .form-control-static.input-group-addon,
-  .input-group-sm > .input-group-btn > .form-control-static.btn {
+  .input-group-sm > .input-group-btn > .form-control-static.btn, .search-form
+  .input-group-sm > .input-group-btn > .form-control-static.search-submit {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .input-group-sm > .form-control, #respond .input-group-sm > input[type="text"],
+.input-sm, .input-group-sm > .form-control, .search-form .input-group-sm > .search-field, #respond .input-group-sm > input[type="text"],
+#respond .input-group-sm > input[type="email"],
+#respond .input-group-sm > input[type="url"],
 #respond .input-group-sm > textarea,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .btn {
+.input-group-sm > .input-group-btn > .btn, .search-form
+.input-group-sm > .input-group-btn > .search-submit {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 1px; }
 
-select.input-sm, .input-group-sm > select.form-control,
+select.input-sm, .input-group-sm > select.form-control, .search-form .input-group-sm > select.search-field,
 .input-group-sm > select.input-group-addon,
-.input-group-sm > .input-group-btn > select.btn {
+.input-group-sm > .input-group-btn > select.btn, .search-form
+.input-group-sm > .input-group-btn > select.search-submit {
   height: 30px;
   line-height: 30px; }
 
-textarea.input-sm, .input-group-sm > textarea.form-control,
+textarea.input-sm, .input-group-sm > textarea.form-control, .search-form .input-group-sm > textarea.search-field,
 #respond .input-group-sm > textarea,
 .input-group-sm > textarea.input-group-addon,
-.input-group-sm > .input-group-btn > textarea.btn,
+.input-group-sm > .input-group-btn > textarea.btn, .search-form
+.input-group-sm > .input-group-btn > textarea.search-submit,
 select[multiple].input-sm,
 .input-group-sm > select[multiple].form-control,
+.search-form .input-group-sm > select[multiple].search-field,
 .input-group-sm > select[multiple].input-group-addon,
-.input-group-sm > .input-group-btn > select[multiple].btn {
+.input-group-sm > .input-group-btn > select[multiple].btn,
+.search-form
+.input-group-sm > .input-group-btn > select[multiple].search-submit {
   height: auto; }
 
-.form-group-sm .form-control, .form-group-sm #respond input[type="text"], #respond .form-group-sm input[type="text"], .form-group-sm
+.form-group-sm .form-control, .form-group-sm .search-form .search-field, .search-form .form-group-sm .search-field, .form-group-sm #respond input[type="text"], #respond .form-group-sm input[type="text"], .form-group-sm
+#respond input[type="email"],
+#respond .form-group-sm input[type="email"], .form-group-sm
+#respond input[type="url"],
+#respond .form-group-sm input[type="url"], .form-group-sm
 #respond textarea,
 #respond .form-group-sm textarea {
   height: 30px;
@@ -2561,14 +2665,16 @@ select[multiple].input-sm,
   line-height: 1.5;
   border-radius: 1px; }
 
-.form-group-sm select.form-control {
+.form-group-sm select.form-control, .form-group-sm .search-form select.search-field, .search-form .form-group-sm select.search-field {
   height: 30px;
   line-height: 30px; }
 
-.form-group-sm textarea.form-control, .form-group-sm
+.form-group-sm textarea.form-control, .form-group-sm .search-form textarea.search-field, .search-form .form-group-sm textarea.search-field, .form-group-sm
 #respond textarea,
 #respond .form-group-sm textarea,
-.form-group-sm select[multiple].form-control {
+.form-group-sm select[multiple].form-control,
+.form-group-sm .search-form select[multiple].search-field, .search-form
+.form-group-sm select[multiple].search-field {
   height: auto; }
 
 .form-group-sm .form-control-static {
@@ -2578,33 +2684,45 @@ select[multiple].input-sm,
   font-size: 12px;
   line-height: 1.5; }
 
-.input-lg, .input-group-lg > .form-control, #respond .input-group-lg > input[type="text"],
+.input-lg, .input-group-lg > .form-control, .search-form .input-group-lg > .search-field, #respond .input-group-lg > input[type="text"],
+#respond .input-group-lg > input[type="email"],
+#respond .input-group-lg > input[type="url"],
 #respond .input-group-lg > textarea,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn {
+.input-group-lg > .input-group-btn > .btn, .search-form
+.input-group-lg > .input-group-btn > .search-submit {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 3px; }
 
-select.input-lg, .input-group-lg > select.form-control,
+select.input-lg, .input-group-lg > select.form-control, .search-form .input-group-lg > select.search-field,
 .input-group-lg > select.input-group-addon,
-.input-group-lg > .input-group-btn > select.btn {
+.input-group-lg > .input-group-btn > select.btn, .search-form
+.input-group-lg > .input-group-btn > select.search-submit {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control,
+textarea.input-lg, .input-group-lg > textarea.form-control, .search-form .input-group-lg > textarea.search-field,
 #respond .input-group-lg > textarea,
 .input-group-lg > textarea.input-group-addon,
-.input-group-lg > .input-group-btn > textarea.btn,
+.input-group-lg > .input-group-btn > textarea.btn, .search-form
+.input-group-lg > .input-group-btn > textarea.search-submit,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
+.search-form .input-group-lg > select[multiple].search-field,
 .input-group-lg > select[multiple].input-group-addon,
-.input-group-lg > .input-group-btn > select[multiple].btn {
+.input-group-lg > .input-group-btn > select[multiple].btn,
+.search-form
+.input-group-lg > .input-group-btn > select[multiple].search-submit {
   height: auto; }
 
-.form-group-lg .form-control, .form-group-lg #respond input[type="text"], #respond .form-group-lg input[type="text"], .form-group-lg
+.form-group-lg .form-control, .form-group-lg .search-form .search-field, .search-form .form-group-lg .search-field, .form-group-lg #respond input[type="text"], #respond .form-group-lg input[type="text"], .form-group-lg
+#respond input[type="email"],
+#respond .form-group-lg input[type="email"], .form-group-lg
+#respond input[type="url"],
+#respond .form-group-lg input[type="url"], .form-group-lg
 #respond textarea,
 #respond .form-group-lg textarea {
   height: 46px;
@@ -2613,14 +2731,16 @@ select[multiple].input-lg,
   line-height: 1.33333;
   border-radius: 3px; }
 
-.form-group-lg select.form-control {
+.form-group-lg select.form-control, .form-group-lg .search-form select.search-field, .search-form .form-group-lg select.search-field {
   height: 46px;
   line-height: 46px; }
 
-.form-group-lg textarea.form-control, .form-group-lg
+.form-group-lg textarea.form-control, .form-group-lg .search-form textarea.search-field, .search-form .form-group-lg textarea.search-field, .form-group-lg
 #respond textarea,
 #respond .form-group-lg textarea,
-.form-group-lg select[multiple].form-control {
+.form-group-lg select[multiple].form-control,
+.form-group-lg .search-form select[multiple].search-field, .search-form
+.form-group-lg select[multiple].search-field {
   height: auto; }
 
 .form-group-lg .form-control-static {
@@ -2632,7 +2752,11 @@ select[multiple].input-lg,
 
 .has-feedback {
   position: relative; }
-  .has-feedback .form-control, .has-feedback #respond input[type="text"], #respond .has-feedback input[type="text"], .has-feedback
+  .has-feedback .form-control, .has-feedback .search-form .search-field, .search-form .has-feedback .search-field, .has-feedback #respond input[type="text"], #respond .has-feedback input[type="text"], .has-feedback
+  #respond input[type="email"],
+  #respond .has-feedback input[type="email"], .has-feedback
+  #respond input[type="url"],
+  #respond .has-feedback input[type="url"], .has-feedback
   #respond textarea,
   #respond .has-feedback textarea {
     padding-right: 45px; }
@@ -2649,14 +2773,27 @@ select[multiple].input-lg,
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, #respond .input-group-lg > input[type="text"] + .form-control-feedback,
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .search-form .input-group-lg > .search-field + .form-control-feedback, #respond .input-group-lg > input[type="text"] + .form-control-feedback,
+#respond .input-group-lg > input[type="email"] + .form-control-feedback,
+#respond .input-group-lg > input[type="url"] + .form-control-feedback,
 #respond .input-group-lg > textarea + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
-.input-group-lg > .input-group-btn > .btn + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn + .form-control-feedback, .search-form
+.input-group-lg > .input-group-btn > .search-submit + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback,
+.form-group-lg .search-form .search-field + .form-control-feedback, .search-form
+.form-group-lg .search-field + .form-control-feedback,
 .form-group-lg #respond input[type="text"] + .form-control-feedback, #respond
 .form-group-lg input[type="text"] + .form-control-feedback,
+.form-group-lg
+#respond input[type="email"] + .form-control-feedback,
+#respond
+.form-group-lg input[type="email"] + .form-control-feedback,
+.form-group-lg
+#respond input[type="url"] + .form-control-feedback,
+#respond
+.form-group-lg input[type="url"] + .form-control-feedback,
 .form-group-lg
 #respond textarea + .form-control-feedback,
 #respond
@@ -2665,14 +2802,27 @@ select[multiple].input-lg,
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, #respond .input-group-sm > input[type="text"] + .form-control-feedback,
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .search-form .input-group-sm > .search-field + .form-control-feedback, #respond .input-group-sm > input[type="text"] + .form-control-feedback,
+#respond .input-group-sm > input[type="email"] + .form-control-feedback,
+#respond .input-group-sm > input[type="url"] + .form-control-feedback,
 #respond .input-group-sm > textarea + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
-.input-group-sm > .input-group-btn > .btn + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn + .form-control-feedback, .search-form
+.input-group-sm > .input-group-btn > .search-submit + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback,
+.form-group-sm .search-form .search-field + .form-control-feedback, .search-form
+.form-group-sm .search-field + .form-control-feedback,
 .form-group-sm #respond input[type="text"] + .form-control-feedback, #respond
 .form-group-sm input[type="text"] + .form-control-feedback,
+.form-group-sm
+#respond input[type="email"] + .form-control-feedback,
+#respond
+.form-group-sm input[type="email"] + .form-control-feedback,
+.form-group-sm
+#respond input[type="url"] + .form-control-feedback,
+#respond
+.form-group-sm input[type="url"] + .form-control-feedback,
 .form-group-sm
 #respond textarea + .form-control-feedback,
 #respond
@@ -2693,13 +2843,21 @@ select[multiple].input-lg,
 .has-success.checkbox-inline label {
   color: #3c763d; }
 
-.has-success .form-control, .has-success #respond input[type="text"], #respond .has-success input[type="text"], .has-success
+.has-success .form-control, .has-success .search-form .search-field, .search-form .has-success .search-field, .has-success #respond input[type="text"], #respond .has-success input[type="text"], .has-success
+#respond input[type="email"],
+#respond .has-success input[type="email"], .has-success
+#respond input[type="url"],
+#respond .has-success input[type="url"], .has-success
 #respond textarea,
 #respond .has-success textarea {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-success .form-control:focus, .has-success #respond input[type="text"]:focus, #respond .has-success input[type="text"]:focus, .has-success
+  .has-success .form-control:focus, .has-success .search-form .search-field:focus, .search-form .has-success .search-field:focus, .has-success #respond input[type="text"]:focus, #respond .has-success input[type="text"]:focus, .has-success
+  #respond input[type="email"]:focus,
+  #respond .has-success input[type="email"]:focus, .has-success
+  #respond input[type="url"]:focus,
+  #respond .has-success input[type="url"]:focus, .has-success
   #respond textarea:focus,
   #respond .has-success textarea:focus {
     border-color: #2b542c;
@@ -2726,13 +2884,21 @@ select[multiple].input-lg,
 .has-warning.checkbox-inline label {
   color: #8a6d3b; }
 
-.has-warning .form-control, .has-warning #respond input[type="text"], #respond .has-warning input[type="text"], .has-warning
+.has-warning .form-control, .has-warning .search-form .search-field, .search-form .has-warning .search-field, .has-warning #respond input[type="text"], #respond .has-warning input[type="text"], .has-warning
+#respond input[type="email"],
+#respond .has-warning input[type="email"], .has-warning
+#respond input[type="url"],
+#respond .has-warning input[type="url"], .has-warning
 #respond textarea,
 #respond .has-warning textarea {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-warning .form-control:focus, .has-warning #respond input[type="text"]:focus, #respond .has-warning input[type="text"]:focus, .has-warning
+  .has-warning .form-control:focus, .has-warning .search-form .search-field:focus, .search-form .has-warning .search-field:focus, .has-warning #respond input[type="text"]:focus, #respond .has-warning input[type="text"]:focus, .has-warning
+  #respond input[type="email"]:focus,
+  #respond .has-warning input[type="email"]:focus, .has-warning
+  #respond input[type="url"]:focus,
+  #respond .has-warning input[type="url"]:focus, .has-warning
   #respond textarea:focus,
   #respond .has-warning textarea:focus {
     border-color: #66512c;
@@ -2759,13 +2925,21 @@ select[multiple].input-lg,
 .has-error.checkbox-inline label {
   color: #a94442; }
 
-.has-error .form-control, .has-error #respond input[type="text"], #respond .has-error input[type="text"], .has-error
+.has-error .form-control, .has-error .search-form .search-field, .search-form .has-error .search-field, .has-error #respond input[type="text"], #respond .has-error input[type="text"], .has-error
+#respond input[type="email"],
+#respond .has-error input[type="email"], .has-error
+#respond input[type="url"],
+#respond .has-error input[type="url"], .has-error
 #respond textarea,
 #respond .has-error textarea {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-error .form-control:focus, .has-error #respond input[type="text"]:focus, #respond .has-error input[type="text"]:focus, .has-error
+  .has-error .form-control:focus, .has-error .search-form .search-field:focus, .search-form .has-error .search-field:focus, .has-error #respond input[type="text"]:focus, #respond .has-error input[type="text"]:focus, .has-error
+  #respond input[type="email"]:focus,
+  #respond .has-error input[type="email"]:focus, .has-error
+  #respond input[type="url"]:focus,
+  #respond .has-error input[type="url"]:focus, .has-error
   #respond textarea:focus,
   #respond .has-error textarea:focus {
     border-color: #843534;
@@ -2783,7 +2957,7 @@ select[multiple].input-lg,
 .has-feedback label ~ .form-control-feedback {
   top: 27px; }
 
-.has-feedback label.sr-only ~ .form-control-feedback {
+.has-feedback label.sr-only ~ .form-control-feedback, .has-feedback label.screen-reader-text ~ .form-control-feedback {
   top: 0; }
 
 .help-block {
@@ -2797,7 +2971,11 @@ select[multiple].input-lg,
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .form-control, .form-inline #respond input[type="text"], #respond .form-inline input[type="text"], .form-inline
+  .form-inline .form-control, .form-inline .search-form .search-field, .search-form .form-inline .search-field, .form-inline #respond input[type="text"], #respond .form-inline input[type="text"], .form-inline
+  #respond input[type="email"],
+  #respond .form-inline input[type="email"], .form-inline
+  #respond input[type="url"],
+  #respond .form-inline input[type="url"], .form-inline
   #respond textarea,
   #respond .form-inline textarea {
     display: inline-block;
@@ -2811,14 +2989,28 @@ select[multiple].input-lg,
     .form-inline .input-group .input-group-addon,
     .form-inline .input-group .input-group-btn,
     .form-inline .input-group .form-control,
+    .form-inline .input-group .search-form .search-field, .search-form
+    .form-inline .input-group .search-field,
     .form-inline .input-group #respond input[type="text"], #respond
     .form-inline .input-group input[type="text"],
+    .form-inline .input-group
+    #respond input[type="email"],
+    #respond
+    .form-inline .input-group input[type="email"],
+    .form-inline .input-group
+    #respond input[type="url"],
+    #respond
+    .form-inline .input-group input[type="url"],
     .form-inline .input-group
     #respond textarea,
     #respond
     .form-inline .input-group textarea {
       width: auto; }
-  .form-inline .input-group > .form-control, .form-inline #respond .input-group > input[type="text"], #respond .form-inline .input-group > input[type="text"], .form-inline
+  .form-inline .input-group > .form-control, .form-inline .search-form .input-group > .search-field, .search-form .form-inline .input-group > .search-field, .form-inline #respond .input-group > input[type="text"], #respond .form-inline .input-group > input[type="text"], .form-inline
+  #respond .input-group > input[type="email"],
+  #respond .form-inline .input-group > input[type="email"], .form-inline
+  #respond .input-group > input[type="url"],
+  #respond .form-inline .input-group > input[type="url"], .form-inline
   #respond .input-group > textarea,
   #respond .form-inline .input-group > textarea {
     width: 100%; }
@@ -2854,8 +3046,8 @@ select[multiple].input-lg,
   min-height: 29px; }
 
 .form-horizontal .form-group {
-  margin-left: -15px;
-  margin-right: -15px; }
+  margin-left: -10px;
+  margin-right: -10px; }
   .form-horizontal .form-group:before, .form-horizontal .form-group:after {
     content: " ";
     display: table; }
@@ -2869,7 +3061,7 @@ select[multiple].input-lg,
     padding-top: 7px; } }
 
 .form-horizontal .has-feedback .form-control-feedback {
-  right: 15px; }
+  right: 10px; }
 
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
@@ -2881,7 +3073,7 @@ select[multiple].input-lg,
     padding-top: 6px;
     font-size: 12px; } }
 
-.btn {
+.btn, .search-form .search-submit {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2900,64 +3092,79 @@ select[multiple].input-lg,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+  .btn:focus, .search-form .search-submit:focus, .btn.focus, .search-form .focus.search-submit, .btn:active:focus, .search-form .search-submit:active:focus, .btn:active.focus, .search-form .search-submit:active.focus, .btn.active:focus, .search-form .active.search-submit:focus, .btn.active.focus, .search-form .active.focus.search-submit {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .btn:focus, .btn.focus {
+  .btn:hover, .search-form .search-submit:hover, .btn:focus, .search-form .search-submit:focus, .btn.focus, .search-form .focus.search-submit {
     color: #333;
     text-decoration: none; }
-  .btn:active, .btn.active {
+  .btn:active, .search-form .search-submit:active, .btn.active, .search-form .active.search-submit {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .btn[disabled],
-  fieldset[disabled] .btn {
+  .btn.disabled, .search-form .disabled.search-submit, .btn[disabled], .search-form [disabled].search-submit,
+  fieldset[disabled] .btn,
+  fieldset[disabled] .search-form .search-submit, .search-form
+  fieldset[disabled] .search-submit {
     cursor: not-allowed;
     opacity: 0.65;
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-a.btn.disabled,
-fieldset[disabled] a.btn {
+a.btn.disabled, .search-form a.disabled.search-submit,
+fieldset[disabled] a.btn,
+fieldset[disabled] .search-form a.search-submit, .search-form
+fieldset[disabled] a.search-submit {
   pointer-events: none; }
 
-.btn-default {
+.btn-default, .search-form .search-submit {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
-  .btn-default:focus, .btn-default.focus {
+  .btn-default:focus, .search-form .search-submit:focus, .btn-default.focus, .search-form .focus.search-submit {
     color: #333;
     background-color: #e6e6e6;
     border-color: #8c8c8c; }
-  .btn-default:hover {
+  .btn-default:hover, .search-form .search-submit:hover {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-  .btn-default:active, .btn-default.active,
-  .open > .btn-default.dropdown-toggle {
+  .btn-default:active, .search-form .search-submit:active, .btn-default.active, .search-form .active.search-submit,
+  .open > .btn-default.dropdown-toggle, .search-form
+  .open > .dropdown-toggle.search-submit {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-    .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus,
-    .open > .btn-default.dropdown-toggle:hover,
-    .open > .btn-default.dropdown-toggle:focus,
-    .open > .btn-default.dropdown-toggle.focus {
+    .btn-default:active:hover, .search-form .search-submit:active:hover, .btn-default:active:focus, .search-form .search-submit:active:focus, .btn-default:active.focus, .search-form .search-submit:active.focus, .btn-default.active:hover, .search-form .active.search-submit:hover, .btn-default.active:focus, .search-form .active.search-submit:focus, .btn-default.active.focus, .search-form .active.focus.search-submit,
+    .open > .btn-default.dropdown-toggle:hover, .search-form
+    .open > .dropdown-toggle.search-submit:hover,
+    .open > .btn-default.dropdown-toggle:focus, .search-form
+    .open > .dropdown-toggle.search-submit:focus,
+    .open > .btn-default.dropdown-toggle.focus, .search-form
+    .open > .dropdown-toggle.focus.search-submit {
       color: #333;
       background-color: #d4d4d4;
       border-color: #8c8c8c; }
-  .btn-default:active, .btn-default.active,
-  .open > .btn-default.dropdown-toggle {
+  .btn-default:active, .search-form .search-submit:active, .btn-default.active, .search-form .active.search-submit,
+  .open > .btn-default.dropdown-toggle, .search-form
+  .open > .dropdown-toggle.search-submit {
     background-image: none; }
-  .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus,
+  .btn-default.disabled:hover, .search-form .disabled.search-submit:hover, .btn-default.disabled:focus, .search-form .disabled.search-submit:focus, .btn-default.disabled.focus, .search-form .disabled.focus.search-submit, .btn-default[disabled]:hover, .search-form [disabled].search-submit:hover, .btn-default[disabled]:focus, .search-form [disabled].search-submit:focus, .btn-default[disabled].focus, .search-form [disabled].focus.search-submit,
   fieldset[disabled] .btn-default:hover,
+  fieldset[disabled] .search-form .search-submit:hover, .search-form
+  fieldset[disabled] .search-submit:hover,
   fieldset[disabled] .btn-default:focus,
-  fieldset[disabled] .btn-default.focus {
+  fieldset[disabled] .search-form .search-submit:focus, .search-form
+  fieldset[disabled] .search-submit:focus,
+  fieldset[disabled] .btn-default.focus,
+  fieldset[disabled] .search-form .focus.search-submit, .search-form
+  fieldset[disabled] .focus.search-submit {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge {
+  .btn-default .badge, .search-form .search-submit .badge {
     color: #fff;
     background-color: #333; }
 
@@ -3167,19 +3374,19 @@ fieldset[disabled] a.btn {
     color: #CCC;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .search-form .btn-group-lg > .search-submit {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 3px; }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .search-form .btn-group-sm > .search-submit {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 1px; }
 
-.btn-xs, .btn-group-xs > .btn {
+.btn-xs, .btn-group-xs > .btn, .search-form .btn-group-xs > .search-submit {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3363,20 +3570,29 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn,
-  .btn-group-vertical > .btn {
+  .btn-group > .btn, .search-form .btn-group > .search-submit,
+  .btn-group-vertical > .btn, .search-form
+  .btn-group-vertical > .search-submit {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
-    .btn-group-vertical > .btn:hover,
-    .btn-group-vertical > .btn:focus,
-    .btn-group-vertical > .btn:active,
-    .btn-group-vertical > .btn.active {
+    .btn-group > .btn:hover, .search-form .btn-group > .search-submit:hover, .btn-group > .btn:focus, .search-form .btn-group > .search-submit:focus, .btn-group > .btn:active, .search-form .btn-group > .search-submit:active, .btn-group > .btn.active, .search-form .btn-group > .active.search-submit,
+    .btn-group-vertical > .btn:hover, .search-form
+    .btn-group-vertical > .search-submit:hover,
+    .btn-group-vertical > .btn:focus, .search-form
+    .btn-group-vertical > .search-submit:focus,
+    .btn-group-vertical > .btn:active, .search-form
+    .btn-group-vertical > .search-submit:active,
+    .btn-group-vertical > .btn.active, .search-form
+    .btn-group-vertical > .active.search-submit {
       z-index: 2; }
 
-.btn-group .btn + .btn,
+.btn-group .btn + .btn, .btn-group .search-form .search-submit + .btn, .search-form .btn-group .search-submit + .btn, .btn-group .search-form .btn + .search-submit, .search-form .btn-group .btn + .search-submit, .btn-group .search-form .search-submit + .search-submit, .search-form .btn-group .search-submit + .search-submit,
 .btn-group .btn + .btn-group,
+.btn-group .search-form .search-submit + .btn-group, .search-form
+.btn-group .search-submit + .btn-group,
 .btn-group .btn-group + .btn,
+.btn-group .search-form .btn-group + .search-submit, .search-form
+.btn-group .btn-group + .search-submit,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
@@ -3387,25 +3603,25 @@ tbody.collapse.in {
     display: table; }
   .btn-toolbar:after {
     clear: both; }
-  .btn-toolbar .btn,
+  .btn-toolbar .btn, .btn-toolbar .search-form .search-submit, .search-form .btn-toolbar .search-submit,
   .btn-toolbar .btn-group,
   .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn,
+  .btn-toolbar > .btn, .search-form .btn-toolbar > .search-submit,
   .btn-toolbar > .btn-group,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .search-form .btn-group > .search-submit:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child, .search-form .btn-group > .search-submit:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .search-form .btn-group > .search-submit:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), .search-form .btn-group > .search-submit:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3413,15 +3629,15 @@ tbody.collapse.in {
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .search-form .btn-group > .btn-group:not(:first-child):not(:last-child) > .search-submit {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .search-form .btn-group > .btn-group:first-child:not(:last-child) > .search-submit:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .search-form .btn-group > .btn-group:last-child:not(:first-child) > .search-submit:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3429,11 +3645,11 @@ tbody.collapse.in {
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .search-form .btn-group > .search-submit + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .search-form .btn-group-lg.btn-group > .search-submit + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -3444,19 +3660,20 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret {
+.btn .caret, .search-form .search-submit .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .search-form .btn-group-lg > .search-submit .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .search-form .btn-group-lg > .search-submit .caret, .search-form .dropup .btn-group-lg > .search-submit .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn,
+.btn-group-vertical > .btn, .search-form .btn-group-vertical > .search-submit,
 .btn-group-vertical > .btn-group,
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .search-form
+.btn-group-vertical > .btn-group > .search-submit {
   display: block;
   float: none;
   width: 100%;
@@ -3469,40 +3686,42 @@ tbody.collapse.in {
 .btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .search-form .btn-group-vertical > .btn-group > .search-submit {
   float: none; }
 
-.btn-group-vertical > .btn + .btn,
-.btn-group-vertical > .btn + .btn-group,
-.btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn + .btn, .search-form .btn-group-vertical > .search-submit + .btn, .search-form .btn-group-vertical > .btn + .search-submit, .search-form .btn-group-vertical > .search-submit + .search-submit,
+.btn-group-vertical > .btn + .btn-group, .search-form
+.btn-group-vertical > .search-submit + .btn-group,
+.btn-group-vertical > .btn-group + .btn, .search-form
+.btn-group-vertical > .btn-group + .search-submit,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .search-form .btn-group-vertical > .search-submit:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .search-form .btn-group-vertical > .search-submit:first-child:not(:last-child) {
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .search-form .btn-group-vertical > .search-submit:last-child:not(:first-child) {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .search-form .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .search-submit {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .search-form .btn-group-vertical > .btn-group:first-child:not(:last-child) > .search-submit:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .search-form .btn-group-vertical > .btn-group:last-child:not(:first-child) > .search-submit:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3511,20 +3730,23 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn,
+  .btn-group-justified > .btn, .search-form .btn-group-justified > .search-submit,
   .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .search-form .search-submit, .search-form .btn-group-justified > .btn-group .search-submit {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"],
-[data-toggle="buttons"] > .btn input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+[data-toggle="buttons"] > .btn input[type="radio"], .search-form [data-toggle="buttons"] > .search-submit input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="checkbox"], .search-form
+[data-toggle="buttons"] > .search-submit input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="radio"], .search-form
+[data-toggle="buttons"] > .btn-group > .search-submit input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], .search-form
+[data-toggle="buttons"] > .btn-group > .search-submit input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -3537,7 +3759,11 @@ tbody.collapse.in {
     float: none;
     padding-left: 0;
     padding-right: 0; }
-  .input-group .form-control, .input-group #respond input[type="text"], #respond .input-group input[type="text"], .input-group
+  .input-group .form-control, .input-group .search-form .search-field, .search-form .input-group .search-field, .input-group #respond input[type="text"], #respond .input-group input[type="text"], .input-group
+  #respond input[type="email"],
+  #respond .input-group input[type="email"], .input-group
+  #respond input[type="url"],
+  #respond .input-group input[type="url"], .input-group
   #respond textarea,
   #respond .input-group textarea {
     position: relative;
@@ -3545,7 +3771,11 @@ tbody.collapse.in {
     float: left;
     width: 100%;
     margin-bottom: 0; }
-    .input-group .form-control:focus, .input-group #respond input[type="text"]:focus, #respond .input-group input[type="text"]:focus, .input-group
+    .input-group .form-control:focus, .input-group .search-form .search-field:focus, .search-form .input-group .search-field:focus, .input-group #respond input[type="text"]:focus, #respond .input-group input[type="text"]:focus, .input-group
+    #respond input[type="email"]:focus,
+    #respond .input-group input[type="email"]:focus, .input-group
+    #respond input[type="url"]:focus,
+    #respond .input-group input[type="url"]:focus, .input-group
     #respond textarea:focus,
     #respond .input-group textarea:focus {
       z-index: 3; }
@@ -3553,8 +3783,18 @@ tbody.collapse.in {
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control,
+.input-group .search-form .search-field, .search-form
+.input-group .search-field,
 .input-group #respond input[type="text"], #respond
 .input-group input[type="text"],
+.input-group
+#respond input[type="email"],
+#respond
+.input-group input[type="email"],
+.input-group
+#respond input[type="url"],
+#respond
+.input-group input[type="url"],
 .input-group
 #respond textarea,
 #respond
@@ -3563,8 +3803,18 @@ tbody.collapse.in {
   .input-group-addon:not(:first-child):not(:last-child),
   .input-group-btn:not(:first-child):not(:last-child),
   .input-group .form-control:not(:first-child):not(:last-child),
+  .input-group .search-form .search-field:not(:first-child):not(:last-child), .search-form
+  .input-group .search-field:not(:first-child):not(:last-child),
   .input-group #respond input[type="text"]:not(:first-child):not(:last-child), #respond
   .input-group input[type="text"]:not(:first-child):not(:last-child),
+  .input-group
+  #respond input[type="email"]:not(:first-child):not(:last-child),
+  #respond
+  .input-group input[type="email"]:not(:first-child):not(:last-child),
+  .input-group
+  #respond input[type="url"]:not(:first-child):not(:last-child),
+  #respond
+  .input-group input[type="url"]:not(:first-child):not(:last-child),
   .input-group
   #respond textarea:not(:first-child):not(:last-child),
   #respond
@@ -3587,17 +3837,23 @@ tbody.collapse.in {
   background-color: #F0F0F0;
   border: 1px solid #ccc;
   border-radius: 2px; }
-  .input-group-addon.input-sm, #respond .input-group-sm > input.input-group-addon[type="text"],
+  .input-group-addon.input-sm, .search-form .input-group-sm > .input-group-addon.search-field, #respond .input-group-sm > input.input-group-addon[type="text"],
+  #respond .input-group-sm > input.input-group-addon[type="email"],
+  #respond .input-group-sm > input.input-group-addon[type="url"],
   #respond .input-group-sm > textarea.input-group-addon,
   .input-group-sm > .input-group-addon,
-  .input-group-sm > .input-group-btn > .input-group-addon.btn {
+  .input-group-sm > .input-group-btn > .input-group-addon.btn, .search-form
+  .input-group-sm > .input-group-btn > .input-group-addon.search-submit {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 1px; }
-  .input-group-addon.input-lg, #respond .input-group-lg > input.input-group-addon[type="text"],
+  .input-group-addon.input-lg, .search-form .input-group-lg > .input-group-addon.search-field, #respond .input-group-lg > input.input-group-addon[type="text"],
+  #respond .input-group-lg > input.input-group-addon[type="email"],
+  #respond .input-group-lg > input.input-group-addon[type="url"],
   #respond .input-group-lg > textarea.input-group-addon,
   .input-group-lg > .input-group-addon,
-  .input-group-lg > .input-group-btn > .input-group-addon.btn {
+  .input-group-lg > .input-group-btn > .input-group-addon.btn, .search-form
+  .input-group-lg > .input-group-btn > .input-group-addon.search-submit {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 3px; }
@@ -3605,30 +3861,46 @@ tbody.collapse.in {
   .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group #respond input[type="text"]:first-child, #respond .input-group input[type="text"]:first-child, .input-group
+.input-group .form-control:first-child, .input-group .search-form .search-field:first-child, .search-form .input-group .search-field:first-child, .input-group #respond input[type="text"]:first-child, #respond .input-group input[type="text"]:first-child, .input-group
+#respond input[type="email"]:first-child,
+#respond .input-group input[type="email"]:first-child, .input-group
+#respond input[type="url"]:first-child,
+#respond .input-group input[type="url"]:first-child, .input-group
 #respond textarea:first-child,
 #respond .input-group textarea:first-child,
 .input-group-addon:first-child,
-.input-group-btn:first-child > .btn,
-.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .btn, .search-form
+.input-group-btn:first-child > .search-submit,
+.input-group-btn:first-child > .btn-group > .btn, .search-form
+.input-group-btn:first-child > .btn-group > .search-submit,
 .input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .search-form
+.input-group-btn:last-child > .search-submit:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .search-form
+.input-group-btn:last-child > .btn-group:not(:last-child) > .search-submit {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group #respond input[type="text"]:last-child, #respond .input-group input[type="text"]:last-child, .input-group
+.input-group .form-control:last-child, .input-group .search-form .search-field:last-child, .search-form .input-group .search-field:last-child, .input-group #respond input[type="text"]:last-child, #respond .input-group input[type="text"]:last-child, .input-group
+#respond input[type="email"]:last-child,
+#respond .input-group input[type="email"]:last-child, .input-group
+#respond input[type="url"]:last-child,
+#respond .input-group input[type="url"]:last-child, .input-group
 #respond textarea:last-child,
 #respond .input-group textarea:last-child,
 .input-group-addon:last-child,
-.input-group-btn:last-child > .btn,
-.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .btn, .search-form
+.input-group-btn:last-child > .search-submit,
+.input-group-btn:last-child > .btn-group > .btn, .search-form
+.input-group-btn:last-child > .btn-group > .search-submit,
 .input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child),
-.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group-btn:first-child > .btn:not(:first-child), .search-form
+.input-group-btn:first-child > .search-submit:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .search-form
+.input-group-btn:first-child > .btn-group:not(:first-child) > .search-submit {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3639,16 +3911,16 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn {
+  .input-group-btn > .btn, .search-form .input-group-btn > .search-submit {
     position: relative; }
-    .input-group-btn > .btn + .btn {
+    .input-group-btn > .btn + .btn, .search-form .input-group-btn > .search-submit + .btn, .search-form .input-group-btn > .btn + .search-submit, .search-form .input-group-btn > .search-submit + .search-submit {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn:active {
+    .input-group-btn > .btn:hover, .search-form .input-group-btn > .search-submit:hover, .input-group-btn > .btn:focus, .search-form .input-group-btn > .search-submit:focus, .input-group-btn > .btn:active, .search-form .input-group-btn > .search-submit:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn,
+  .input-group-btn:first-child > .btn, .search-form .input-group-btn:first-child > .search-submit,
   .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn,
+  .input-group-btn:last-child > .btn, .search-form .input-group-btn:last-child > .search-submit,
   .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -1px; }
@@ -3798,8 +4070,8 @@ tbody.collapse.in {
 
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch; }
@@ -3840,8 +4112,8 @@ tbody.collapse.in {
 .container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px; }
+  margin-right: -10px;
+  margin-left: -10px; }
   @media (min-width: 768px) {
     .container > .navbar-header,
     .container > .navbar-collapse,
@@ -3879,7 +4151,7 @@ tbody.collapse.in {
 
 .navbar-brand {
   float: left;
-  padding: 14px 15px;
+  padding: 14px 10px;
   font-size: 18px;
   line-height: 22px;
   height: 50px; }
@@ -3890,12 +4162,12 @@ tbody.collapse.in {
   @media (min-width: 768px) {
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
-      margin-left: -15px; } }
+      margin-left: -10px; } }
 
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: 15px;
+  margin-right: 10px;
   padding: 9px 10px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -3917,7 +4189,7 @@ tbody.collapse.in {
       display: none; } }
 
 .navbar-nav {
-  margin: 7px -15px; }
+  margin: 7px -10px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -3949,9 +4221,9 @@ tbody.collapse.in {
           padding-bottom: 14px; } }
 
 .navbar-form {
-  margin-left: -15px;
-  margin-right: -15px;
-  padding: 10px 15px;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 10px 10px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -3963,7 +4235,11 @@ tbody.collapse.in {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
-    .navbar-form .form-control, .navbar-form #respond input[type="text"], #respond .navbar-form input[type="text"], .navbar-form
+    .navbar-form .form-control, .navbar-form .search-form .search-field, .search-form .navbar-form .search-field, .navbar-form #respond input[type="text"], #respond .navbar-form input[type="text"], .navbar-form
+    #respond input[type="email"],
+    #respond .navbar-form input[type="email"], .navbar-form
+    #respond input[type="url"],
+    #respond .navbar-form input[type="url"], .navbar-form
     #respond textarea,
     #respond .navbar-form textarea {
       display: inline-block;
@@ -3977,14 +4253,28 @@ tbody.collapse.in {
       .navbar-form .input-group .input-group-addon,
       .navbar-form .input-group .input-group-btn,
       .navbar-form .input-group .form-control,
+      .navbar-form .input-group .search-form .search-field, .search-form
+      .navbar-form .input-group .search-field,
       .navbar-form .input-group #respond input[type="text"], #respond
       .navbar-form .input-group input[type="text"],
+      .navbar-form .input-group
+      #respond input[type="email"],
+      #respond
+      .navbar-form .input-group input[type="email"],
+      .navbar-form .input-group
+      #respond input[type="url"],
+      #respond
+      .navbar-form .input-group input[type="url"],
       .navbar-form .input-group
       #respond textarea,
       #respond
       .navbar-form .input-group textarea {
         width: auto; }
-    .navbar-form .input-group > .form-control, .navbar-form #respond .input-group > input[type="text"], #respond .navbar-form .input-group > input[type="text"], .navbar-form
+    .navbar-form .input-group > .form-control, .navbar-form .search-form .input-group > .search-field, .search-form .navbar-form .input-group > .search-field, .navbar-form #respond .input-group > input[type="text"], #respond .navbar-form .input-group > input[type="text"], .navbar-form
+    #respond .input-group > input[type="email"],
+    #respond .navbar-form .input-group > input[type="email"], .navbar-form
+    #respond .input-group > input[type="url"],
+    #respond .navbar-form .input-group > input[type="url"], .navbar-form
     #respond .input-group > textarea,
     #respond .navbar-form .input-group > textarea {
       width: 100%; }
@@ -4037,10 +4327,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 7px;
   margin-bottom: 7px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .search-form .btn-group-sm > .navbar-btn.search-submit {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .search-form .btn-group-xs > .navbar-btn.search-submit {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -4050,15 +4340,15 @@ tbody.collapse.in {
   @media (min-width: 768px) {
     .navbar-text {
       float: left;
-      margin-left: 15px;
-      margin-right: 15px; } }
+      margin-left: 10px;
+      margin-right: 10px; } }
 
 @media (min-width: 768px) {
   .navbar-left {
     float: left !important; }
   .navbar-right {
     float: right !important;
-    margin-right: -15px; }
+    margin-right: -10px; }
     .navbar-right ~ .navbar-right {
       margin-right: 0; } }
 
@@ -4333,7 +4623,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label {
+  .btn .label, .search-form .search-submit .label {
     position: relative;
     top: -1px; }
 
@@ -4387,11 +4677,12 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge {
+  .btn .badge, .search-form .search-submit .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge,
-  .btn-group-xs > .btn .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .search-form .btn-group-xs > .search-submit .badge,
+  .btn-group-xs > .btn .badge, .search-form
+  .btn-group-xs > .search-submit .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge,
@@ -4428,8 +4719,8 @@ a.badge:hover, a.badge:focus {
   .container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 3px;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
   .jumbotron .container {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
@@ -5323,10 +5614,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn {
+  .modal-footer .btn + .btn, .modal-footer .search-form .search-submit + .btn, .search-form .modal-footer .search-submit + .btn, .modal-footer .search-form .btn + .search-submit, .search-form .modal-footer .btn + .search-submit, .modal-footer .search-form .search-submit + .search-submit, .search-form .modal-footer .search-submit + .search-submit {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .search-form .search-submit + .btn, .search-form .modal-footer .btn-group .search-submit + .btn, .modal-footer .btn-group .search-form .btn + .search-submit, .search-form .modal-footer .btn-group .btn + .search-submit, .modal-footer .btn-group .search-form .search-submit + .search-submit, .search-form .modal-footer .btn-group .search-submit + .search-submit {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -5748,7 +6039,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn {
+  .carousel-caption .btn, .carousel-caption .search-form .search-submit, .search-form .carousel-caption .search-submit {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -5986,34 +6277,23 @@ button.close {
   .hidden-print, #comments, #sidebar, #colophon, #search-top {
     display: none !important; } }
 
+body {
+  cursor: default; }
+
 ::selection {
-  background: #F0F0F0;
-  color: #555; }
+  background: #555;
+  color: #FFF; }
 
 ::-moz-selection {
-  background: #F0F0F0;
-  color: #555; }
-
-.title {
-  display: block;
-  text-transform: uppercase;
-  margin: 0;
-  font-family: inherit;
-  font-weight: 700;
-  color: #222; }
-  .title a {
-    display: block;
-    color: inherit; }
-
-#wrap {
-  padding-top: 2em; }
+  background: #555;
+  color: #FFF; }
 
 #mobile-top {
   background-color: #222;
   color: #ffffff;
   padding: 0.5em 0;
   font-size: 0.9em;
-  margin-bottom: 15px; }
+  margin-bottom: 10px; }
   #mobile-top a {
     color: inherit; }
 
@@ -6047,7 +6327,7 @@ button.close {
 #nav-main {
   padding-top: 0.5em;
   background-color: #F0F0F0;
-  margin-top: 30px; }
+  margin-top: 20px; }
   #nav-main a {
     color: inherit;
     text-transform: uppercase;
@@ -6108,6 +6388,19 @@ button.close {
       #nav-main > div > ul > li:hover > ul {
         display: block; }
 
+.title {
+  display: block;
+  margin: 0;
+  font-family: inherit;
+  font-weight: 700;
+  color: #222; }
+  .title a {
+    display: block;
+    color: inherit; }
+
+#wrap {
+  padding-top: 2em; }
+
 img,
 .wp-caption {
   max-width: 100%;
@@ -6156,17 +6449,6 @@ img,
     text-align: right; }
   .entry-content iframe {
     max-width: 100% !important; }
-  .entry-content .wp-caption-text {
-    text-align: center;
-    font-size: 12px;
-    padding-top: 0.2em;
-    color: #CCC;
-    line-height: 1.2em; }
-    .entry-content .wp-caption-text a {
-      color: inherit;
-      text-decoration: underline; }
-      .entry-content .wp-caption-text a:hover {
-        color: #555; }
 
 .aligncenter {
   display: block;
@@ -6183,6 +6465,17 @@ img,
 figure.alignnone {
   margin-left: 0;
   margin-right: 0; }
+
+.wp-caption-text {
+  text-align: center;
+  font-size: 12px;
+  padding-top: 0.2em;
+  color: #999; }
+  .wp-caption-text a {
+    color: inherit;
+    text-decoration: underline; }
+    .wp-caption-text a:hover {
+      color: #555; }
 
 #map_canvas img,
 .gmnoprint img,
@@ -6212,15 +6505,15 @@ figure.alignnone {
       color: #555; }
 
 .gallery {
-  margin: 0 -15px;
-  padding: 15px 0; }
+  margin: 0 -10px;
+  padding: 10px 0; }
 
 .gallery-item {
   display: inline-block;
   width: 100%;
   text-align: center;
   vertical-align: top;
-  padding-bottom: 15px; }
+  padding-bottom: 10px; }
   .gallery-columns-2 .gallery-item {
     max-width: 50%; }
   .gallery-columns-3 .gallery-item {
@@ -6239,7 +6532,7 @@ figure.alignnone {
     max-width: 11.11%; }
   .gallery-item a {
     display: block;
-    padding: 0 15px; }
+    padding: 0 10px; }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
@@ -6278,32 +6571,54 @@ img.emoji {
   background: none;
   padding: 0; }
 
+.search-form label,
+.search-form input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0; }
+
+.search-form .search-field {
+  font-weight: normal; }
+  .search-form .search-field::-moz-placeholder {
+    color: #999;
+    opacity: 1; }
+  .search-form .search-field:-ms-input-placeholder {
+    color: #999; }
+  .search-form .search-field::-webkit-input-placeholder {
+    color: #999; }
+  .search-form .search-field:focus::-moz-placeholder {
+    color: rgba(153, 153, 153, 0.4); }
+  .search-form .search-field:focus:-ms-input-placeholder {
+    color: rgba(153, 153, 153, 0.4); }
+  .search-form .search-field:focus::-webkit-input-placeholder {
+    color: rgba(153, 153, 153, 0.4); }
+
 #comments {
   padding-top: 2em; }
   #comments .comment-list {
     margin: 0;
     padding: 15px 0 20px 0;
     list-style: none; }
-  #comments .comment-list .comment {
-    padding: 4px 0; }
-    #comments .comment-list .comment > div {
-      padding: 8px 8px 10px 80px;
-      position: relative; }
-  #comments .comment-list .odd {
-    background-color: #f5f5f5; }
-  #comments .comment-list .comment-author {
-    float: left;
-    font-weight: bold; }
-  #comments .comment-list .avatar {
-    position: absolute;
-    left: 10px; }
-  #comments .comment-list .comment-meta {
-    text-align: right;
-    padding-bottom: 10px; }
-    #comments .comment-list .comment-meta a {
-      font-size: 11px;
-      text-decoration: none;
-      color: #777; }
+    #comments .comment-list .comment {
+      padding: 4px 0; }
+      #comments .comment-list .comment .comment-body {
+        padding: 8px 8px 10px 80px;
+        position: relative; }
+    #comments .comment-list .odd {
+      background-color: #f5f5f5; }
+    #comments .comment-list .comment-author {
+      float: left;
+      font-weight: bold; }
+    #comments .comment-list .avatar {
+      position: absolute;
+      left: 10px; }
+    #comments .comment-list .comment-meta {
+      text-align: right;
+      padding-bottom: 10px; }
+      #comments .comment-list .comment-meta a {
+        font-size: 11px;
+        text-decoration: none;
+        color: #777; }
 
 #respond .comment-notes {
   font-size: 0.85em;
@@ -6318,6 +6633,8 @@ img.emoji {
   margin-bottom: 0; }
 
 #respond input[type="text"],
+#respond input[type="email"],
+#respond input[type="url"],
 #respond textarea {
   max-width: 300px; }
 
@@ -6331,7 +6648,7 @@ img.emoji {
 #sidebar {
   font-size: 0.85em; }
   #sidebar .widget {
-    margin-bottom: 30px; }
+    margin-bottom: 20px; }
   #sidebar .fb_iframe_widget,
   #sidebar .fb_iframe_widget span,
   #sidebar .fb_iframe_widget span iframe[style] {

@@ -14,33 +14,17 @@ http://github.com/redpik/Twoobl
 
 
 
-// text selection
-::selection { background: $gray-lighter; color: $gray-dark; }
-::-moz-selection { background: $gray-lighter; color: $gray-dark; }
-
-
-
-.title {
-	display: block;
-	text-transform: uppercase;
-	margin: 0;
-	font-family: $headings-font-family;
-	font-weight: $headings-font-weight;
-	color: $headings-color;
-	//@include hyphens();
-
-	// anti aliasing problem with Chrome & Windows? http://css-tricks.com/adding-stroke-to-web-text/
-	// -webkit-text-stroke: 0.25px;
-	
-	a {
-		display: block;
-		color: inherit;
-	}
+body {
+	cursor: default;
+	//-webkit-font-smoothing: antialiased;
+	//-moz-osx-font-smoothing: grayscale;
 }
 
 
 
-#wrap { padding-top: 2em; }
+// text selection
+::selection { background: $gray-dark; color: #FFF; }
+::-moz-selection { background: $gray-dark; color: #FFF; }
 
 
 
@@ -56,6 +40,11 @@ http://github.com/redpik/Twoobl
 
 // Home page
 @import "home";
+
+
+
+// Search form
+@import "searchform";
 
 
 

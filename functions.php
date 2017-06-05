@@ -6,8 +6,8 @@ define('_SIDEBAR_CLASS_', 'col-sm-3 col-sm-pull-9 hidden-xs');
 define('_THEME_COLOR_', '#444');
 define('_MOBILE_NAV_', true);
 define('_TWOOBL_DEV_', WP_DEBUG);
-define('_TWOOBL_SCR_VERSION_', '2.1');
-define('_JQUERY_VERSION_', '3.1.1');	// 1.12.4, 2.2.4 or 3.1.1
+define('_TWOOBL_SCR_VERSION_', '2.2');
+define('_JQUERY_VERSION_', '2.2.4');	// 1.12.4, 2.2.4 or 3.2.1
 define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
 
 require_once locate_template('lib/scripts.php');

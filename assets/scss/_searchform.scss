@@ -1,0 +1,17 @@
+
+.search-form {
+	label,
+	input {
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 0;
+	}
+	.search-field {
+		@extend .form-control;
+		@include tw_placeholder();
+		font-weight: normal;
+	}
+	.search-submit {
+		@extend .btn, .btn-default;
+	}
+}

@@ -18,8 +18,13 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		add_theme_support('custom-background');
 		
 		// Add theme support for Semantic Markup
-		// $HTML5markup = array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
-		$HTML5markup = array( 'gallery' );
+		$HTML5markup = array(
+			'comment-list',
+			'comment-form',
+			'search-form',
+			'gallery',
+			'caption'
+		);
 		add_theme_support( 'html5', $HTML5markup );
 
 		// Remove gallery inline CSS
@@ -27,9 +32,6 @@ if( !function_exists( 'twoobl_setup' ) ) {
 	}
 }
 add_action('after_setup_theme', 'twoobl_setup');
-
-
-
 
 
 
@@ -118,6 +120,7 @@ if( !function_exists( 'get_post_thumbnail_src' ) ) {
 }
 
 // TODO
+// DEPRECATED! utiliser wp_get_attachment_image
 if( !function_exists( 'get_img_src' ) ) {
 	function get_img_src( $img_id = null, $size = 'thumbnail' ) {
 		$img_url = wp_get_attachment_image_src($img_id, $size, true);
@@ -150,6 +153,7 @@ if( !function_exists( 'twoobl_meta_description' ) ) {
 add_action('wp_head', 'twoobl_meta_description');
 
 
+
 /********************************************
  * 		Auto non-breakable space
  ********************************************/
@@ -167,38 +171,35 @@ add_filter( 'the_content', 'twoobl_automatic_nbsp' );
 /****************************************************
  * 		Add thumbnails column in posts & pages list
  ****************************************************/
-if( defined( '_THUMBNAIL_COLUMN_' ) && _THUMBNAIL_COLUMN_ ) {
-	add_filter('manage_posts_columns', 'twoobl_postsColumns', 1);
-	add_filter('manage_pages_columns', 'twoobl_postsColumns', 1);
-	add_action('manage_posts_custom_column', 'twoobl_postsCustomColumn', 1, 2);
-	add_action('manage_pages_custom_column', 'twoobl_postsCustomColumn', 1, 2);
-	
-	function twoobl_postsColumns($columns) {
-		$pos = 1;
-		$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', 'twoobl')), array_slice($columns, $pos));
-		return $columns;
-	}
-	
-	function twoobl_postsCustomColumn($column_name, $id) {
-		if ($column_name === 'twoobl_post_thumbnail')
-		{
-			$admin_thumb = get_the_post_thumbnail() ? get_post_thumbnail_src() : get_template_directory_uri() . '/assets/img/default.png';
-			echo '<a href="' . get_edit_post_link() . '">';
-			if (get_the_post_thumbnail())
-				echo '<img src="' . get_post_thumbnail_src() . '" style="width: 40px;" alt="" />';
-			else
-				echo '<img src="' . get_template_directory_uri() . '/assets/img/default.png" style="width: 40px; opacity: 0.4;" alt="" />';
-			echo '</a>';
-		}
-	}
-	
-	function twoobl_admin_inline_css() {
-		echo '<style type="text/css">';
-		echo '.column-twoobl_post_thumbnail { width: 50px; }';
-		echo '</style>';
-	}
-	add_action('admin_head', 'twoobl_admin_inline_css');
+function twoobl_postsColumns($columns) {
+	$pos = 1;
+	$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', 'twoobl')), array_slice($columns, $pos));
+	return $columns;
 }
+
+function twoobl_postsCustomColumn($column_name, $id) {
+	if ($column_name === 'twoobl_post_thumbnail')
+	{
+		$admin_thumb = get_the_post_thumbnail() ? get_post_thumbnail_src() : get_template_directory_uri() . '/assets/img/default.png';
+		echo '<a href="' . get_edit_post_link() . '">';
+		if (get_the_post_thumbnail())
+			echo '<img src="' . get_post_thumbnail_src() . '" style="width: 40px;" alt="" />';
+		else
+			echo '<img src="' . get_template_directory_uri() . '/assets/img/default.png" style="width: 40px; opacity: 0.4;" alt="" />';
+		echo '</a>';
+	}
+}
+
+function twoobl_admin_inline_css() {
+	echo '<style type="text/css">';
+	echo '.column-twoobl_post_thumbnail { width: 50px; }';
+	echo '</style>';
+}
+add_filter('manage_posts_columns', 'twoobl_postsColumns', 1);
+add_filter('manage_pages_columns', 'twoobl_postsColumns', 1);
+add_action('manage_posts_custom_column', 'twoobl_postsCustomColumn', 1, 2);
+add_action('manage_pages_custom_column', 'twoobl_postsCustomColumn', 1, 2);
+add_action('admin_head', 'twoobl_admin_inline_css');
 
 
 
@@ -227,9 +228,9 @@ if( !function_exists( 'twoobl_headcleanup' ) ) {
 		remove_action('wp_head', 'feed_links_extra', 3);
 		remove_action('wp_head', 'rsd_link');
 		remove_action('wp_head', 'wlwmanifest_link');
-		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
 		remove_action('wp_head', 'wp_generator');
-		remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+		remove_action('wp_head', 'wp_shortlink_wp_head', 10);
 		remove_action('wp_print_styles', 'print_emoji_styles');
 		global $wp_widget_factory;
 		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
@@ -284,13 +285,13 @@ add_filter('post_class','twoobl_clean_post_class');
 
 // Remove unused body classes
 function twoobl_clean_body_class($classes) {
-  foreach ($classes as $k => $class) {
-    if( 0 === strpos( $class, 'postid-' )
-      || 0 === strpos( $class, 'page-id-' )
-      || $class == 'page-template-default'  )
-      unset($classes[$k]);
-  }
-  return $classes;
+	foreach ($classes as $k => $class) {
+		if( 0 === strpos( $class, 'postid-' )
+		|| 0 === strpos( $class, 'page-id-' )
+		|| $class == 'page-template-default'  )
+			unset($classes[$k]);
+	}
+	return $classes;
 }
 add_filter('body_class','twoobl_clean_body_class');
 
@@ -524,6 +525,22 @@ if ( !function_exists('twoobl_default_avatar') ) {
 	}
 }
 add_filter( 'avatar_defaults', 'twoobl_default_avatar' );
+
+
+
+/*************************************************
+ * 	Get the blog posts page URL
+ *************************************************/
+if ( !function_exists('twoobl_get_blog_url') ) {
+	function twoobl_get_blog_url() {
+		// If "page for posts" is set to display a static page, get the URL of this page.
+		if ( $blog_page = get_option('page_for_posts') ) {
+			return esc_url(get_permalink($blog_page));
+		}
+		// else return the front page URL
+		return esc_url(home_url('/'));
+	}
+}
 
 
 

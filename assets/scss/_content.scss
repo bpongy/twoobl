@@ -1,5 +1,25 @@
 
-// images
+.title {
+	display: block;
+	margin: 0;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	color: $headings-color;
+	//@include hyphens();
+
+	a {
+		display: block;
+		color: inherit;
+	}
+}
+
+
+
+#wrap { padding-top: 2em; }
+
+
+
+// responsive images
 img,
 .wp-caption { max-width: 100%; height: auto; }
 
@@ -69,34 +89,49 @@ img,
 	
 	iframe { max-width: 100%!important; }
 
-
-	.wp-caption-text {
-		text-align: center;
-		font-size: $font-size-small;
-		padding-top: 0.2em;
-		color: $gray-light;
-		line-height: 1.2em;
-		a {
-			color: inherit;
-			text-decoration: underline;
-			&:hover { color: $gray-dark; }
-		}
-	}
 }
 
 
 
 // WordPress classes
-.aligncenter { display: block; margin: 0 auto; }
-.alignleft { float: left; margin: 0 20px 5px 0; }
-.alignright { float: right; margin: 0 0 5px 20px; }
-figure.alignnone { margin-left: 0; margin-right: 0; }
+.aligncenter {
+	display: block;
+	margin: 0 auto;
+}
 
-.wp-caption {  }
+.alignleft {
+	float: left;
+	margin: 0 20px 5px 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 5px 20px;
+}
+
+figure.alignnone {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .sticky {  }
 .bypostauthor {  }
+.wp-caption {  }
+.wp-caption-text {
+	text-align: center;
+	font-size: $font-size-small;
+	padding-top: 0.2em;
+	color: $gray;
+	a {
+		color: inherit;
+		text-decoration: underline;
+		&:hover { color: $gray-dark; }
+	}
+}
 
-
+.screen-reader-text {
+	@extend .sr-only;
+}
 
 
 

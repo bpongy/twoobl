@@ -7,7 +7,9 @@ $brand-secondary: #CD5334;
 
 //	bootstrap variables override
 
-$grid-gutter-width: 30px;
+$grid-gutter-width: 20px;
+$container-large-desktop: 1144px + $grid-gutter-width;
+
 $border-radius-base: 2px;
 $border-radius-large: 3px;
 $border-radius-small: 1px;
