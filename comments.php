@@ -35,7 +35,7 @@ if ( !comments_open() && !get_comments_number() )
 		<?php endif; // Check for comment navigation ?>
 
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>
-		<div class="alert alert-warning"><?php _e( 'Comments are closed.' , 'twoobl' ); ?></p>
+		<div class="alert alert-warning"><?php _e( 'Comments are closed.' , 'twoobl' ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>
