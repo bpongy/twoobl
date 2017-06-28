@@ -9,22 +9,10 @@ http://github.com/redpik/Twoobl
 @import "mixins";
 @import "variables";
 
-// Here is Bootstrap for Sass. https://github.com/twbs/bootstrap-sass
+
+
+// Bootstrap for Sass. https://github.com/twbs/bootstrap-sass
 @import "bootstrap";
-
-
-
-body {
-	cursor: default;
-	//-webkit-font-smoothing: antialiased;
-	//-moz-osx-font-smoothing: grayscale;
-}
-
-
-
-// text selection
-::selection { background: $gray-dark; color: #FFF; }
-::-moz-selection { background: $gray-dark; color: #FFF; }
 
 
 

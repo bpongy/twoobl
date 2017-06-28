@@ -59,7 +59,7 @@
 	a {
 		color: inherit;
 		text-transform: uppercase;
-		@include tw_responsive('font-size', 1.1em, 1em, 0.9em);
+		@include tw_responsive(font-size, 1.1em, 1em, 0.9em);
 	}
 	> div > ul {
 		text-align: center;

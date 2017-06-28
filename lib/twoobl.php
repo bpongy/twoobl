@@ -270,16 +270,16 @@ add_filter('the_generator','twoobl_remove_rss_generator');
 
 // Remove unused post classes
 function twoobl_clean_post_class($classes) {
-  foreach ($classes as $k => $class) {
-    if( 0 === strpos( $class, 'tag-' )
-      || 0 === strpos( $class, 'category-' )
-      || 0 === strpos( $class, 'post-' )
-      || 0 === strpos( $class, 'type-' )
-      || $class == 'status-publish'
-      || $class == 'format-standard' )
-      unset($classes[$k]);
-  }
-  return $classes;
+	foreach ($classes as $k => $class) {
+		if( 0 === strpos( $class, 'tag-' )
+		|| 0 === strpos( $class, 'category-' )
+		|| 0 === strpos( $class, 'post-' )
+		|| 0 === strpos( $class, 'type-' )
+		|| $class == 'status-publish'
+		|| $class == 'format-standard' )
+			unset($classes[$k]);
+	}
+	return $classes;
 }
 add_filter('post_class','twoobl_clean_post_class');
 
@@ -369,10 +369,12 @@ add_filter('wp_title', 'twoobl_like_twentytwelve_wp_title', 10, 2);
 if( !function_exists( 'twoobl_mime_types' ) ) {
 	function twoobl_mime_types($mime_types){
 		$mime_types['svg'] = 'image/svg+xml';
-		//$mime_types['avi'] = 'video/msvideo, video/avi, video/x-msvideo';
+		//$mime_types['avi'] = 'video/avi';
+		//$mime_types['mp4|m4v'] = 'video/mp4';
 		//$mime_types['bz2'] = 'application/x-bzip2';
 		//$mime_types['css'] = 'text/css';
 		//$mime_types['doc'] = 'application/msword';
+		//$mime_types['docx'] = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 		//$mime_types['html'] = 'text/html';
 		//$mime_types['js'] = 'application/x-javascript';
 		//$mime_types['mp3'] = 'audio/mpeg';
@@ -382,7 +384,7 @@ if( !function_exists( 'twoobl_mime_types' ) ) {
 		//$mime_types['txt'] = 'text/plain';
 		//$mime_types['xls'] = 'application/vnd.ms-excel';
 		//$mime_types['xml'] = 'application/xml';
-		//$mime_types['zip'] = 'application/zip, application/x-compressed-zip';
+		//$mime_types['zip'] = 'application/zip';
 		return $mime_types;
 	}
 }

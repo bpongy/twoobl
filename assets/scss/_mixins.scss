@@ -11,15 +11,19 @@
 
 
 
-//	placeholder / placeholder with focus
+//	placeholder with focus
+//  example:
+//  input {
+//  	@include tw_placeholder();
+//  }
 
 @mixin tw_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
-	&::-moz-placeholder           { color: $color; opacity: 1; }
 	&:-ms-input-placeholder       { color: $color; }
 	&::-webkit-input-placeholder  { color: $color; }
-	&:focus::-moz-placeholder           { color: $color-hover; }
+	&::placeholder                { color: $color; opacity: 1; }
 	&:focus:-ms-input-placeholder       { color: $color-hover; }
 	&:focus::-webkit-input-placeholder  { color: $color-hover; }
+	&:focus::placeholder                { color: $color-hover; }
 }
 
 
@@ -48,36 +52,29 @@
 //	Responsive everything
 //	ex :
 //	#test {
-//		@include tw_responsive('border', '1px dashed red', '2px dashed olive', '5px dashed tomato');
-//		@include tw_responsive('font-size', $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
+//		@include tw_responsive(border, 1px dashed red, 2px dashed olive, 5px dashed tomato);
+//		@include tw_responsive(font-size, $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
 //	}
 
 @mixin tw_responsive($prop, $lg, $md, $sm, $xs: false) {
 	@if $lg {
-		#{$prop}: tw_get_prop($lg);
+		#{$prop}: $lg;
 	}
 
 	@if $xs {
 		@media (max-width: $screen-xs-max) {
-			#{$prop}: tw_get_prop($xs);
+			#{$prop}: $xs;
 		}
 		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-			#{$prop}: tw_get_prop($sm);
+			#{$prop}: $sm;
 		}
 	} @else {
 		@media (max-width: $screen-sm-max) {
-			#{$prop}: tw_get_prop($sm);
+			#{$prop}: $sm;
 		}
 	}
 
 	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-		#{$prop}: tw_get_prop($md);
-	}
-}
-@function tw_get_prop($val) {
-	@if type-of($val) == string {
-		@return unquote($val);
-	} @else {
-		@return $val;
+		#{$prop}: $md;
 	}
 }

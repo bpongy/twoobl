@@ -1,4 +1,16 @@
 
+body {
+	cursor: default;
+	//-webkit-font-smoothing: antialiased;
+	//-moz-osx-font-smoothing: grayscale;
+	@include tw_responsive(font-size, false, $font-size-base * 0.95, $font-size-base * 0.9, $font-size-base * 0.85);
+}
+
+// text selection
+::selection { background: $gray-dark; color: #FFF; }
+::-moz-selection { background: $gray-dark; color: #FFF; }
+
+// like Hn
 .title {
 	display: block;
 	margin: 0;
@@ -11,6 +23,34 @@
 		display: block;
 		color: inherit;
 	}
+}
+
+
+
+// responsive Hn
+h1,
+.h1 {
+	@include tw_responsive(font-size, false, $font-size-h1 * 0.9, $font-size-h1 * 0.8, $font-size-h1 * 0.7);
+}
+h2,
+.h2 {
+	@include tw_responsive(font-size, false, $font-size-h2 * 0.85, $font-size-h2 * 0.7, $font-size-h2 * 0.55);
+}
+h3,
+.h3 {
+	@include tw_responsive(font-size, false, $font-size-h3 * 0.85, $font-size-h3 * 0.7, $font-size-h3 * 0.55);
+}
+h4,
+.h4 {
+	@include tw_responsive(font-size, false, $font-size-h4 * 0.9, $font-size-h4 * 0.8, $font-size-h4 * 0.7);
+}
+h5,
+.h5 {
+	@include tw_responsive(font-size, false, $font-size-h5 * 0.95, $font-size-h5 * 0.9, $font-size-h5 * 0.85);
+}
+h6,
+.h6 {
+	@include tw_responsive(font-size, false, $font-size-h6 * 0.95, $font-size-h6 * 0.9, $font-size-h6 * 0.85);
 }
 
 
