@@ -10,6 +10,10 @@ define('_TWOOBL_SCR_VERSION_', '2.2');
 define('_JQUERY_VERSION_', '2.2.4');	// 1.12.4, 2.2.4 or 3.2.1
 define('_ISOLANG_', substr(get_bloginfo('language'), 0, 2));
 
+// TODO
+define('_TWOOBL_DOMAIN_LANG_', 'twoobl');
+
+
 require_once locate_template('lib/scripts.php');
 require_once locate_template('lib/widgets.php');
 require_once locate_template('lib/shortcodes.php');
