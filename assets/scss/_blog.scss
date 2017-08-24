@@ -1,0 +1,42 @@
+
+.category-description {
+	padding-bottom: 1em;
+}
+
+
+
+.meta {
+	color: $gray;
+	font-size: 0.85em;
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+	a:hover {
+		color: $gray-dark;
+	}
+}
+
+
+
+// tags
+.entry-tags {
+	color: $gray-light;
+	font-size: 0.9em;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	li {
+		display: inline-block;
+		padding: 0.2em;
+	}
+	a {
+		color: inherit;
+		text-decoration: underline;
+		&:hover {
+			color: $gray-dark;
+		}
+	}
+}
