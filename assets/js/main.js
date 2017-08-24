@@ -83,8 +83,7 @@
 		 * 		Popin images with fancybox
 		 ********************************************/
 		$('.fancybox, a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').fancybox({
-			padding: 6,
-			openEffect: 'elastic'
+
 		});
 
 
