@@ -61,6 +61,10 @@
 		#{$prop}: $lg;
 	}
 
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		#{$prop}: $md;
+	}
+
 	@if $xs {
 		@media (max-width: $screen-xs-max) {
 			#{$prop}: $xs;
@@ -72,9 +76,5 @@
 		@media (max-width: $screen-sm-max) {
 			#{$prop}: $sm;
 		}
-	}
-
-	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-		#{$prop}: $md;
 	}
 }
