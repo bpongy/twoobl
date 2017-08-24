@@ -5,12 +5,12 @@
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
 		<div class="entry-header">
-			<h1 class="title"><?php printf( __( 'Search Results for: %s', 'twoobl' ), get_search_query() ); ?></h1>
+			<h1 class="title"><?php printf( __( 'Search Results for: %s', _TWOOBL_DOMAIN_LANG_ ), get_search_query() ); ?></h1>
 		</div>
 
 		<?php if ( ! have_posts() ) : ?>
 			<div class="alert">
-				<?php _e( 'Sorry, nothing found.', 'twoobl' ); ?>
+				<?php _e( 'Sorry, nothing found.', _TWOOBL_DOMAIN_LANG_ ); ?>
 			</div>
 		<?php endif; ?>
 

@@ -25,7 +25,7 @@
 
 		<?php if ( ! have_posts() ) : ?>
 			<div class="alert">
-				<?php _e( 'Sorry, nothing found.', 'twoobl' ); ?>
+				<?php _e( 'Sorry, nothing found.', _TWOOBL_DOMAIN_LANG_ ); ?>
 			</div>
 		<?php endif; ?>
 

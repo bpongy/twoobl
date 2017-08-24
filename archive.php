@@ -18,15 +18,15 @@
 			} elseif ( is_post_type_archive() ) {
 				echo get_queried_object()->labels->name;
 			} elseif ( is_day() ) {
-				printf( __( 'Daily archives: %s', 'twoobl' ), get_the_date() );
+				printf( __( 'Daily archives: %s', _TWOOBL_DOMAIN_LANG_ ), get_the_date() );
 			} elseif ( is_month() ) {
-				printf( __( 'Monthly archives: %s', 'twoobl' ), get_the_date( 'F Y' ) );
+				printf( __( 'Monthly archives: %s', _TWOOBL_DOMAIN_LANG_ ), get_the_date( 'F Y' ) );
 			} elseif ( is_year() ) {
-				printf( __( 'Yearly archives: %s', 'twoobl' ), get_the_date( 'Y' ) );
+				printf( __( 'Yearly archives: %s', _TWOOBL_DOMAIN_LANG_ ), get_the_date( 'Y' ) );
 			} elseif ( is_author() ) {
 				global $post;
 				$author_id = $post->post_author;
-				printf( __( 'Author archives: %s', 'twoobl' ), get_the_author_meta( 'display_name', $author_id ) );
+				printf( __( 'Author archives: %s', _TWOOBL_DOMAIN_LANG_ ), get_the_author_meta( 'display_name', $author_id ) );
 			} else {
 				single_cat_title();
 			} ?>
@@ -34,7 +34,7 @@
 
 		<?php if ( ! have_posts() ) : ?>
 			<div class="alert">
-				<?php _e( 'Sorry, nothing found.', 'twoobl' ); ?>
+				<?php _e( 'Sorry, nothing found.', _TWOOBL_DOMAIN_LANG_ ); ?>
 			</div>
 		<?php endif; ?>
 

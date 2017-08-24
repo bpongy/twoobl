@@ -8,7 +8,7 @@ if( !function_exists( 'twoobl_widgets_init' ) ) {
 	function twoobl_widgets_init() {
 	
 		register_sidebar(array(
-			'name'          => __('Sidebar', 'twoobl'),
+			'name'          => __('Sidebar', _TWOOBL_DOMAIN_LANG_),
 			'id'            => 'primary',
 			'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
 			'before_title'  => '<span class="title">',
@@ -17,7 +17,7 @@ if( !function_exists( 'twoobl_widgets_init' ) ) {
 		));
 	
 		register_sidebar(array(
-			'name'          => __('Footer', 'twoobl'),
+			'name'          => __('Footer', _TWOOBL_DOMAIN_LANG_),
 			'id'            => 'footer',
 			'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
 			'before_title'  => '<span class="title">',
@@ -27,7 +27,7 @@ if( !function_exists( 'twoobl_widgets_init' ) ) {
 	
 		if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
 			register_sidebar(array(
-				'name'          => __('Mobile menu', 'twoobl'),
+				'name'          => __('Mobile menu', _TWOOBL_DOMAIN_LANG_),
 				'id'            => 'mobile_menu',
 				'before_widget' => '<div id="%1$s" class="widget %2$s clearfix">',
 				'before_title'  => '<span class="title">',
@@ -55,9 +55,9 @@ add_action('widgets_init', 'twoobl_widgets_init');
 class TextClass extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_textclass', 'description' => __('Arbitrary text or HTML with custom class', 'twoobl'));
+		$widget_ops = array('classname' => 'widget_textclass', 'description' => __('Arbitrary text or HTML with custom class', _TWOOBL_DOMAIN_LANG_));
 		$control_ops = array('width' => 400, 'height' => 350);
-		parent::__construct('TextClass', __('Text with class', 'twoobl'), $widget_ops, $control_ops);
+		parent::__construct('TextClass', __('Text with class', _TWOOBL_DOMAIN_LANG_), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -93,13 +93,13 @@ class TextClass extends WP_Widget {
 		
 		$classes = array('facebook', 'twitter', 'about', 'love', 'info', 'warning', 'team', 'misc');
 		?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'twoobl'); ?></label>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', _TWOOBL_DOMAIN_LANG_); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
 		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('class'); ?>"><?php _e('Custom class', 'twoobl'); ?>&nbsp;:</label>
+			<label for="<?php echo $this->get_field_id('class'); ?>"><?php _e('Custom class', _TWOOBL_DOMAIN_LANG_); ?>&nbsp;:</label>
 			<select name="<?php echo $this->get_field_name('class'); ?>" id="<?php echo $this->get_field_id('class'); ?>" class="widefat">
 				<?php foreach( $classes as $c ) {
 					echo '<option value="'.$c.'"';
@@ -109,7 +109,7 @@ class TextClass extends WP_Widget {
 			</select>
 		</p>
 
-		<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs', 'twoobl'); ?></label></p>
+		<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs', _TWOOBL_DOMAIN_LANG_); ?></label></p>
 	<?php
 	}
 }

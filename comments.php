@@ -10,7 +10,7 @@ if ( !comments_open() && !get_comments_number() )
 
 	<?php if ( have_comments() ) : ?>
 		<span class="title h4">
-			<?php comments_number( __('no response', 'twoobl'), __('one response', 'twoobl'), __('% responses', 'twoobl') ); ?>
+			<?php comments_number( __('no response', _TWOOBL_DOMAIN_LANG_), __('one response', _TWOOBL_DOMAIN_LANG_), __('% responses', _TWOOBL_DOMAIN_LANG_) ); ?>
 		</span>
 
 		<ol class="comment-list">
@@ -28,14 +28,14 @@ if ( !comments_open() && !get_comments_number() )
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav class="navigation comment-navigation" role="navigation">
-			<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'twoobl' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twoobl' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twoobl' ) ); ?></div>
+			<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', _TWOOBL_DOMAIN_LANG_ ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', _TWOOBL_DOMAIN_LANG_ ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', _TWOOBL_DOMAIN_LANG_ ) ); ?></div>
 		</nav><!-- .comment-navigation -->
 		<?php endif; // Check for comment navigation ?>
 
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>
-		<div class="alert alert-warning"><?php _e( 'Comments are closed.' , 'twoobl' ); ?></div>
+		<div class="alert alert-warning"><?php _e( 'Comments are closed.' , _TWOOBL_DOMAIN_LANG_ ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>
