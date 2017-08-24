@@ -312,6 +312,11 @@ add_action('wp_before_admin_bar_render', 'twoobl_adminbar');
 if( !function_exists( 'twoobl_sanitize_file_name' ) ) {
 	function twoobl_sanitize_file_name($file_name) {
 		$remove = array("’", "©");
+		if (extension_loaded('intl')) {
+			// remove precomposed sh*t characters
+			// https://en.wikipedia.org/wiki/Precomposed_character
+			$file_name = normalizer_normalize( $file_name, Normalizer::FORM_C );
+		}
 		$file_name = remove_accents($file_name);
 		$file_name = str_replace($remove, '-', $file_name);
 		return $file_name;
