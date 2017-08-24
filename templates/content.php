@@ -1,4 +1,4 @@
-<article <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
+<article <?php post_class(); ?>>
 	<header class="entry-header">
 		<h2 class="title h2"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php get_template_part('templates/meta'); ?>

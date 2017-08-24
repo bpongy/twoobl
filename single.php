@@ -5,12 +5,12 @@
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
 		<?php while (have_posts()) : the_post(); ?>
-			<article <?php post_class('hentry h-entry'); ?> itemscope itemtype="http://schema.org/Article">
+			<article <?php post_class('hentry h-entry'); ?>>
 				<header class="entry-header">
-					<h1 class="title entry-title p-name" itemprop="name"><?php the_title(); ?></h1>
+					<h1 class="title entry-title"><?php the_title(); ?></h1>
 					<?php get_template_part('templates/meta'); ?>
 				</header>
-				<div class="entry-content clearfix e-content" itemprop="articleBody">
+				<div class="entry-content clearfix">
 					<?php the_content(); ?>
 				</div>
 				<footer>
