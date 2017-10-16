@@ -74,7 +74,7 @@
 		$('.gallery').each(function() {
 			var $_gal = $(this);
 			var idgal = $_gal.attr('id');
-			$('a', $_gal).attr('rel', idgal);
+			$('a', $_gal).attr('data-fancybox', idgal);
 		});
 
 
@@ -83,7 +83,7 @@
 		 * 		Popin images with fancybox
 		 ********************************************/
 		$('.fancybox, a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').fancybox({
-
+			loop: true
 		});
 
 
