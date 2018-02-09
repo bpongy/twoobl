@@ -14,7 +14,7 @@
 					<?php the_content(); ?>
 				</div>
 				<footer>
-					<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', _TWOOBL_DOMAIN_LANG_), 'after' => '</p></nav>')); ?>
+					<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'twoobl'), 'after' => '</p></nav>')); ?>
 					<?php the_tags('<div class="entry-tags"><ul><li>','</li><li>','</li></ul></div>'); ?>
 				</footer>
 				<?php comments_template(); ?>

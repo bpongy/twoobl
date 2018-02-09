@@ -20,30 +20,30 @@ if( !function_exists( 'twoobl_tinymce_custom' ) ) {
 	function twoobl_tinymce_custom($init) {
 
 		// Remove H1, H6
-		$init['block_formats'] = 'Paragraphe=p;'.__('Title 2', _TWOOBL_DOMAIN_LANG_).'=h2;'.__('Title 3', _TWOOBL_DOMAIN_LANG_).'=h3;'.__('Title 4', _TWOOBL_DOMAIN_LANG_).'=h4;'.__('Title 5', _TWOOBL_DOMAIN_LANG_).'=h5;'.__('Title 6', _TWOOBL_DOMAIN_LANG_).'=h6;Adresse=address';
+		$init['block_formats'] = 'Paragraphe=p;'.__('Title 2', 'twoobl').'=h2;'.__('Title 3', 'twoobl').'=h3;'.__('Title 4', 'twoobl').'=h4;'.__('Title 5', 'twoobl').'=h5;'.__('Title 6', 'twoobl').'=h6;Adresse=address';
 
 		// custom styles (Bootstrap classes):
 		$style_formats = array(
 			array(
-				'title' => __('BS alert info', _TWOOBL_DOMAIN_LANG_),
+				'title' => __('BS alert info', 'twoobl'),
 				'block' => 'div',
 				'classes' => 'alert alert-info',
 				'wrapper' => true
 			),
 			array(
-				'title' => __('BS alert warning', _TWOOBL_DOMAIN_LANG_),
+				'title' => __('BS alert warning', 'twoobl'),
 				'block' => 'div',
 				'classes' => 'alert alert-warning',
 				'wrapper' => true
 			),
 			array(
-				'title' => __('BS well', _TWOOBL_DOMAIN_LANG_),
+				'title' => __('BS well', 'twoobl'),
 				'block' => 'div',
 				'classes' => 'well',
 				'wrapper' => true
 			),
 			array(
-				'title' => __('Code', _TWOOBL_DOMAIN_LANG_),
+				'title' => __('Code', 'twoobl'),
 				'inline' => 'code'
 			)
 		);

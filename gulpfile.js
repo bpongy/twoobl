@@ -4,10 +4,7 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	pleeease = require('gulp-pleeease'),
-	mqpacker = require('css-mqpacker');
+	concat = require('gulp-concat');
 
 var jsFiles = [
 	// 'assets/js/bootstrap/affix.js',

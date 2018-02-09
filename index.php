@@ -10,7 +10,7 @@
 
 		<?php if (!have_posts()) : ?>
 			<div class="alert">
-				<?php _e('Sorry, nothing found.', _TWOOBL_DOMAIN_LANG_); ?>
+				<?php _e('Sorry, nothing found.', 'twoobl'); ?>
 			</div>
 		<?php endif; ?>
 

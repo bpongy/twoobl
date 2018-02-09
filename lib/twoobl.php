@@ -4,11 +4,11 @@ if( !function_exists( 'twoobl_setup' ) ) {
 	function twoobl_setup() {
 			
 		// Load text domain
-		load_theme_textdomain(_TWOOBL_DOMAIN_LANG_, get_template_directory().'/lang');
+		load_theme_textdomain('twoobl', get_template_directory().'/lang');
 		
 		// Custom menus
 		register_nav_menus( array(
-			'primary_nav' => __('Primary navigation', _TWOOBL_DOMAIN_LANG_)
+			'primary_nav' => __('Primary navigation', 'twoobl')
 		) );
 
 		// enlarge your WordPress
@@ -44,7 +44,7 @@ function twoobl_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
 
 function twoobl_excerpt_more( $more ) {
-	return '...<span class="read-more"><a class="btn btn-primary btn-xs" href="'.get_permalink().'">'.__('Read more', _TWOOBL_DOMAIN_LANG_).'</a></span>';
+	return '...<span class="read-more"><a class="btn btn-primary btn-xs" href="'.get_permalink().'">'.__('Read more', 'twoobl').'</a></span>';
 }
 add_filter('excerpt_more', 'twoobl_excerpt_more');
 
@@ -173,7 +173,7 @@ add_filter( 'the_content', 'twoobl_automatic_nbsp' );
  ****************************************************/
 function twoobl_postsColumns($columns) {
 	$pos = 1;
-	$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', _TWOOBL_DOMAIN_LANG_)), array_slice($columns, $pos));
+	$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', 'twoobl')), array_slice($columns, $pos));
 	return $columns;
 }
 
@@ -359,7 +359,7 @@ if( !function_exists( 'twoobl_like_twentytwelve_wp_title' ) ) {
 	
 		// Add a page number if necessary.
 		if ( $paged >= 2 || $page >= 2 )
-			$title = "$title $sep " . sprintf( __('Page %s', _TWOOBL_DOMAIN_LANG_), max( $paged, $page ) );
+			$title = "$title $sep " . sprintf( __('Page %s', 'twoobl'), max( $paged, $page ) );
 	
 		return $title;
 	}
@@ -447,9 +447,9 @@ if( !function_exists( 'twoobl_contact_info' ) ) {
 		unset($contacts['aim']);  
 		unset($contacts['yim']);
 		unset($contacts['jabber']);  
-		$contacts['contact_google'] = __('Google+ URL', _TWOOBL_DOMAIN_LANG_);
-		$contacts['contact_facebook'] = __('Facebook URL', _TWOOBL_DOMAIN_LANG_);
-		$contacts['contact_twitter'] = __('Twitter profile', _TWOOBL_DOMAIN_LANG_);
+		$contacts['contact_google'] = __('Google+ URL', 'twoobl');
+		$contacts['contact_facebook'] = __('Facebook URL', 'twoobl');
+		$contacts['contact_twitter'] = __('Twitter profile', 'twoobl');
 		return $contacts;
 	}
 }
@@ -475,9 +475,9 @@ if( !function_exists( 'get_twoobl_prevnext' ) ) {
 
 		$prevnext = '<nav class="post-nav row">';
 			if( $prev_post )
-				$prevnext .= '<div class="col-xs-6"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($prev_post).'" title="'.esc_attr($prev_post->post_title).'">'.__('&larr; Older posts', _TWOOBL_DOMAIN_LANG_).'</a></div>';
+				$prevnext .= '<div class="col-xs-6"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($prev_post).'" title="'.esc_attr($prev_post->post_title).'">'.__('&larr; Older posts', 'twoobl').'</a></div>';
 			if( $next_post )
-				$prevnext .= '<div class="col-xs-6 text-right"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($next_post).'" title="'.esc_attr($next_post->post_title).'">'.__('Newer posts &rarr;', _TWOOBL_DOMAIN_LANG_).'</a></div>';
+				$prevnext .= '<div class="col-xs-6 text-right"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($next_post).'" title="'.esc_attr($next_post->post_title).'">'.__('Newer posts &rarr;', 'twoobl').'</a></div>';
 		$prevnext .= '</nav>';
 		
 		return $prevnext;

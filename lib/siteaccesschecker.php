@@ -7,13 +7,13 @@ if( !function_exists( 'twoobl_toolbar_siteaccesschecker' ) )
 
 		if ($visibility==1)
 		{
-			$title = __('Site is online', _TWOOBL_DOMAIN_LANG_);
+			$title = __('Site is online', 'twoobl');
 			$class = 'link-siteaccesschecker';
 		} elseif($visibility==0) {
-			$title = __('Search engines are blocked', _TWOOBL_DOMAIN_LANG_);
+			$title = __('Search engines are blocked', 'twoobl');
 			$class = 'link-siteaccesschecker offline';
 		} else {
-			$title = __('Site access is locked!', _TWOOBL_DOMAIN_LANG_);
+			$title = __('Site access is locked!', 'twoobl');
 			$class = 'link-siteaccesschecker locked';
 		}
 
