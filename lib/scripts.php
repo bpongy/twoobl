@@ -6,13 +6,10 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 		$theme = wp_get_theme();
 		$scripts_version = $theme->get('Version');
 
-		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', array(), $scripts_version);
-			if ( current_user_can('activate_plugins') )
-				wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', array(), $scripts_version);
-		} else {
-			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.min.css', array(), $scripts_version);
+		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ && current_user_can('activate_plugins')) {
+			wp_enqueue_style('twoobl_debug_style', get_template_directory_uri() . '/assets/css/debug.css', array(), $scripts_version);
 		}
+		wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/assets/css/base.css', array(), $scripts_version);
 
 		if (!is_admin()) {
 			// Be careful, this method will dequeue jQuery migrate
@@ -25,11 +22,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 			wp_enqueue_script('comment-reply');
 		}
 
-		if( defined('_TWOOBL_DEV_') && _TWOOBL_DEV_ ) {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', array(), $scripts_version, true);
-		} else {
-			wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), $scripts_version, true);
-		}
+		wp_register_script('twoobl_scr', get_template_directory_uri() . '/assets/js/scripts.js', array(), $scripts_version, true);
 
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('twoobl_scr');

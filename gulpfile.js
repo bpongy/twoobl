@@ -55,17 +55,3 @@ gulp.task('default', function () {
 	gulp.watch(scssFiles, ['sass']);
 	gulp.watch(jsFiles, ['scripts']);
 });
-
-
-
-gulp.task('build', function () {
-	gulp.src('assets/css/base.css')
-		.pipe(pleeease({
-			out: 'base.min.css'
-		}))
-		.pipe(gulp.dest(cssDest));
-	gulp.src(jsFiles)
-		.pipe(concat('scripts.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('assets/js'));
-});
