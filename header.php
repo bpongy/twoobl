@@ -63,11 +63,9 @@
 	<div id="wrap">
 		
 		<?php
-		if( function_exists('bcn_display') && !is_front_page() )
+		if( function_exists('yoast_breadcrumb') && !is_front_page() )
 		{
-			echo '<div id="breadcrumb-wrap" class="container hidden-xs"><div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">';
-			bcn_display();
-			echo '</div></div>';
+			yoast_breadcrumb('<div id="breadcrumb-wrap" class="container hidden-xs">', '</div>');
 		}
 		?>
 		
