@@ -5,7 +5,7 @@
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
 		<?php while (have_posts()) : the_post(); ?>
-			<article <?php post_class('hentry h-entry'); ?>>
+			<article <?php post_class('entry'); ?>>
 				<header class="entry-header">
 					<h1 class="title entry-title"><?php the_title(); ?></h1>
 					<?php get_template_part('templates/meta'); ?>

@@ -279,6 +279,7 @@ function twoobl_clean_post_class($classes) {
 		|| $class == 'format-standard' )
 			unset($classes[$k]);
 	}
+	//$classes = array_diff($classes, array('hentry'));
 	return $classes;
 }
 add_filter('post_class','twoobl_clean_post_class');
