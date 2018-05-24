@@ -15,34 +15,39 @@
 
 
 		/********************************************
-		 * 		slideout.js navigation menu
+		 * 		Mmenu navigation menu
 		 ********************************************/
-		var slideout = new Slideout({
-			'panel': document.getElementById('playground'),
-			'menu': document.getElementById('navmob'),
-			'padding': 256,
-			'tolerance': 70
+		var $btn_mobile_menu = $("#btn-mobile-menu");
+		$("#navmob").mmenu({
+			"navbar": {
+				"add": false
+			}
+		}, {
+			// configuration
+			offCanvas: {
+				pageSelector: "#playground"
+			},
+			classNames: {
+				selected: "current-menu-item"
+			}
 		});
-		// Toggle button
-		$('.js-slideout-toggle').on('click', function() {
-			slideout.open();
+		var API = $("#navmob").data( "mmenu" );
+
+		$btn_mobile_menu.on('click', function() {
+			API.open();
 		});
 
-		function close(eve) {
-			eve.preventDefault();
-			slideout.close();
-		}
-		slideout
-			.on('beforeopen', function() {
-				this.panel.classList.add('panel-open');
-			})
-			.on('open', function() {
-				this.panel.addEventListener('click', close);
-			})
-			.on('beforeclose', function() {
-				this.panel.classList.remove('panel-open');
-				this.panel.removeEventListener('click', close);
-			});
+		API.bind( "open:finish", function() {
+			setTimeout(function() {
+				$btn_mobile_menu.addClass( "active" );
+			}, 100);
+		});
+
+		API.bind( "close:finish", function() {
+			setTimeout(function() {
+				$btn_mobile_menu.removeClass( "active" );
+			}, 100);
+		});
 
 
 

@@ -6286,20 +6286,58 @@ button.close {
   #mobile-top a {
     color: inherit; }
 
-.js-slideout-toggle span {
-  display: block;
+#btn-mobile-menu {
   cursor: pointer;
-  font-size: 30px;
-  line-height: 0.9em; }
-  .js-slideout-toggle span:before, .js-slideout-toggle span:after {
-    content: '≡';
+  padding: 2px;
+  display: inline-block;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  #btn-mobile-menu > span {
+    width: 20px;
+    height: 12px;
     display: inline-block;
-    vertical-align: middle; }
-  .js-slideout-toggle span:after {
-    content: 'Menu';
-    font-size: 12px;
-    text-transform: uppercase;
-    padding-left: 0.4em; }
+    position: relative; }
+    #btn-mobile-menu > span > span {
+      display: block;
+      margin-top: -1px;
+      top: 1px;
+      transition-duration: 0.275s;
+      transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+      #btn-mobile-menu > span > span, #btn-mobile-menu > span > span:before, #btn-mobile-menu > span > span:after {
+        width: 20px;
+        height: 2px;
+        background-color: #F0F0F0;
+        border-radius: 2px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease; }
+      #btn-mobile-menu > span > span:before, #btn-mobile-menu > span > span:after {
+        content: "";
+        display: block; }
+      #btn-mobile-menu > span > span:before {
+        top: 5px;
+        transition: opacity 0.125s 0.275s ease; }
+      #btn-mobile-menu > span > span:after {
+        top: 10px;
+        transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  #btn-mobile-menu.active span span {
+    transform: translate3d(0, 5px, 0) rotate(135deg);
+    transition-delay: 0.075s; }
+    #btn-mobile-menu.active span span:before {
+      transition-delay: 0s;
+      opacity: 0; }
+    #btn-mobile-menu.active span span:after {
+      transform: translate3d(0, -10px, 0) rotate(-270deg);
+      transition-delay: 0.075s; }
 
 #header-logo a {
   display: block; }
@@ -6752,96 +6790,6 @@ img.emoji {
   #sidebar .fb_iframe_widget span,
   #sidebar .fb_iframe_widget span iframe[style] {
     width: 100% !important; }
-
-#_atssh,
-body > img[src*="addthis"] {
-  position: absolute;
-  top: 0; }
-
-@media (max-width: 767px) {
-  html,
-  body,
-  #playground {
-    width: 100%;
-    height: 100%;
-    background-color: #FFF; }
-    html:before,
-    body:before,
-    #playground:before {
-      content: '';
-      display: block;
-      background-color: transparent;
-      transition: background-color 0.5s ease-in-out; }
-    html.panel-open,
-    body.panel-open,
-    #playground.panel-open {
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); }
-      html.panel-open:before,
-      body.panel-open:before,
-      #playground.panel-open:before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 99; } }
-
-.slideout-menu {
-  background-color: #26292F;
-  color: #ffffff;
-  font-size: 0.9em;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-  width: 256px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  display: none; }
-  .slideout-menu .widget {
-    padding: 0.9em; }
-    .slideout-menu .widget a {
-      color: inherit;
-      display: block; }
-    .slideout-menu .widget ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      opacity: 0.8; }
-      .slideout-menu .widget ul a {
-        display: block;
-        padding: 0.5em; }
-    .slideout-menu .widget > div > ul > li {
-      border-bottom: 1px solid #383d46; }
-      .slideout-menu .widget > div > ul > li > a {
-        padding-top: 0.3em;
-        padding-bottom: 0.3em; }
-        .slideout-menu .widget > div > ul > li > a:before {
-          content: '\2022';
-          color: #558eff;
-          font-size: 1.8em;
-          display: inline-block;
-          padding-right: 0.4em;
-          vertical-align: middle; }
-      .slideout-menu .widget > div > ul > li > ul {
-        padding: 0 0 1em 2em; }
-        .slideout-menu .widget > div > ul > li > ul a {
-          padding: 0.3em 0.5em; }
-
-.slideout-panel {
-  position: relative;
-  z-index: 1;
-  will-change: transform; }
-
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-  overflow: hidden; }
-
-.slideout-open .slideout-menu {
-  display: block; }
 
 .fancybox-enabled {
   overflow: hidden; }
@@ -7582,6 +7530,45 @@ body > img[src*="addthis"] {
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   .fancybox-thumbs > ul > li.fancybox-thumbs-active:before {
     opacity: 1; } }
+
+.mm-page__blocker {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4) !important; }
+
+#navmob {
+  color: #F0F0F0;
+  background-color: #222; }
+  #navmob .widget .menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    #navmob .widget .menu a {
+      color: inherit;
+      display: block; }
+    #navmob .widget .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      opacity: 0.8; }
+      #navmob .widget .menu ul a {
+        display: block;
+        padding: 0.5em; }
+    #navmob .widget .menu > div > ul > li {
+      border-bottom: 1px solid #363636; }
+      #navmob .widget .menu > div > ul > li > a {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em; }
+        #navmob .widget .menu > div > ul > li > a:before {
+          content: '\2022';
+          color: #f64d4d;
+          font-size: 1.8em;
+          display: inline-block;
+          padding-right: 0.4em;
+          vertical-align: middle; }
+      #navmob .widget .menu > div > ul > li > ul {
+        padding: 0 0 1em 2em; }
+        #navmob .widget .menu > div > ul > li > ul a {
+          padding: 0.3em 0.5em; }
 
 /* .gform_button {
 	@extend .btn, .btn-primary;

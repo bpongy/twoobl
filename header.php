@@ -14,7 +14,7 @@
 		<div class="clearfix">
 			<?php
 			if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ )
-				echo '<div class="js-slideout-toggle visible-xs-block col-xs-4"><span></span></div>';
+				echo '<div class="visible-xs-block col-xs-4"><div id="btn-mobile-menu"><span><span></span></span></div></div>';
 			?>
 			<div id="mob-title" class="col-xs-8 text-right">
 				<a href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name')); ?>">
