@@ -182,7 +182,7 @@ figure.alignnone {
 	width: 100%;
 	text-align: center;
 	vertical-align: top;
-	padding-bottom: $grid-gutter-width / 2;
+	padding-bottom: $grid-gutter-width;
 	@for $i from 2 through 9 {
 		.gallery-columns-#{$i} & {
 			$w: floor(10000/$i)/100;
