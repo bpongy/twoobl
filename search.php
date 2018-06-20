@@ -4,7 +4,7 @@
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
 
-		<div class="entry-header">
+		<div class="entry-header main-header">
 			<h1 class="title"><?php printf( __( 'Search Results for: %s', 'twoobl' ), get_search_query() ); ?></h1>
 		</div>
 

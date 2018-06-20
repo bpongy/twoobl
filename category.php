@@ -9,7 +9,7 @@
 <div class="row">
 
 	<div id="main" class="<?php echo _MAIN_CLASS_; ?>" role="main">
-		<div class="entry-header">
+		<div class="entry-header main-header">
 			<h1 class="title">
 				<?php
 				single_cat_title();

@@ -6,8 +6,8 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 			<article <?php post_class('entry'); ?>>
-				<header class="entry-header">
-					<h1 class="title entry-title"><?php the_title(); ?></h1>
+				<header class="entry-header main-header">
+					<h1 class="title"><?php the_title(); ?></h1>
 					<?php get_template_part('templates/meta'); ?>
 				</header>
 				<div class="entry-content clearfix">

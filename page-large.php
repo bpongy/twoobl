@@ -7,7 +7,7 @@ Template Name: Large page
 <?php get_header(); ?>
 
 <div id="main" role="main">
-	<div class="entry-header">
+	<div class="entry-header main-header">
 		<h1 class="title"><?php the_title(); ?></h1>
 	</div>
 	<?php while (have_posts()) : the_post(); ?>
