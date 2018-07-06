@@ -7,19 +7,19 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat');
 
 var jsFiles = [
-	// 'assets/js/bootstrap/affix.js',
-	// 'assets/js/bootstrap/alert.js',
-	// 'assets/js/bootstrap/button.js',
-	// 'assets/js/bootstrap/carousel.js',
-	// 'assets/js/bootstrap/collapse.js',
-	// 'assets/js/bootstrap/dropdown.js',
-	// 'assets/js/bootstrap/tab.js',
-	// 'assets/js/bootstrap/transition.js',
-	// 'assets/js/bootstrap/scrollspy.js',
-	// 'assets/js/bootstrap/modal.js',
-	// 'assets/js/bootstrap/tooltip.js',
-	// 'assets/js/bootstrap/popover.js',
 	'assets/js/plugins/*.js',
+
+	'assets/js/bootstrap/alert',
+	'assets/js/bootstrap/button',
+	'assets/js/bootstrap/carousel',
+	'assets/js/bootstrap/collapse',
+	'assets/js/bootstrap/dropdown',
+	'assets/js/bootstrap/modal',
+	'assets/js/bootstrap/popover',
+	'assets/js/bootstrap/scrollspy',
+	'assets/js/bootstrap/tab',
+	'assets/js/bootstrap/tooltip',
+
 	'assets/js/main.js'
 ];
 

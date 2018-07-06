@@ -1,14 +1,17 @@
 
+html {
+	@include tw_responsive(font-size, $font-size-base - 0.15rem, $font-size-base - 0.1rem, $font-size-base - 0.05rem, $font-size-base);
+}
+
 body {
 	cursor: default;
 	//-webkit-font-smoothing: antialiased;
 	//-moz-osx-font-smoothing: grayscale;
-	@include tw_responsive(font-size, false, $font-size-base * 0.95, $font-size-base * 0.9, $font-size-base * 0.85);
 }
 
 // text selection
-::selection { background: $gray-dark; color: #FFF; }
-::-moz-selection { background: $gray-dark; color: #FFF; }
+::selection { background: $gray-600; color: #FFF; }
+::-moz-selection { background: $gray-600; color: #FFF; }
 
 // like Hn
 .title {
@@ -17,7 +20,6 @@ body {
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
 	color: $headings-color;
-	//@include hyphens();
 
 	a {
 		display: block;
@@ -27,30 +29,29 @@ body {
 
 
 
-// responsive Hn
 h1,
 .h1 {
-	@include tw_responsive(font-size, false, $font-size-h1 * 0.9, $font-size-h1 * 0.8, $font-size-h1 * 0.7);
+
 }
 h2,
 .h2 {
-	@include tw_responsive(font-size, false, $font-size-h2 * 0.85, $font-size-h2 * 0.7, $font-size-h2 * 0.55);
+
 }
 h3,
 .h3 {
-	@include tw_responsive(font-size, false, $font-size-h3 * 0.85, $font-size-h3 * 0.7, $font-size-h3 * 0.55);
+
 }
 h4,
 .h4 {
-	@include tw_responsive(font-size, false, $font-size-h4 * 0.9, $font-size-h4 * 0.8, $font-size-h4 * 0.7);
+
 }
 h5,
 .h5 {
-	@include tw_responsive(font-size, false, $font-size-h5 * 0.95, $font-size-h5 * 0.9, $font-size-h5 * 0.85);
+
 }
 h6,
 .h6 {
-	@include tw_responsive(font-size, false, $font-size-h6 * 0.95, $font-size-h6 * 0.9, $font-size-h6 * 0.85);
+
 }
 
 
@@ -95,7 +96,6 @@ img,
 
 
 .entry-content {
-	@include hyphens();
 	
 	> *:first-child {
 		margin-top: 0;
@@ -139,13 +139,13 @@ figure.alignnone {
 .wp-caption {  }
 .wp-caption-text {
 	text-align: center;
-	font-size: $font-size-small;
+	font-size: $font-size-sm;
 	padding-top: 0.2em;
-	color: $gray;
+	color: $gray-500;
 	a {
 		color: inherit;
 		text-decoration: underline;
-		&:hover { color: $gray-dark; }
+		&:hover { color: $gray-400; }
 	}
 }
 
@@ -164,25 +164,26 @@ figure.alignnone {
 
 // paginated article
 .page-nav {
-	border-top: 1px solid $gray-lighter;
+	border-top: 1px solid $gray-200;
 	padding-top: 5px;
 	font-size: .9em;
-	color: $gray-light;
+	color: $gray-400;
 }
 
 
 
 .gallery {
 	@extend .clearfix;
-	margin: 0 (-($grid-gutter-width / 2));
-	padding: ($grid-gutter-width / 2) 0;
+	margin: 0 (-($grid-gutter-width / 4));
+	padding: ($grid-gutter-width / 4) 0;
 }
 .gallery-item {
 	display: inline-block;
 	width: 100%;
 	text-align: center;
 	vertical-align: top;
-	padding-bottom: $grid-gutter-width;
+	padding-bottom: $grid-gutter-width / 2;
+	margin: 0;
 	@for $i from 2 through 9 {
 		.gallery-columns-#{$i} & {
 			$w: floor(10000/$i)/100;
@@ -191,7 +192,7 @@ figure.alignnone {
 	}
 	a {
 		display: block;
-		padding: 0 ($grid-gutter-width / 2);
+		padding: 0 ($grid-gutter-width / 4);
 	}
 }
 

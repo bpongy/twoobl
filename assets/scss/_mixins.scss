@@ -17,7 +17,7 @@
 //  	@include tw_placeholder();
 //  }
 
-@mixin tw_placeholder($color: $input-color-placeholder, $color-hover: rgba($input-color-placeholder, 0.4)) {
+@mixin tw_placeholder($color: $input-placeholder-color, $color-hover: rgba($input-placeholder-color, 0.4)) {
 	&:-ms-input-placeholder       { color: $color; }
 	&::-webkit-input-placeholder  { color: $color; }
 	&::placeholder                { color: $color; opacity: 1; }
@@ -52,29 +52,55 @@
 //	Responsive everything
 //	ex :
 //	#test {
-//		@include tw_responsive(border, 1px dashed red, 2px dashed olive, 5px dashed tomato);
-//		@include tw_responsive(font-size, $font-size-h1, $font-size-h2 - 2px, inherit, $font-size-small);
+//		@include tw_responsive(font-size, false, 0.8rem, 0.9rem, 1rem, 1.1rem);
 //	}
+//  xs, lg and xl are optional.
 
-@mixin tw_responsive($prop, $lg, $md, $sm, $xs: false) {
-	@if $lg {
-		#{$prop}: $lg;
-	}
-
-	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-		#{$prop}: $md;
-	}
+@mixin tw_responsive($prop, $xs, $sm, $md, $lg: false, $xl: false) {
 
 	@if $xs {
-		@media (max-width: $screen-xs-max) {
+		@include media-breakpoint-only(xs) {
 			#{$prop}: $xs;
 		}
-		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		@include media-breakpoint-only(sm) {
 			#{$prop}: $sm;
 		}
 	} @else {
-		@media (max-width: $screen-sm-max) {
+		@include media-breakpoint-down(sm) {
 			#{$prop}: $sm;
+		}
+	}
+
+	@if $lg and $xl {
+		@include media-breakpoint-only(md) {
+			#{$prop}: $md;
+		}
+		@include media-breakpoint-only(lg) {
+			#{$prop}: $lg;
+		}
+		@include media-breakpoint-up(xl) {
+			#{$prop}: $xl;
+		}
+	}
+	@if $lg and not($xl) {
+		@include media-breakpoint-only(md) {
+			#{$prop}: $md;
+		}
+		@include media-breakpoint-up(lg) {
+			#{$prop}: $lg;
+		}
+	}
+	@if not($lg) and $xl {
+		@include media-breakpoint-only(md) {
+			#{$prop}: $md;
+		}
+		@include media-breakpoint-up(xl) {
+			#{$prop}: $xl;
+		}
+	}
+	@if not($lg) and not($xl) {
+		@include media-breakpoint-up(md) {
+			#{$prop}: $md;
 		}
 	}
 }

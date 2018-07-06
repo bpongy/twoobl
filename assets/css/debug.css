@@ -1,4 +1,4 @@
-.debug-twoobl .label {
+.debug-twoobl .badge {
   font-weight: normal;
   font-size: 12px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
@@ -8,13 +8,17 @@
   z-index: 8000;
   left: 5px;
   bottom: 5px; }
-  .debug-twoobl.debug-bottom .label.visible-xs-inline:after {
-    content: " (max-width: 767px)"; }
-  .debug-twoobl.debug-bottom .label.visible-sm-inline:after {
-    content: " (min-width: 768px) and (max-width: 991px)"; }
-  .debug-twoobl.debug-bottom .label.visible-md-inline:after {
-    content: " (min-width: 992px) and (max-width: 1199px)"; }
-  .debug-twoobl.debug-bottom .label.visible-lg-inline:after {
-    content: " (min-width: 1200px)"; }
+  .debug-twoobl.debug-bottom .badge {
+    display: block; }
+    .debug-twoobl.debug-bottom .badge.d-sm-none:after {
+      content: " (max-width: 575.98px)"; }
+    .debug-twoobl.debug-bottom .badge.d-sm-block:after {
+      content: " (min-width: 576px) and (max-width: 767.98px)"; }
+    .debug-twoobl.debug-bottom .badge.d-md-block:after {
+      content: " (min-width: 768px) and (max-width: 991.98px)"; }
+    .debug-twoobl.debug-bottom .badge.d-lg-block:after {
+      content: " (min-width: 992px) and (max-width: 1199.98px)"; }
+    .debug-twoobl.debug-bottom .badge.d-xl-block:after {
+      content: " (min-width: 1200px)"; }
 
 /*# sourceMappingURL=debug.css.map */

@@ -6,14 +6,14 @@
 
 
 .meta {
-	color: $gray;
+	color: $gray-500;
 	font-size: 0.85em;
 	a {
 		color: inherit;
 		text-decoration: underline;
 	}
 	a:hover {
-		color: $gray-dark;
+		color: $gray-400;
 	}
 }
 
@@ -21,7 +21,7 @@
 
 // tags
 .entry-tags {
-	color: $gray-light;
+	color: $gray-600;
 	font-size: 0.9em;
 	ul {
 		margin: 0;
@@ -36,7 +36,7 @@
 		color: inherit;
 		text-decoration: underline;
 		&:hover {
-			color: $gray-dark;
+			color: $gray-600;
 		}
 	}
 }

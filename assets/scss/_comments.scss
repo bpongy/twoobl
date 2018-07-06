@@ -1,7 +1,7 @@
 
 #comments {
 	padding-top: 2em;
-	@extend .hidden-print;
+	@extend .d-print-none;
 
 	.comment-list {
 		margin: 0;
@@ -37,10 +37,10 @@
 #respond {
 	.comment-notes {
 		font-size: 0.85em;
-		color: lighten($text-color, 15%);
+		color: lighten($body-color, 15%);
 	}
 	.required {
-		color: $state-danger-text;
+		color: $danger;
 	}
 	label {
 		font-weight: normal;

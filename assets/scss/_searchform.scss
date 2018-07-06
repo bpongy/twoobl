@@ -7,11 +7,11 @@
 		margin-bottom: 0;
 	}
 	.search-field {
-		@extend .form-control;
+		@extend .form-control, .form-control-sm;
 		@include tw_placeholder();
 		font-weight: normal;
 	}
 	.search-submit {
-		@extend .btn, .btn-default;
+		@extend .btn, .btn-outline-primary, .btn-sm;
 	}
 }

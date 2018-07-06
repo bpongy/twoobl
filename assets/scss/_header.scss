@@ -1,6 +1,6 @@
 
 #mobile-top {
-	background-color: $gray-darker;
+	background-color: $gray-900;
 	color: #ffffff;
 	padding: 0.5em 0;
 	font-size: 0.9em;
@@ -40,7 +40,7 @@
 			&:after {
 				width: 20px;
 				height: 2px;
-				background-color: $gray-lighter;
+				background-color: $gray-200;
 				border-radius: 2px;
 				position: absolute;
 				transition-property: transform;
@@ -88,36 +88,43 @@
 #header-logo {
 	a {
 		display: block;
+		padding: 0.5em 0;
 	}
 }
 
 #site-desc {
 	text-align: center;
-	font-size: $font-size-large;
+	font-size: 1.1rem;
 	line-height: 1.1em;
+	color: $text-muted;
 	h1, p { margin: 0; font-size: 1em; padding: 0; }
 }
 
+#search-top {
+	text-align: right;
 
-
+}
 
 #nav-main {
-	padding-top: 0.5em;
-	background-color: $gray-lighter;
-	margin-top: $grid-gutter-width;
+	background-color: $gray-200;
 	a {
 		color: inherit;
 		text-transform: uppercase;
-		@include tw_responsive(font-size, 1.1em, 1em, 0.9em);
 	}
 	> div > ul {
 		text-align: center;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
 		> li  {
 			position: relative;
 			display: inline-block;
 			float: none;
 			> a {
 				position: relative;
+				text-decoration: none;
+				padding: 0.5em 0.8em;
+				display: inline-block;
 				&:before {
 					content: '';
 					display: block;
@@ -126,7 +133,7 @@
 					right: 10%;
 					bottom: 0;
 					height: 2px;
-					background-color: $brand-primary;
+					background-color: $primary;
 					transform: scaleX(0);
 					opacity: 0;
 					transition: transform 0.16s;
@@ -157,7 +164,7 @@
 
 				> li {
 					display: block;
-					border-bottom: 1px solid $gray-lighter;
+					border-bottom: 1px solid $gray-200;
 					> a {
 						display: block;
 						text-transform: none;
@@ -166,6 +173,19 @@
 					}
 					&:last-child {
 						border: none;
+					}
+				}
+				ul {
+					list-style-type: none;
+					margin: 0;
+					padding-left: 1em;
+					li {
+						a {
+							display: block;
+							text-transform: none;
+							font-size: 0.88em;
+							color: $gray-600;
+						}
 					}
 				}
 			}

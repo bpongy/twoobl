@@ -6,10 +6,10 @@
 	background-color: rgba(#000, 0.4) !important;
 }
 
-$sidebar-bg: $gray-darker;
+$sidebar-bg: $gray-200;
 
 #navmob {
-	color: $gray-lighter;
+	color: $gray-800;
 	background-color: $sidebar-bg;
 	.widget {
 		.menu {

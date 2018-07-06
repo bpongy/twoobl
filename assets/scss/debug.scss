@@ -1,9 +1,12 @@
 
+@import "bootstrap/functions";
 @import "variables";
 @import "bootstrap/variables";
+@import "bootstrap/mixins";
 
 .debug-twoobl {
-	.label {
+
+	.badge {
 		font-weight: normal;
 		font-size: 12px;
 		text-shadow: 0 1px 0 rgba(#000, .5);
@@ -13,12 +16,15 @@
 		z-index: 8000;
 		left: 5px;
 		bottom: 5px;
-		
-		.label {
-			&.visible-xs-inline:after { content: ' (max-width: #{$screen-xs-max})'; }
-			&.visible-sm-inline:after { content: ' (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})'; }
-			&.visible-md-inline:after { content: ' (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})'; }
-			&.visible-lg-inline:after { content: ' (min-width: #{$screen-lg-min})'; }
+
+		.badge {
+			display: block;
+
+			&.d-sm-none:after { content: ' (max-width: #{breakpoint-max(xs)})'; }
+			&.d-sm-block:after { content: ' (min-width: #{breakpoint-min(sm)}) and (max-width: #{breakpoint-max(sm)})'; }
+			&.d-md-block:after { content: ' (min-width: #{breakpoint-min(md)}) and (max-width: #{breakpoint-max(md)})'; }
+			&.d-lg-block:after { content: ' (min-width: #{breakpoint-min(lg)}) and (max-width: #{breakpoint-max(lg)})'; }
+			&.d-xl-block:after { content: ' (min-width: #{breakpoint-min(xl)})'; }
 		}
 	}
 }
