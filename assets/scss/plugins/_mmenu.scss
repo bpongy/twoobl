@@ -1,4 +1,8 @@
 
+body.modal-open .mm-slideout{
+	z-index: inherit;
+}
+
 // mmenu custom
 // mm-wrapper_opened mm-wrapper_blocking mm-wrapper_background mm-wrapper_opening
 .mm-page__blocker {

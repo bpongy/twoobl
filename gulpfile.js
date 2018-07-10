@@ -8,18 +8,6 @@ var gulp = require('gulp'),
 
 var jsFiles = [
 	'assets/js/plugins/*.js',
-
-	'assets/js/bootstrap/alert',
-	'assets/js/bootstrap/button',
-	'assets/js/bootstrap/carousel',
-	'assets/js/bootstrap/collapse',
-	'assets/js/bootstrap/dropdown',
-	'assets/js/bootstrap/modal',
-	'assets/js/bootstrap/popover',
-	'assets/js/bootstrap/scrollspy',
-	'assets/js/bootstrap/tab',
-	'assets/js/bootstrap/tooltip',
-
 	'assets/js/main.js'
 ];
 

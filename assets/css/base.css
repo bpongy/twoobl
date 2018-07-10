@@ -7295,6 +7295,9 @@ img.emoji {
   .fancybox-thumbs > ul > li.fancybox-thumbs-active:before {
     opacity: 1; } }
 
+body.modal-open .mm-slideout {
+  z-index: inherit; }
+
 .mm-page__blocker {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4) !important; }
