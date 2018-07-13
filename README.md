@@ -2,8 +2,8 @@
 
 Not your favorite starter theme (but with a lot of stuffs).
 
-- [Sass-powered version of Bootstrap](https://github.com/twbs/bootstrap-sass)
-- responsive, [mobile menu included](http://plugins.adchsm.me/slidebars/)
+- [Bootstrap](https://github.com/twbs/bootstrap)
+- responsive, [mobile menu included](http://mmenu.frebsite.nl/)
 - CSS and JavaScript compressed with [Gulp](http://gulpjs.com/)
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
 - Requires [ACF](http://www.advancedcustomfields.com/)
@@ -22,8 +22,3 @@ Please use [SASS](http://sass-lang.com/) and [Gulp](http://gulpjs.com/).
 
 Submit bugs here:
 https://github.com/redpik/Twoobl/issues
-
-## Special thanx
-
-- [Roots theme](http://roots.io/)
-- [Eddie Machado](http://themble.com/bones/)
