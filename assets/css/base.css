@@ -6283,7 +6283,8 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 1rem; } }
 
 body {
-  cursor: default; }
+  cursor: default;
+  font-size: inherit; }
 
 ::selection {
   background: #6c757d;
