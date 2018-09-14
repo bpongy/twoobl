@@ -35,36 +35,10 @@ add_action('after_setup_theme', 'twoobl_setup');
 
 
 
-/********************************************
- * 		Custom excerpt
- ********************************************/
-function twoobl_excerpt_length( $length ) {
-	return 80;
-}
-add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
-
-function twoobl_excerpt_more( $more ) {
-	return '...<span class="read-more"><a class="btn btn-primary btn-xs" href="'.get_permalink().'">'.__('Read more', 'twoobl').'</a></span>';
-}
-add_filter('excerpt_more', 'twoobl_excerpt_more');
-
-/* Multiple excerpt lengths : echo twoobl_excerpt(get_the_ID(), 130); */
-
-function twoobl_custom_excerpt_length() {
-	global $twoobl_excerpt_len;
-	return $twoobl_excerpt_len;
-}
-
-function twoobl_excerpt($id, $len) {
-	global $post, $twoobl_excerpt_len;
-	$twoobl_excerpt_len = $len;
-	remove_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
-	add_filter('excerpt_length', 'twoobl_custom_excerpt_length');
-	$ex = get_the_excerpt();
-	remove_filter('excerpt_length', 'twoobl_custom_excerpt_length');
-	add_filter( 'excerpt_length', 'twoobl_excerpt_length', 999 );
-	return $ex;
-}
+// Remove WP Embed
+add_action( 'wp_footer', function() {
+	wp_deregister_script( 'wp-embed' );
+} );
 
 
 
@@ -99,61 +73,6 @@ add_filter('image_size_names_choose', 'twoobl_show_image_sizes', 11, 1);
 
 
 
-/*************************************************
- * 	Function: get post featured image permalink
- *************************************************/
-/*
- * Example of use :
- * if( $thumb = get_post_thumbnail_src(get_the_ID(), 'medium') )
- * 		echo '<img src="'.$thumb.'" alt="" />';
- */
-if( !function_exists( 'get_post_thumbnail_src' ) ) {
-	function get_post_thumbnail_src( $post_id = null, $size = 'thumbnail' ) {
-		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
-		if ( '' != get_the_post_thumbnail($post_id) ) {
-			$post_thumbnail_id = get_post_thumbnail_id( $post_id );
-			$thumb_url = wp_get_attachment_image_src($post_thumbnail_id, $size, true);
-			return $thumb_url[0];
-		}
-		return false;
-	}
-}
-
-// TODO
-// DEPRECATED! utiliser wp_get_attachment_image
-if( !function_exists( 'get_img_src' ) ) {
-	function get_img_src( $img_id = null, $size = 'thumbnail' ) {
-		$img_url = wp_get_attachment_image_src($img_id, $size, true);
-		if (!isset($img_url[0]))
-			return false;
-		return $img_url[0];
-	}
-}
-
-
-
-/********************************************
- * 		Auto meta description
- ********************************************/
-if( !function_exists( 'twoobl_meta_description' ) ) {
-	function twoobl_meta_description() {
-		if ( is_home() || is_front_page() )
-			echo '<meta name="description" content="'.esc_attr(get_bloginfo('description')).'" />' . "\n";
-		elseif ( is_single() ) {
-			global $post;
-			$excerpt = $post->post_excerpt;
-			if ( $post->post_excerpt == '' )
-				$excerpt = apply_filters('the_content', $post->post_content);
-			$excerpt = str_replace(']]>', ']]&gt;', $excerpt);
-			$excerpt = wp_html_excerpt($excerpt, 200, '...');
-			echo '<meta name="description" content="'.$excerpt.'" />'. "\n";
-		}
-	}
-}
-add_action('wp_head', 'twoobl_meta_description');
-
-
-
 /********************************************
  * 		Auto non-breakable space
  ********************************************/
@@ -165,41 +84,6 @@ if( !function_exists( 'twoobl_automatic_nbsp' ) ) {
 	}
 }
 add_filter( 'the_content', 'twoobl_automatic_nbsp' );
-
-
-
-/****************************************************
- * 		Add thumbnails column in posts & pages list
- ****************************************************/
-function twoobl_postsColumns($columns) {
-	$pos = 1;
-	$columns = array_merge(array_slice($columns, 0, $pos), array('twoobl_post_thumbnail' => __('Thumb', 'twoobl')), array_slice($columns, $pos));
-	return $columns;
-}
-
-function twoobl_postsCustomColumn($column_name, $id) {
-	if ($column_name === 'twoobl_post_thumbnail')
-	{
-		$admin_thumb = get_the_post_thumbnail() ? get_post_thumbnail_src() : get_template_directory_uri() . '/assets/img/default.png';
-		echo '<a href="' . get_edit_post_link() . '">';
-		if (get_the_post_thumbnail())
-			echo '<img src="' . get_post_thumbnail_src() . '" style="width: 40px;" alt="" />';
-		else
-			echo '<img src="' . get_template_directory_uri() . '/assets/img/default.png" style="width: 40px; opacity: 0.4;" alt="" />';
-		echo '</a>';
-	}
-}
-
-function twoobl_admin_inline_css() {
-	echo '<style type="text/css">';
-	echo '.column-twoobl_post_thumbnail { width: 50px; }';
-	echo '</style>';
-}
-add_filter('manage_posts_columns', 'twoobl_postsColumns', 1);
-add_filter('manage_pages_columns', 'twoobl_postsColumns', 1);
-add_action('manage_posts_custom_column', 'twoobl_postsCustomColumn', 1, 2);
-add_action('manage_pages_custom_column', 'twoobl_postsCustomColumn', 1, 2);
-add_action('admin_head', 'twoobl_admin_inline_css');
 
 
 
@@ -238,27 +122,7 @@ if( !function_exists( 'twoobl_headcleanup' ) ) {
 }
 add_action('init', 'twoobl_headcleanup');
 
-// Remove crap in dashboard
-if( !function_exists( 'twoobl_remove_dashboard_widgets' ) ) {
-	function twoobl_remove_dashboard_widgets() {
-		global $wp_meta_boxes;
-		unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
-	}
-}
-add_action('wp_dashboard_setup', 'twoobl_remove_dashboard_widgets' );
 
-// Remove stupid self pings
-if( !function_exists( 'twoobl_remove_self_ping' ) ) {
-	function twoobl_remove_self_ping( &$links ) {
-		$home = home_url('/');
-		foreach ( $links as $l => $link )
-			if ( strpos($link, $home)===false )
-				unset($links[$l]);
-	}
-}
-add_action('pre_ping', 'twoobl_remove_self_ping');
 
 // Remove generator meta tag in RSS feed
 if( !function_exists( 'twoobl_remove_rss_generator' ) ) {
@@ -406,19 +270,6 @@ if ( !defined('DISALLOW_FILE_EDIT') )
 
 
 
-/********************************************
- * 		Favicon
- ********************************************/
-if( !function_exists( 'twoobl_favicon' ) ) {
-	function twoobl_favicon() {
-		echo '<link href="'.get_template_directory_uri().'/favicon.ico" rel="shortcut icon" type="image/x-icon" />' . "\n";
-	}
-}
-if (!has_site_icon())
-	add_action('wp_head', 'twoobl_favicon');
-
-
-
 /**********************************************************************************
  *		Facebook share image
  **********************************************************************************/
@@ -533,20 +384,3 @@ if ( !function_exists('twoobl_get_blog_url') ) {
 	}
 }
 
-
-
-/*************************************************
- * 	Disable REST API user endpoints for security
- *************************************************/
-if ( !function_exists('twoobl_json_api_filters') ) {
-	function twoobl_json_api_filters($endpoints) {
-		if ( isset( $endpoints['/wp/v2/users'] ) ) {
-			unset( $endpoints['/wp/v2/users'] );
-		}
-		if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
-			unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
-		}
-		return $endpoints;
-	}
-}
-add_filter( 'rest_endpoints', 'twoobl_json_api_filters' );

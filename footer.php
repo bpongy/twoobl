@@ -1,17 +1,7 @@
-		</div>
-	</div>
-
-	<footer id="colophon" role="contentinfo">
-		<div class="container">
-			<?php dynamic_sidebar('footer'); ?>
-		</div>
-	</footer>
 
 	<?php
-	if( defined( '_MOBILE_NAV_' ) && _MOBILE_NAV_ ) {
-		echo '<div id="navmob">';
-		dynamic_sidebar('mobile_menu');
-		echo '</div>';
+	if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+		get_template_part( 'template-parts/footer' );
 	}
 	?>
 

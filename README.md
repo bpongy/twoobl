@@ -1,13 +1,10 @@
 # Twoobl
 
-Not your favorite starter theme (but with a lot of stuffs).
+Blank theme for Elementor
 
 - [Bootstrap](https://github.com/twbs/bootstrap)
-- responsive, [mobile menu included](http://mmenu.frebsite.nl/)
-- CSS and JavaScript compressed with [Gulp](http://gulpjs.com/)
+- SCSS and JavaScript made with [Gulp](http://gulpjs.com/)
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
-- Requires [ACF](http://www.advancedcustomfields.com/)
-- multiple excerpt length with `twoobl_excerpt`
 - ...
 
 Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/) and [Axome.com](http://www.axome.com).

@@ -1,3 +1,5 @@
-<aside id="sidebar" class="<?php echo _SIDEBAR_CLASS_; ?>">
-	<?php dynamic_sidebar('primary'); ?>
-</aside>
+<?php
+/**
+ * This file is here to avoid the Deprecated Message for sidebar by wp-includes/theme-compat/sidebar.php
+ *
+ */

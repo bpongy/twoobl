@@ -31,6 +31,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 add_action('wp_enqueue_scripts', 'twoobl_scripts', 100);
 
 
+
 if( !function_exists( 'twoobl_jquery_local_fallback' ) ) {
 	function twoobl_jquery_local_fallback($src, $handle) {
 		static $add_jquery_fallback = false;
@@ -47,13 +48,3 @@ if( !function_exists( 'twoobl_jquery_local_fallback' ) ) {
 		return $src;
 	}
 }
-
-
-
-/* editor style */
-if( !function_exists( 'twoobl_add_editor_styles' ) ) {
-	function twoobl_add_editor_styles() {
-		add_editor_style('assets/css/editor-style.css');
-	}
-}
-add_action('init', 'twoobl_add_editor_styles');

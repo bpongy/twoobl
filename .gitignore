@@ -14,3 +14,9 @@
 .sass-cache
 node_modules
 *.css.map
+*.log
+
+build/
+log/
+vendor/
+composer.lock

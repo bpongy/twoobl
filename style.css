@@ -2,17 +2,10 @@
 Theme Name:		Twoobl
 Theme URI:		http://twoobl.redpik.net/
 Description:	Twoobl - not your favorite theme
-Version:		2.4
+Version:		3.0
 Author:			Benjamin PONGY
 Author URI:		http://www.redpik.net/
-Tags:			two-columns, responsive-layout, accessibility-ready, editor-style, featured-images, microformats, translation-ready
+Tags:			blank, starter, elementor
 License:		WTFPL
 License URI:	http://www.wtfpl.net/
 */
-
-/* avoid Theme-Check stupid warnings */
-.wp-caption {}
-.wp-caption-text {}
-.sticky {}
-.gallery-caption {}
-.bypostauthor {}
