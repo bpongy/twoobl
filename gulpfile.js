@@ -1,18 +1,19 @@
 
 'use strict';
 
-var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
-	concat = require('gulp-concat');
+const gulp       = require('gulp'),
+	sass         = require('gulp-sass'),
+	sourcemaps   = require('gulp-sourcemaps'),
+	concat       = require('gulp-concat'),
+	autoprefixer = require('gulp-autoprefixer');
 
-var jsFiles = [
+const jsFiles = [
 	'assets/js/plugins/*.js',
 	'assets/js/main.js'
 ];
 
-var cssDest = 'assets/css';
-var scssFiles = 'assets/scss/**/*.scss';
+const cssDest = 'assets/css';
+const scssFiles = 'assets/scss/**/*.scss';
 
 
 
@@ -21,6 +22,10 @@ gulp.task('sass', function () {
 		.src(scssFiles)
 		.pipe(sourcemaps.init())
 		.pipe(sass({style: 'expanded'}).on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
 		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(cssDest));
 });
