@@ -16,6 +16,7 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-background');
+		add_theme_support('custom-logo');
 		
 		// Add theme support for Semantic Markup
 		$HTML5markup = array(
