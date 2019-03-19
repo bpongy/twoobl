@@ -62,7 +62,7 @@ $body-color:                $gray-700;
 $link-color:                $primary;
 $link-decoration:           none;
 $link-hover-color:          darken($link-color, 15%);
-$link-hover-decoration:     underline;
+$link-hover-decoration:     none;
 
 $grid-breakpoints: (
 		xs: 0,
@@ -118,8 +118,15 @@ $headings-color:              $gray-900;
 
 
 
+// TODO : voir centre-commercial.fr
+
+
+
+
 //	social media colors
 //	http://redpik.github.io/social-media-colors/
+
+// TODO : màj (voir centre-commercial.fr
 
 $facebook-primary:   #3b5998;
 $twitter-primary:    #55acee;
@@ -129,4 +136,4 @@ $youtube-primary:    #cc181e;
 $instagram-primary:  #3f729b;
 $tumblr-primary:     #35465d;
 $vimeo-primary:      #1ab7ea;
-$vine-primary:       #00B489;
+

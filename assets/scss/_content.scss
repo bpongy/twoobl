@@ -65,6 +65,11 @@ h6,
 img,
 .wp-caption { max-width: 100%; height: auto; }
 
+.wp-block-image .aligncenter {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
 
 
 // Facebook placeholder
@@ -82,37 +87,13 @@ img,
 	cursor: pointer;
 }
 
-
-
 .thumb {
 	text-decoration: none;
 	display: block;
 	padding-bottom: .8em;
 }
 
-
-
 .post { padding-bottom: 2em; }
-
-
-
-.entry-content {
-	
-	> *:first-child {
-		margin-top: 0;
-	}
-	
-	.read-more { display: block; text-align: right; }
-	
-	table {
-		@extend .table;
-	}
-	
-	iframe { max-width: 100%!important; }
-
-}
-
-
 
 // WordPress classes
 .aligncenter {
