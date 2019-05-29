@@ -16,7 +16,6 @@ http://github.com/redpik/Twoobl
  */
 
 @import "bootstrap/functions";
-
 // Your theme things
 @import "variables";
 @import "mixins";
@@ -63,6 +62,11 @@ http://github.com/redpik/Twoobl
 
 // Content
 @import "content";
+
+
+
+// slick
+@import "components/slick";
 
 
 
