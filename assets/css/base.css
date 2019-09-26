@@ -1571,6 +1571,18 @@ mark,
   #respond textarea::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1; }
+  .form-control::-moz-placeholder, .search-form .search-field::-moz-placeholder, #respond input[type="text"]::-moz-placeholder,
+  #respond input[type="email"]::-moz-placeholder,
+  #respond input[type="url"]::-moz-placeholder,
+  #respond textarea::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1; }
+  .form-control:-ms-input-placeholder, .search-form .search-field:-ms-input-placeholder, #respond input[type="text"]:-ms-input-placeholder,
+  #respond input[type="email"]:-ms-input-placeholder,
+  #respond input[type="url"]:-ms-input-placeholder,
+  #respond textarea:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1; }
   .form-control::-ms-input-placeholder, .search-form .search-field::-ms-input-placeholder, #respond input[type="text"]::-ms-input-placeholder,
   #respond input[type="email"]::-ms-input-placeholder,
   #respond input[type="url"]::-ms-input-placeholder,
@@ -4002,8 +4014,10 @@ input[type="button"].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+    -moz-column-count: 3;
     column-count: 3;
     -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
     column-gap: 1.25rem;
     orphans: 1;
     widows: 1; }
@@ -4763,7 +4777,7 @@ button.close {
 .carousel-item-prev.carousel-item-right {
   -webkit-transform: translateX(0);
   transform: translateX(0); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-next.carousel-item-left,
     .carousel-item-prev.carousel-item-right {
       -webkit-transform: translate3d(0, 0, 0);
@@ -4773,7 +4787,7 @@ button.close {
 .active.carousel-item-right {
   -webkit-transform: translateX(100%);
   transform: translateX(100%); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-next,
     .active.carousel-item-right {
       -webkit-transform: translate3d(100%, 0, 0);
@@ -4783,7 +4797,7 @@ button.close {
 .active.carousel-item-left {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-item-prev,
     .active.carousel-item-left {
       -webkit-transform: translate3d(-100%, 0, 0);
@@ -4812,7 +4826,7 @@ button.close {
 .carousel-fade .active.carousel-item-prev {
   -webkit-transform: translateX(0);
   transform: translateX(0); }
-  @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  @supports (transform-style: preserve-3d) {
     .carousel-fade .carousel-item-next,
     .carousel-fade .carousel-item-prev,
     .carousel-fade .carousel-item.active,
@@ -7809,7 +7823,13 @@ textarea:-ms-input-placeholder {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #6c757d; }
+  color: #6c757d;
+  opacity: 1; }
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #6c757d;
+  opacity: 1; }
 
 input::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
@@ -7827,6 +7847,10 @@ textarea:focus:-ms-input-placeholder {
 
 input:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder {
+  color: rgba(108, 117, 125, 0.4); }
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
   color: rgba(108, 117, 125, 0.4); }
 
 input:focus::-ms-input-placeholder,
@@ -7889,7 +7913,11 @@ img.emoji {
   .search-form .search-field:-ms-input-placeholder {
     color: #6c757d; }
   .search-form .search-field::-webkit-input-placeholder {
-    color: #6c757d; }
+    color: #6c757d;
+    opacity: 1; }
+  .search-form .search-field::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1; }
   .search-form .search-field::-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
@@ -7899,6 +7927,8 @@ img.emoji {
   .search-form .search-field:focus:-ms-input-placeholder {
     color: rgba(108, 117, 125, 0.4); }
   .search-form .search-field:focus::-webkit-input-placeholder {
+    color: rgba(108, 117, 125, 0.4); }
+  .search-form .search-field:focus::-moz-placeholder {
     color: rgba(108, 117, 125, 0.4); }
   .search-form .search-field:focus::-ms-input-placeholder {
     color: rgba(108, 117, 125, 0.4); }

@@ -19,10 +19,8 @@
 
 @mixin tw_placeholder($color: $input-placeholder-color, $color-hover: rgba($input-placeholder-color, 0.4)) {
 	&:-ms-input-placeholder       { color: $color; }
-	&::-webkit-input-placeholder  { color: $color; }
 	&::placeholder                { color: $color; opacity: 1; }
 	&:focus:-ms-input-placeholder       { color: $color-hover; }
-	&:focus::-webkit-input-placeholder  { color: $color-hover; }
 	&:focus::placeholder                { color: $color-hover; }
 }
 
