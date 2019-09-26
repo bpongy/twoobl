@@ -1,11 +1,6 @@
+// Expose jQuery for modules
 import $ from 'jquery';
 window.$ = $;
 window.jQuery = $;
 
-import 'slick-carousel/slick/slick';
-
-;(function($){
-	$(document).ready(function(){
-
-	});
-})(window.jQuery);
+// Import your npm dependencies and js files below

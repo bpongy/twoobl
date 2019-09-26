@@ -12,7 +12,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/dist/css/theme.css', array(), $scripts_version);
 			wp_register_script('twoobl_scr', get_template_directory_uri() . '/dist/js/scripts.js', array(), '', true);
 		} else {
-			// If prod : assets from prod
+			// If prod : min assets from prod
 			wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/dist/css/theme.min.css', array(), $scripts_version);
 			wp_register_script('twoobl_scr', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), '', true);
 		}

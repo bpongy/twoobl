@@ -1,5 +1,4 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -12,7 +11,6 @@ module.exports = {
 			'./assets/js/dev.js',
 			'./assets/js/theme.js',
 			'./assets/scss/theme.scss',
-			'./assets/scss/debug.scss'
 		]
 	},
 
@@ -28,7 +26,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: ['babel-loader'],
