@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const watch = process.env.NODE_ENV;
 
 module.exports = {
 
@@ -15,8 +16,6 @@ module.exports = {
 	},
 
 	devtool: 'source-map',
-
-	watch: true,
 
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -37,9 +36,11 @@ module.exports = {
 					{loader: MiniCssExtractPlugin.loader},
 					{loader: 'css-loader', options: {url: false, sourceMap: true}},
 					{loader: 'postcss-loader'},
+					{loader: "group-css-media-queries-loader", options: { sourceMap: true }},
 					{loader: 'sass-loader'}
 				],
 			},
+
 
 		]
 	},

@@ -16,8 +16,6 @@ module.exports = {
 		]
 	},
 
-	watch: true,
-
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/scripts.min.js'
@@ -38,6 +36,7 @@ module.exports = {
 					{loader: MiniCssExtractPlugin.loader},
 					{loader: 'css-loader', options: {url: false, sourceMap: false}},
 					{loader: 'postcss-loader'},
+					{loader: "group-css-media-queries-loader", options: { sourceMap: true }},
 					{loader: 'sass-loader'}
 				],
 			},
