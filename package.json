@@ -32,7 +32,7 @@
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "prod": "webpack -w --env prod --colors --progress",
+    "prod": "webpack -w --env prod --colors --progress & npm run dev",
     "dev": "webpack -w --env dev --mode development --colors --progress --config webpack.dev.js",
     "build": "webpack --env prod --colors --progress && webpack --env dev --mode development --colors --progress --config webpack.dev.js"
   }
