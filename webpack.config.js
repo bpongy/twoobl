@@ -1,5 +1,4 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -8,6 +7,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 
 	mode: 'production',
+
+	performance: {
+		maxAssetSize: 1000000,
+		maxEntrypointSize: 1000000,
+		hints: "warning"
+	},
 
 	entry: {
 		main: [
@@ -26,7 +31,6 @@ module.exports = {
 			{
 
 				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
 				use: ['babel-loader'],
 			},
 
@@ -34,23 +38,25 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					{loader: MiniCssExtractPlugin.loader},
-					{loader: 'css-loader', options: {url: false, sourceMap: false}},
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+							sourceMap: false
+						}
+					},
 					{loader: 'postcss-loader'},
-					{loader: "group-css-media-queries-loader", options: { sourceMap: true }},
+					{
+						loader: "group-css-media-queries-loader",
+						options: {sourceMap: true}
+					},
 					{loader: 'sass-loader'}
 				],
 			},
 		]
 	},
 
-	externals: {
-		$: '$',
-		jquery: 'jQuery'
-	},
-
-
 	plugins: [
-		new UglifyJsPlugin(),
 		new MiniCssExtractPlugin({
 			filename: 'css/theme.min.css',
 			chunkFilename: '[id].css',
@@ -59,12 +65,15 @@ module.exports = {
 			assetNameRegExp: /\.css$/,
 			cssProcessor: require('cssnano'),
 			cssProcessorPluginOptions: {
-				preset: ['default', { discardComments: { removeAll: true } }],
+				preset: ['default', {discardComments: {removeAll: true}}],
 			},
 			canPrint: true
 		}),
 		new CopyWebpackPlugin([
-			{from:'assets/img',to:'img/[path]/[name].[ext]'}
+			{
+				from: 'assets/img',
+				to: 'img/[path]/[name].[ext]'
+			}
 		]),
 	]
 
