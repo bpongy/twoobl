@@ -1,18 +1,39 @@
 {
-  "name": "twoobl",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^3.2.1",
-    "gulp-sourcemaps": "^2.6.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/redpik/Twoobl"
-  },
-  "license": "WTFPL",
-  "dependencies": {
-    "gulp-install": "^1.1.0"
-  }
+		"name": "twoobl",
+		"repository": {
+				"type": "git",
+				"url": "git://github.com/redpik/Twoobl"
+		},
+		"license": "WTFPL",
+		"dependencies": {
+				"jquery": "^3.4.1"
+		},
+		"devDependencies": {
+				"@babel/core": "^7.7.2",
+				"@babel/preset-env": "^7.7.1",
+				"autoprefixer": "^9.7.2",
+				"babel-core": "^6.26.3",
+				"babel-loader": "^8.0.6",
+				"babel-preset-env": "^1.7.0",
+				"copy-webpack-plugin": "^5.0.5",
+				"css-loader": "^3.2.0",
+				"extract-text-webpack-plugin": "^3.0.2",
+				"file-loader": "^4.3.0",
+				"group-css-media-queries-loader": "^3.0.2",
+				"image-webpack-loader": "^6.0.0",
+				"mini-css-extract-plugin": "^0.8.0",
+				"node-sass": "^4.13.0",
+				"npm-check-updates": "^3.2.1",
+				"optimize-css-assets-webpack-plugin": "^5.0.3",
+				"postcss-loader": "^3.0.0",
+				"sass-loader": "^8.0.0",
+				"style-loader": "^1.0.0",
+				"webpack": "^4.41.2",
+				"webpack-cli": "^3.3.10"
+		},
+		"scripts": {
+				"prod": "webpack -w --env prod --colors --progress & npm run dev",
+				"dev": "webpack -w --env dev --mode development --colors --progress --config webpack.dev.js",
+				"build": "webpack --env prod --colors --progress && webpack --env dev --mode development --colors --progress --config webpack.dev.js"
+		}
 }
