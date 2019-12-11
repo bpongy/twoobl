@@ -2,7 +2,6 @@
 
 Blank theme for Elementor
 
-- [Bootstrap](https://github.com/twbs/bootstrap)
 - SCSS and JavaScript made with [Webpack](https://webpack.js.org/)
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
 - ...

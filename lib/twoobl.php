@@ -17,7 +17,11 @@ if( !function_exists( 'twoobl_setup' ) ) {
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-background');
 		add_theme_support('custom-logo');
-		
+		add_theme_support('wp-block-styles');
+
+		// Editor style
+        add_editor_style( 'dist/css/editor-style.css' );
+
 		// Add theme support for Semantic Markup
 		$HTML5markup = array(
 			'comment-list',

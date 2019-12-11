@@ -17,7 +17,7 @@
 //  	@include tw_placeholder();
 //  }
 
-@mixin tw_placeholder($color: $input-placeholder-color, $color-hover: rgba($input-placeholder-color, 0.4)) {
+@mixin tw_placeholder($color: $gray-light, $color-hover: rgba($gray-light, 0.4)) {
 	&:-ms-input-placeholder       { color: $color; }
 	&::placeholder                { color: $color; opacity: 1; }
 	&:focus:-ms-input-placeholder       { color: $color-hover; }
@@ -39,8 +39,6 @@
 		position: relative;
 		display: block;
 		top: $pos;
-		-webkit-transform: translateY(-$pos);
-		-ms-transform: translateY(-$pos);
 		transform: translateY(-$pos);
 	}
 }
@@ -55,7 +53,7 @@
 //  xs, lg and xl are optional.
 
 @mixin tw_responsive($prop, $xs, $sm, $md, $lg: false, $xl: false) {
-
+/*
 	@if $xs {
 		@include media-breakpoint-only(xs) {
 			#{$prop}: $xs;
@@ -100,5 +98,5 @@
 		@include media-breakpoint-up(md) {
 			#{$prop}: $md;
 		}
-	}
+	}*/
 }

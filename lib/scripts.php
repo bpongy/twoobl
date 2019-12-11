@@ -16,12 +16,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 			wp_register_script('twoobl_scr', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), '', true);
 		}
 
-		if (is_single() && comments_open() && get_option('thread_comments')) {
-			wp_enqueue_script('comment-reply');
-		}
-
 		wp_enqueue_script('twoobl_scr');
 	}
 }
 add_action('wp_enqueue_scripts', 'twoobl_scripts', 100);
-

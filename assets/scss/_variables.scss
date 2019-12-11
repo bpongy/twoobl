@@ -1,129 +1,79 @@
-@import "bootstrap/functions";
+/**
+ * DO NOT CHANGE THIS FILE!
+ * To override any of the settings in this section, add your styling code in the custom directory.
+ * Loading first in the style.scss & editor-style.scss
+ */
 
-// Variables
-//
-// Variables should follow the `$component-state-property-size` formula for
-// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+//Media Break-points
+$screen-xs: 576px !default;
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-xl: 1200px !default;
+$screen-diff: 1px !default;
 
+//Default Color
+$gray-base: #000 !default;
+$gray-darker: lighten($gray-base, 13.5%) !default; // #222
+$gray-dark: lighten($gray-base, 20%) !default; // #333
+$gray: lighten($gray-base, 40%) !default; // #666
+$gray-light: lighten($gray-base, 80%) !default; // #ccc
+$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
-//
-// Color system
-//
+//Text & Paragraph
+$text-color: $gray-dark;
 
-// stylelint-disable
-$white:    #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black:    #000;
+//Web-Safe Brand Colors
+$blue: #3366FF !default; //blue
+$purple: #333366 !default; //purple
+$pink: #CC3366 !default; //pink
+$green: #66CC99 !default; //medium-light green-cyan
+$yellow: #FFCC33 !default; //medium-light yellow
+$red: #CC0033 !default; //vivid crimson
 
-$grays: ();
-$grays: map-merge((
-		"100": $gray-100,
-		"200": $gray-200,
-		"300": $gray-300,
-		"400": $gray-400,
-		"500": $gray-500,
-		"600": $gray-600,
-		"700": $gray-700,
-		"800": $gray-800,
-		"900": $gray-900
-), $grays);
+//Border Radius
+$border-radius: 3px !default;
 
-$blue:    #007bff;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #e83e8c;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #28a745;
-$teal:    #20c997;
-$cyan:    #17a2b8;
+//Accent color for buttons, links etc...
+$primary-color: $pink !default;
+$success-color: $green !default;
 
-$primary:       #4873ff;
-$secondary:     $gray-600;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-800;
+//Fonts
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-size-base: 1rem !default;
+$body-color: $text-color !default;
+$line-height-base: 1.5 !default;
+$font-weight-base: 400 !default;
 
-$body-bg:                   $white;
-$body-color:                $gray-700;
+//Links
+$link-color-base: $pink !default;
+$link-hover-color-base: $purple !default;
 
-$link-color:                $primary;
-$link-decoration:           none;
-$link-hover-color:          darken($link-color, 15%);
-$link-hover-decoration:     none;
+//Headings
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base;
 
-$grid-breakpoints: (
-		xs: 0,
-		sm: 576px,
-		md: 768px,
-		lg: 992px,
-		xl: 1200px
-);
+//Captions
+$xs-font-size: $font-size-base * 0.75 !default;
+$sm-font-size: $font-size-base * 0.8125 !default;
 
-$container-max-widths: (
-		sm: 540px,
-		md: 720px,
-		lg: 960px,
-		xl: 1140px
-);
+//Margin
+$margin-base: 1rem !default;
+$xs-margin: $margin-base * 0.5 !default;
+$sm-margin: $margin-base * 0.75 !default;
+$lg-margin: $margin-base * 1.5 !default;
+$xl-margin: $margin-base * 2 !default;
 
-$grid-columns:                12;
-$grid-gutter-width:           30px;
+//Padding
+$padding-base: 1rem !default;
+$xs-padding: $padding-base * 0.75 !default;
+$sm-padding: $padding-base * 0.8125 !default;
+$lg-padding: $padding-base * 1.5 !default;
 
-$line-height-lg:              1.5;
-$line-height-sm:              1.5;
-
-$border-width:                1px;
-$border-color:                $gray-300;
-
-$border-radius:               0;
-$border-radius-lg:            0;
-$border-radius-sm:            0;
-
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$font-family-base:            $font-family-sans-serif;
-
-$font-size-base:              1rem; // Assumes the browser default, typically `16px`
-$font-size-lg:                ($font-size-base * 1.25);
-$font-size-sm:                ($font-size-base * .875);
-
-$font-weight-light:           300;
-$font-weight-normal:          400;
-$font-weight-bold:            700;
-
-$h1-font-size:                $font-size-base * 2.5;
-$h2-font-size:                $font-size-base * 2;
-$h3-font-size:                $font-size-base * 1.75;
-$h4-font-size:                $font-size-base * 1.5;
-$h5-font-size:                $font-size-base * 1.25;
-$h6-font-size:                $font-size-base;
-
-$headings-font-family:        inherit;
-$headings-font-weight:        500;
-$headings-line-height:        1.2;
-$headings-color:              $gray-900;
-
-
-
-// social media colors
-$facebook-primary:   #4267b2;
-$twitter-primary:    #1da1f3;
-$googleplus-primary: #db4437;
-$pinterest-primary:  #e60023;
-$youtube-primary:    #FF0000;
-$instagram-primary:  #d93175;
-$tumblr-primary:     #001935;
-$vimeo-primary:      #1ab7ea;
+//Responsive
+@media (max-width: $screen-md) {
+	$font-size-base: .9rem !default;
+}
