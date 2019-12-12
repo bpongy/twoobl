@@ -6,7 +6,7 @@ Blank theme for Elementor
 - Parent theme, with a lot of `if( !function_exists('...') )` inside.
 - ...
 
-Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/) and [Axome.com](http://www.axome.com).
+Maintained with love in France by [Benjamin Pongy](https://twitter.com/redpik/), [Maxime Pascal](https://twitter.com/SlowAzeb) and [Axome.com](http://www.axome.com).
 
 ## DO WHAT YOU WANT.
 http://www.wtfpl.net/
