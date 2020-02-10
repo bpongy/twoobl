@@ -8,8 +8,10 @@ body {
 }
 
 // text selection
-::selection { background: $gray; color: #fff; }
-::-moz-selection { background: $gray; color: #FFF; }
+::selection {
+	background: $primary-color;
+	color: #fff;
+}
 
 // sr-only
 // https://a11yproject.com/posts/how-to-hide-content/

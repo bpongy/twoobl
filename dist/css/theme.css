@@ -5,11 +5,6 @@
     |_|\_/\_/\__/__/__)|_|
 http://github.com/redpik/Twoobl
 */
-/**
- * DO NOT CHANGE THIS FILE!
- * To override any of the settings in this section, add your styling code in the custom directory.
- * Loading first in the style.scss & editor-style.scss
- */
 /*!
  * Based on Normalize.css v8.0.0, HTML5 Boilerplate v6.1.0, & Bootstrap Reboot v4.1.0 | Under MIT License
 */
@@ -39,7 +34,7 @@ html {
    ========================================================================== */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -110,9 +105,9 @@ pre {
 a {
   background-color: transparent;
   text-decoration: none;
-  color: #CC3366; }
+  color: #0034e0; }
   a:hover, a:active {
-    color: #333366; }
+    color: #002cbc; }
   a:not([href]):not([tabindex]) {
     color: inherit;
     text-decoration: none; }
@@ -234,18 +229,52 @@ template {
 
 /* Print
    ========================================================================== */
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a,
+  a:visited {
+    text-decoration: underline; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: ""; }
+  pre {
+    white-space: pre-wrap !important; }
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+    border: 1px solid #cccccc; }
+  thead {
+    display: table-header-group; }
+  tr,
+  img {
+    page-break-inside: avoid; }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+  h2,
+  h3 {
+    page-break-after: avoid; } }
 
 ::-moz-selection {
-  background: #666666;
+  background: #0034e0;
   color: #fff; }
 
 ::selection {
-  background: #666666;
+  background: #0034e0;
   color: #fff; }
-
-::-moz-selection {
-  background: #666666;
-  color: #FFF; }
 
 .screen-reader-text {
   position: absolute !important;
@@ -316,45 +345,7 @@ textarea:focus::placeholder {
 		}
 	}
 }*/
-
 @media print {
-  *,
-  *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important; }
-  a,
-  a:visited {
-    text-decoration: underline; }
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: ""; }
-  pre {
-    white-space: pre-wrap !important; }
-  pre,
-  blockquote {
-    page-break-inside: avoid;
-    border: 1px solid #cccccc; }
-  thead {
-    display: table-header-group; }
-  tr,
-  img {
-    page-break-inside: avoid; }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3; }
-  h2,
-  h3 {
-    page-break-after: avoid; }
   .d-print-none {
     display: none !important; }
   .elementor-section-stretched {
