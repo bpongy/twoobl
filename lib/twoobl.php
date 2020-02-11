@@ -79,20 +79,6 @@ add_filter('image_size_names_choose', 'twoobl_show_image_sizes', 11, 1);
 
 
 /********************************************
- * 		Auto non-breakable space
- ********************************************/
-if( !function_exists( 'twoobl_automatic_nbsp' ) ) {
-	function twoobl_automatic_nbsp($content) {
-		$chars = '?!:;';
-		$content = preg_replace('/ (['.$chars.'])/is', '&nbsp;${1}', $content);
-		return $content;
-	}
-}
-add_filter( 'the_content', 'twoobl_automatic_nbsp' );
-
-
-
-/********************************************
  * 		Remove default image links
  ********************************************/
 if( !function_exists( 'twoobl_remove_imagelink' ) ) {
@@ -301,45 +287,12 @@ add_action('wp_head', 'twoobl_fb_like_thumbnails');
  **********************************************************************************/
 if( !function_exists( 'twoobl_contact_info' ) ) {
 	function twoobl_contact_info($contacts) {
-		unset($contacts['aim']);  
-		unset($contacts['yim']);
-		unset($contacts['jabber']);  
-		$contacts['contact_google'] = __('Google+ URL', 'twoobl');
-		$contacts['contact_facebook'] = __('Facebook URL', 'twoobl');
-		$contacts['contact_twitter'] = __('Twitter profile', 'twoobl');
+        $contacts['facebook'] = __('Facebook URL', 'twoobl');
+        $contacts['twitter'] = __('Twitter profile', 'twoobl');
 		return $contacts;
 	}
 }
 add_filter('user_contactmethods', 'twoobl_contact_info');
-
-
-
-/*************************************************
- * 	Function: get adjacent post links
- *************************************************/
-/*
- * Example of use :
- * echo get_twoobl_prevnext();
- */
-if( !function_exists( 'get_twoobl_prevnext' ) ) {
-	function get_twoobl_prevnext() {
-		global $post;
-		$prev_post = get_adjacent_post();
-		$next_post = get_adjacent_post(false, '', false);
-		
-		if( !$prev_post && !$next_post )
-			return;
-
-		$prevnext = '<nav class="post-nav row">';
-			if( $prev_post )
-				$prevnext .= '<div class="col-xs-6"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($prev_post).'" title="'.esc_attr($prev_post->post_title).'">'.__('&larr; Older posts', 'twoobl').'</a></div>';
-			if( $next_post )
-				$prevnext .= '<div class="col-xs-6 text-right"><a data-toggle="tooltip" class="btn btn-default btn-sm" href="'.get_permalink($next_post).'" title="'.esc_attr($next_post->post_title).'">'.__('Newer posts &rarr;', 'twoobl').'</a></div>';
-		$prevnext .= '</nav>';
-		
-		return $prevnext;
-	}
-}
 
 
 
@@ -372,20 +325,3 @@ if ( !function_exists('twoobl_default_avatar') ) {
 	}
 }
 add_filter( 'avatar_defaults', 'twoobl_default_avatar' );
-
-
-
-/*************************************************
- * 	Get the blog posts page URL
- *************************************************/
-if ( !function_exists('twoobl_get_blog_url') ) {
-	function twoobl_get_blog_url() {
-		// If "page for posts" is set to display a static page, get the URL of this page.
-		if ( $blog_page = get_option('page_for_posts') ) {
-			return esc_url(get_permalink($blog_page));
-		}
-		// else return the front page URL
-		return esc_url(home_url('/'));
-	}
-}
-
