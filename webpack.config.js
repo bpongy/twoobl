@@ -1,7 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -65,12 +64,6 @@ module.exports = {
 			},
 			canPrint: true
 		}),
-		new CopyWebpackPlugin([
-			{
-				from: 'assets/img',
-				to: 'img/[path]/[name].[ext]'
-			}
-		]),
 	]
 
 }

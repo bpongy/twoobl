@@ -13,7 +13,6 @@ http://www.wtfpl.net/
 
 ## Compiling CSS and JavaScript
 - Please use [SASS](http://sass-lang.com/) and [Webpack](https://webpack.js.org/).
-     - npm run dev : compile assets from /assets/ to /dist/
      - npm run prod : compile & optimize & minify assets from /assets/ to /dist/    
 
 ## In trouble with Twoobl?
