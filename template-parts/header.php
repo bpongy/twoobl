@@ -36,11 +36,4 @@
 
 	<div id="wrap">
 
-		<?php
-		if( function_exists('yoast_breadcrumb') && !is_front_page() )
-		{
-			yoast_breadcrumb('<div id="breadcrumb-wrap" class="container hidden-xs">', '</div>');
-		}
-		?>
-
 		<div class="container" role="document">
