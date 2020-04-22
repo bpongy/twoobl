@@ -7,7 +7,7 @@ if( !function_exists( 'twoobl_scripts' ) ) {
 		$scripts_version = $theme->get('Version');
 
 		wp_enqueue_style('twoobl_main_style', get_template_directory_uri() . '/dist/css/theme.min.css', array(), $scripts_version);
-		wp_enqueue_script('twoobl_scr', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), '', true);
+		wp_enqueue_script('twoobl_scr', get_template_directory_uri() . '/dist/js/theme.min.js', array(), '', true);
 
 	}
 }

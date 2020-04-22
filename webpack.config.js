@@ -14,15 +14,19 @@ module.exports = {
 	},
 
 	entry: {
-		main: [
+		theme: [
 			'./assets/js/theme.js',
 			'./assets/scss/theme.scss'
+		],
+		custom: [
+			'./assets/js/custom.js',
+			'./assets/scss/custom.scss'
 		]
 	},
 
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/scripts.min.js'
+		filename: 'js/[name].min.js'
 	},
 
 	module: {
@@ -53,7 +57,7 @@ module.exports = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/theme.min.css',
+			filename: 'css/[name].min.css',
 			chunkFilename: '[id].css',
 		}),
 		new OptimizeCssAssetsPlugin({
