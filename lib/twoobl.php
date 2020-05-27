@@ -59,23 +59,6 @@ if( !function_exists( 'twoobl_image_sizes' ) ) {
 add_action('after_setup_theme', 'twoobl_image_sizes');
 */
 
-/* Show Custom Image Sizes in Admin Media Uploader */
-/* http://wp-snippets.com/show-custom-image-sizes-in-admin-media-uploader/ */
-if( !function_exists( 'twoobl_show_image_sizes' ) ) {
-	function twoobl_show_image_sizes( $sizes ) {
-		$new_sizes = array();
-		$added_sizes = get_intermediate_image_sizes();
-		
-		foreach( $added_sizes as $key => $value) {
-			$new_sizes[$value] = $value;
-		}
-	
-		$new_sizes = array_merge($new_sizes, $sizes);
-		return $new_sizes;
-	}
-}
-add_filter('image_size_names_choose', 'twoobl_show_image_sizes', 11, 1);
-
 
 
 /********************************************
