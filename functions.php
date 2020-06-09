@@ -1,5 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( !defined( 'ABSPATH' ) ) { exit; }
 
 /* constants */
 define('_THEME_COLOR_', '#444');
