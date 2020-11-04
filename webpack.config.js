@@ -17,10 +17,6 @@ module.exports = {
 		theme: [
 			'./assets/js/theme.js',
 			'./assets/scss/theme.scss'
-		],
-		custom: [
-			'./assets/js/custom.js',
-			'./assets/scss/custom.scss'
 		]
 	},
 
